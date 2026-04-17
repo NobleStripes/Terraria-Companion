@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Search, Shield, Sword, Users } from 'lucide-react'
+import { DATA_VERSION } from '@/data/index'
 
 const features = [
   {
@@ -40,7 +41,7 @@ export default function Home() {
           Terraria Companion
         </h1>
         <p className="text-gray-400 text-base max-w-xl mx-auto">
-          Your all-in-one reference for Terraria 1.4.4.9 — items, bosses, builds, and NPCs.
+          Your all-in-one reference for Terraria {DATA_VERSION} — items, bosses, builds, and NPCs.
         </p>
       </div>
 
@@ -64,7 +65,7 @@ export default function Home() {
         ))}
       </div>
 
-      <p className="text-center text-gray-600 text-xs mt-10">Data version: 1.4.4.9</p>
+      <p className="text-center text-gray-600 text-xs mt-10">Data version: {DATA_VERSION}</p>
     </div>
   )
 }
