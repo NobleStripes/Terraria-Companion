@@ -8,7 +8,7 @@ import { bosses } from '@/data/index'
 const navItems = [
   { to: '/items', label: 'Items' },
   { to: '/bosses', label: 'Bosses' },
-  { to: '/build', label: 'Build' },
+  { to: '/build', label: 'Builds' },
   { to: '/npcs', label: 'NPCs' },
 ]
 

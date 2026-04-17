@@ -20,7 +20,7 @@ const features = [
   {
     to: '/build',
     icon: Shield,
-    title: 'Build Planner',
+    title: 'Recommended Builds',
     description: 'View recommended builds by progression stage and class.',
     color: 'text-terra-green',
   },
