@@ -1,0 +1,51 @@
+{
+  "name": "terraria-companion-data",
+  "version": "0.1.0",
+  "description": "Terraria game data library - items, bosses, NPCs, biomes, and recipes for use in other applications",
+  "type": "module",
+  "main": "./dist/lib-index.js",
+  "types": "./dist/lib-index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/lib-index.js",
+      "types": "./dist/lib-index.d.ts"
+    },
+    "./data": {
+      "import": "./dist/data/index.js",
+      "types": "./dist/data/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build:lib": "tsc -b --declaration --declarationMap --emitDeclarationOnly",
+    "lib:prepublishonly": "npm run build:lib"
+  },
+  "keywords": [
+    "terraria",
+    "game-data",
+    "items",
+    "bosses",
+    "npcs",
+    "biomes",
+    "recipes",
+    "reference"
+  ],
+  "author": "NobleStripes",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NobleStripes/Terraria-Companion.git",
+    "directory": "."
+  },
+  "bugs": {
+    "url": "https://github.com/NobleStripes/Terraria-Companion/issues"
+  },
+  "homepage": "https://github.com/NobleStripes/Terraria-Companion#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

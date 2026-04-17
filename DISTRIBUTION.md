@@ -1,8 +1,9 @@
 # Distribution Guide - Terraria Companion
 
-This guide explains how to package and distribute Terraria Companion in two ways:
+This guide explains three ways to distribute Terraria Companion:
 1. **Standalone Server** - No installation needed, just run a simple server
 2. **Electron Desktop App** - Distributable `.exe` (Windows) or `.dmg` (macOS) installers
+3. **NPM Library** - Reusable package for other developers
 
 ---
 
@@ -113,19 +114,69 @@ The Electron setup uses:
 
 ---
 
-## Comparison Table
+## Option 3: NPM Library
 
-| Feature | Server | Electron |
-|---------|--------|----------|
-| Installation | No | Yes (`.exe`/`.dmg`) |
-| Setup Difficulty | Easy | Medium |
-| File Size | ~5-10 MB | ~150-200 MB |
-| Startup Time | Fast | Slower |
-| Native OS Integration | No | Yes (menus, taskbar, etc.) |
-| Offline Mode | Yes | Yes |
-| Auto Updates | No | Can add |
-| Professional Feel | No | Yes |
-| Distribution | Share `dist/` folder | Share installer |
+For developers who want to use Terraria game data in their own projects.
+
+### Features:
+
+- **Full TypeScript support** — Complete type definitions for all data
+- **Lightweight** — Just the data, no UI dependencies
+- **Easy integration** — Install as npm package, import what you need
+- **Reusable** — Use in any Node.js or browser project
+
+### Example Usage:
+
+```typescript
+import { items, bosses, recipes } from 'terraria-companion-data';
+import type { Item, Boss } from 'terraria-companion-data';
+
+// Access data
+const sword = items.find(i => i.name === 'Copper Shortsword');
+
+// Type-safe queries
+const bosses: Boss[] = bosses.filter(b => b.difficulty === 'easy');
+
+// Use utility functions
+import { searchItems } from 'terraria-companion-data';
+const results = searchItems('copper');
+```
+
+### Publishing:
+
+**Build the library:**
+```bash
+npm run lib:build
+```
+
+**Publish to npm:**
+```bash
+npm publish
+```
+
+Users can then:
+```bash
+npm install terraria-companion-data
+```
+
+**Full guide:** See [NPM_PUBLISHING.md](./NPM_PUBLISHING.md)
+
+---
+
+| Feature | Server | Electron | NPM Library |
+|---------|--------|----------|------------|
+| Installation | No | Yes (`.exe`/`.dmg`) | `npm install` |
+| Setup Difficulty | Easy | Medium | Easy |
+| File Size | ~5-10 MB | ~150-200 MB | ~50-100 KB |
+| Startup Time | Fast | Slower | N/A (code library) |
+| Target Users | End users | End users | Developers |
+| Native OS Integration | No | Yes (menus, taskbar) | N/A |
+| Offline Mode | Yes | Yes | Yes |
+| Auto Updates | No | Can add | Semver + npm |
+| Professional Feel | No | Yes | N/A |
+| TypeScript Support | No | Yes | Yes |
+| Reusable in Other Apps | No | No | Yes |
+| Distribution | Share `dist/` folder | Share installer | Publish to npm |
 
 ---
 
@@ -161,7 +212,26 @@ The Electron setup uses:
    - itch.io
    - Your website
 
----
+### For NPM Library:
+1. **Build types:**
+   ```bash
+   npm run lib:build
+   ```
+
+2. **Publish:**
+   ```bash
+   npm publish
+   ```
+
+3. **Users install:**
+   ```bash
+   npm install terraria-companion-data
+   ```
+
+4. **Or publish privately:**
+   - GitHub Packages
+   - npm private packages
+   - Private registries (Verdaccio, Artifactory)
 
 ## Troubleshooting
 
