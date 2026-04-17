@@ -15,8 +15,7 @@
     "target": [
       "nsis",
       "portable"
-    ],
-    "sign": null
+    ]
   },
   "nsis": {
     "oneClick": false,
