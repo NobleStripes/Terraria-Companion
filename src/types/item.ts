@@ -39,4 +39,7 @@ export interface Item {
   critChance?: number
   useTime?: number
   manaCost?: number
+  pickaxePower?: number
+  axePower?: number
+  hammerPower?: number
 }

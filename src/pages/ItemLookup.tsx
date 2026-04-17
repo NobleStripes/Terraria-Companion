@@ -41,6 +41,9 @@ function ItemDetailPanel({
       critChance: item.critChance,
       useTime: item.useTime,
       manaCost: item.manaCost,
+      pickaxePower: item.pickaxePower,
+      axePower: item.axePower,
+      hammerPower: item.hammerPower,
     }
 
     const prefixed = selectedPrefix ? applyPrefixToItemStats(item, selectedPrefix) : base
@@ -52,6 +55,9 @@ function ItemDetailPanel({
       { key: 'critChance', label: 'Crit Chance', base: base.critChance, next: prefixed.critChance, suffix: '%' },
       { key: 'useTime', label: 'Use Time', base: base.useTime, next: prefixed.useTime },
       { key: 'manaCost', label: 'Mana Cost', base: base.manaCost, next: prefixed.manaCost },
+      { key: 'pickaxePower', label: 'Pickaxe Power', base: base.pickaxePower, next: base.pickaxePower, suffix: '%' },
+      { key: 'axePower', label: 'Axe Power', base: base.axePower, next: base.axePower, suffix: '%' },
+      { key: 'hammerPower', label: 'Hammer Power', base: base.hammerPower, next: base.hammerPower, suffix: '%' },
     ].filter((entry) => entry.base !== undefined)
   }, [item, selectedPrefix])
 
