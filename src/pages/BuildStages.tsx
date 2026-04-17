@@ -1,7 +1,14 @@
 import { useState } from 'react'
 import { Sword, Shield, Zap, Star } from 'lucide-react'
 import type { BuildClass } from '@/types/boss'
+import type { Difficulty, StageName, WorldEvil } from '@/types/build'
 import { cn } from '@/lib/cn'
+import {
+  difficultyOptions,
+  getFilteredStageBuilds,
+  progressionCaps,
+  worldEvilOptions,
+} from '@/data/builds'
 
 const classes: BuildClass[] = ['melee', 'ranged', 'magic', 'summoner']
 
@@ -32,139 +39,17 @@ const classConfig: Record<BuildClass, { label: string; icon: React.ElementType; 
   },
 }
 
-interface StageRecommendation {
-  stage: string
-  armor: string
-  weapon: string
-  accessories: string[]
-  note: string
-}
-
-const stagedBuilds: Record<BuildClass, StageRecommendation[]> = {
-  melee: [
-    {
-      stage: 'Early Game',
-      armor: 'Platinum Armor',
-      weapon: 'Platinum Broadsword',
-      accessories: ['Hermes Boots', 'Cloud in a Bottle', 'Band of Regeneration'],
-      note: 'Prioritize movement and survivability while clearing pre-boss progression.',
-    },
-    {
-      stage: 'Pre-Hardmode',
-      armor: 'Molten Armor',
-      weapon: "Night's Edge",
-      accessories: ['Obsidian Shield', 'Spectre Boots', 'Worm Scarf'],
-      note: 'A reliable setup for Wall of Flesh and pre-Hardmode events.',
-    },
-    {
-      stage: 'Early Hardmode',
-      armor: 'Titanium Armor',
-      weapon: 'Excalibur',
-      accessories: ['Warrior Emblem', 'Lightning Boots', 'Worm Scarf'],
-      note: 'Stabilize against mech bosses before chasing late Hardmode upgrades.',
-    },
-    {
-      stage: 'Endgame',
-      armor: 'Solar Flare Armor',
-      weapon: 'Zenith',
-      accessories: ['Celestial Shell', 'Ankh Shield', 'Fishron Wings'],
-      note: 'Final progression build tuned for Moon Lord farming and endgame content.',
-    },
-  ],
-  ranged: [
-    {
-      stage: 'Early Game',
-      armor: 'Gold Armor',
-      weapon: 'Platinum Bow',
-      accessories: ['Hermes Boots', 'Lucky Horseshoe', 'Cloud in a Bottle'],
-      note: 'Strong early kiting setup while building ammo economy.',
-    },
-    {
-      stage: 'Pre-Hardmode',
-      armor: 'Necro Armor',
-      weapon: 'Minishark',
-      accessories: ['Shark Tooth Necklace', 'Spectre Boots', 'Obsidian Shield'],
-      note: 'Great pre-Hardmode ranged baseline for bosses and invasions.',
-    },
-    {
-      stage: 'Early Hardmode',
-      armor: 'Hallowed Armor',
-      weapon: 'Daedalus Stormbow',
-      accessories: ['Ranger Emblem', 'Lightning Boots', 'Wings'],
-      note: 'A classic mech-boss focused ranged power spike.',
-    },
-    {
-      stage: 'Endgame',
-      armor: 'Vortex Armor',
-      weapon: 'Phantasm',
-      accessories: ['Celestial Shell', 'Ankh Shield', 'Fishron Wings'],
-      note: 'High DPS endgame setup with excellent mobility and survivability.',
-    },
-  ],
-  magic: [
-    {
-      stage: 'Early Game',
-      armor: 'Jungle Armor',
-      weapon: 'Space Gun',
-      accessories: ['Band of Regeneration', 'Cloud in a Bottle', 'Hermes Boots'],
-      note: 'Early mana-efficient setup to unlock smooth magic progression.',
-    },
-    {
-      stage: 'Pre-Hardmode',
-      armor: 'Jungle Armor',
-      weapon: 'Water Bolt',
-      accessories: ['Mana Flower', 'Spectre Boots', 'Obsidian Shield'],
-      note: 'Reliable pre-Hardmode control and boss pressure with low risk.',
-    },
-    {
-      stage: 'Early Hardmode',
-      armor: 'Titanium Armor',
-      weapon: 'Golden Shower',
-      accessories: ['Sorcerer Emblem', 'Lightning Boots', 'Wings'],
-      note: 'Excellent support and burst profile for mech boss progression.',
-    },
-    {
-      stage: 'Endgame',
-      armor: 'Nebula Armor',
-      weapon: 'Last Prism',
-      accessories: ['Celestial Shell', 'Ankh Shield', 'Fishron Wings'],
-      note: 'Top-tier magic burst for pillar and Moon Lord cycles.',
-    },
-  ],
-  summoner: [
-    {
-      stage: 'Early Game',
-      armor: 'Bee Armor',
-      weapon: 'Imp Staff',
-      accessories: ['Hermes Boots', 'Cloud in a Bottle', 'Band of Regeneration'],
-      note: 'Starter summon route focused on minion uptime and mobility.',
-    },
-    {
-      stage: 'Pre-Hardmode',
-      armor: 'Bee Armor',
-      weapon: 'Imp Staff',
-      accessories: ['Feral Claws', 'Spectre Boots', 'Obsidian Shield'],
-      note: 'Comfortable pre-Hardmode summon progression before spider gear.',
-    },
-    {
-      stage: 'Early Hardmode',
-      armor: 'Spider Armor',
-      weapon: 'Spider Staff',
-      accessories: ['Summoner Emblem', 'Lightning Boots', 'Wings'],
-      note: 'Core summoner spike for early Hardmode and mechs.',
-    },
-    {
-      stage: 'Endgame',
-      armor: 'Stardust Armor',
-      weapon: 'Stardust Dragon Staff',
-      accessories: ['Papyrus Scarab', 'Necromantic Scroll', 'Fishron Wings'],
-      note: 'Endgame minion scaling focused on sustained boss pressure.',
-    },
-  ],
-}
 export default function BuildStages() {
   const [selectedClass, setSelectedClass] = useState<BuildClass>('melee')
+  const [worldEvil, setWorldEvil] = useState<WorldEvil>('corruption')
+  const [difficulty, setDifficulty] = useState<Difficulty>('classic')
+  const [progressionCap, setProgressionCap] = useState<StageName>('Endgame')
   const { label, icon: Icon, color, description } = classConfig[selectedClass]
+  const visibleBuilds = getFilteredStageBuilds(selectedClass, {
+    worldEvil,
+    difficulty,
+    progressionCap,
+  })
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-6 space-y-4">
@@ -200,16 +85,104 @@ export default function BuildStages() {
         </div>
         <p className="text-sm text-gray-400">{description}</p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3">
-          {stagedBuilds[selectedClass].map((entry) => (
+        <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div className="bg-terra-bg border border-terra-border rounded-lg px-3 py-2">
+            <p className="text-xs text-gray-400 mb-1">World Evil</p>
+            <div className="flex gap-1">
+              {worldEvilOptions.map((evil) => (
+                <button
+                  key={evil}
+                  onClick={() => setWorldEvil(evil)}
+                  className={cn(
+                    'px-2 py-1 rounded text-xs font-semibold transition-colors capitalize',
+                    worldEvil === evil
+                      ? 'bg-terra-panel text-terra-gold border border-terra-gold'
+                      : 'text-gray-400 hover:text-white border border-transparent'
+                  )}
+                >
+                  {evil}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="bg-terra-bg border border-terra-border rounded-lg px-3 py-2">
+            <p className="text-xs text-gray-400 mb-1">Difficulty</p>
+            <div className="flex gap-1">
+              {difficultyOptions.map((mode) => (
+                <button
+                  key={mode}
+                  onClick={() => setDifficulty(mode)}
+                  className={cn(
+                    'px-2 py-1 rounded text-xs font-semibold transition-colors capitalize',
+                    difficulty === mode
+                      ? 'bg-terra-panel text-terra-gold border border-terra-gold'
+                      : 'text-gray-400 hover:text-white border border-transparent'
+                  )}
+                >
+                  {mode}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="bg-terra-bg border border-terra-border rounded-lg px-3 py-2">
+            <p className="text-xs text-gray-400 mb-1">Progression Cap</p>
+            <select
+              value={progressionCap}
+              onChange={(e) => setProgressionCap(e.target.value as StageName)}
+              className="w-full bg-terra-surface border border-terra-border rounded px-2 py-1.5 text-xs text-white focus:outline-none focus:border-terra-gold"
+            >
+              {progressionCaps.map((cap) => (
+                <option key={cap.stage} value={cap.stage}>{cap.label}</option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        <div className="mt-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3">
+          {visibleBuilds.map((entry) => (
             <div key={entry.stage} className="bg-terra-bg border border-terra-border rounded-lg p-3">
-              <h3 className="text-sm font-semibold text-white mb-2">{entry.stage}</h3>
+              <div className="flex items-start justify-between gap-2 mb-2">
+                <h3 className="text-sm font-semibold text-white">{entry.stage}</h3>
+                {entry.adjustments.length > 0 ? (
+                  <span className="text-[10px] px-2 py-0.5 rounded-full border border-terra-gold/50 text-terra-gold bg-terra-panel/60 whitespace-nowrap">
+                    Variant
+                  </span>
+                ) : null}
+              </div>
+
+              {entry.adjustments.length > 0 ? (
+                <div className="flex flex-wrap gap-1 mb-2">
+                  {entry.adjustments.map((label) => (
+                    <span
+                      key={label}
+                      className="text-[10px] px-1.5 py-0.5 rounded border border-terra-border text-gray-300 bg-terra-surface"
+                    >
+                      {label}
+                    </span>
+                  ))}
+                </div>
+              ) : null}
+
               <p className="text-xs text-gray-400 mb-1">Armor</p>
               <p className="text-sm text-gray-200 mb-2">{entry.armor}</p>
               <p className="text-xs text-gray-400 mb-1">Weapon</p>
               <p className="text-sm text-gray-200 mb-2">{entry.weapon}</p>
               <p className="text-xs text-gray-400 mb-1">Accessories</p>
               <p className="text-sm text-gray-200 mb-2">{entry.accessories.join(' • ')}</p>
+
+              {entry.why.length > 0 ? (
+                <>
+                  <p className="text-xs text-gray-400 mb-1">Why this build</p>
+                  <ul className="text-xs text-gray-300 space-y-1 mb-2 list-disc list-inside">
+                    {entry.why.map((bullet) => (
+                      <li key={bullet}>{bullet}</li>
+                    ))}
+                  </ul>
+                </>
+              ) : null}
+
               <p className="text-xs text-gray-500 leading-relaxed">{entry.note}</p>
             </div>
           ))}

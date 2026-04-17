@@ -5,6 +5,7 @@ import { ProgressBar } from '@/components/ui/ProgressBar'
 import { useBosses } from '@/hooks/useBosses'
 import { cn } from '@/lib/cn'
 import type { Boss, BuildClass, GamePhase } from '@/types/boss'
+import { items } from '@/data/index'
 
 const phaseLabels: Record<GamePhase, string> = {
   'pre-hardmode': 'Pre-Hardmode',
@@ -32,7 +33,70 @@ const classColors: Record<BuildClass, string> = {
   summoner: 'text-terra-gold',
 }
 
-function GearTab({ boss, selectedClass, onClassChange }: { boss: Boss; selectedClass: BuildClass; onClassChange: (c: BuildClass) => void }) {
+function normalizeGearName(value: string): string {
+  return value.toLowerCase().replace(/[^a-z0-9]/g, '')
+}
+
+const itemIdByNormalizedName = new Map(
+  items.map((item) => [normalizeGearName(item.name), item.id])
+)
+
+function resolveGearItemId(name: string): number | undefined {
+  return itemIdByNormalizedName.get(normalizeGearName(name))
+}
+
+function GearList({
+  title,
+  titleClass,
+  entries,
+  onItemClick,
+}: {
+  title: string
+  titleClass: string
+  entries: string[]
+  onItemClick: (itemId: number) => void
+}) {
+  return (
+    <div>
+      <h5 className={cn('text-xs font-semibold mb-2 uppercase', titleClass)}>{title}</h5>
+      <div className="flex flex-wrap gap-1.5">
+        {entries.map((entry) => {
+          const itemId = resolveGearItemId(entry)
+          if (!itemId) {
+            return (
+              <span key={entry} className="bg-terra-bg border border-terra-border rounded px-2 py-1 text-xs text-gray-300">
+                {entry}
+              </span>
+            )
+          }
+
+          return (
+            <button
+              key={entry}
+              onClick={() => onItemClick(itemId)}
+              className="bg-terra-bg border border-terra-border rounded px-2 py-1 text-xs text-terra-sky hover:text-terra-gold hover:border-terra-gold transition-colors"
+              title="Open in Item Lookup"
+            >
+              {entry}
+            </button>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
+function GearTab({
+  boss,
+  selectedClass,
+  onClassChange,
+  onItemClick,
+}: {
+  boss: Boss
+  selectedClass: BuildClass
+  onClassChange: (c: BuildClass) => void
+  onItemClick: (itemId: number) => void
+}) {
   const classes: BuildClass[] = ['melee', 'ranged', 'magic', 'summoner']
   const gear = boss.recommendedGear.find((g) => g.class === selectedClass)
 
@@ -84,24 +148,9 @@ function GearTab({ boss, selectedClass, onClassChange }: { boss: Boss; selectedC
           <div>
             <h4 className="text-terra-gold text-xs font-pixel mb-2">Recommended Gear</h4>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div>
-                <h5 className="text-terra-gold text-xs font-semibold mb-2 uppercase">Armor</h5>
-                <ul className="space-y-1">
-                  {primary?.armor.map((a) => <li key={a} className="text-gray-300">• {a}</li>)}
-                </ul>
-              </div>
-              <div>
-                <h5 className="text-terra-gold text-xs font-semibold mb-2 uppercase">Weapons</h5>
-                <ul className="space-y-1">
-                  {primary?.weapons.map((w) => <li key={w} className="text-gray-300">• {w}</li>)}
-                </ul>
-              </div>
-              <div>
-                <h5 className="text-terra-gold text-xs font-semibold mb-2 uppercase">Accessories</h5>
-                <ul className="space-y-1">
-                  {primary?.accessories.map((a) => <li key={a} className="text-gray-300">• {a}</li>)}
-                </ul>
-              </div>
+              <GearList title="Armor" titleClass="text-terra-gold" entries={primary?.armor ?? []} onItemClick={onItemClick} />
+              <GearList title="Weapons" titleClass="text-terra-gold" entries={primary?.weapons ?? []} onItemClick={onItemClick} />
+              <GearList title="Accessories" titleClass="text-terra-gold" entries={primary?.accessories ?? []} onItemClick={onItemClick} />
             </div>
           </div>
 
@@ -109,24 +158,9 @@ function GearTab({ boss, selectedClass, onClassChange }: { boss: Boss; selectedC
             <div>
               <h4 className="text-terra-sky text-xs font-pixel mb-2">Alternate Gear</h4>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div>
-                  <h5 className="text-terra-sky text-xs font-semibold mb-2 uppercase">Armor</h5>
-                  <ul className="space-y-1">
-                    {alternate?.armor.map((a) => <li key={a} className="text-gray-300">• {a}</li>)}
-                  </ul>
-                </div>
-                <div>
-                  <h5 className="text-terra-sky text-xs font-semibold mb-2 uppercase">Weapons</h5>
-                  <ul className="space-y-1">
-                    {alternate?.weapons.map((w) => <li key={w} className="text-gray-300">• {w}</li>)}
-                  </ul>
-                </div>
-                <div>
-                  <h5 className="text-terra-sky text-xs font-semibold mb-2 uppercase">Accessories</h5>
-                  <ul className="space-y-1">
-                    {alternate?.accessories.map((a) => <li key={a} className="text-gray-300">• {a}</li>)}
-                  </ul>
-                </div>
+                <GearList title="Armor" titleClass="text-terra-sky" entries={alternate?.armor ?? []} onItemClick={onItemClick} />
+                <GearList title="Weapons" titleClass="text-terra-sky" entries={alternate?.weapons ?? []} onItemClick={onItemClick} />
+                <GearList title="Accessories" titleClass="text-terra-sky" entries={alternate?.accessories ?? []} onItemClick={onItemClick} />
               </div>
             </div>
           )}
@@ -144,7 +178,7 @@ function GearTab({ boss, selectedClass, onClassChange }: { boss: Boss; selectedC
 
 type DrawerTab = 'overview' | 'gear' | 'tips'
 
-function BossDrawer({ boss, onClose }: { boss: Boss; onClose: () => void }) {
+function BossDrawer({ boss, onClose, onItemClick }: { boss: Boss; onClose: () => void; onItemClick: (itemId: number) => void }) {
   const [tab, setTab] = useState<DrawerTab>('overview')
   const [gearClass, setGearClass] = useState<BuildClass>('melee')
   const tabs: DrawerTab[] = ['overview', 'gear', 'tips']
@@ -202,7 +236,7 @@ function BossDrawer({ boss, onClose }: { boss: Boss; onClose: () => void }) {
             </div>
           )}
           {tab === 'gear' && (
-            <GearTab boss={boss} selectedClass={gearClass} onClassChange={setGearClass} />
+            <GearTab boss={boss} selectedClass={gearClass} onClassChange={setGearClass} onItemClick={onItemClick} />
           )}
           {tab === 'tips' && (
             <ul className="space-y-3">
@@ -313,6 +347,10 @@ export default function BossTracker() {
     navigate('/bosses', { replace: true })
   }
 
+  function openItem(itemId: number) {
+    navigate(`/items/${itemId}`)
+  }
+
   return (
     <div className="max-w-3xl mx-auto px-4 py-6">
       <div className="flex items-center justify-between mb-6">
@@ -357,7 +395,7 @@ export default function BossTracker() {
         })}
       </div>
 
-      {openBoss && <BossDrawer boss={openBoss} onClose={closeGuide} />}
+      {openBoss && <BossDrawer boss={openBoss} onClose={closeGuide} onItemClick={openItem} />}
 
       {confirmReset && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
