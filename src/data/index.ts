@@ -12,7 +12,7 @@ import npcsRaw from './npcs.json'
 import biomesRaw from './biomes.json'
 import prefixesRaw from './prefixes.json'
 
-export const DATA_VERSION = '1.5.0'
+export const DATA_VERSION = '1.4.5.6'
 
 export const items: Item[] = itemsRaw as Item[]
 export const recipes: Recipe[] = recipesRaw as Recipe[]
