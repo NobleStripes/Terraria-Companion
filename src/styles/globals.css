@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --color-terra-bg: #1a1209;
+  --color-terra-surface: #2d1e0f;
+  --color-terra-panel: #3d2910;
+  --color-terra-border: #6b4423;
+  --color-terra-gold: #e8c84a;
+  --color-terra-sky: #5b9bd5;
+  --color-terra-green: #4caf50;
+  --color-terra-red: #c62828;
+  --color-terra-purple: #7b1fa2;
+  --color-terra-orange: #f57c00;
+
+  --color-rarity-gray: #9e9e9e;
+  --color-rarity-white: #ffffff;
+  --color-rarity-blue: #2196f3;
+  --color-rarity-green: #4caf50;
+  --color-rarity-orange: #ff9800;
+  --color-rarity-light-red: #ef5350;
+  --color-rarity-pink: #f06292;
+  --color-rarity-light-purple: #ce93d8;
+  --color-rarity-lime: #cddc39;
+  --color-rarity-yellow: #ffeb3b;
+  --color-rarity-cyan: #00bcd4;
+  --color-rarity-red: #f44336;
+  --color-rarity-purple: #ab47bc;
+
+  --font-pixel: "Press Start 2P", monospace;
+  --font-body: "Nunito", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background-color: var(--color-terra-bg);
+  color: #e5d9c8;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-terra-surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-terra-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-terra-gold);
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid var(--color-terra-gold);
+  outline-offset: 2px;
+}

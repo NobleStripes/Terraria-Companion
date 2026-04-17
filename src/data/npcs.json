@@ -1,0 +1,452 @@
+[
+  {
+    "id": "guide",
+    "name": "Guide",
+    "description": "The first NPC you encounter. Gives crafting hints and basic game guidance.",
+    "unlockCondition": "Spawns at the start of every new world",
+    "sells": [],
+    "happiness": {
+      "lovedBiomes": ["Forest"],
+      "likedBiomes": ["Ocean"],
+      "dislikedBiomes": ["Desert"],
+      "hatedBiomes": ["Underground"],
+      "lovedNeighbors": ["Clothier"],
+      "likedNeighbors": ["Zoologist", "Painter"],
+      "dislikedNeighbors": ["Steampunker"],
+      "hatedNeighbors": ["Tax Collector"]
+    },
+    "housingRequirements": "Standard housing (at least 60 tiles, background wall, door, light, table, chair)"
+  },
+  {
+    "id": "merchant",
+    "name": "Merchant",
+    "description": "Sells basic supplies. Unlocks once you have collected at least 50 Silver Coins.",
+    "unlockCondition": "Have at least 50 Silver Coins total across all players",
+    "sells": ["Piggy Bank", "Safe", "Mining Helmet", "Copper Pickaxe", "Copper Axe", "Iron Anvil", "Bug Net", "Torch", "Rope", "Throwing Knife", "Shuriken"],
+    "happiness": {
+      "lovedBiomes": ["Forest"],
+      "likedBiomes": ["Desert"],
+      "dislikedBiomes": ["Underground"],
+      "hatedBiomes": ["Ocean"],
+      "lovedNeighbors": ["Golfer"],
+      "likedNeighbors": ["Nurse", "Zoologist"],
+      "dislikedNeighbors": ["Tax Collector"],
+      "hatedNeighbors": ["Angler"]
+    },
+    "housingRequirements": "Standard housing"
+  },
+  {
+    "id": "nurse",
+    "name": "Nurse",
+    "description": "Heals the player for a coin cost. Essential for difficult boss fights.",
+    "unlockCondition": "The Merchant has already moved in",
+    "sells": [],
+    "happiness": {
+      "lovedBiomes": ["Hallow"],
+      "likedBiomes": ["Snow"],
+      "dislikedBiomes": ["Desert"],
+      "hatedBiomes": ["Jungle"],
+      "lovedNeighbors": ["Arms Dealer"],
+      "likedNeighbors": ["Wizard", "Merchant"],
+      "dislikedNeighbors": ["Dryad"],
+      "hatedNeighbors": ["Zoologist"]
+    },
+    "housingRequirements": "Standard housing"
+  },
+  {
+    "id": "arms-dealer",
+    "name": "Arms Dealer",
+    "description": "Sells guns and ammunition. Essential for ranged players.",
+    "unlockCondition": "Have a gun or bullet in your inventory",
+    "sells": ["Minishark", "Flintlock Pistol", "Musket Ball", "Empty Bullet", "Silver Bullet", "Illegal Gun Parts"],
+    "happiness": {
+      "lovedBiomes": ["Desert"],
+      "likedBiomes": ["Snow"],
+      "dislikedBiomes": ["Forest"],
+      "hatedBiomes": ["Hallow"],
+      "lovedNeighbors": ["Nurse"],
+      "likedNeighbors": ["Steampunker", "Demolitionist"],
+      "dislikedNeighbors": ["Golfer"],
+      "hatedNeighbors": ["Stylist"]
+    },
+    "housingRequirements": "Standard housing"
+  },
+  {
+    "id": "dryad",
+    "name": "Dryad",
+    "description": "Sells nature-themed items and seeds. Can report world purity/corruption percentages.",
+    "unlockCondition": "Defeat any boss except King Slime",
+    "sells": ["Purification Powder", "Vile Powder", "Corrupt Seeds", "Crimson Seeds", "Hallowed Seeds", "Grass Seeds", "Sunflower", "Acorn", "Stinkbug in a Bottle", "Pumpkin Seed"],
+    "happiness": {
+      "lovedBiomes": ["Jungle"],
+      "likedBiomes": ["Forest"],
+      "dislikedBiomes": ["Snow"],
+      "hatedBiomes": ["Desert"],
+      "lovedNeighbors": ["Witch Doctor", "Truffle"],
+      "likedNeighbors": ["Guide"],
+      "dislikedNeighbors": ["Angler"],
+      "hatedNeighbors": ["Goblin Tinkerer"]
+    },
+    "housingRequirements": "Standard housing"
+  },
+  {
+    "id": "demolitionist",
+    "name": "Demolitionist",
+    "description": "Sells explosives. Useful for mining and combat.",
+    "unlockCondition": "Have any explosive (bomb, grenade, etc.) in your inventory",
+    "sells": ["Bomb", "Grenade", "Sticky Bomb", "Dynamite", "Hellfire Arrow", "Explosive Powder", "Land Mine", "Proximity Mine Launcher"],
+    "happiness": {
+      "lovedBiomes": ["Underground"],
+      "likedBiomes": ["Snow"],
+      "dislikedBiomes": ["Ocean"],
+      "hatedBiomes": ["Desert"],
+      "lovedNeighbors": ["Tavernkeep", "Arms Dealer"],
+      "likedNeighbors": ["Mechanic", "Goblin Tinkerer"],
+      "dislikedNeighbors": ["Arms Dealer"],
+      "hatedNeighbors": ["Nurse"]
+    },
+    "housingRequirements": "Standard housing"
+  },
+  {
+    "id": "clothier",
+    "name": "Clothier",
+    "description": "Sells vanity armor sets and summons Skeletron if wearing the Clothier Voodoo Doll.",
+    "unlockCondition": "Defeat Skeletron",
+    "sells": ["Familiar Wig", "Familiar Shirt", "Familiar Pants", "Plumber's Hat", "Plumber's Shirt", "Plumber's Pants", "Hero's Hat", "Hero's Shirt", "Hero's Pants", "Bunny Hood", "Ninja Hood", "Ninja Shirt", "Ninja Pants"],
+    "happiness": {
+      "lovedBiomes": ["Underground"],
+      "likedBiomes": ["Snow"],
+      "dislikedBiomes": ["Jungle"],
+      "hatedBiomes": ["Hallow"],
+      "lovedNeighbors": ["Guide"],
+      "likedNeighbors": ["Painter", "Tax Collector"],
+      "dislikedNeighbors": ["Mechanic"],
+      "hatedNeighbors": ["Nurse"]
+    },
+    "housingRequirements": "Standard housing"
+  },
+  {
+    "id": "goblin-tinkerer",
+    "name": "Goblin Tinkerer",
+    "description": "Sells Tinkerer's Workshop and various accessories. Can reforge items.",
+    "unlockCondition": "Rescue him from underground after defeating the Goblin Army",
+    "sells": ["Tinkerer's Workshop", "Ruler", "Grappling Hook", "Toolbelt", "Spiky Ball"],
+    "happiness": {
+      "lovedBiomes": ["Underground"],
+      "likedBiomes": ["Snow"],
+      "dislikedBiomes": ["Jungle"],
+      "hatedBiomes": ["Hallow"],
+      "lovedNeighbors": ["Mechanic"],
+      "likedNeighbors": ["Dryad", "Demolitionist"],
+      "dislikedNeighbors": ["Clothier"],
+      "hatedNeighbors": ["Stylist"]
+    },
+    "housingRequirements": "Standard housing"
+  },
+  {
+    "id": "wizard",
+    "name": "Wizard",
+    "description": "Sells magic items and accessories in Hardmode.",
+    "unlockCondition": "Rescue him from underground in Hardmode",
+    "sells": ["Ice Rod", "Crystal Ball", "Spell Tome", "Greater Mana Potion", "Music Box"],
+    "happiness": {
+      "lovedBiomes": ["Hallow"],
+      "likedBiomes": ["Desert"],
+      "dislikedBiomes": ["Ocean"],
+      "hatedBiomes": ["Snow"],
+      "lovedNeighbors": ["Golfer"],
+      "likedNeighbors": ["Merchant", "Dryad"],
+      "dislikedNeighbors": ["Witch Doctor"],
+      "hatedNeighbors": ["Cyborg"]
+    },
+    "housingRequirements": "Standard housing"
+  },
+  {
+    "id": "mechanic",
+    "name": "Mechanic",
+    "description": "Sells wires, switches, and mechanical components for traps and contraptions.",
+    "unlockCondition": "Rescue her from the Dungeon",
+    "sells": ["Wire", "Wire Cutter", "Wrench", "Blue Wrench", "Green Wrench", "Yellow Wrench", "Pressure Plate", "Timer", "Switch", "Lever", "Actuator", "Teleporter"],
+    "happiness": {
+      "lovedBiomes": ["Snow"],
+      "likedBiomes": ["Underground"],
+      "dislikedBiomes": ["Jungle"],
+      "hatedBiomes": ["Hallow"],
+      "lovedNeighbors": ["Goblin Tinkerer"],
+      "likedNeighbors": ["Steampunker", "Cyborg"],
+      "dislikedNeighbors": ["Arms Dealer"],
+      "hatedNeighbors": ["Clothier"]
+    },
+    "housingRequirements": "Standard housing"
+  },
+  {
+    "id": "steampunker",
+    "name": "Steampunker",
+    "description": "Sells Hardmode mechanical items and solutions for changing biomes.",
+    "unlockCondition": "Defeat any one Mechanical Boss",
+    "sells": ["Jetpack", "Clentaminator", "Green Solution", "Blue Solution", "Purple Solution", "Red Solution", "Dark Blue Solution", "Solidifier", "Ivy Chest", "Steampunk Wings", "Teleporter"],
+    "happiness": {
+      "lovedBiomes": ["Desert"],
+      "likedBiomes": ["Snow", "Underground"],
+      "dislikedBiomes": ["Jungle"],
+      "hatedBiomes": ["Hallow"],
+      "lovedNeighbors": ["Cyborg", "Painter"],
+      "likedNeighbors": ["Arms Dealer"],
+      "dislikedNeighbors": ["Wizard", "Dryad"],
+      "hatedNeighbors": ["Truffle"]
+    },
+    "housingRequirements": "Standard housing"
+  },
+  {
+    "id": "witch-doctor",
+    "name": "Witch Doctor",
+    "description": "Sells Hardmode summoner items including flasks and staves.",
+    "unlockCondition": "Defeat the Queen Bee",
+    "sells": ["Imbuing Station", "Flask of Venom", "Flask of Fire", "Flask of Cursed Flames", "Flask of Gold", "Flask of Ichor", "Flask of Nanites", "Flask of Party", "Pygmy Necklace", "Tiki Totem"],
+    "happiness": {
+      "lovedBiomes": ["Jungle"],
+      "likedBiomes": ["Hallow"],
+      "dislikedBiomes": ["Snow"],
+      "hatedBiomes": ["Desert"],
+      "lovedNeighbors": ["Dryad"],
+      "likedNeighbors": ["Guide", "Painter"],
+      "dislikedNeighbors": ["Wizard"],
+      "hatedNeighbors": ["Angler"]
+    },
+    "housingRequirements": "Standard housing"
+  },
+  {
+    "id": "truffle",
+    "name": "Truffle",
+    "description": "Sells mushroom-themed items and the Autohammer for crafting Shroomite.",
+    "unlockCondition": "Have a mushroom biome house with at least 100 Glowing Mushroom tiles near it",
+    "sells": ["Autohammer", "Mushroom Spear", "Mushroom Cap", "Strange Brew", "Mushroom Statue"],
+    "happiness": {
+      "lovedBiomes": ["Glowing Mushroom"],
+      "likedBiomes": ["Forest"],
+      "dislikedBiomes": ["Desert"],
+      "hatedBiomes": ["Underground"],
+      "lovedNeighbors": ["Dryad"],
+      "likedNeighbors": ["Guide"],
+      "dislikedNeighbors": ["Steampunker"],
+      "hatedNeighbors": ["Angler"]
+    },
+    "housingRequirements": "Must be in a Glowing Mushroom biome (100+ Glowing Mushroom tiles)"
+  },
+  {
+    "id": "stylist",
+    "name": "Stylist",
+    "description": "Changes hairstyles and sells hair dye.",
+    "unlockCondition": "Rescue her from a Spider Cave in the underground",
+    "sells": ["Hair Dye Remover", "Martian Hair Dye", "Team Hair Dye", "Speed Hair Dye", "Vital Hair Dye", "Mana Hair Dye", "Depth Hair Dye", "Life Hair Dye", "Time Hair Dye", "Biome Hair Dye", "Party Hair Dye", "Rainbow Hair Dye"],
+    "happiness": {
+      "lovedBiomes": ["Ocean"],
+      "likedBiomes": ["Hallow"],
+      "dislikedBiomes": ["Snow"],
+      "hatedBiomes": ["Underground"],
+      "lovedNeighbors": ["Dye Trader"],
+      "likedNeighbors": ["Pirate", "Wizard"],
+      "dislikedNeighbors": ["Goblin Tinkerer"],
+      "hatedNeighbors": ["Tax Collector"]
+    },
+    "housingRequirements": "Standard housing"
+  },
+  {
+    "id": "tax-collector",
+    "name": "Tax Collector",
+    "description": "Collects taxes from other NPCs, giving you coins over time.",
+    "unlockCondition": "Throw Purification Powder on a Tortured Soul found in the Underworld in Hardmode",
+    "sells": [],
+    "happiness": {
+      "lovedBiomes": ["Snow"],
+      "likedBiomes": ["Underground"],
+      "dislikedBiomes": ["Hallow"],
+      "hatedBiomes": ["Jungle"],
+      "lovedNeighbors": ["Merchant"],
+      "likedNeighbors": ["Golfer", "Clothier"],
+      "dislikedNeighbors": ["Demolitionist"],
+      "hatedNeighbors": ["Dryad"]
+    },
+    "housingRequirements": "Standard housing"
+  },
+  {
+    "id": "painter",
+    "name": "Painter",
+    "description": "Sells paints and painting tools for decorating.",
+    "unlockCondition": "Have 6 other town NPCs living in your world",
+    "sells": ["Red Paint", "Orange Paint", "Yellow Paint", "Green Paint", "Blue Paint", "Purple Paint", "White Paint", "Black Paint", "Deep Red Paint", "Deep Orange Paint", "Deep Yellow Paint", "Deep Green Paint", "Deep Cyan Paint", "Deep Blue Paint", "Deep Purple Paint", "Deep Pink Paint", "Shadow Paint", "Negative Paint", "Paintbrush", "Paint Scraper", "Paint Roller"],
+    "happiness": {
+      "lovedBiomes": ["Jungle"],
+      "likedBiomes": ["Forest"],
+      "dislikedBiomes": ["Desert"],
+      "hatedBiomes": ["Snow"],
+      "lovedNeighbors": ["Dryad", "Party Girl"],
+      "likedNeighbors": ["Witch Doctor", "Guide"],
+      "dislikedNeighbors": ["Cyborg"],
+      "hatedNeighbors": ["Tax Collector"]
+    },
+    "housingRequirements": "Standard housing"
+  },
+  {
+    "id": "party-girl",
+    "name": "Party Girl",
+    "description": "Sells party-themed items and can start a Party event.",
+    "unlockCondition": "Have at least 14 other NPCs in the world (10% spawn chance per night after)",
+    "sells": ["Bubble Machine", "Confetti", "Confetti Cannon", "Party Bullet", "Party Center", "Poppers", "Silly Balloon Pump", "Waterzooka"],
+    "happiness": {
+      "lovedBiomes": ["Hallow"],
+      "likedBiomes": ["Forest"],
+      "dislikedBiomes": ["Underground"],
+      "hatedBiomes": ["Desert"],
+      "lovedNeighbors": ["Wizard", "Zoologist"],
+      "likedNeighbors": ["Clothier", "Stylist"],
+      "dislikedNeighbors": ["Merchant"],
+      "hatedNeighbors": ["Tax Collector"]
+    },
+    "housingRequirements": "Standard housing"
+  },
+  {
+    "id": "zoologist",
+    "name": "Zoologist",
+    "description": "Sells animal-themed items. Inventory expands as you complete the Bestiary.",
+    "unlockCondition": "Complete 10% of the Bestiary",
+    "sells": ["Leather Whip", "Flymeal", "Critter Shampoo", "Pheromone Bullets", "Animal Skin"],
+    "happiness": {
+      "lovedBiomes": ["Forest"],
+      "likedBiomes": ["Hallow"],
+      "dislikedBiomes": ["Desert"],
+      "hatedBiomes": ["Underground"],
+      "lovedNeighbors": ["Witch Doctor"],
+      "likedNeighbors": ["Golfer", "Merchant"],
+      "dislikedNeighbors": ["Arms Dealer"],
+      "hatedNeighbors": ["Nurse"]
+    },
+    "housingRequirements": "Standard housing"
+  },
+  {
+    "id": "golfer",
+    "name": "Golfer",
+    "description": "Sells golf-related items and unlocks the golf mini-game.",
+    "unlockCondition": "Rescue him from the Underground Desert",
+    "sells": ["Golf Club (Iron)", "Golf Club (Wedge)", "Golf Club (Driver)", "Golf Club (Putter)", "Golf Ball", "Golf Cup", "Golf Whistle"],
+    "happiness": {
+      "lovedBiomes": ["Forest"],
+      "likedBiomes": ["Ocean"],
+      "dislikedBiomes": ["Underground"],
+      "hatedBiomes": ["Snow"],
+      "lovedNeighbors": ["Angler", "Painter"],
+      "likedNeighbors": ["Merchant", "Zoologist"],
+      "dislikedNeighbors": ["Pirate"],
+      "hatedNeighbors": ["Arms Dealer"]
+    },
+    "housingRequirements": "Standard housing"
+  },
+  {
+    "id": "angler",
+    "name": "Angler",
+    "description": "Gives fishing quests for rewards including accessories and bait.",
+    "unlockCondition": "Found sleeping on the beach at the Ocean and spoken to",
+    "sells": [],
+    "happiness": {
+      "lovedBiomes": ["Ocean"],
+      "likedBiomes": ["Desert"],
+      "dislikedBiomes": ["Snow"],
+      "hatedBiomes": ["Underground"],
+      "lovedNeighbors": ["Demolitionist"],
+      "likedNeighbors": ["Party Girl", "Tax Collector"],
+      "dislikedNeighbors": ["Tavernkeep"],
+      "hatedNeighbors": ["Guide"]
+    },
+    "housingRequirements": "Standard housing"
+  },
+  {
+    "id": "dye-trader",
+    "name": "Dye Trader",
+    "description": "Trades rare items for Strange Plants found around the world. Sells basic dyes.",
+    "unlockCondition": "Have any dye item or Strange Plant in your inventory",
+    "sells": ["Dye Vat", "Red Dye", "Orange Dye", "Yellow Dye", "Lime Dye", "Green Dye", "Teal Dye", "Cyan Dye", "Sky Blue Dye", "Blue Dye", "Purple Dye", "Violet Dye", "Pink Dye"],
+    "happiness": {
+      "lovedBiomes": ["Desert"],
+      "likedBiomes": ["Ocean"],
+      "dislikedBiomes": ["Forest"],
+      "hatedBiomes": ["Snow"],
+      "lovedNeighbors": ["Arms Dealer"],
+      "likedNeighbors": ["Stylist", "Painter"],
+      "dislikedNeighbors": ["Steampunker"],
+      "hatedNeighbors": ["Pirate"]
+    },
+    "housingRequirements": "Standard housing"
+  },
+  {
+    "id": "pirate",
+    "name": "Pirate",
+    "description": "Sells pirate-themed weapons and vanity items in Hardmode.",
+    "unlockCondition": "Defeat the Pirate Invasion event in Hardmode",
+    "sells": ["Cannon", "Cannonball", "Bunny Cannon", "Explosive Bunny", "Parrot Cracker", "Sailor Hat", "Sailor Shirt", "Sailor Pants"],
+    "happiness": {
+      "lovedBiomes": ["Ocean"],
+      "likedBiomes": ["Desert"],
+      "dislikedBiomes": ["Underground"],
+      "hatedBiomes": ["Snow"],
+      "lovedNeighbors": ["Angler"],
+      "likedNeighbors": ["Tavernkeep", "Arms Dealer"],
+      "dislikedNeighbors": ["Stylist"],
+      "hatedNeighbors": ["Guide"]
+    },
+    "housingRequirements": "Standard housing"
+  },
+  {
+    "id": "cyborg",
+    "name": "Cyborg",
+    "description": "Sells rockets and rocket launchers in Hardmode.",
+    "unlockCondition": "Defeat Plantera",
+    "sells": ["Rocket I", "Rocket II", "Rocket III", "Rocket IV", "Proximity Mine Launcher", "Nanites", "Explosive Trap's Kit", "Land Mine"],
+    "happiness": {
+      "lovedBiomes": ["Snow"],
+      "likedBiomes": ["Desert", "Underground"],
+      "dislikedBiomes": ["Jungle"],
+      "hatedBiomes": ["Hallow"],
+      "lovedNeighbors": ["Steampunker"],
+      "likedNeighbors": ["Pirate", "Mechanic"],
+      "dislikedNeighbors": ["Clothier"],
+      "hatedNeighbors": ["Wizard"]
+    },
+    "housingRequirements": "Standard housing"
+  },
+  {
+    "id": "santa-claus",
+    "name": "Santa Claus",
+    "description": "Sells festive Christmas items during December in real life (or during Frost Moon event).",
+    "unlockCondition": "Defeat the Frost Legion event. Only available in December (real-world date).",
+    "sells": ["Santa Hat", "Santa Shirt", "Santa Pants", "Christmas Tree Sword", "Reindeer Bells", "Christmas Hook", "Holly", "Candy Cane Sword", "Candy Cane Pickaxe", "Candy Cane Hook", "Fruitcake Chakram"],
+    "happiness": {
+      "lovedBiomes": ["Snow"],
+      "likedBiomes": ["Underground"],
+      "dislikedBiomes": ["Desert"],
+      "hatedBiomes": ["Jungle"],
+      "lovedNeighbors": [],
+      "likedNeighbors": ["Demolitionist", "Clothier"],
+      "dislikedNeighbors": [],
+      "hatedNeighbors": []
+    },
+    "housingRequirements": "Standard housing"
+  },
+  {
+    "id": "tavernkeep",
+    "name": "Tavernkeep",
+    "description": "Sells Old One's Army-related items using Defender Medals earned from that event.",
+    "unlockCondition": "Found randomly after defeating the Eater of Worlds, Brain of Cthulhu, or King Slime",
+    "sells": ["Ale", "Drunkard's Hat", "Ale Tosser", "Etherian Mana Crystal", "Ballista Rod", "Ballista Cane", "Ballista Staff", "Explosive Trap Rod", "Explosive Trap Cane", "Explosive Trap Staff", "Flameburst Rod", "Flameburst Cane", "Flameburst Staff", "Lightning Aura Rod", "Lightning Aura Cane", "Lightning Aura Staff"],
+    "happiness": {
+      "lovedBiomes": ["Hallow"],
+      "likedBiomes": ["Desert"],
+      "dislikedBiomes": ["Snow"],
+      "hatedBiomes": ["Ocean"],
+      "lovedNeighbors": ["Demolitionist"],
+      "likedNeighbors": ["Goblin Tinkerer", "Pirate"],
+      "dislikedNeighbors": ["Guide"],
+      "hatedNeighbors": ["Dryad"]
+    },
+    "housingRequirements": "Standard housing"
+  }
+]

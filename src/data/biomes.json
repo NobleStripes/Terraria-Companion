@@ -1,0 +1,222 @@
+[
+  {
+    "id": "forest",
+    "name": "Forest",
+    "description": "The default surface biome. Calm during the day, dangerous at night. Most players start here.",
+    "layer": "surface",
+    "hardmodeOnly": false,
+    "resources": ["Wood", "Acorn", "Daybloom", "Mushroom"],
+    "commonEnemies": ["Slime", "Zombie", "Demon Eye"],
+    "uniqueFeatures": ["Starting spawn point", "Most NPC-friendly biome", "Underground Cabins"],
+    "happyNpcs": ["guide", "merchant", "zoologist", "golfer", "truffle", "dryad"]
+  },
+  {
+    "id": "desert",
+    "name": "Desert",
+    "description": "Sandy surface biome with scarce resources. Home to the Underground Desert.",
+    "layer": "surface",
+    "hardmodeOnly": false,
+    "resources": ["Cactus", "Waterleaf", "Antlion Mandible"],
+    "commonEnemies": ["Antlion", "Tomb Crawler", "Vulture"],
+    "uniqueFeatures": ["Underground Desert", "Desert fossils", "Oasis"],
+    "happyNpcs": ["arms-dealer", "steampunker", "dye-trader", "pirate", "angler"]
+  },
+  {
+    "id": "ocean",
+    "name": "Ocean",
+    "description": "The far edges of the map. Deep water with unique fish and enemies.",
+    "layer": "surface",
+    "hardmodeOnly": false,
+    "resources": ["Coral", "Seashell", "Starfish", "Shark Fin"],
+    "commonEnemies": ["Shark", "Crab", "Seagull", "Squid"],
+    "uniqueFeatures": ["Pirate invasion origin", "Angler quests", "Waterfall platforms for fishing"],
+    "happyNpcs": ["stylist", "pirate", "angler", "golfer"]
+  },
+  {
+    "id": "snow",
+    "name": "Snow",
+    "description": "Cold biome with ice and snow. Enemies inflict Chilled debuff.",
+    "layer": "surface",
+    "hardmodeOnly": false,
+    "resources": ["Shiverthorn", "Frost Core (Hardmode)", "Bone Feather (Hardmode)"],
+    "commonEnemies": ["Ice Slime", "Eskimo Zombie", "Ice Bat", "Spiked Ice Slime"],
+    "uniqueFeatures": ["Underground Ice biome", "Blizzard weather event", "Frost Moon origin"],
+    "happyNpcs": ["nurse", "tax-collector", "mechanic", "cyborg", "santa-claus", "demolitionist"]
+  },
+  {
+    "id": "jungle",
+    "name": "Jungle",
+    "description": "Lush but dangerous biome. Home to many unique resources and the Queen Bee.",
+    "layer": "surface",
+    "hardmodeOnly": false,
+    "resources": ["Moonglow", "Jungle Spores", "Rich Mahogany", "Stinger"],
+    "commonEnemies": ["Hornet", "Jungle Slime", "Man Eater", "Piranha"],
+    "uniqueFeatures": ["Bee Hives with Queen Bee", "Jungle Temple (post-Golem)", "Underground Jungle"],
+    "happyNpcs": ["dryad", "witch-doctor", "painter"]
+  },
+  {
+    "id": "corruption",
+    "name": "Corruption",
+    "description": "Dark evil biome with the Eater of Worlds. Spreads and corrupts nearby biomes.",
+    "layer": "surface",
+    "hardmodeOnly": false,
+    "resources": ["Demonite Ore", "Shadow Scale", "Rotten Chunk", "Cursed Flame (Hardmode)"],
+    "commonEnemies": ["Eater of Souls", "Devourer", "Corrupt Slime", "Corruptor"],
+    "uniqueFeatures": ["Shadow Orbs (break to summon EoW)", "Chasms", "Corrupt Mimics (Hardmode)"],
+    "happyNpcs": []
+  },
+  {
+    "id": "crimson",
+    "name": "Crimson",
+    "description": "Fleshy evil biome with the Brain of Cthulhu. Alternative to Corruption.",
+    "layer": "surface",
+    "hardmodeOnly": false,
+    "resources": ["Crimtane Ore", "Tissue Sample", "Vertebrae", "Ichor (Hardmode)"],
+    "commonEnemies": ["Face Monster", "Blood Crawler", "Crimera", "Herpling"],
+    "uniqueFeatures": ["Crimson Hearts (break to summon BoC)", "Crimson Chasms", "Crimson Mimics (Hardmode)"],
+    "happyNpcs": []
+  },
+  {
+    "id": "hallow",
+    "name": "Hallow",
+    "description": "Magical Hardmode biome created when the Wall of Flesh is defeated. Spreads over the world.",
+    "layer": "surface",
+    "hardmodeOnly": true,
+    "resources": ["Crystal Shard", "Pearlwood", "Pixie Dust", "Unicorn Horn"],
+    "commonEnemies": ["Unicorn", "Pixie", "Gastropod", "Hallowed Mimic"],
+    "uniqueFeatures": ["Queen Slime arena", "Underground Hallow", "Hallowed Mimics"],
+    "happyNpcs": ["nurse", "witch-doctor", "party-girl", "zoologist", "tavernkeep"]
+  },
+  {
+    "id": "underground",
+    "name": "Underground",
+    "description": "The layer below the surface. Contains ores, chests, and underground biomes.",
+    "layer": "underground",
+    "hardmodeOnly": false,
+    "resources": ["Copper Ore", "Iron Ore", "Silver Ore", "Gold Ore", "Platinum Ore"],
+    "commonEnemies": ["Cave Bat", "Skeleton", "Undead Miner", "Rock Golem"],
+    "uniqueFeatures": ["Underground Cabins with unique loot", "Glowing Mushroom areas", "Ore deposits"],
+    "happyNpcs": ["demolitionist", "goblin-tinkerer", "clothier", "mechanic"]
+  },
+  {
+    "id": "cavern",
+    "name": "Cavern",
+    "description": "Deep underground layer with harder enemies and better ore deposits.",
+    "layer": "cavern",
+    "hardmodeOnly": false,
+    "resources": ["Gold Ore", "Platinum Ore", "Obsidian", "Hellstone (near Underworld)"],
+    "commonEnemies": ["Giant Bat", "Doctor Bones", "Spore Bat", "Black Recluse"],
+    "uniqueFeatures": ["Marble Caves", "Granite Caves", "Spider Nests", "Underground Mushroom Biome"],
+    "happyNpcs": []
+  },
+  {
+    "id": "underworld",
+    "name": "Underworld",
+    "description": "The deepest layer, filled with lava. Home to the Wall of Flesh.",
+    "layer": "underworld",
+    "hardmodeOnly": false,
+    "resources": ["Hellstone", "Obsidian", "Lava"],
+    "commonEnemies": ["Hellbat", "Fire Imp", "Lava Slime", "Bone Serpent"],
+    "uniqueFeatures": ["Ruined Houses with Obsidian furniture", "Shadow Chests", "Wall of Flesh spawn point"],
+    "happyNpcs": []
+  },
+  {
+    "id": "sky",
+    "name": "Sky / Space",
+    "description": "The highest layer above the surface. Home to floating islands and Harpies.",
+    "layer": "sky",
+    "hardmodeOnly": false,
+    "resources": ["Sunplate Block", "Starfury", "Lucky Horseshoe"],
+    "commonEnemies": ["Harpy", "Wyvern (Hardmode)"],
+    "uniqueFeatures": ["Floating Islands with Sky Chests", "Wyverns in Hardmode", "Gravity Potion exploration"],
+    "happyNpcs": []
+  },
+  {
+    "id": "underground-jungle",
+    "name": "Underground Jungle",
+    "description": "Below the surface Jungle. Contains Plantera's Bulbs in Hardmode.",
+    "layer": "cavern",
+    "hardmodeOnly": false,
+    "resources": ["Jungle Spores", "Stinger", "Rich Mahogany", "Chlorophyte Ore (Hardmode)"],
+    "commonEnemies": ["Jungle Bat", "Jungle Creeper", "Spore Bat", "Angry Trapper"],
+    "uniqueFeatures": ["Bee Hives with Larvae", "Jungle Temple entrance", "Plantera's Bulbs (Hardmode)", "Chlorophyte farming"],
+    "happyNpcs": []
+  },
+  {
+    "id": "underground-snow",
+    "name": "Underground Ice",
+    "description": "Frozen underground biome with ice blocks and unique enemies.",
+    "layer": "cavern",
+    "hardmodeOnly": false,
+    "resources": ["Ice Block", "Frost Core (Hardmode)", "Frozen Chest loot"],
+    "commonEnemies": ["Ice Tortoise", "Icy Merman", "Wolf", "Frozen Zombie"],
+    "uniqueFeatures": ["Frozen Chests with unique items", "Ice Mimics (Hardmode)", "Dual Hooks"],
+    "happyNpcs": []
+  },
+  {
+    "id": "underground-desert",
+    "name": "Underground Desert",
+    "description": "Sandy underground biome with fossils and unique enemies.",
+    "layer": "cavern",
+    "hardmodeOnly": false,
+    "resources": ["Desert Fossil", "Sturdy Fossil", "Antlion Mandible"],
+    "commonEnemies": ["Antlion Charger", "Antlion Swarmer", "Tomb Crawler", "Dune Splicer (Hardmode)"],
+    "uniqueFeatures": ["Desert Chests", "Golfer rescue location", "Ballista traps"],
+    "happyNpcs": []
+  },
+  {
+    "id": "glowing-mushroom",
+    "name": "Glowing Mushroom",
+    "description": "Underground biome with glowing mushrooms. Required for Truffle NPC housing.",
+    "layer": "underground",
+    "hardmodeOnly": false,
+    "resources": ["Glowing Mushroom", "Mushroom Grass Seeds"],
+    "commonEnemies": ["Mushroom Zombie", "Spore Zombie", "Anomura Fungus"],
+    "uniqueFeatures": ["Truffle NPC housing (needs 100+ tiles)", "Shroomite crafting (Truffle)", "Can be grown artificially"],
+    "happyNpcs": ["truffle"]
+  },
+  {
+    "id": "dungeon",
+    "name": "Dungeon",
+    "description": "Dangerous underground dungeon guarded by Skeletron. Contains rare loot.",
+    "layer": "underground",
+    "hardmodeOnly": false,
+    "resources": ["Golden Key", "Shadow Key", "Dungeon Chests", "Ectoplasm (Hardmode)"],
+    "commonEnemies": ["Dungeon Slime", "Skeleton Archer", "Cursed Skull", "Dungeon Guardian"],
+    "uniqueFeatures": ["Mechanic rescue location", "Biome Chests (Hardmode)", "Ectoplasm farming", "Dungeon Mimics"],
+    "happyNpcs": []
+  },
+  {
+    "id": "marble-cave",
+    "name": "Marble Cave",
+    "description": "Mini-biome in the cavern layer made of Marble. Has unique enemies.",
+    "layer": "cavern",
+    "hardmodeOnly": false,
+    "resources": ["Marble", "Medusa Head"],
+    "commonEnemies": ["Medusa", "Hoplite", "Marble Slime"],
+    "uniqueFeatures": ["Unique building material", "Medusa drops Medusa Head"],
+    "happyNpcs": []
+  },
+  {
+    "id": "granite-cave",
+    "name": "Granite Cave",
+    "description": "Mini-biome in the cavern layer made of Granite. Has unique enemies.",
+    "layer": "cavern",
+    "hardmodeOnly": false,
+    "resources": ["Granite", "Granite Golem drops"],
+    "commonEnemies": ["Granite Golem", "Granite Elemental"],
+    "uniqueFeatures": ["Unique building material", "Night Vision Helmet drop"],
+    "happyNpcs": []
+  },
+  {
+    "id": "spider-nest",
+    "name": "Spider Nest",
+    "description": "Mini-biome in the cavern layer with web-covered walls and spiders.",
+    "layer": "cavern",
+    "hardmodeOnly": false,
+    "resources": ["Cobweb", "Spider Fang (Hardmode)"],
+    "commonEnemies": ["Wall Creeper", "Black Recluse (Hardmode)"],
+    "uniqueFeatures": ["Stylist rescue location", "Spider Fang farming in Hardmode", "Spider Staff/Armor crafting"],
+    "happyNpcs": []
+  }
+]

@@ -1,0 +1,718 @@
+[
+  {
+    "id": "king-slime",
+    "name": "King Slime",
+    "phase": "pre-hardmode",
+    "order": 1,
+    "summonItem": "Slime Crown",
+    "summonCondition": "Spawn naturally in the far west or east of the map, or summon with a Slime Crown",
+    "drops": ["Slime Hook", "Ninja Hood", "Ninja Shirt", "Ninja Pants", "Royal Gel", "King Slime Trophy"],
+    "recommendedGear": [
+      {
+        "class": "melee",
+        "armor": ["Wood Armor", "Cactus Armor"],
+        "weapons": ["Copper Broadsword", "Wooden Boomerang", "Spiky Ball"],
+        "accessories": ["Cloud in a Bottle", "Hermes Boots"]
+      },
+      {
+        "class": "ranged",
+        "armor": ["Wood Armor", "Cactus Armor"],
+        "weapons": ["Bow", "Flintlock Pistol"],
+        "accessories": ["Cloud in a Bottle", "Hermes Boots"]
+      },
+      {
+        "class": "magic",
+        "armor": ["Wood Armor"],
+        "weapons": ["Wand of Sparking"],
+        "accessories": ["Cloud in a Bottle", "Hermes Boots"]
+      },
+      {
+        "class": "summoner",
+        "armor": ["Wood Armor"],
+        "weapons": ["Slime Staff"],
+        "accessories": ["Cloud in a Bottle", "Hermes Boots"]
+      }
+    ],
+    "strategy": "King Slime is the easiest boss. He moves slowly and occasionally teleports. Use a flat arena and attack from the side while avoiding his teleports. He spawns Blue Slimes as he takes damage. Stay mobile and keep your distance.",
+    "tips": [
+      "Build a long flat platform as an arena",
+      "He teleports when off-screen, so keep him visible",
+      "Blue Slimes spawn from him as he shrinks — don't get surrounded",
+      "Hermes Boots make dodging teleports trivial"
+    ]
+  },
+  {
+    "id": "eye-of-cthulhu",
+    "name": "Eye of Cthulhu",
+    "phase": "pre-hardmode",
+    "order": 2,
+    "summonItem": "Suspicious Looking Eye",
+    "summonCondition": "Spawns automatically at night once you have 200+ HP and 3+ defense. Can be summoned with Suspicious Looking Eye.",
+    "drops": ["Demonite Ore", "Crimtane Ore", "Corrupt Seeds", "Crimson Seeds", "Binoculars", "Eye of Cthulhu Trophy"],
+    "recommendedGear": [
+      {
+        "class": "melee",
+        "armor": ["Gold Armor", "Platinum Armor"],
+        "weapons": ["Gold Broadsword", "Platinum Broadsword", "Spiky Ball"],
+        "accessories": ["Cloud in a Bottle", "Hermes Boots", "Band of Regeneration"]
+      },
+      {
+        "class": "ranged",
+        "armor": ["Gold Armor", "Platinum Armor"],
+        "weapons": ["Gold Bow", "Platinum Bow", "Flintlock Pistol"],
+        "accessories": ["Cloud in a Bottle", "Hermes Boots", "Band of Regeneration"]
+      },
+      {
+        "class": "magic",
+        "armor": ["Gold Armor", "Platinum Armor"],
+        "weapons": ["Wand of Sparking", "Vilethorn"],
+        "accessories": ["Cloud in a Bottle", "Hermes Boots", "Magic Cuffs"]
+      },
+      {
+        "class": "summoner",
+        "armor": ["Gold Armor", "Platinum Armor"],
+        "weapons": ["Slime Staff"],
+        "accessories": ["Cloud in a Bottle", "Hermes Boots", "Band of Regeneration"]
+      }
+    ],
+    "strategy": "The Eye of Cthulhu has two phases. In phase 1, it hovers above and sends Servants of Cthulhu at you. In phase 2 (around 50% HP), it loses its pupil and dashes rapidly at you. Build a long platform and keep moving. Use wings or a double jump to avoid the phase 2 dashes.",
+    "tips": [
+      "Fight at night only — the Eye retreats at dawn",
+      "Phase 2 dashes are faster and more dangerous than phase 1",
+      "Ironskin Potions and Regeneration Potions help greatly",
+      "A long platform with campfires speeds up health regen"
+    ]
+  },
+  {
+    "id": "eater-of-worlds",
+    "name": "Eater of Worlds",
+    "phase": "pre-hardmode",
+    "order": 3,
+    "summonItem": "Worm Food",
+    "summonCondition": "Summoned in the Corruption with Worm Food, or by breaking 3 Shadow Orbs",
+    "drops": ["Demonite Ore", "Shadow Scale", "Eater of Worlds Trophy"],
+    "recommendedGear": [
+      {
+        "class": "melee",
+        "armor": ["Gold Armor", "Platinum Armor", "Shadow Armor"],
+        "weapons": ["Gold Broadsword", "Light's Bane", "Ball O' Hurt"],
+        "accessories": ["Cloud in a Bottle", "Hermes Boots", "Band of Regeneration"]
+      },
+      {
+        "class": "ranged",
+        "armor": ["Gold Armor", "Platinum Armor"],
+        "weapons": ["Gold Bow", "Minishark"],
+        "accessories": ["Cloud in a Bottle", "Hermes Boots", "Quiver"]
+      },
+      {
+        "class": "magic",
+        "armor": ["Meteor Armor"],
+        "weapons": ["Space Gun", "Vilethorn"],
+        "accessories": ["Cloud in a Bottle", "Hermes Boots", "Magic Cuffs"]
+      },
+      {
+        "class": "summoner",
+        "armor": ["Gold Armor"],
+        "weapons": ["Slime Staff"],
+        "accessories": ["Cloud in a Bottle", "Hermes Boots"]
+      }
+    ],
+    "strategy": "The Eater of Worlds is a worm-type boss. Attacking any segment deals damage, and splitting it creates more segments. Weapons that hit multiple segments (like the Vilethorn or Ball O' Hurt) are very effective. Fight in the Corruption near the surface for more room.",
+    "tips": [
+      "Pierce weapons (Vilethorn, Demon Scythe) hit multiple segments at once",
+      "Splitting the worm creates smaller, faster segments — focus fire",
+      "Ironskin + Thorns Potions help for melee",
+      "The Corruption's Chasms make great natural arenas"
+    ]
+  },
+  {
+    "id": "brain-of-cthulhu",
+    "name": "Brain of Cthulhu",
+    "phase": "pre-hardmode",
+    "order": 3,
+    "summonItem": "Bloody Spine",
+    "summonCondition": "Summoned in the Crimson with Bloody Spine, or by breaking 3 Crimson Hearts",
+    "drops": ["Crimtane Ore", "Tissue Sample", "Brain of Cthulhu Trophy"],
+    "recommendedGear": [
+      {
+        "class": "melee",
+        "armor": ["Gold Armor", "Platinum Armor"],
+        "weapons": ["Gold Broadsword", "Platinum Broadsword"],
+        "accessories": ["Cloud in a Bottle", "Hermes Boots"]
+      },
+      {
+        "class": "ranged",
+        "armor": ["Gold Armor", "Platinum Armor"],
+        "weapons": ["Gold Bow", "Flintlock Pistol"],
+        "accessories": ["Cloud in a Bottle", "Hermes Boots"]
+      },
+      {
+        "class": "magic",
+        "armor": ["Gold Armor"],
+        "weapons": ["Crimson Rod", "Wand of Sparking"],
+        "accessories": ["Cloud in a Bottle", "Hermes Boots"]
+      },
+      {
+        "class": "summoner",
+        "armor": ["Gold Armor"],
+        "weapons": ["Slime Staff"],
+        "accessories": ["Cloud in a Bottle", "Hermes Boots"]
+      }
+    ],
+    "strategy": "The Brain of Cthulhu has two phases. First, kill all 20 Creepers surrounding it — the Brain is invincible until they're gone. In phase 2, the Brain becomes visible and dashes at you erratically while creating illusions. Focus on the real Brain (it's the one that can be damaged).",
+    "tips": [
+      "Kill all Creepers first — the Brain cannot be damaged until then",
+      "In phase 2, only the real Brain takes damage — look for the non-translucent one",
+      "AoE attacks are great for clearing Creepers quickly",
+      "Fight in a flat Crimson area or build an arena above it"
+    ]
+  },
+  {
+    "id": "queen-bee",
+    "name": "Queen Bee",
+    "phase": "pre-hardmode",
+    "order": 4,
+    "summonItem": "Abeemination",
+    "summonCondition": "Summoned in the Jungle with Abeemination, or by breaking a Larva in an Underground Hive",
+    "drops": ["Bee Gun", "Bee Keeper", "Beehive", "Nectar", "Stinger", "Honey Comb", "Queen Bee Trophy"],
+    "recommendedGear": [
+      {
+        "class": "melee",
+        "armor": ["Jungle Armor", "Gold Armor"],
+        "weapons": ["Muramasa", "Blade of Grass", "Ball O' Hurt"],
+        "accessories": ["Cloud in a Bottle", "Hermes Boots", "Band of Regeneration"]
+      },
+      {
+        "class": "ranged",
+        "armor": ["Gold Armor", "Platinum Armor"],
+        "weapons": ["Minishark", "Gold Bow"],
+        "accessories": ["Cloud in a Bottle", "Hermes Boots"]
+      },
+      {
+        "class": "magic",
+        "armor": ["Meteor Armor", "Jungle Armor"],
+        "weapons": ["Space Gun", "Vilethorn", "Demon Scythe"],
+        "accessories": ["Cloud in a Bottle", "Hermes Boots", "Magic Cuffs"]
+      },
+      {
+        "class": "summoner",
+        "armor": ["Jungle Armor"],
+        "weapons": ["Slime Staff"],
+        "accessories": ["Cloud in a Bottle", "Hermes Boots"]
+      }
+    ],
+    "strategy": "Queen Bee alternates between charging, hovering and firing stingers, and summoning Bees. She becomes faster as her HP drops. Build a vertical arena or find a large open cave. Keep moving horizontally during charges and position below her during stinger phases.",
+    "tips": [
+      "Honey gives a regeneration buff — lure her near honey pools",
+      "She speeds up significantly in later phases",
+      "The Beehive accessory from her drops gives permanent bee allies",
+      "Honey Potions are cheap to make and very effective here"
+    ]
+  },
+  {
+    "id": "skeletron",
+    "name": "Skeletron",
+    "phase": "pre-hardmode",
+    "order": 5,
+    "summonItem": "Cloth Doll",
+    "summonCondition": "Talk to the Old Man at the Dungeon entrance at night. Using Clothier Voodoo Doll if the Clothier NPC is present.",
+    "drops": ["Skeletron Hand", "Book of Skulls", "Golden Key", "Skeletron Trophy"],
+    "recommendedGear": [
+      {
+        "class": "melee",
+        "armor": ["Molten Armor", "Shadow Armor", "Crimson Armor"],
+        "weapons": ["Fireblossom", "Muramasa", "Night's Edge"],
+        "accessories": ["Cloud in a Bottle", "Hermes Boots", "Obsidian Shield"]
+      },
+      {
+        "class": "ranged",
+        "armor": ["Necro Armor"],
+        "weapons": ["Minishark", "Musket", "Star Cannon"],
+        "accessories": ["Cloud in a Bottle", "Hermes Boots"]
+      },
+      {
+        "class": "magic",
+        "armor": ["Meteor Armor"],
+        "weapons": ["Space Gun", "Demon Scythe", "Water Bolt"],
+        "accessories": ["Cloud in a Bottle", "Hermes Boots", "Magic Cuffs"]
+      },
+      {
+        "class": "summoner",
+        "armor": ["Jungle Armor"],
+        "weapons": ["Imp Staff"],
+        "accessories": ["Cloud in a Bottle", "Hermes Boots"]
+      }
+    ],
+    "strategy": "Skeletron has a head and two hands. The hands can be killed first to remove their attacks, but the head must be defeated to win. Destroy the hands first to make the fight easier. During the spinning phase (head spins rapidly), avoid contact and wait. Fight only at night — at dawn Skeletron enters a permanently spinning state and is effectively invincible.",
+    "tips": [
+      "Fight only at night — he becomes invincible at dawn",
+      "Destroy both hands first to eliminate their attacks",
+      "During the spinning phase, keep distance and don't attack",
+      "Water Bolt from the Dungeon bookshelves is incredible here"
+    ]
+  },
+  {
+    "id": "wall-of-flesh",
+    "name": "Wall of Flesh",
+    "phase": "pre-hardmode",
+    "order": 6,
+    "summonItem": "Guide Voodoo Doll",
+    "summonCondition": "Throw a Guide Voodoo Doll into lava in the Underworld. The Guide NPC must be alive.",
+    "drops": ["Pwnhammer", "Breaker Blade", "Clockwork Assault Rifle", "Laser Rifle", "Warrior Emblem", "Sorcerer Emblem", "Ranger Emblem", "Summoner Emblem", "Wall of Flesh Trophy"],
+    "recommendedGear": [
+      {
+        "class": "melee",
+        "armor": ["Molten Armor"],
+        "weapons": ["Night's Edge", "Volcano", "Sunfury"],
+        "accessories": ["Obsidian Shield", "Magma Stone", "Lava Waders", "Hermes Boots"]
+      },
+      {
+        "class": "ranged",
+        "armor": ["Necro Armor"],
+        "weapons": ["Minishark", "Molten Fury", "Star Cannon"],
+        "accessories": ["Hermes Boots", "Obsidian Shield", "Magic Quiver"]
+      },
+      {
+        "class": "magic",
+        "armor": ["Meteor Armor", "Jungle Armor"],
+        "weapons": ["Space Gun", "Demon Scythe", "Flower of Fire"],
+        "accessories": ["Hermes Boots", "Magic Cuffs", "Obsidian Shield"]
+      },
+      {
+        "class": "summoner",
+        "armor": ["Jungle Armor"],
+        "weapons": ["Imp Staff"],
+        "accessories": ["Hermes Boots", "Papyrus Scarab", "Obsidian Shield"]
+      }
+    ],
+    "strategy": "The Wall of Flesh spans the entire height of the Underworld and moves horizontally. You must outrun it while dealing damage. Build a long straight platform across the Underworld. Focus damage on the eyes (especially the laser eye). The Hungry enemies on the wall deal constant contact damage — kill them first. If it catches you, you die instantly.",
+    "tips": [
+      "Build a 1500+ block long platform across the Underworld beforehand",
+      "Focus the Laser Eye for most efficient damage",
+      "Kill the Hungry first to stop their constant damage",
+      "Buff up with all potions before throwing the doll — no time to recover",
+      "Defeating this boss triggers Hardmode"
+    ]
+  },
+  {
+    "id": "queen-slime",
+    "name": "Queen Slime",
+    "phase": "hardmode",
+    "order": 7,
+    "summonItem": "Gelatin Crystal",
+    "summonCondition": "Summon with a Gelatin Crystal found in the Underground Hallow",
+    "drops": ["Blade Staff", "Volatile Gelatin", "Gelatinous Pillion", "Crystal Assassin Armor", "Queen Slime Trophy"],
+    "recommendedGear": [
+      {
+        "class": "melee",
+        "armor": ["Palladium Armor", "Cobalt Armor"],
+        "weapons": ["Dao of Pow", "Cutlass", "Amarok"],
+        "accessories": ["Lightning Boots", "Shield of Cthulhu", "Cross Necklace"]
+      },
+      {
+        "class": "ranged",
+        "armor": ["Palladium Armor", "Cobalt Armor"],
+        "weapons": ["Megashark prototype", "Daedalus Stormbow"],
+        "accessories": ["Lightning Boots", "Magic Quiver", "Ranger Emblem"]
+      },
+      {
+        "class": "magic",
+        "armor": ["Meteor Armor", "Palladium Armor"],
+        "weapons": ["Crystal Storm", "Cursed Flames"],
+        "accessories": ["Lightning Boots", "Sorcerer Emblem", "Magic Cuffs"]
+      },
+      {
+        "class": "summoner",
+        "armor": ["Bee Armor"],
+        "weapons": ["Blade Staff", "Spider Staff"],
+        "accessories": ["Lightning Boots", "Summoner Emblem", "Papyrus Scarab"]
+      }
+    ],
+    "strategy": "Queen Slime has two phases. In phase 1 she bounces around the Hallow and fires gel projectiles. In phase 2 she gains wings and launches gel projectiles that fall like rain. She must be fought in the Hallow. Build a wide flat arena with multiple platform layers.",
+    "tips": [
+      "Must be fought in the Hallow — she teleports back if you leave",
+      "Phase 2 wings make her significantly more mobile",
+      "Crystal Assassin Armor from her drops is excellent for early Hardmode",
+      "Multiple platform layers help dodge her gel rain attacks"
+    ]
+  },
+  {
+    "id": "the-twins",
+    "name": "The Twins",
+    "phase": "hardmode",
+    "order": 8,
+    "summonItem": "Mechanical Eye",
+    "summonCondition": "Spawns randomly at night in Hardmode, or summon with Mechanical Eye",
+    "drops": ["Hallowed Bars", "Souls of Sight", "Optic Staff", "The Twins Trophy"],
+    "recommendedGear": [
+      {
+        "class": "melee",
+        "armor": ["Palladium Armor", "Cobalt Armor", "Titanium Armor"],
+        "weapons": ["Dao of Pow", "Amarok", "Cutlass"],
+        "accessories": ["Lightning Boots", "Shield of Cthulhu", "Cross Necklace"]
+      },
+      {
+        "class": "ranged",
+        "armor": ["Palladium Armor", "Titanium Armor"],
+        "weapons": ["Megashark", "Daedalus Stormbow", "Aerial Bane"],
+        "accessories": ["Lightning Boots", "Magic Quiver", "Ranger Emblem"]
+      },
+      {
+        "class": "magic",
+        "armor": ["Titanium Armor", "Adamantite Armor"],
+        "weapons": ["Crystal Storm", "Cursed Flames", "Golden Shower"],
+        "accessories": ["Lightning Boots", "Sorcerer Emblem", "Spell Book"]
+      },
+      {
+        "class": "summoner",
+        "armor": ["Spider Armor"],
+        "weapons": ["Spider Staff", "Optic Staff"],
+        "accessories": ["Lightning Boots", "Summoner Emblem", "Papyrus Scarab"]
+      }
+    ],
+    "strategy": "The Twins are two mechanical eyes — Retinazer (fires lasers) and Spazmatism (fires cursed flames). Each has two phases. Defeat them both before dawn or they regenerate to full HP. Kill Spazmatism first as it becomes more dangerous in phase 2. A large open arena with long platforms is essential.",
+    "tips": [
+      "Must defeat both before dawn or they fully heal",
+      "Kill Spazmatism first — its phase 2 cursed flame breath is devastating",
+      "Keep moving constantly — both deal significant damage",
+      "Daedalus Stormbow with Holy Arrows destroys them quickly"
+    ]
+  },
+  {
+    "id": "the-destroyer",
+    "name": "The Destroyer",
+    "phase": "hardmode",
+    "order": 8,
+    "summonItem": "Mechanical Worm",
+    "summonCondition": "Spawns randomly at night in Hardmode, or summon with Mechanical Worm",
+    "drops": ["Hallowed Bars", "Souls of Might", "Destroyer Trophy"],
+    "recommendedGear": [
+      {
+        "class": "melee",
+        "armor": ["Palladium Armor", "Titanium Armor"],
+        "weapons": ["Dao of Pow", "Amarok"],
+        "accessories": ["Lightning Boots", "Cross Necklace", "Worm Scarf"]
+      },
+      {
+        "class": "ranged",
+        "armor": ["Palladium Armor", "Titanium Armor"],
+        "weapons": ["Daedalus Stormbow", "Megashark"],
+        "accessories": ["Lightning Boots", "Magic Quiver", "Ranger Emblem"]
+      },
+      {
+        "class": "magic",
+        "armor": ["Titanium Armor"],
+        "weapons": ["Golden Shower", "Crystal Storm"],
+        "accessories": ["Lightning Boots", "Sorcerer Emblem"]
+      },
+      {
+        "class": "summoner",
+        "armor": ["Spider Armor"],
+        "weapons": ["Spider Staff"],
+        "accessories": ["Lightning Boots", "Summoner Emblem"]
+      }
+    ],
+    "strategy": "The Destroyer is a massive mechanical worm. It releases Probes that fire lasers when damaged. The Daedalus Stormbow with Holy Arrows is exceptionally strong here because the arrows hit multiple segments. Build a long sky platform to keep distance. Kill Probes as they appear to reduce incoming laser fire.",
+    "tips": [
+      "Daedalus Stormbow + Holy Arrows is the fastest kill strategy",
+      "Kill Probes quickly — they stack up and their lasers overwhelm you",
+      "It cannot be split like the Eater of Worlds",
+      "Must be defeated before dawn"
+    ]
+  },
+  {
+    "id": "skeletron-prime",
+    "name": "Skeletron Prime",
+    "phase": "hardmode",
+    "order": 8,
+    "summonItem": "Mechanical Skull",
+    "summonCondition": "Spawns randomly at night in Hardmode, or summon with Mechanical Skull",
+    "drops": ["Hallowed Bars", "Souls of Fright", "Skeletron Prime Trophy"],
+    "recommendedGear": [
+      {
+        "class": "melee",
+        "armor": ["Titanium Armor", "Frost Armor"],
+        "weapons": ["Dao of Pow", "Amarok", "Frost Brand"],
+        "accessories": ["Lightning Boots", "Shield of Cthulhu", "Cross Necklace"]
+      },
+      {
+        "class": "ranged",
+        "armor": ["Titanium Armor", "Frost Armor"],
+        "weapons": ["Megashark", "Daedalus Stormbow"],
+        "accessories": ["Lightning Boots", "Magic Quiver", "Ranger Emblem"]
+      },
+      {
+        "class": "magic",
+        "armor": ["Titanium Armor"],
+        "weapons": ["Crystal Storm", "Cursed Flames", "Inferno Fork"],
+        "accessories": ["Lightning Boots", "Sorcerer Emblem"]
+      },
+      {
+        "class": "summoner",
+        "armor": ["Spider Armor"],
+        "weapons": ["Spider Staff"],
+        "accessories": ["Lightning Boots", "Summoner Emblem"]
+      }
+    ],
+    "strategy": "Skeletron Prime has a head and four arms: Cannon, Saw, Vice, and Laser. The hands are optional kills but removing them makes the fight much easier. The Cannon is the most dangerous arm. Defeat all arms first, then focus the head. The head spins like regular Skeletron — avoid contact during spin phase.",
+    "tips": [
+      "Kill the Prime Cannon first — it deals the most damage",
+      "Head spinning is a safe phase to reload/heal if needed",
+      "Must defeat before dawn",
+      "Arms respawn if the head is still alive — prioritize the head after arms"
+    ]
+  },
+  {
+    "id": "plantera",
+    "name": "Plantera",
+    "phase": "hardmode",
+    "order": 9,
+    "summonItem": "Plantera's Bulb",
+    "summonCondition": "Break a Plantera's Bulb that spawns in the Underground Jungle after all 3 Mechanical Bosses are defeated",
+    "drops": ["Temple Key", "Grenade Launcher", "Venus Magnum", "Nightshade Petal", "Pygmy Staff", "Wasp Gun", "Seedler", "Plantera Trophy"],
+    "recommendedGear": [
+      {
+        "class": "melee",
+        "armor": ["Hallowed Armor", "Frost Armor"],
+        "weapons": ["Terra Blade", "Death Sickle", "Flower Pow"],
+        "accessories": ["Lightning Boots", "Ankh Shield", "Cross Necklace"]
+      },
+      {
+        "class": "ranged",
+        "armor": ["Hallowed Armor", "Frost Armor"],
+        "weapons": ["Megashark", "Venus Magnum", "Dart Rifle"],
+        "accessories": ["Lightning Boots", "Ranger Emblem", "Magic Quiver"]
+      },
+      {
+        "class": "magic",
+        "armor": ["Hallowed Armor", "Turtle Armor"],
+        "weapons": ["Golden Shower", "Crystal Storm", "Flower of Frost"],
+        "accessories": ["Lightning Boots", "Sorcerer Emblem", "Mana Flower"]
+      },
+      {
+        "class": "summoner",
+        "armor": ["Tiki Armor", "Spider Armor"],
+        "weapons": ["Pygmy Staff", "Spider Staff"],
+        "accessories": ["Lightning Boots", "Summoner Emblem", "Papyrus Scarab"]
+      }
+    ],
+    "strategy": "Plantera has two phases. In phase 1, she is tethered by vines and moves slowly, firing seeds and spores. In phase 2 (below 50% HP), she releases her petals, speeds up dramatically, and fires pink spiky balls. Build a large circular arena in the Underground Jungle. Phase 2 requires constant circular movement.",
+    "tips": [
+      "Build a large circular arena in the Jungle — at least 100 blocks wide",
+      "Phase 2 is much faster and more aggressive — be ready",
+      "She must be fought underground — surface fighting is not possible",
+      "Bring more DPS than for mechanical bosses — she has a lot of HP"
+    ]
+  },
+  {
+    "id": "golem",
+    "name": "Golem",
+    "phase": "hardmode",
+    "order": 10,
+    "summonItem": "Lihzahrd Power Cell",
+    "summonCondition": "Use a Lihzahrd Power Cell on the Lihzahrd Altar inside the Jungle Temple",
+    "drops": ["Picksaw", "Heat Ray", "Staff of Earth", "Possessed Hatchet", "Sun Stone", "Eye of the Golem", "Golem Fist", "Golem Trophy"],
+    "recommendedGear": [
+      {
+        "class": "melee",
+        "armor": ["Turtle Armor", "Beetle Armor"],
+        "weapons": ["Terra Blade", "True Excalibur", "Possessed Hatchet"],
+        "accessories": ["Lightning Boots", "Ankh Shield", "Warrior Emblem"]
+      },
+      {
+        "class": "ranged",
+        "armor": ["Hallowed Armor", "Shroomite Armor"],
+        "weapons": ["Megashark", "Uzi", "Chlorophyte Shotbow"],
+        "accessories": ["Lightning Boots", "Ranger Emblem", "Magic Quiver"]
+      },
+      {
+        "class": "magic",
+        "armor": ["Spectre Armor"],
+        "weapons": ["Razorblade Typhoon", "Inferno Fork", "Laser Machinegun"],
+        "accessories": ["Lightning Boots", "Sorcerer Emblem", "Mana Flower"]
+      },
+      {
+        "class": "summoner",
+        "armor": ["Tiki Armor"],
+        "weapons": ["Pygmy Staff", "Xeno Staff"],
+        "accessories": ["Lightning Boots", "Summoner Emblem", "Papyrus Scarab"]
+      }
+    ],
+    "strategy": "Golem is fought inside the Jungle Temple. It fires lasers, punches with its fists, and its head can detach and fly. Focus the fists first, then the body. The head becomes a separate target — kill it quickly. The fight is relatively straightforward compared to Plantera.",
+    "tips": [
+      "The Temple arena is naturally enclosed — clear some space beforehand",
+      "Kill the fists first to stop their attacks",
+      "Once the head detaches, focus it down quickly",
+      "Beetle Armor's defensive set helps greatly for melee players"
+    ]
+  },
+  {
+    "id": "duke-fishron",
+    "name": "Duke Fishron",
+    "phase": "hardmode",
+    "order": 11,
+    "summonItem": "Truffle Worm",
+    "summonCondition": "Fish with a Truffle Worm as bait in the Ocean",
+    "drops": ["Fishron Wings", "Flairon", "Razorblade Typhoon", "Tempest Staff", "Bubble Gun", "Duke Fishron Trophy"],
+    "recommendedGear": [
+      {
+        "class": "melee",
+        "armor": ["Beetle Armor", "Turtle Armor"],
+        "weapons": ["Terra Blade", "Flairon"],
+        "accessories": ["Lightning Boots", "Ankh Shield", "Cross Necklace"]
+      },
+      {
+        "class": "ranged",
+        "armor": ["Shroomite Armor"],
+        "weapons": ["Tsunami", "Megashark"],
+        "accessories": ["Lightning Boots", "Ranger Emblem", "Magic Quiver"]
+      },
+      {
+        "class": "magic",
+        "armor": ["Spectre Armor"],
+        "weapons": ["Razorblade Typhoon", "Bubble Gun"],
+        "accessories": ["Lightning Boots", "Sorcerer Emblem", "Mana Flower"]
+      },
+      {
+        "class": "summoner",
+        "armor": ["Tiki Armor"],
+        "weapons": ["Tempest Staff"],
+        "accessories": ["Lightning Boots", "Summoner Emblem", "Papyrus Scarab"]
+      }
+    ],
+    "strategy": "Duke Fishron is an optional but extremely tough boss. He has three phases. In phase 1, he charges and fires Sharknadoes. In phase 2 (below 50% HP), he spawns Cthulunados and moves faster. In phase 3 (below 15% HP), he becomes enraged: invisible, super fast, and devastating. Either burst him down before phase 3 or be prepared for extreme difficulty.",
+    "tips": [
+      "Fight over the Ocean and build a platform above it",
+      "Phase 3 is extremely difficult — high DPS is essential",
+      "Fishron Wings from his drops are among the best wings",
+      "Dodge his charge attacks by moving perpendicular to his trajectory"
+    ]
+  },
+  {
+    "id": "empress-of-light",
+    "name": "Empress of Light",
+    "phase": "hardmode",
+    "order": 12,
+    "summonItem": "Prismatic Lacewing",
+    "summonCondition": "Kill a Prismatic Lacewing butterfly in the Hallow at night. Killing her during the day makes all her attacks one-shot you.",
+    "drops": ["Terraprisma (daytime kill only)", "Kaleidoscope", "Nightglow", "Starlight", "Empress Wings", "Empress of Light Trophy"],
+    "recommendedGear": [
+      {
+        "class": "melee",
+        "armor": ["Beetle Armor"],
+        "weapons": ["Terra Blade", "Influx Waver"],
+        "accessories": ["Lightning Boots", "Shield of Cthulhu", "Ankh Shield"]
+      },
+      {
+        "class": "ranged",
+        "armor": ["Shroomite Armor"],
+        "weapons": ["Phantasm", "Tsunami"],
+        "accessories": ["Lightning Boots", "Ranger Emblem", "Magic Quiver"]
+      },
+      {
+        "class": "magic",
+        "armor": ["Spectre Armor"],
+        "weapons": ["Last Prism", "Razorblade Typhoon"],
+        "accessories": ["Lightning Boots", "Sorcerer Emblem", "Mana Flower"]
+      },
+      {
+        "class": "summoner",
+        "armor": ["Stardust Armor"],
+        "weapons": ["Kaleidoscope", "Xeno Staff"],
+        "accessories": ["Lightning Boots", "Summoner Emblem", "Papyrus Scarab"]
+      }
+    ],
+    "strategy": "Empress of Light is a highly mobile boss with elaborate attack patterns. She fires beams, summons phantasmal spheres, and has sweeping sword attacks. For the Terraprisma (best summon weapon), she must be killed entirely during the day — but all daytime attacks one-shot you. This requires near-perfect dodge skill or specific cheese strategies.",
+    "tips": [
+      "For daytime kill (Terraprisma), practice her patterns in nighttime first",
+      "Her attacks follow visible patterns — learn the tells",
+      "Endless open space is required — don't fight near walls",
+      "The Terraprisma is worth the effort for Summoners"
+    ]
+  },
+  {
+    "id": "lunatic-cultist",
+    "name": "Lunatic Cultist",
+    "phase": "hardmode",
+    "order": 13,
+    "summonItem": null,
+    "summonCondition": "Kill the four Cultists at the Dungeon entrance after defeating Golem",
+    "drops": ["Lunatic Cultist Trophy", "Ancient Manipulator"],
+    "recommendedGear": [
+      {
+        "class": "melee",
+        "armor": ["Beetle Armor"],
+        "weapons": ["Terra Blade", "Influx Waver", "Eye of Cthulhu (yoyo)"],
+        "accessories": ["Lightning Boots", "Ankh Shield", "Warrior Emblem"]
+      },
+      {
+        "class": "ranged",
+        "armor": ["Shroomite Armor"],
+        "weapons": ["Phantasm", "Tsunami", "Vortex Beater"],
+        "accessories": ["Lightning Boots", "Ranger Emblem", "Magic Quiver"]
+      },
+      {
+        "class": "magic",
+        "armor": ["Spectre Armor"],
+        "weapons": ["Razorblade Typhoon", "Last Prism"],
+        "accessories": ["Lightning Boots", "Sorcerer Emblem", "Mana Flower"]
+      },
+      {
+        "class": "summoner",
+        "armor": ["Tiki Armor"],
+        "weapons": ["Tempest Staff", "Xeno Staff"],
+        "accessories": ["Lightning Boots", "Summoner Emblem", "Papyrus Scarab"]
+      }
+    ],
+    "strategy": "Lunatic Cultist has two phases. Kill the real cultist among the four first (attack them all — the imposters disappear). He then summons Ancient Doom, Phantasm Dragon, and Ancient Light. He creates illusions — only the real one takes damage. High mobility is key to dodge his diverse attack patterns.",
+    "tips": [
+      "The real Cultist is the one that doesn't disappear when hit",
+      "Kill impostor Cultists quickly to prevent him summoning the Celestial Pillars early",
+      "Defeating him spawns the four Celestial Pillars",
+      "Ancient Manipulator dropped here is needed for endgame crafting"
+    ]
+  },
+  {
+    "id": "moon-lord",
+    "name": "Moon Lord",
+    "phase": "post-moonlord",
+    "order": 14,
+    "summonItem": "Celestial Sigil",
+    "summonCondition": "Defeat all four Celestial Pillars (Solar, Vortex, Nebula, Stardust), or use a Celestial Sigil",
+    "drops": ["Meowmere", "Star Wrath", "Terrarian", "Last Prism", "Lunar Flare", "S.D.M.G.", "Celeb II", "Phantasm", "Rainbow Crystal Staff", "Lunar Portal Staff", "Portal Gun", "Greater Healing Potion", "Moon Lord Trophy"],
+    "recommendedGear": [
+      {
+        "class": "melee",
+        "armor": ["Solar Flare Armor"],
+        "weapons": ["Influx Waver", "Daybreak", "Solar Eruption"],
+        "accessories": ["Lightning Boots", "Ankh Shield", "Warrior Emblem", "Celestial Shell"]
+      },
+      {
+        "class": "ranged",
+        "armor": ["Vortex Armor"],
+        "weapons": ["Vortex Beater", "Phantasm"],
+        "accessories": ["Lightning Boots", "Ranger Emblem", "Magic Quiver", "Celestial Shell"]
+      },
+      {
+        "class": "magic",
+        "armor": ["Nebula Armor"],
+        "weapons": ["Last Prism", "Lunar Flare", "Nebula Blaze"],
+        "accessories": ["Lightning Boots", "Sorcerer Emblem", "Mana Flower", "Celestial Shell"]
+      },
+      {
+        "class": "summoner",
+        "armor": ["Stardust Armor"],
+        "weapons": ["Stardust Dragon Staff", "Stardust Cell Staff"],
+        "accessories": ["Lightning Boots", "Summoner Emblem", "Papyrus Scarab", "Necromantic Scroll"]
+      }
+    ],
+    "strategy": "Moon Lord is the final boss. He has three eyes: two on his hands and one on his forehead. Each eye has a core that must be destroyed when it opens. After all three eyes are destroyed, his core on his chest is exposed — destroy it to win. He fires phantasmal bolts, true eye beams, and summons True Eyes of Cthulhu when defeated. Constant movement and maximum gear are required.",
+    "tips": [
+      "Destroy both hand eyes first, then the forehead eye",
+      "The Vortex Beater or Phantasm (ranged) are top-tier here",
+      "Keep a large arena — he spawns True Eyes of Cthulhu at the end",
+      "Buff up with every possible potion",
+      "The Nurse NPC can be used for emergency healing during the fight"
+    ]
+  }
+]
