@@ -5,10 +5,14 @@
  * Run with: node server.js
  */
 
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
-const url = require('url');
+import http from 'node:http';
+import fs from 'node:fs';
+import path from 'node:path';
+import url from 'node:url';
+import { spawn } from 'node:child_process';
+
+const __filename = url.fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const PORT = process.env.PORT || 8000;
 const DIST_DIR = path.join(__dirname, 'dist');
@@ -95,7 +99,6 @@ server.listen(PORT, () => {
   
   // Auto-open browser if possible
   try {
-    const { spawn } = require('child_process');
     const platform = process.platform;
     if (platform === 'win32') {
       spawn('start', [`http://localhost:${PORT}`], { shell: true });
