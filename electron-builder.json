@@ -3,8 +3,8 @@
   "productName": "Terraria Companion",
   "files": [
     "dist/**/*",
-    "electron-main.js",
-    "electron-preload.js",
+    "electron-main.cjs",
+    "electron-preload.cjs",
     "node_modules/**/*",
     "package.json"
   ],
@@ -15,8 +15,7 @@
     "target": [
       "nsis",
       "portable"
-    ],
-    "certificateFile": null
+    ]
   },
   "nsis": {
     "oneClick": false,
