@@ -1,73 +1,60 @@
-# React + TypeScript + Vite
+# Terraria Companion
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A second-screen browser reference for Terraria players. Look up items, track bosses, plan builds, and browse NPC/biome guides — all in one place.
 
-Currently, two official plugins are available:
+**Data version:** 1.4.4.9
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- **Item Lookup** — Search ~180 items with fuzzy matching, view crafting recipes (crafts & used-in chains), and jump to the wiki
+- **Boss Tracker** — All ~16 bosses with gear recommendations and strategy notes; progress is saved to localStorage
+- **Build Planner** — Multi-loadout system with armor, weapon, and accessory slots; filter by class; saved to localStorage
+- **NPC Guide** — All ~25 NPCs with full happiness tables and biome filter chips
+- **Biome Guide** — All ~20 biomes with resources, enemies, and NPC affinities
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+| Layer | Library |
+|---|---|
+| Framework | React 19 + TypeScript |
+| Build | Vite |
+| Styling | Tailwind CSS v4 |
+| Routing | React Router v7 |
+| State / persistence | Zustand (persist) |
+| Fuzzy search | Fuse.js |
+| Icons | Lucide React |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Scripts
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Command | Description |
+|---|---|
+| `npm run dev` | Start dev server |
+| `npm run build` | Type-check and build for production |
+| `npm run preview` | Preview production build locally |
+| `npm run lint` | Run ESLint |
+
+## Project Structure
+
 ```
+src/
+├── data/         # Game data (items, bosses, NPCs, biomes) + central index
+├── pages/        # Route-level page components
+├── components/   # Shared UI components
+├── store/        # Zustand stores (boss tracker, build planner)
+├── hooks/        # Custom hooks (e.g. debounced item search)
+├── lib/          # Utilities (Fuse.js search instance)
+└── types/        # TypeScript types
+```
+
+## License
+
+This is an unofficial fan project and is not affiliated with Re-Logic. Terraria is a trademark of Re-Logic.
