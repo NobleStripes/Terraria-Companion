@@ -11,35 +11,5 @@
   "directories": {
     "buildResources": "public"
   },
-  "win": {
-    "target": [
-      "nsis",
-      "portable"
-    ],
-    
-    "signAndEditExecutable": false,
-    "forceCodeSigning": false
-  },
-  "nsis": {
-    "oneClick": false,
-    "allowToChangeInstallationDirectory": true,
-    "createDesktopShortcut": true,
-    "createStartMenuShortcut": true
-  },
-  "mac": {
-    "target": [
-      "dmg",
-      "zip"
-    ],
-    
-    "category": "public.app-category.utilities"
-  },
-  "linux": {
-    "target": [
-      "AppImage",
-      "deb"
-    ],
-    
-    "category": "Utility"
-  }
+  
 }
