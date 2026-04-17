@@ -3,7 +3,6 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "main": "electron-main.cjs",
   "author": "NobleStripes",
   "homepage": "./",
   "scripts": {
@@ -12,11 +11,6 @@
     "build": "npm run clean && tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "electron-dev": "concurrently \"vite\" \"wait-on http://localhost:5173 && electron .\"",
-    "electron-build": "npm run clean && npm run build && electron-builder",
-    "electron-build:win": "npm run clean && npm run build && electron-builder --win",
-    "electron-build:mac": "npm run clean && npm run build && electron-builder --mac",
-    "electron-build:linux": "npm run clean && npm run build && electron-builder --linux",
     "lib:build": "tsc -b --declaration --declarationMap --emitDeclarationOnly --outDir dist",
     "lib:prepublishonly": "npm run lib:build"
   },
