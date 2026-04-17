@@ -1,0 +1,41 @@
+{
+  "appId": "com.terraria-companion.app",
+  "productName": "Terraria Companion",
+  "files": [
+    "dist/**/*",
+    "electron-main.js",
+    "electron-preload.js",
+    "node_modules/**/*",
+    "package.json"
+  ],
+  "directories": {
+    "buildResources": "public"
+  },
+  "win": {
+    "target": [
+      "nsis",
+      "portable"
+    ],
+    "certificateFile": null
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true
+  },
+  "mac": {
+    "target": [
+      "dmg",
+      "zip"
+    ],
+    "category": "public.app-category.utilities"
+  },
+  "linux": {
+    "target": [
+      "AppImage",
+      "deb"
+    ],
+    "category": "Utility"
+  }
+}

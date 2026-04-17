@@ -41,6 +41,33 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 | `npm run build` | Type-check and build for production |
 | `npm run preview` | Preview production build locally |
 | `npm run lint` | Run ESLint |
+| `npm run electron-dev` | Run Electron app in dev mode |
+| `npm run electron-build` | Build Electron installers (all platforms) |
+| `npm run electron-build:win` | Build Windows .exe installer |
+| `npm run electron-build:mac` | Build macOS .dmg installer |
+| `npm run electron-build:linux` | Build Linux installers |
+
+## Distribution & Deployment
+
+Two ways to distribute Terraria Companion:
+
+### 🌐 **Standalone Server** (No Installation)
+For users who just want to run it locally:
+```bash
+npm run build
+node server.js
+# Opens http://localhost:8000
+```
+See `start-server.bat` (Windows) and `start-server.sh` (macOS/Linux) for user-friendly launchers.
+
+### 🖥️ **Electron Desktop App** (.exe / .dmg Installers)
+For professional distribution as a desktop application:
+```bash
+npm run electron-build
+# Creates installers in dist/
+```
+
+**Full guide:** See [DISTRIBUTION.md](./DISTRIBUTION.md)
 
 ## Project Structure
 
