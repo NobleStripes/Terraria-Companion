@@ -8,7 +8,7 @@ import { RarityBadge, TypeBadge } from '@/components/ui/Badge'
 import { useItemSearch } from '@/hooks/useItemSearch'
 import { useRecipesForItem } from '@/hooks/useRecipes'
 import { usePrefixesForItem } from '@/hooks/usePrefixes'
-import { itemsById, items } from '@/data/index'
+import { itemsById, items, prefixesById } from '@/data/index'
 import type { Item } from '@/types/item'
 import { applyPrefixToItemStats } from '@/lib/prefixes'
 
@@ -267,6 +267,7 @@ export default function ItemLookup() {
                 key={item.id}
                 item={item}
                 selected={item.id === selectedId}
+                prefixLabel={item.id === selectedId && selectedPrefixId ? prefixesById.get(selectedPrefixId)?.name : undefined}
                 onClick={() => selectItem(item.id)}
               />
             ))}

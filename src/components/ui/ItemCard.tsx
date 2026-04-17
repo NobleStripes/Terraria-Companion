@@ -7,9 +7,10 @@ interface ItemCardProps {
   selected?: boolean
   onClick?: () => void
   compact?: boolean
+  prefixLabel?: string
 }
 
-export function ItemCard({ item, selected, onClick, compact }: ItemCardProps) {
+export function ItemCard({ item, selected, onClick, compact, prefixLabel }: ItemCardProps) {
   return (
     <button
       onClick={onClick}
@@ -24,7 +25,16 @@ export function ItemCard({ item, selected, onClick, compact }: ItemCardProps) {
     >
       <div className="flex items-center justify-between gap-2">
         <span className="font-semibold text-sm text-white truncate">{item.name}</span>
-        {!compact && <RarityBadge rarity={item.rarity} className="shrink-0" />}
+        {!compact && (
+          <div className="flex items-center gap-1.5 shrink-0">
+            {prefixLabel && (
+              <span className="text-[10px] leading-none px-1.5 py-1 rounded border border-terra-gold/70 bg-terra-bg text-terra-gold font-pixel">
+                {prefixLabel}
+              </span>
+            )}
+            <RarityBadge rarity={item.rarity} className="shrink-0" />
+          </div>
+        )}
       </div>
       {!compact && (
         <div className="flex items-center gap-1 mt-1">
