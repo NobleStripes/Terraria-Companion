@@ -100,4 +100,4 @@ start-server.sh   # macOS/Linux launcher for standalone server
 
 ## License
 
-This is an unofficial fan project and is not affiliated with Re-Logic. Terraria is a trademark of Re-Logic.
+This is an unofficial fan project and is not affiliated with [Re-Logic](https://re-logic.com/). Terraria is a trademark of [Re-Logic](https://re-logic.com/).
