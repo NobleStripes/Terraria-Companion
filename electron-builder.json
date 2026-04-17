@@ -16,7 +16,7 @@
       "nsis",
       "portable"
     ],
-    "icon": "icon.svg",
+    
     "signAndEditExecutable": false,
     "forceCodeSigning": false
   },
@@ -31,7 +31,7 @@
       "dmg",
       "zip"
     ],
-    "icon": "icon.svg",
+    
     "category": "public.app-category.utilities"
   },
   "linux": {
@@ -39,7 +39,7 @@
       "AppImage",
       "deb"
     ],
-    "icon": "icon.svg",
+    
     "category": "Utility"
   }
 }
