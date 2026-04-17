@@ -1,0 +1,401 @@
+[
+  {
+    "id": "broken",
+    "name": "Broken",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "-30% damage, -20% knockback",
+    "modifiers": { "damagePct": -30, "knockbackPct": -20 }
+  },
+  {
+    "id": "damaged",
+    "name": "Damaged",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "-15% damage",
+    "modifiers": { "damagePct": -15 }
+  },
+  {
+    "id": "shoddy",
+    "name": "Shoddy",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "-10% damage, -15% knockback",
+    "modifiers": { "damagePct": -10, "knockbackPct": -15 }
+  },
+  {
+    "id": "quick",
+    "name": "Quick",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "+10% use speed",
+    "modifiers": { "useSpeedPct": 10 }
+  },
+  {
+    "id": "deadly",
+    "name": "Deadly",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "+10% damage, +2% critical strike chance, +5% knockback",
+    "modifiers": { "damagePct": 10, "critChance": 2, "knockbackPct": 5 }
+  },
+  {
+    "id": "agile",
+    "name": "Agile",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "+10% use speed",
+    "modifiers": { "useSpeedPct": 10 }
+  },
+  {
+    "id": "nimble",
+    "name": "Nimble",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "+5% use speed",
+    "modifiers": { "useSpeedPct": 5 }
+  },
+  {
+    "id": "murderous",
+    "name": "Murderous",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "+7% damage, +3% critical strike chance",
+    "modifiers": { "damagePct": 7, "critChance": 3 }
+  },
+  {
+    "id": "slow",
+    "name": "Slow",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "-15% use speed",
+    "modifiers": { "useSpeedPct": -15 }
+  },
+  {
+    "id": "sluggish",
+    "name": "Sluggish",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "-10% use speed",
+    "modifiers": { "useSpeedPct": -10 }
+  },
+  {
+    "id": "lazy",
+    "name": "Lazy",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "-8% use speed",
+    "modifiers": { "useSpeedPct": -8 }
+  },
+  {
+    "id": "annoying",
+    "name": "Annoying",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "-20% knockback",
+    "modifiers": { "knockbackPct": -20 }
+  },
+  {
+    "id": "nasty",
+    "name": "Nasty",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "+5% damage, +2% critical strike chance, +10% knockback, +10% use speed",
+    "modifiers": { "damagePct": 5, "critChance": 2, "knockbackPct": 10, "useSpeedPct": 10 }
+  },
+  {
+    "id": "large",
+    "name": "Large",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "+12% size, +5% knockback",
+    "modifiers": { "sizePct": 12, "knockbackPct": 5 }
+  },
+  {
+    "id": "massive",
+    "name": "Massive",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "+18% size, +7% knockback",
+    "modifiers": { "sizePct": 18, "knockbackPct": 7 }
+  },
+  {
+    "id": "dangerous",
+    "name": "Dangerous",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "+5% damage, +2% critical strike chance, +5% knockback, +5% size",
+    "modifiers": { "damagePct": 5, "critChance": 2, "knockbackPct": 5, "sizePct": 5 }
+  },
+  {
+    "id": "savage",
+    "name": "Savage",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "+10% damage, +10% knockback, +10% size",
+    "modifiers": { "damagePct": 10, "knockbackPct": 10, "sizePct": 10 }
+  },
+  {
+    "id": "sharp",
+    "name": "Sharp",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "+15% damage",
+    "modifiers": { "damagePct": 15 }
+  },
+  {
+    "id": "pointy",
+    "name": "Pointy",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "+10% damage",
+    "modifiers": { "damagePct": 10 }
+  },
+  {
+    "id": "tiny",
+    "name": "Tiny",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "-18% size",
+    "modifiers": { "sizePct": -18 }
+  },
+  {
+    "id": "terrible",
+    "name": "Terrible",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "-15% damage, -13% size",
+    "modifiers": { "damagePct": -15, "sizePct": -13 }
+  },
+  {
+    "id": "small",
+    "name": "Small",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "-10% size",
+    "modifiers": { "sizePct": -10 }
+  },
+  {
+    "id": "dull",
+    "name": "Dull",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "-15% damage",
+    "modifiers": { "damagePct": -15 }
+  },
+  {
+    "id": "unhappy",
+    "name": "Unhappy",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "-10% damage, -10% use speed",
+    "modifiers": { "damagePct": -10, "useSpeedPct": -10 }
+  },
+  {
+    "id": "bulky",
+    "name": "Bulky",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "+5% knockback, -10% use speed, -5% size",
+    "modifiers": { "knockbackPct": 5, "useSpeedPct": -10, "sizePct": -5 }
+  },
+  {
+    "id": "shameful",
+    "name": "Shameful",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "-10% damage, +10% knockback",
+    "modifiers": { "damagePct": -10, "knockbackPct": 10 }
+  },
+  {
+    "id": "heavy",
+    "name": "Heavy",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "+15% knockback, -10% use speed",
+    "modifiers": { "knockbackPct": 15, "useSpeedPct": -10 }
+  },
+  {
+    "id": "light",
+    "name": "Light",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "+15% use speed, -10% damage, -10% knockback",
+    "modifiers": { "useSpeedPct": 15, "damagePct": -10, "knockbackPct": -10 }
+  },
+  {
+    "id": "keen",
+    "name": "Keen",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "+3% critical strike chance",
+    "modifiers": { "critChance": 3 }
+  },
+  {
+    "id": "superior",
+    "name": "Superior",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "+10% damage, +3% critical strike chance, +10% knockback, +10% use speed",
+    "modifiers": { "damagePct": 10, "critChance": 3, "knockbackPct": 10, "useSpeedPct": 10 }
+  },
+  {
+    "id": "forceful",
+    "name": "Forceful",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "+15% knockback",
+    "modifiers": { "knockbackPct": 15 }
+  },
+  {
+    "id": "strong",
+    "name": "Strong",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "+15% knockback",
+    "modifiers": { "knockbackPct": 15 }
+  },
+  {
+    "id": "godly",
+    "name": "Godly",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "+15% damage, +5% critical strike chance, +15% knockback",
+    "modifiers": { "damagePct": 15, "critChance": 5, "knockbackPct": 15 }
+  },
+  {
+    "id": "demonic",
+    "name": "Demonic",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "+15% damage, +5% critical strike chance",
+    "modifiers": { "damagePct": 15, "critChance": 5 }
+  },
+  {
+    "id": "zealous",
+    "name": "Zealous",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "+5% critical strike chance",
+    "modifiers": { "critChance": 5 }
+  },
+  {
+    "id": "ruthless",
+    "name": "Ruthless",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "+18% damage",
+    "modifiers": { "damagePct": 18 }
+  },
+  {
+    "id": "unreal",
+    "name": "Unreal",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "+15% damage, +10% use speed, +5% critical strike chance, +10% knockback, +10% velocity",
+    "modifiers": { "damagePct": 15, "useSpeedPct": 10, "critChance": 5, "knockbackPct": 10, "velocityPct": 10 }
+  },
+  {
+    "id": "mythical",
+    "name": "Mythical",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "+15% damage, +10% use speed, +5% critical strike chance, +15% knockback, -10% mana cost",
+    "modifiers": { "damagePct": 15, "useSpeedPct": 10, "critChance": 5, "knockbackPct": 15, "manaCostPct": -10 }
+  },
+  {
+    "id": "hard",
+    "name": "Hard",
+    "appliesTo": ["accessory"],
+    "tooltip": "+1 defense",
+    "modifiers": { "defense": 1 }
+  },
+  {
+    "id": "guarding",
+    "name": "Guarding",
+    "appliesTo": ["accessory"],
+    "tooltip": "+2 defense",
+    "modifiers": { "defense": 2 }
+  },
+  {
+    "id": "armored",
+    "name": "Armored",
+    "appliesTo": ["accessory"],
+    "tooltip": "+3 defense",
+    "modifiers": { "defense": 3 }
+  },
+  {
+    "id": "warding",
+    "name": "Warding",
+    "appliesTo": ["accessory"],
+    "tooltip": "+4 defense",
+    "modifiers": { "defense": 4 }
+  },
+  {
+    "id": "arcane",
+    "name": "Arcane",
+    "appliesTo": ["accessory"],
+    "tooltip": "+20 maximum mana",
+    "modifiers": { "maxMana": 20 }
+  },
+  {
+    "id": "precise",
+    "name": "Precise",
+    "appliesTo": ["accessory"],
+    "tooltip": "+2% critical strike chance",
+    "modifiers": { "critChance": 2 }
+  },
+  {
+    "id": "lucky",
+    "name": "Lucky",
+    "appliesTo": ["accessory"],
+    "tooltip": "+4% critical strike chance",
+    "modifiers": { "critChance": 4 }
+  },
+  {
+    "id": "jagged",
+    "name": "Jagged",
+    "appliesTo": ["accessory"],
+    "tooltip": "+1% damage",
+    "modifiers": { "damagePct": 1 }
+  },
+  {
+    "id": "spiked",
+    "name": "Spiked",
+    "appliesTo": ["accessory"],
+    "tooltip": "+2% damage",
+    "modifiers": { "damagePct": 2 }
+  },
+  {
+    "id": "angry",
+    "name": "Angry",
+    "appliesTo": ["accessory"],
+    "tooltip": "+3% damage",
+    "modifiers": { "damagePct": 3 }
+  },
+  {
+    "id": "menacing",
+    "name": "Menacing",
+    "appliesTo": ["accessory"],
+    "tooltip": "+4% damage",
+    "modifiers": { "damagePct": 4 }
+  },
+  {
+    "id": "brisk",
+    "name": "Brisk",
+    "appliesTo": ["accessory"],
+    "tooltip": "+1% movement speed",
+    "modifiers": { "movementSpeedPct": 1 }
+  },
+  {
+    "id": "fleeting",
+    "name": "Fleeting",
+    "appliesTo": ["accessory"],
+    "tooltip": "+2% movement speed",
+    "modifiers": { "movementSpeedPct": 2 }
+  },
+  {
+    "id": "hasty",
+    "name": "Hasty",
+    "appliesTo": ["accessory"],
+    "tooltip": "+3% movement speed",
+    "modifiers": { "movementSpeedPct": 3 }
+  },
+  {
+    "id": "quick_accessory",
+    "name": "Quick",
+    "appliesTo": ["accessory"],
+    "tooltip": "+4% movement speed",
+    "modifiers": { "movementSpeedPct": 4 }
+  },
+  {
+    "id": "wild",
+    "name": "Wild",
+    "appliesTo": ["accessory"],
+    "tooltip": "+1% melee speed",
+    "modifiers": { "meleeSpeedPct": 1 }
+  },
+  {
+    "id": "rash",
+    "name": "Rash",
+    "appliesTo": ["accessory"],
+    "tooltip": "+2% melee speed",
+    "modifiers": { "meleeSpeedPct": 2 }
+  },
+  {
+    "id": "intrepid",
+    "name": "Intrepid",
+    "appliesTo": ["accessory"],
+    "tooltip": "+3% melee speed",
+    "modifiers": { "meleeSpeedPct": 3 }
+  },
+  {
+    "id": "violent",
+    "name": "Violent",
+    "appliesTo": ["accessory"],
+    "tooltip": "+4% melee speed",
+    "modifiers": { "meleeSpeedPct": 4 }
+  }
+]
