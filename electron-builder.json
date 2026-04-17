@@ -16,7 +16,8 @@
       "nsis",
       "portable"
     ],
-    "signAndEditExecutable": false
+    "signAndEditExecutable": false,
+    "forceCodeSigning": false
   },
   "nsis": {
     "oneClick": false,
