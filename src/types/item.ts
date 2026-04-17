@@ -31,4 +31,12 @@ export interface Item {
   tooltip: string
   sources: string[]
   wikiSlug?: string
+  // Stats (optional, depending on item type)
+  damage?: number
+  defense?: number
+  speed?: number
+  knockback?: number
+  critChance?: number
+  useTime?: number
+  manaCost?: number
 }
