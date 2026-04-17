@@ -6,6 +6,11 @@ export interface BossGear {
   armor: string[]
   weapons: string[]
   accessories: string[]
+  alternate?: {
+    armor?: string[]
+    weapons?: string[]
+    accessories?: string[]
+  }
 }
 
 export interface Boss {

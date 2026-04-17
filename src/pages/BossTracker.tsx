@@ -36,6 +36,27 @@ function GearTab({ boss, selectedClass, onClassChange }: { boss: Boss; selectedC
   const classes: BuildClass[] = ['melee', 'ranged', 'magic', 'summoner']
   const gear = boss.recommendedGear.find((g) => g.class === selectedClass)
 
+  const primary = gear
+    ? {
+        armor: gear.armor.slice(0, 1),
+        weapons: gear.weapons.slice(0, 1),
+        accessories: gear.accessories.slice(0, 1),
+      }
+    : undefined
+
+  const alternate = gear
+    ? {
+        armor: gear.alternate?.armor ?? gear.armor.slice(1),
+        weapons: gear.alternate?.weapons ?? gear.weapons.slice(1),
+        accessories: gear.alternate?.accessories ?? gear.accessories.slice(1),
+      }
+    : undefined
+
+  const hasAlternate = Boolean(
+    alternate &&
+    (alternate.armor.length > 0 || alternate.weapons.length > 0 || alternate.accessories.length > 0)
+  )
+
   return (
     <div>
       <div className="flex gap-1 mb-4 border-b border-terra-border pb-2">
@@ -59,24 +80,59 @@ function GearTab({ boss, selectedClass, onClassChange }: { boss: Boss; selectedC
         })}
       </div>
       {gear ? (
-        <div className="grid grid-cols-3 gap-4 text-sm">
+        <div className="space-y-5 text-sm">
           <div>
-            <h4 className="text-terra-gold text-xs font-semibold mb-2 uppercase">Armor</h4>
-            <ul className="space-y-1">
-              {gear.armor.map((a) => <li key={a} className="text-gray-300">• {a}</li>)}
-            </ul>
+            <h4 className="text-terra-gold text-xs font-pixel mb-2">Recommended Gear</h4>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <h5 className="text-terra-gold text-xs font-semibold mb-2 uppercase">Armor</h5>
+                <ul className="space-y-1">
+                  {primary?.armor.map((a) => <li key={a} className="text-gray-300">• {a}</li>)}
+                </ul>
+              </div>
+              <div>
+                <h5 className="text-terra-gold text-xs font-semibold mb-2 uppercase">Weapons</h5>
+                <ul className="space-y-1">
+                  {primary?.weapons.map((w) => <li key={w} className="text-gray-300">• {w}</li>)}
+                </ul>
+              </div>
+              <div>
+                <h5 className="text-terra-gold text-xs font-semibold mb-2 uppercase">Accessories</h5>
+                <ul className="space-y-1">
+                  {primary?.accessories.map((a) => <li key={a} className="text-gray-300">• {a}</li>)}
+                </ul>
+              </div>
+            </div>
           </div>
-          <div>
-            <h4 className="text-terra-gold text-xs font-semibold mb-2 uppercase">Weapons</h4>
-            <ul className="space-y-1">
-              {gear.weapons.map((w) => <li key={w} className="text-gray-300">• {w}</li>)}
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-terra-gold text-xs font-semibold mb-2 uppercase">Accessories</h4>
-            <ul className="space-y-1">
-              {gear.accessories.map((a) => <li key={a} className="text-gray-300">• {a}</li>)}
-            </ul>
+
+          {hasAlternate && (
+            <div>
+              <h4 className="text-terra-sky text-xs font-pixel mb-2">Alternate Gear</h4>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                  <h5 className="text-terra-sky text-xs font-semibold mb-2 uppercase">Armor</h5>
+                  <ul className="space-y-1">
+                    {alternate?.armor.map((a) => <li key={a} className="text-gray-300">• {a}</li>)}
+                  </ul>
+                </div>
+                <div>
+                  <h5 className="text-terra-sky text-xs font-semibold mb-2 uppercase">Weapons</h5>
+                  <ul className="space-y-1">
+                    {alternate?.weapons.map((w) => <li key={w} className="text-gray-300">• {w}</li>)}
+                  </ul>
+                </div>
+                <div>
+                  <h5 className="text-terra-sky text-xs font-semibold mb-2 uppercase">Accessories</h5>
+                  <ul className="space-y-1">
+                    {alternate?.accessories.map((a) => <li key={a} className="text-gray-300">• {a}</li>)}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          )}
+
+          <div className="text-xs text-gray-500">
+            Tip: Primary recommendations are listed first; additional options appear under Alternate Gear.
           </div>
         </div>
       ) : (
