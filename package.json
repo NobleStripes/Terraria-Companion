@@ -7,8 +7,9 @@
   "homepage": "./",
   "scripts": {
     "dev": "vite",
+    "validate:data": "node scripts/validate-items.mjs",
     "clean": "powershell -Command \"if (Test-Path dist) { Remove-Item -Recurse -Force dist }\"",
-    "build": "npm run clean && tsc -b && vite build",
+    "build": "npm run validate:data && npm run clean && tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "lib:build": "tsc -b --declaration --declarationMap --emitDeclarationOnly --outDir dist",
