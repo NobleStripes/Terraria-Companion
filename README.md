@@ -81,14 +81,21 @@ This validator runs automatically as part of `npm run build`.
 ## Project Structure
 
 ```
+public/           # Static assets (favicon/icon SVGs)
+scripts/          # Validation and maintenance scripts
 src/
-├── data/         # Game data (items, bosses, NPCs, biomes) + central index
+├── assets/       # App assets
+├── components/   # Shared UI and layout components
+├── data/         # Game data JSON + central typed exports
+├── hooks/        # Custom hooks (search, recipes, prefixes)
+├── lib/          # Utilities (search, prefix stat application)
 ├── pages/        # Route-level page components
-├── components/   # Shared UI components
 ├── store/        # Zustand stores (boss tracker, build planner)
-├── hooks/        # Custom hooks (e.g. debounced item search)
-├── lib/          # Utilities (Fuse.js search instance)
-└── types/        # TypeScript types
+├── styles/       # Global style layers
+└── types/        # TypeScript domain types
+server.js         # Standalone local server for production build
+start-server.bat  # Windows launcher for standalone server
+start-server.sh   # macOS/Linux launcher for standalone server
 ```
 
 ## License
