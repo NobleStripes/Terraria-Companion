@@ -1,6 +1,6 @@
 # Terraria Companion
 
-A second-screen browser reference for Terraria players. Look up items, track bosses, plan builds, and browse NPC/biome guides — all in one place.
+A second-screen browser reference for Terraria players. Look up items, track bosses, browse recommended builds by stage, and explore NPC/biome guides — all in one place.
 
 **Data version:** 1.4.5.6 (Bigger & Boulder)
 
@@ -9,7 +9,7 @@ A second-screen browser reference for Terraria players. Look up items, track bos
 - **Item Lookup** — Search 350+ items with fuzzy matching, view crafting recipes (crafts & used-in chains), inspect item stats, tool powers, and jump to the wiki
 - **Prefix System** — Select prefixes in Item Lookup to preview effective stat changes live (base → prefixed values)
 - **Boss Tracker** — All ~16 bosses with gear recommendations and strategy notes; progress is saved to localStorage
-- **Build Planner** — Multi-loadout system with armor, weapon, and accessory slots; filter by class; saved to localStorage
+- **Recommended Builds** — Stage-based progression builds (Early Game → Endgame) for melee, ranged, magic, and summoner classes
 - **NPC Guide** — All ~25 NPCs with full happiness tables and biome filter chips
 - **Biome Guide** — All ~20 biomes with resources, enemies, and NPC affinities
 
@@ -90,7 +90,7 @@ src/
 ├── hooks/        # Custom hooks (search, recipes, prefixes)
 ├── lib/          # Utilities (search, prefix stat application)
 ├── pages/        # Route-level page components
-├── store/        # Zustand stores (boss tracker, build planner)
+├── store/        # Zustand stores (boss tracking state)
 ├── styles/       # Global style layers
 └── types/        # TypeScript domain types
 server.js         # Standalone local server for production build
