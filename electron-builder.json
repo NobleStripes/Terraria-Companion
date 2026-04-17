@@ -1,6 +1,7 @@
 {
   "appId": "com.terraria-companion.app",
   "productName": "Terraria Companion",
+  "author": "NobleStripes",
   "files": [
     "dist/**/*",
     "electron-main.cjs",
