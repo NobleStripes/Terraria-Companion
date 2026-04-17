@@ -178,5 +178,40 @@
   { "id": 177, "name": "Blade Staff", "type": "weapon", "rarity": "pink", "tooltip": "Summons Enchanted Swords.", "sources": ["Queen Slime (drop)"], "wikiSlug": "Blade_Staff" },
   { "id": 178, "name": "Tsunami", "type": "weapon", "rarity": "pink", "tooltip": "Shoots 5 arrows at once.", "sources": ["Duke Fishron (drop)"], "wikiSlug": "Tsunami" },
   { "id": 179, "name": "Flairon", "type": "weapon", "rarity": "cyan", "tooltip": "Shoots a flail that releases bubbles.", "sources": ["Duke Fishron (drop)"], "wikiSlug": "Flairon" },
-  { "id": 180, "name": "Bubble Gun", "type": "weapon", "rarity": "cyan", "tooltip": "Shoots bubbles that home in on enemies.", "sources": ["Duke Fishron (drop)"], "wikiSlug": "Bubble_Gun" }
+  { "id": 180, "name": "Bubble Gun", "type": "weapon", "rarity": "cyan", "tooltip": "Shoots bubbles that home in on enemies.", "sources": ["Duke Fishron (drop)"], "wikiSlug": "Bubble_Gun" },
+
+  { "id": 181, "name": "Cobwhip", "type": "weapon", "rarity": "white", "tooltip": "A whip made of cobwebs. Summons a spider tag effect on hit.", "sources": ["Crafted"], "wikiSlug": "Cobwhip" },
+  { "id": 182, "name": "Slime Whip", "type": "weapon", "rarity": "white", "tooltip": "Leaves a slime blob on hit that slows enemies.", "sources": ["Crafted"], "wikiSlug": "Slime_Whip" },
+  { "id": 183, "name": "Soulscourge", "type": "weapon", "rarity": "blue", "tooltip": "A whip forged from Demonite. Inflicts Cursed Inferno.", "sources": ["Crafted"], "wikiSlug": "Soulscourge" },
+  { "id": 184, "name": "Vasculash", "type": "weapon", "rarity": "blue", "tooltip": "A whip forged from Crimtane. Inflicts Ichor.", "sources": ["Crafted"], "wikiSlug": "Vasculash" },
+  { "id": 185, "name": "Starcrash", "type": "weapon", "rarity": "orange", "tooltip": "Calls down fallen stars on the last struck enemy.", "sources": ["Crafted"], "wikiSlug": "Starcrash" },
+  { "id": 186, "name": "Vulgar Display of Flower", "type": "weapon", "rarity": "lime", "tooltip": "Releases spores that home in on tagged enemies.", "sources": ["Plantera (drop)"], "wikiSlug": "Vulgar_Display_of_Flower" },
+  { "id": 187, "name": "Electric Eel", "type": "weapon", "rarity": "cyan", "tooltip": "Shoots lightning bolts that chain between tagged enemies.", "sources": ["Duke Fishron (drop)"], "wikiSlug": "Electric_Eel" },
+  { "id": 188, "name": "Constellation", "type": "weapon", "rarity": "red", "tooltip": "Summons stardust explosions on the last enemy hit.", "sources": ["Crafted (Stardust Fragment)"], "wikiSlug": "Constellation" },
+  { "id": 189, "name": "Possession", "type": "weapon", "rarity": "red", "tooltip": "Briefly possesses the last struck enemy to fight for you.", "sources": ["Moon Lord (drop)"], "wikiSlug": "Possession" },
+
+  { "id": 190, "name": "Flint", "type": "weapon", "rarity": "blue", "tooltip": "A flint dagger from another dimension. Quick melee strikes.", "sources": ["Blood Moon (Dead Cells crossover)", "Traveling Merchant"], "wikiSlug": "Flint" },
+  { "id": 191, "name": "Barrel Launcher", "type": "weapon", "rarity": "blue", "tooltip": "Launches explosive barrels. Dead Cells crossover item.", "sources": ["Blood Moon (Dead Cells crossover)", "Traveling Merchant"], "wikiSlug": "Barrel_Launcher" },
+  { "id": 192, "name": "Killing Deck", "type": "weapon", "rarity": "pink", "tooltip": "Draws random cards with varying magical effects.", "sources": ["Blood Moon (Dead Cells crossover)"], "wikiSlug": "Killing_Deck" },
+  { "id": 193, "name": "Mushroom Staff", "type": "weapon", "rarity": "blue", "tooltip": "Summons Mushroom Boi minions that fight for you.", "sources": ["Crafted"], "wikiSlug": "Mushroom_Staff" },
+  { "id": 194, "name": "Barnacle Staff", "type": "weapon", "rarity": "green", "tooltip": "Summons floating Barnacle sentries that spit poison.", "sources": ["Blood Moon (Dead Cells crossover)", "Traveling Merchant"], "wikiSlug": "Barnacle_Staff" },
+  { "id": 195, "name": "Ram Rune", "type": "accessory", "rarity": "orange", "tooltip": "Hold Down + Jump in midair to perform a ground slam.", "sources": ["Blood Moon (Dead Cells crossover)", "Traveling Merchant"], "wikiSlug": "Ram_Rune" },
+
+  { "id": 196, "name": "Cattiva", "type": "weapon", "rarity": "green", "tooltip": "Summons a Cattiva that fights and auto-mines nearby blocks.", "sources": ["Grass or Snow biome surface (daytime)"], "wikiSlug": "Cattiva" },
+  { "id": 197, "name": "Foxparks", "type": "weapon", "rarity": "green", "tooltip": "Summons a Foxparks that fires fireballs or a flamethrower.", "sources": ["Grass or Snow biome surface (daytime)"], "wikiSlug": "Foxparks" },
+  { "id": 198, "name": "Digtoise", "type": "tool", "rarity": "blue", "tooltip": "Autonomously tunnels a 3-wide passage when used.", "sources": ["Underground Desert (Sleeping Digtoise)"], "wikiSlug": "Digtoise" },
+  { "id": 199, "name": "Chillet", "type": "accessory", "rarity": "pink", "tooltip": "Mount. +10% weapon damage, dash attack, 46 mph speed.", "sources": ["Huge Dragon Egg (Cavern layer)"], "wikiSlug": "Chillet" },
+  { "id": 200, "name": "Chillet Ignis", "type": "accessory", "rarity": "pink", "tooltip": "Fire-type mount. +10% weapon damage, dash attack, 46 mph speed.", "sources": ["Huge Dragon Egg (Cavern layer)"], "wikiSlug": "Chillet_Ignis" },
+
+  { "id": 201, "name": "Glowing Mushroom", "type": "material", "rarity": "white", "tooltip": "A luminous mushroom. Grows in the Glowing Mushroom biome.", "sources": ["Glowing Mushroom Biome"], "wikiSlug": "Glowing_Mushroom" },
+  { "id": 202, "name": "Cobweb", "type": "material", "rarity": "white", "tooltip": "A sticky web. Found throughout caves.", "sources": ["Caves", "Spider Nests"], "wikiSlug": "Cobweb" },
+  { "id": 203, "name": "Crimtane Bar", "type": "material", "rarity": "blue", "tooltip": "A bar of Crimtane.", "sources": ["Crafted (smelt Crimtane Ore)"], "wikiSlug": "Crimtane_Bar" },
+  { "id": 204, "name": "Meteorite Bar", "type": "material", "rarity": "blue", "tooltip": "A bar of Meteorite ore.", "sources": ["Crafted (smelt Meteorite)"], "wikiSlug": "Meteorite_Bar" },
+  { "id": 205, "name": "Chain", "type": "material", "rarity": "white", "tooltip": "A chain used in many crafting recipes.", "sources": ["Crafted", "Merchant"], "wikiSlug": "Chain" },
+  { "id": 206, "name": "Fallen Star", "type": "material", "rarity": "white", "tooltip": "Falls from the sky at night. Used in many crafting recipes.", "sources": ["Falls at night"], "wikiSlug": "Fallen_Star" },
+  { "id": 207, "name": "Mushroom Grass Seeds", "type": "material", "rarity": "white", "tooltip": "Used to grow Glowing Mushroom Biomes.", "sources": ["Glowing Mushroom Biome", "Merchant (Hardmode)"], "wikiSlug": "Mushroom_Grass_Seeds" },
+
+  { "id": 208, "name": "Prospector Helmet", "type": "armor", "rarity": "white", "tooltip": "Part of Prospector Armor. Boosts mining speed.", "sources": ["Crafted"], "wikiSlug": "Prospector_Helmet" },
+  { "id": 209, "name": "Prospector Chestplate", "type": "armor", "rarity": "white", "tooltip": "Part of Prospector Armor.", "sources": ["Crafted"], "wikiSlug": "Prospector_Breastplate" },
+  { "id": 210, "name": "Prospector Leggings", "type": "armor", "rarity": "white", "tooltip": "Part of Prospector Armor.", "sources": ["Crafted"], "wikiSlug": "Prospector_Greaves" }
 ]

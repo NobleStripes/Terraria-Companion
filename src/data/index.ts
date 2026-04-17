@@ -10,7 +10,7 @@ import bossesRaw from './bosses.json'
 import npcsRaw from './npcs.json'
 import biomesRaw from './biomes.json'
 
-export const DATA_VERSION = '1.4.4.9'
+export const DATA_VERSION = '1.4.5.6'
 
 export const items: Item[] = itemsRaw as Item[]
 export const recipes: Recipe[] = recipesRaw as Recipe[]

@@ -69,5 +69,14 @@
   { "id": 68, "resultItemId": 96, "resultQuantity": 1, "ingredients": [{ "itemId": 97, "quantity": 1 }, { "itemId": 107, "quantity": 5 }], "station": "Tinkerer's Workshop" },
   { "id": 69, "resultItemId": 173, "resultQuantity": 1, "ingredients": [{ "itemId": 174, "quantity": 1 }, { "itemId": 125, "quantity": 1 }], "station": "Tinkerer's Workshop" },
   { "id": 70, "resultItemId": 120, "resultQuantity": 1, "ingredients": [{ "itemId": 104, "quantity": 18 }, { "itemId": 105, "quantity": 18 }, { "itemId": 106, "quantity": 18 }], "station": "Mythril Anvil" },
-  { "id": 71, "resultItemId": 48, "resultQuantity": 1, "ingredients": [{ "itemId": 26, "quantity": 1 }, { "itemId": 27, "quantity": 1 }, { "itemId": 28, "quantity": 1 }, { "itemId": 47, "quantity": 1 }, { "itemId": 151, "quantity": 1 }, { "itemId": 16, "quantity": 1 }, { "itemId": 29, "quantity": 1 }, { "itemId": 150, "quantity": 1 }], "station": "Mythril Anvil" }
+  { "id": 71, "resultItemId": 48, "resultQuantity": 1, "ingredients": [{ "itemId": 26, "quantity": 1 }, { "itemId": 27, "quantity": 1 }, { "itemId": 28, "quantity": 1 }, { "itemId": 47, "quantity": 1 }, { "itemId": 151, "quantity": 1 }, { "itemId": 16, "quantity": 1 }, { "itemId": 29, "quantity": 1 }, { "itemId": 150, "quantity": 1 }], "station": "Mythril Anvil" },
+  { "id": 72, "resultItemId": 203, "resultQuantity": 1, "ingredients": [{ "itemId": 9, "quantity": 3 }], "station": "Furnace" },
+  { "id": 73, "resultItemId": 204, "resultQuantity": 1, "ingredients": [{ "itemId": 113, "quantity": 3 }], "station": "Furnace" },
+  { "id": 74, "resultItemId": 181, "resultQuantity": 1, "ingredients": [{ "itemId": 12, "quantity": 10 }, { "itemId": 202, "quantity": 30 }], "station": "Loom" },
+  { "id": 75, "resultItemId": 182, "resultQuantity": 1, "ingredients": [{ "itemId": 14, "quantity": 50 }], "station": "Solidifier" },
+  { "id": 76, "resultItemId": 183, "resultQuantity": 1, "ingredients": [{ "itemId": 117, "quantity": 12 }], "station": "Iron Anvil" },
+  { "id": 77, "resultItemId": 184, "resultQuantity": 1, "ingredients": [{ "itemId": 203, "quantity": 12 }], "station": "Iron Anvil" },
+  { "id": 78, "resultItemId": 185, "resultQuantity": 1, "ingredients": [{ "itemId": 204, "quantity": 20 }, { "itemId": 205, "quantity": 10 }, { "itemId": 206, "quantity": 10 }], "station": "Iron Anvil" },
+  { "id": 79, "resultItemId": 188, "resultQuantity": 1, "ingredients": [{ "itemId": 130, "quantity": 18 }], "station": "Ancient Manipulator" },
+  { "id": 80, "resultItemId": 193, "resultQuantity": 1, "ingredients": [{ "itemId": 201, "quantity": 300 }, { "itemId": 207, "quantity": 5 }, { "itemId": 109, "quantity": 5 }], "station": "Iron Anvil" }
 ]
