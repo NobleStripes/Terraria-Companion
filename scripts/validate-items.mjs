@@ -2,13 +2,25 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 const itemsPath = path.resolve(process.cwd(), 'src/data/items.json')
+const prefixesPath = path.resolve(process.cwd(), 'src/data/prefixes.json')
 
 /** @type {Array<any>} */
 const items = JSON.parse(fs.readFileSync(itemsPath, 'utf8'))
+/** @type {Array<any>} */
+const prefixes = JSON.parse(fs.readFileSync(prefixesPath, 'utf8'))
 
 const errors = []
 
 const isFiniteNumber = (value) => typeof value === 'number' && Number.isFinite(value)
+const isFinitePositiveNumber = (value) => isFiniteNumber(value) && value > 0
+
+const prefixById = new Map(prefixes.map((prefix) => [prefix.id, prefix]))
+
+const explicitStatExemptIds = new Set([
+  167, // Grappling Hook
+  168, // Magic Mirror
+  169, // Ice Mirror
+])
 
 const summonOrWhipIds = new Set([
   42, 43, 44, 45, 46,
@@ -38,11 +50,58 @@ for (const item of items) {
     if (!isFiniteNumber(item.damage)) {
       errors.push(`[${item.id}] ${item.name}: missing/invalid damage for ${item.type}`)
     }
+
+    if (!explicitStatExemptIds.has(item.id)) {
+      if (!isFiniteNumber(item.useTime)) {
+        errors.push(`[${item.id}] ${item.name}: missing/invalid useTime for ${item.type}; add explicit exemption if intended`)
+      }
+
+      if (!isFiniteNumber(item.knockback)) {
+        errors.push(`[${item.id}] ${item.name}: missing/invalid knockback for ${item.type}; add explicit exemption if intended`)
+      }
+    }
   }
 
   if (item.type === 'armor') {
     if (!isFiniteNumber(item.defense)) {
       errors.push(`[${item.id}] ${item.name}: missing/invalid defense for armor`)
+    }
+  }
+
+  if (item.type === 'tool') {
+    const lowerName = String(item.name).toLowerCase()
+
+    const needsPickaxePower =
+      lowerName.includes('pickaxe') ||
+      lowerName.includes('drill') ||
+      lowerName.includes('drax') ||
+      lowerName.includes('picksaw') ||
+      item.pickaxePower !== undefined
+
+    const needsAxePower =
+      ((/(^|[^a-z])axe([^a-z]|$)/.test(lowerName) || lowerName.endsWith(' axe')) && !lowerName.includes('pickaxe')) ||
+      lowerName.includes('chainsaw') ||
+      lowerName.includes('hamaxe') ||
+      lowerName.includes('drax') ||
+      lowerName.includes('picksaw') ||
+      item.axePower !== undefined
+
+    const needsHammerPower =
+      lowerName.includes('hammer') ||
+      lowerName.includes('pwnhammer') ||
+      lowerName.includes('hamaxe') ||
+      item.hammerPower !== undefined
+
+    if (needsPickaxePower && !isFinitePositiveNumber(item.pickaxePower)) {
+      errors.push(`[${item.id}] ${item.name}: tool requires valid pickaxePower`)
+    }
+
+    if (needsAxePower && !isFinitePositiveNumber(item.axePower)) {
+      errors.push(`[${item.id}] ${item.name}: tool requires valid axePower`)
+    }
+
+    if (needsHammerPower && !isFinitePositiveNumber(item.hammerPower)) {
+      errors.push(`[${item.id}] ${item.name}: tool requires valid hammerPower`)
     }
   }
 
@@ -58,6 +117,34 @@ for (const item of items) {
     }
   } else if (item.manaCost !== undefined) {
     errors.push(`[${item.id}] ${item.name}: manaCost must be undefined for non-magic/non-summon items`)
+  }
+
+  if (item.alternatePrefixes !== undefined) {
+    if (!Array.isArray(item.alternatePrefixes)) {
+      errors.push(`[${item.id}] ${item.name}: alternatePrefixes must be an array when provided`)
+    } else {
+      for (const prefixId of item.alternatePrefixes) {
+        if (typeof prefixId !== 'string') {
+          errors.push(`[${item.id}] ${item.name}: alternatePrefixes entries must be string IDs`)
+          continue
+        }
+
+        const prefix = prefixById.get(prefixId)
+        if (!prefix) {
+          errors.push(`[${item.id}] ${item.name}: unknown alternate prefix '${prefixId}'`)
+          continue
+        }
+
+        if (!['weapon', 'tool', 'accessory'].includes(item.type)) {
+          errors.push(`[${item.id}] ${item.name}: alternatePrefixes only allowed on weapon/tool/accessory items`)
+          continue
+        }
+
+        if (!prefix.appliesTo.includes(item.type)) {
+          errors.push(`[${item.id}] ${item.name}: alternate prefix '${prefixId}' is not valid for item type '${item.type}'`)
+        }
+      }
+    }
   }
 }
 

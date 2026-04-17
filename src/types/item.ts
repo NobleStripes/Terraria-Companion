@@ -42,4 +42,5 @@ export interface Item {
   pickaxePower?: number
   axePower?: number
   hammerPower?: number
+  alternatePrefixes?: string[]
 }

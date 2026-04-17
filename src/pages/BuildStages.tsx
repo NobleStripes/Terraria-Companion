@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Sword, Shield, Zap, Star } from 'lucide-react'
 import type { BuildClass } from '@/types/boss'
 import type { Difficulty, StageName, WorldEvil } from '@/types/build'
@@ -18,8 +18,28 @@ const stageOrder: StageName[] = progressionCaps.map((cap) => cap.stage)
 type StageFocus = StageName | 'all'
 type SortMode = 'progression' | 'impact'
 type DensityMode = 'cozy' | 'compact'
+type BuildPreset = {
+  id: string
+  name: string
+  selectedClass: BuildClass
+  worldEvil: WorldEvil
+  difficulty: Difficulty
+  progressionCap: StageName
+  stageFocus: StageFocus
+  gearQuery: string
+  variantOnly: boolean
+  sortMode: SortMode
+  density: DensityMode
+}
+
+type PresetFilePayload = {
+  exportedAt: string
+  presets: BuildPreset[]
+}
 
 const STORAGE_KEY = 'terraria-build-stages-preferences'
+const PRESET_STORAGE_KEY = 'terraria-build-stages-presets'
+const PINNED_STAGE_STORAGE_KEY = 'terraria-build-stages-pinned'
 
 interface StoredBuildStagePreferences {
   selectedClass?: BuildClass
@@ -173,11 +193,96 @@ function GearPill({ name }: { name: string }) {
     </Link>
   )
 }
+
+function readSavedPresets(): BuildPreset[] {
+  try {
+    const raw = window.localStorage.getItem(PRESET_STORAGE_KEY)
+    if (!raw) {
+      return []
+    }
+
+    const parsed = JSON.parse(raw) as BuildPreset[]
+    if (!Array.isArray(parsed)) {
+      return []
+    }
+
+    return parsed.filter((preset) => (
+      isBuildClass(preset.selectedClass) &&
+      isWorldEvil(preset.worldEvil) &&
+      isDifficulty(preset.difficulty) &&
+      isStageName(preset.progressionCap) &&
+      isStageFocus(preset.stageFocus) &&
+      isSortMode(preset.sortMode) &&
+      isDensityMode(preset.density)
+    ))
+  } catch {
+    return []
+  }
+}
+
+function parsePinnedStagesFromParam(raw: string | null): StageName[] {
+  if (!raw) {
+    return []
+  }
+
+  return raw
+    .split(',')
+    .map((part) => decodeURIComponent(part.trim()))
+    .filter((value): value is StageName => isStageName(value))
+}
+
+function isValidPreset(candidate: BuildPreset): boolean {
+  return (
+    typeof candidate.id === 'string' &&
+    candidate.id.length > 0 &&
+    typeof candidate.name === 'string' &&
+    candidate.name.length > 0 &&
+    isBuildClass(candidate.selectedClass) &&
+    isWorldEvil(candidate.worldEvil) &&
+    isDifficulty(candidate.difficulty) &&
+    isStageName(candidate.progressionCap) &&
+    isStageFocus(candidate.stageFocus) &&
+    typeof candidate.gearQuery === 'string' &&
+    typeof candidate.variantOnly === 'boolean' &&
+    isSortMode(candidate.sortMode) &&
+    isDensityMode(candidate.density)
+  )
+}
+
+function readPinnedStages(): StageName[] {
+  try {
+    const raw = window.localStorage.getItem(PINNED_STAGE_STORAGE_KEY)
+    if (!raw) {
+      return []
+    }
+
+    const parsed = JSON.parse(raw) as string[]
+    if (!Array.isArray(parsed)) {
+      return []
+    }
+
+    return parsed.filter((value): value is StageName => isStageName(value))
+  } catch {
+    return []
+  }
+}
+
 export default function BuildStages() {
   const [searchParams, setSearchParams] = useSearchParams()
   const stored = useMemo(() => readStoredPreferences(), [])
+  const initialSavedPresets = useMemo(() => readSavedPresets(), [])
+  const presetFromQuery = useMemo(() => {
+    const presetId = searchParams.get('preset')
+    if (!presetId) {
+      return undefined
+    }
+    return initialSavedPresets.find((preset) => preset.id === presetId)
+  }, [searchParams, initialSavedPresets])
 
   const [selectedClass, setSelectedClass] = useState<BuildClass>(() => {
+    if (presetFromQuery) {
+      return presetFromQuery.selectedClass
+    }
     const fromUrl = searchParams.get('class')
     if (isBuildClass(fromUrl)) {
       return fromUrl
@@ -185,6 +290,9 @@ export default function BuildStages() {
     return stored.selectedClass ?? 'melee'
   })
   const [worldEvil, setWorldEvil] = useState<WorldEvil>(() => {
+    if (presetFromQuery) {
+      return presetFromQuery.worldEvil
+    }
     const fromUrl = searchParams.get('evil')
     if (isWorldEvil(fromUrl)) {
       return fromUrl
@@ -192,6 +300,9 @@ export default function BuildStages() {
     return stored.worldEvil ?? 'corruption'
   })
   const [difficulty, setDifficulty] = useState<Difficulty>(() => {
+    if (presetFromQuery) {
+      return presetFromQuery.difficulty
+    }
     const fromUrl = searchParams.get('difficulty')
     if (isDifficulty(fromUrl)) {
       return fromUrl
@@ -199,6 +310,9 @@ export default function BuildStages() {
     return stored.difficulty ?? 'classic'
   })
   const [progressionCap, setProgressionCap] = useState<StageName>(() => {
+    if (presetFromQuery) {
+      return presetFromQuery.progressionCap
+    }
     const fromUrl = searchParams.get('cap')
     if (isStageName(fromUrl)) {
       return fromUrl
@@ -206,14 +320,20 @@ export default function BuildStages() {
     return stored.progressionCap ?? 'Endgame'
   })
   const [stageFocus, setStageFocus] = useState<StageFocus>(() => {
+    if (presetFromQuery) {
+      return presetFromQuery.stageFocus
+    }
     const fromUrl = searchParams.get('stage')
     if (isStageFocus(fromUrl)) {
       return fromUrl
     }
     return stored.stageFocus ?? 'all'
   })
-  const [gearQuery, setGearQuery] = useState(() => searchParams.get('q') ?? stored.gearQuery ?? '')
+  const [gearQuery, setGearQuery] = useState(() => presetFromQuery?.gearQuery ?? searchParams.get('q') ?? stored.gearQuery ?? '')
   const [variantOnly, setVariantOnly] = useState(() => {
+    if (presetFromQuery) {
+      return presetFromQuery.variantOnly
+    }
     const fromUrl = searchParams.get('variant')
     if (fromUrl === '1') {
       return true
@@ -224,6 +344,9 @@ export default function BuildStages() {
     return stored.variantOnly ?? false
   })
   const [sortMode, setSortMode] = useState<SortMode>(() => {
+    if (presetFromQuery) {
+      return presetFromQuery.sortMode
+    }
     const fromUrl = searchParams.get('sort')
     if (isSortMode(fromUrl)) {
       return fromUrl
@@ -231,6 +354,9 @@ export default function BuildStages() {
     return stored.sortMode ?? 'progression'
   })
   const [density, setDensity] = useState<DensityMode>(() => {
+    if (presetFromQuery) {
+      return presetFromQuery.density
+    }
     const fromUrl = searchParams.get('view')
     if (isDensityMode(fromUrl)) {
       return fromUrl
@@ -239,6 +365,19 @@ export default function BuildStages() {
   })
   const [compareStage, setCompareStage] = useState<StageName>('Early Game')
   const [clipboardMessage, setClipboardMessage] = useState('')
+  const [savedPresets, setSavedPresets] = useState<BuildPreset[]>(() => initialSavedPresets)
+  const [activePresetId, setActivePresetId] = useState(() => presetFromQuery?.id ?? '')
+  const [pinnedStages, setPinnedStages] = useState<StageName[]>(() => {
+    const fromUrl = parsePinnedStagesFromParam(searchParams.get('pins'))
+    if (fromUrl.length > 0) {
+      return fromUrl
+    }
+    return readPinnedStages()
+  })
+  const [showWhyInCompact, setShowWhyInCompact] = useState(() => stored.density === 'cozy')
+  const [showOnlyPinned, setShowOnlyPinned] = useState(() => searchParams.get('pinsonly') === '1')
+  const [expandedStages, setExpandedStages] = useState<StageName[]>(() => [...stageOrder])
+  const presetImportRef = useRef<HTMLInputElement>(null)
 
   const { label, icon: Icon, color, description } = classConfig[selectedClass]
 
@@ -310,6 +449,16 @@ export default function BuildStages() {
     [worldEvil, difficulty, progressionCap, activeCompareStage]
   )
 
+  const pinnedVisibleBuilds = useMemo(
+    () => visibleBuilds.filter((entry) => pinnedStages.includes(entry.stage)),
+    [visibleBuilds, pinnedStages]
+  )
+
+  const unpinnedVisibleBuilds = useMemo(
+    () => visibleBuilds.filter((entry) => !pinnedStages.includes(entry.stage)),
+    [visibleBuilds, pinnedStages]
+  )
+
   useEffect(() => {
     if (clipboardMessage.length === 0) {
       return
@@ -335,6 +484,45 @@ export default function BuildStages() {
       })
     )
   }, [selectedClass, worldEvil, difficulty, progressionCap, stageFocus, gearQuery, variantOnly, sortMode, density])
+
+  useEffect(() => {
+    window.localStorage.setItem(PRESET_STORAGE_KEY, JSON.stringify(savedPresets))
+  }, [savedPresets])
+
+  useEffect(() => {
+    window.localStorage.setItem(PINNED_STAGE_STORAGE_KEY, JSON.stringify(pinnedStages))
+  }, [pinnedStages])
+
+  useEffect(() => {
+    function onKeyDown(event: KeyboardEvent) {
+      const target = event.target as HTMLElement | null
+      const isTypingField = target?.tagName === 'INPUT' || target?.tagName === 'TEXTAREA' || target?.tagName === 'SELECT'
+
+      if (event.key === '/' && !isTypingField) {
+        event.preventDefault()
+        const input = document.getElementById('build-gear-search') as HTMLInputElement | null
+        input?.focus()
+      }
+
+      if ((event.key === 'r' || event.key === 'R') && !isTypingField) {
+        event.preventDefault()
+        resetFilters()
+      }
+
+      if ((event.key === 'l' || event.key === 'L') && !isTypingField) {
+        event.preventDefault()
+        void copyShareLink()
+      }
+
+      if ((event.key === 'e' || event.key === 'E') && !isTypingField) {
+        event.preventDefault()
+        exportJsonPlan()
+      }
+    }
+
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [])
 
   useEffect(() => {
     const next = new URLSearchParams()
@@ -375,6 +563,18 @@ export default function BuildStages() {
       next.set('view', density)
     }
 
+    if (activePresetId.length > 0) {
+      next.set('preset', activePresetId)
+    }
+
+    if (pinnedStages.length > 0) {
+      next.set('pins', pinnedStages.map((stage) => encodeURIComponent(stage)).join(','))
+    }
+
+    if (showOnlyPinned) {
+      next.set('pinsonly', '1')
+    }
+
     setSearchParams(next, { replace: true })
   }, [
     selectedClass,
@@ -386,6 +586,9 @@ export default function BuildStages() {
     variantOnly,
     sortMode,
     density,
+    activePresetId,
+    pinnedStages,
+    showOnlyPinned,
     setSearchParams,
   ])
 
@@ -427,6 +630,186 @@ export default function BuildStages() {
     } catch {
       setClipboardMessage('Clipboard blocked')
     }
+  }
+
+  function exportJsonPlan() {
+    const payload = {
+      exportedAt: new Date().toISOString(),
+      selectedClass,
+      filters: {
+        worldEvil,
+        difficulty,
+        progressionCap,
+        stageFocus,
+        gearQuery,
+        variantOnly,
+        sortMode,
+        density,
+      },
+      builds: visibleBuilds,
+    }
+
+    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' })
+    const url = window.URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `recommended-builds-${selectedClass.toLowerCase()}.json`
+    a.click()
+    window.URL.revokeObjectURL(url)
+    setClipboardMessage('JSON exported')
+  }
+
+  function saveCurrentPreset() {
+    const name = window.prompt('Preset name')?.trim()
+    if (!name) {
+      return
+    }
+
+    const preset: BuildPreset = {
+      id: `${Date.now()}`,
+      name,
+      selectedClass,
+      worldEvil,
+      difficulty,
+      progressionCap,
+      stageFocus,
+      gearQuery,
+      variantOnly,
+      sortMode,
+      density,
+    }
+
+    setSavedPresets((prev) => {
+      const withoutSameName = prev.filter((entry) => entry.name.toLowerCase() !== name.toLowerCase())
+      return [preset, ...withoutSameName]
+    })
+    setActivePresetId(preset.id)
+    setClipboardMessage('Preset saved')
+  }
+
+  function renameActivePreset() {
+    if (!activePresetId) {
+      return
+    }
+
+    const target = savedPresets.find((entry) => entry.id === activePresetId)
+    if (!target) {
+      return
+    }
+
+    const nextName = window.prompt('Rename preset', target.name)?.trim()
+    if (!nextName) {
+      return
+    }
+
+    setSavedPresets((prev) => prev.map((entry) => (
+      entry.id === target.id
+        ? { ...entry, name: nextName }
+        : entry
+    )))
+    setClipboardMessage('Preset renamed')
+  }
+
+  function applyPresetById(id: string) {
+    const preset = savedPresets.find((entry) => entry.id === id)
+    if (!preset) {
+      return
+    }
+
+    setSelectedClass(preset.selectedClass)
+    setWorldEvil(preset.worldEvil)
+    setDifficulty(preset.difficulty)
+    setProgressionCap(preset.progressionCap)
+    setStageFocus(preset.stageFocus)
+    setGearQuery(preset.gearQuery)
+    setVariantOnly(preset.variantOnly)
+    setSortMode(preset.sortMode)
+    setDensity(preset.density)
+    setActivePresetId(id)
+    setClipboardMessage(`Preset loaded: ${preset.name}`)
+  }
+
+  function deleteActivePreset() {
+    if (!activePresetId) {
+      return
+    }
+
+    setSavedPresets((prev) => prev.filter((entry) => entry.id !== activePresetId))
+    setActivePresetId('')
+    setClipboardMessage('Preset deleted')
+  }
+
+  function exportPresets() {
+    const payload: PresetFilePayload = {
+      exportedAt: new Date().toISOString(),
+      presets: savedPresets,
+    }
+
+    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' })
+    const url = window.URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = 'build-presets.json'
+    a.click()
+    window.URL.revokeObjectURL(url)
+    setClipboardMessage('Presets exported')
+  }
+
+  function triggerPresetImport() {
+    presetImportRef.current?.click()
+  }
+
+  async function importPresets(event: React.ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0]
+    event.target.value = ''
+    if (!file) {
+      return
+    }
+
+    try {
+      const text = await file.text()
+      const parsed = JSON.parse(text) as PresetFilePayload
+      const imported = Array.isArray(parsed.presets)
+        ? parsed.presets.filter((preset): preset is BuildPreset => isValidPreset(preset))
+        : []
+
+      if (imported.length === 0) {
+        setClipboardMessage('No valid presets found')
+        return
+      }
+
+      setSavedPresets((prev) => {
+        const next = [...prev]
+        for (const preset of imported) {
+          const existingIndex = next.findIndex((entry) => entry.id === preset.id || entry.name.toLowerCase() === preset.name.toLowerCase())
+          if (existingIndex >= 0) {
+            next[existingIndex] = preset
+          } else {
+            next.push(preset)
+          }
+        }
+        return next
+      })
+      setClipboardMessage(`Imported ${imported.length} preset${imported.length === 1 ? '' : 's'}`)
+    } catch {
+      setClipboardMessage('Preset import failed')
+    }
+  }
+
+  function toggleStagePin(stage: StageName) {
+    setPinnedStages((prev) => (
+      prev.includes(stage)
+        ? prev.filter((entry) => entry !== stage)
+        : [...prev, stage]
+    ))
+  }
+
+  function toggleStageDetails(stage: StageName) {
+    setExpandedStages((prev) => (
+      prev.includes(stage)
+        ? prev.filter((entry) => entry !== stage)
+        : [...prev, stage]
+    ))
   }
 
   function resetFilters() {
@@ -489,6 +872,12 @@ export default function BuildStages() {
               className="px-2 py-1 rounded border border-terra-border text-gray-300 hover:text-white hover:border-terra-gold transition-colors"
             >
               Copy Summary
+            </button>
+            <button
+              onClick={exportJsonPlan}
+              className="px-2 py-1 rounded border border-terra-border text-gray-300 hover:text-white hover:border-terra-gold transition-colors"
+            >
+              Export JSON
             </button>
             <button
               onClick={resetFilters}
@@ -562,6 +951,7 @@ export default function BuildStages() {
           <div className="bg-terra-bg border border-terra-border rounded-lg px-3 py-2 md:col-span-2">
             <p className="text-xs text-gray-400 mb-1">Filter Gear / Notes</p>
             <input
+              id="build-gear-search"
               value={gearQuery}
               onChange={(e) => setGearQuery(e.target.value)}
               placeholder="Search item names or notes..."
@@ -636,7 +1026,89 @@ export default function BuildStages() {
           >
             Variant Only
           </button>
+          <button
+            onClick={() => setShowOnlyPinned((v) => !v)}
+            className={cn(
+              'px-2 py-1 rounded text-xs font-semibold transition-colors border',
+              showOnlyPinned
+                ? 'bg-terra-panel text-terra-gold border-terra-gold'
+                : 'text-gray-400 hover:text-white border-terra-border'
+            )}
+          >
+            Pinned Only
+          </button>
           <p className="text-xs text-gray-500">Showing {visibleBuilds.length} stage{visibleBuilds.length === 1 ? '' : 's'}</p>
+        </div>
+
+        <div className="mt-3 grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div className="bg-terra-bg border border-terra-border rounded-lg px-3 py-2 md:col-span-2">
+            <p className="text-xs text-gray-400 mb-1">Saved Presets</p>
+            <input
+              ref={presetImportRef}
+              type="file"
+              accept="application/json"
+              className="hidden"
+              onChange={importPresets}
+            />
+            <div className="flex flex-wrap items-center gap-2">
+              <select
+                value={activePresetId}
+                onChange={(e) => applyPresetById(e.target.value)}
+                className="min-w-52 bg-terra-surface border border-terra-border rounded px-2 py-1.5 text-xs text-white focus:outline-none focus:border-terra-gold"
+              >
+                <option value="">Select preset...</option>
+                {savedPresets.map((preset) => (
+                  <option key={preset.id} value={preset.id}>{preset.name}</option>
+                ))}
+              </select>
+              <button
+                onClick={saveCurrentPreset}
+                className="px-2 py-1 rounded border border-terra-border text-gray-300 hover:text-white hover:border-terra-gold transition-colors text-xs"
+              >
+                Save Current
+              </button>
+              <button
+                onClick={deleteActivePreset}
+                disabled={!activePresetId}
+                className="px-2 py-1 rounded border border-terra-border text-gray-300 hover:text-white hover:border-terra-gold transition-colors text-xs disabled:opacity-50"
+              >
+                Delete Selected
+              </button>
+              <button
+                onClick={renameActivePreset}
+                disabled={!activePresetId}
+                className="px-2 py-1 rounded border border-terra-border text-gray-300 hover:text-white hover:border-terra-gold transition-colors text-xs disabled:opacity-50"
+              >
+                Rename Selected
+              </button>
+              <button
+                onClick={exportPresets}
+                className="px-2 py-1 rounded border border-terra-border text-gray-300 hover:text-white hover:border-terra-gold transition-colors text-xs"
+              >
+                Export Presets
+              </button>
+              <button
+                onClick={triggerPresetImport}
+                className="px-2 py-1 rounded border border-terra-border text-gray-300 hover:text-white hover:border-terra-gold transition-colors text-xs"
+              >
+                Import Presets
+              </button>
+            </div>
+          </div>
+
+          <div className="bg-terra-bg border border-terra-border rounded-lg px-3 py-2">
+            <p className="text-xs text-gray-400 mb-1">Power Tips</p>
+            <p className="text-xs text-gray-500 leading-relaxed">Shortcuts: `/` focus search, `R` reset, `L` copy link, `E` export JSON.</p>
+            <label className="mt-2 inline-flex items-center gap-2 text-xs text-gray-300">
+              <input
+                type="checkbox"
+                checked={showWhyInCompact}
+                onChange={(e) => setShowWhyInCompact(e.target.checked)}
+                className="accent-terra-gold"
+              />
+              Show "Why" in compact view
+            </label>
+          </div>
         </div>
 
         {visibleBuilds.length > 0 ? (
@@ -682,21 +1154,83 @@ export default function BuildStages() {
           </div>
         ) : null}
 
+        {pinnedVisibleBuilds.length > 0 && !showOnlyPinned ? (
+          <div className="mt-4 bg-terra-bg border border-terra-border rounded-lg p-3">
+            <h3 className="text-sm text-terra-gold font-semibold mb-2">Pinned Stages</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3">
+              {pinnedVisibleBuilds.map((entry) => (
+                <div key={`pinned-${entry.stage}`} className={cn('bg-terra-surface border border-terra-border rounded-lg', density === 'compact' ? 'p-2.5' : 'p-3')}>
+                  <div className="flex items-start justify-between gap-2 mb-2">
+                    <h3 className="text-sm font-semibold text-white">{entry.stage}</h3>
+                    <div className="flex gap-1">
+                      <button
+                        onClick={() => toggleStageDetails(entry.stage)}
+                        className="text-[10px] px-2 py-0.5 rounded-full border border-terra-border text-gray-300 hover:text-white"
+                      >
+                        {expandedStages.includes(entry.stage) ? 'Hide' : 'Details'}
+                      </button>
+                      <button
+                        onClick={() => toggleStagePin(entry.stage)}
+                        className="text-[10px] px-2 py-0.5 rounded-full border border-terra-gold text-terra-gold bg-terra-panel/60"
+                      >
+                        Unpin
+                      </button>
+                    </div>
+                  </div>
+                  <p className="text-xs text-gray-400 mb-1">Armor</p>
+                  <div className="mb-2"><GearPill name={entry.armor} /></div>
+                  <p className="text-xs text-gray-400 mb-1">Weapon</p>
+                  <div className="mb-2"><GearPill name={entry.weapon} /></div>
+                  {expandedStages.includes(entry.stage) ? (
+                    <>
+                      <p className="text-xs text-gray-400 mb-1">Accessories</p>
+                      <div className="flex flex-wrap gap-1 mb-2">
+                        {entry.accessories.map((accessory, index) => (
+                          <GearPill key={`pinned-${entry.stage}-${accessory}-${index}`} name={accessory} />
+                        ))}
+                      </div>
+                    </>
+                  ) : null}
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : null}
+
         <div className="mt-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3">
           {visibleBuilds.length === 0 ? (
             <div className="md:col-span-2 xl:col-span-4 bg-terra-bg border border-terra-border rounded-lg p-4 text-sm text-gray-400">
               No builds match the current filters. Try broadening stage focus, disabling Variant Only, or clearing search.
             </div>
           ) : null}
-          {visibleBuilds.map((entry) => (
+          {(showOnlyPinned ? pinnedVisibleBuilds : unpinnedVisibleBuilds).map((entry) => (
             <div key={entry.stage} className={cn('bg-terra-bg border border-terra-border rounded-lg', density === 'compact' ? 'p-2.5' : 'p-3')}>
               <div className="flex items-start justify-between gap-2 mb-2">
                 <h3 className="text-sm font-semibold text-white">{entry.stage}</h3>
-                {entry.adjustments.length > 0 ? (
-                  <span className="text-[10px] px-2 py-0.5 rounded-full border border-terra-gold/50 text-terra-gold bg-terra-panel/60 whitespace-nowrap">
-                    Variant
-                  </span>
-                ) : null}
+                <div className="flex items-center gap-1">
+                  {entry.adjustments.length > 0 ? (
+                    <span className="text-[10px] px-2 py-0.5 rounded-full border border-terra-gold/50 text-terra-gold bg-terra-panel/60 whitespace-nowrap">
+                      Variant
+                    </span>
+                  ) : null}
+                  <button
+                    onClick={() => toggleStageDetails(entry.stage)}
+                    className="text-[10px] px-2 py-0.5 rounded-full border border-terra-border text-gray-300 hover:text-white"
+                  >
+                    {expandedStages.includes(entry.stage) ? 'Hide' : 'Details'}
+                  </button>
+                  <button
+                    onClick={() => toggleStagePin(entry.stage)}
+                    className={cn(
+                      'text-[10px] px-2 py-0.5 rounded-full border transition-colors',
+                      pinnedStages.includes(entry.stage)
+                        ? 'border-terra-gold text-terra-gold'
+                        : 'border-terra-border text-gray-400 hover:text-white hover:border-terra-gold'
+                    )}
+                  >
+                    {pinnedStages.includes(entry.stage) ? 'Pinned' : 'Pin'}
+                  </button>
+                </div>
               </div>
 
               {entry.adjustments.length > 0 ? (
@@ -720,25 +1254,31 @@ export default function BuildStages() {
               <div className="mb-2">
                 <GearPill name={entry.weapon} />
               </div>
-              <p className="text-xs text-gray-400 mb-1">Accessories</p>
-              <div className="flex flex-wrap gap-1 mb-2">
-                {entry.accessories.map((accessory, index) => (
-                  <GearPill key={`${entry.stage}-${accessory}-${index}`} name={accessory} />
-                ))}
-              </div>
-
-              {entry.why.length > 0 && density === 'cozy' ? (
+              {expandedStages.includes(entry.stage) ? (
                 <>
-                  <p className="text-xs text-gray-400 mb-1">Why this build</p>
-                  <ul className="text-xs text-gray-300 space-y-1 mb-2 list-disc list-inside">
-                    {entry.why.map((bullet) => (
-                      <li key={bullet}>{bullet}</li>
+                  <p className="text-xs text-gray-400 mb-1">Accessories</p>
+                  <div className="flex flex-wrap gap-1 mb-2">
+                    {entry.accessories.map((accessory, index) => (
+                      <GearPill key={`${entry.stage}-${accessory}-${index}`} name={accessory} />
                     ))}
-                  </ul>
-                </>
-              ) : null}
+                  </div>
 
-              <p className="text-xs text-gray-500 leading-relaxed">{entry.note}</p>
+                  {entry.why.length > 0 && (density === 'cozy' || showWhyInCompact) ? (
+                    <>
+                      <p className="text-xs text-gray-400 mb-1">Why this build</p>
+                      <ul className="text-xs text-gray-300 space-y-1 mb-2 list-disc list-inside">
+                        {entry.why.map((bullet) => (
+                          <li key={bullet}>{bullet}</li>
+                        ))}
+                      </ul>
+                    </>
+                  ) : null}
+
+                  <p className="text-xs text-gray-500 leading-relaxed">{entry.note}</p>
+                </>
+              ) : (
+                <p className="text-xs text-gray-500 leading-relaxed">{entry.note}</p>
+              )}
             </div>
           ))}
         </div>

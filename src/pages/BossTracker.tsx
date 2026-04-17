@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, useSearchParams } from 'react-router-dom'
 import { CheckCircle, Circle, ChevronDown, ChevronUp, RotateCcw, Shield, Sword, Zap, Star } from 'lucide-react'
 import { ProgressBar } from '@/components/ui/ProgressBar'
 import { useBosses } from '@/hooks/useBosses'
 import { cn } from '@/lib/cn'
 import type { Boss, BuildClass, GamePhase } from '@/types/boss'
-import { items } from '@/data/index'
+import { itemsById } from '@/data/index'
 
 const phaseLabels: Record<GamePhase, string> = {
   'pre-hardmode': 'Pre-Hardmode',
@@ -33,16 +33,16 @@ const classColors: Record<BuildClass, string> = {
   summoner: 'text-terra-gold',
 }
 
-function normalizeGearName(value: string): string {
-  return value.toLowerCase().replace(/[^a-z0-9]/g, '')
-}
+const strategySectionLabels = {
+  arena: 'Arena Setup',
+  mobility: 'Mobility',
+  buffs: 'Buffs',
+  dangerWindows: 'Danger Windows',
+  execution: 'Execution',
+} as const
 
-const itemIdByNormalizedName = new Map(
-  items.map((item) => [normalizeGearName(item.name), item.id])
-)
-
-function resolveGearItemId(name: string): number | undefined {
-  return itemIdByNormalizedName.get(normalizeGearName(name))
+function isBuildClass(value: string | null): value is BuildClass {
+  return value === 'melee' || value === 'ranged' || value === 'magic' || value === 'summoner'
 }
 
 function GearList({
@@ -53,31 +53,32 @@ function GearList({
 }: {
   title: string
   titleClass: string
-  entries: string[]
+  entries: number[]
   onItemClick: (itemId: number) => void
 }) {
   return (
     <div>
       <h5 className={cn('text-xs font-semibold mb-2 uppercase', titleClass)}>{title}</h5>
       <div className="flex flex-wrap gap-1.5">
-        {entries.map((entry) => {
-          const itemId = resolveGearItemId(entry)
-          if (!itemId) {
+        {entries.map((entryId) => {
+          const item = itemsById.get(entryId)
+
+          if (!item) {
             return (
-              <span key={entry} className="bg-terra-bg border border-terra-border rounded px-2 py-1 text-xs text-gray-300">
-                {entry}
+              <span key={entryId} className="bg-terra-bg border border-terra-border rounded px-2 py-1 text-xs text-gray-300">
+                Unknown Item #{entryId}
               </span>
             )
           }
 
           return (
             <button
-              key={entry}
-              onClick={() => onItemClick(itemId)}
+              key={entryId}
+              onClick={() => onItemClick(entryId)}
               className="bg-terra-bg border border-terra-border rounded px-2 py-1 text-xs text-terra-sky hover:text-terra-gold hover:border-terra-gold transition-colors"
               title="Open in Item Lookup"
             >
-              {entry}
+              {item.name}
             </button>
           )
         })}
@@ -178,9 +179,20 @@ function GearTab({
 
 type DrawerTab = 'overview' | 'gear' | 'tips'
 
-function BossDrawer({ boss, onClose, onItemClick }: { boss: Boss; onClose: () => void; onItemClick: (itemId: number) => void }) {
+function BossDrawer({
+  boss,
+  onClose,
+  onItemClick,
+  gearClass,
+  onGearClassChange,
+}: {
+  boss: Boss
+  onClose: () => void
+  onItemClick: (itemId: number) => void
+  gearClass: BuildClass
+  onGearClassChange: (value: BuildClass) => void
+}) {
   const [tab, setTab] = useState<DrawerTab>('overview')
-  const [gearClass, setGearClass] = useState<BuildClass>('melee')
   const tabs: DrawerTab[] = ['overview', 'gear', 'tips']
 
   return (
@@ -220,7 +232,18 @@ function BossDrawer({ boss, onClose, onItemClick }: { boss: Boss; onClose: () =>
         <div className="p-5 flex-1">
           {tab === 'overview' && (
             <div className="space-y-4">
-              <p className="text-gray-300 text-sm leading-relaxed">{boss.strategy}</p>
+              {boss.strategySections ? (
+                <div className="space-y-3">
+                  {(Object.keys(strategySectionLabels) as Array<keyof typeof strategySectionLabels>).map((key) => (
+                    <div key={key}>
+                      <h3 className="text-terra-gold text-xs font-pixel mb-1">{strategySectionLabels[key]}</h3>
+                      <p className="text-gray-300 text-sm leading-relaxed">{boss.strategySections?.[key]}</p>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-gray-300 text-sm leading-relaxed">{boss.strategy}</p>
+              )}
               {boss.drops.length > 0 && (
                 <div>
                   <h3 className="text-terra-gold text-xs font-pixel mb-2">Notable Drops</h3>
@@ -236,7 +259,7 @@ function BossDrawer({ boss, onClose, onItemClick }: { boss: Boss; onClose: () =>
             </div>
           )}
           {tab === 'gear' && (
-            <GearTab boss={boss} selectedClass={gearClass} onClassChange={setGearClass} onItemClick={onItemClick} />
+            <GearTab boss={boss} selectedClass={gearClass} onClassChange={onGearClassChange} onItemClick={onItemClick} />
           )}
           {tab === 'tips' && (
             <ul className="space-y-3">
@@ -324,9 +347,14 @@ function BossCard({ boss, isDefeated, onToggle, onOpen }: {
 export default function BossTracker() {
   const { bossId } = useParams()
   const navigate = useNavigate()
+  const [searchParams, setSearchParams] = useSearchParams()
   const { grouped, totalCount, defeatedCount, toggleBoss, resetAll, isDefeated } = useBosses()
   const [openBoss, setOpenBoss] = useState<Boss | undefined>()
   const [confirmReset, setConfirmReset] = useState(false)
+  const [gearClass, setGearClass] = useState<BuildClass>(() => {
+    const fromUrl = searchParams.get('class')
+    return isBuildClass(fromUrl) ? fromUrl : 'melee'
+  })
 
   const phases: GamePhase[] = ['pre-hardmode', 'hardmode', 'post-moonlord']
 
@@ -337,14 +365,26 @@ export default function BossTracker() {
     }
   }, [bossId, grouped])
 
+  useEffect(() => {
+    const next = new URLSearchParams(searchParams)
+    if (gearClass === 'melee') {
+      next.delete('class')
+    } else {
+      next.set('class', gearClass)
+    }
+    setSearchParams(next, { replace: true })
+  }, [gearClass, searchParams, setSearchParams])
+
   function openGuide(boss: Boss) {
     setOpenBoss(boss)
-    navigate(`/bosses/${boss.id}`, { replace: true })
+    const query = searchParams.toString()
+    navigate(`/bosses/${boss.id}${query ? `?${query}` : ''}`, { replace: true })
   }
 
   function closeGuide() {
     setOpenBoss(undefined)
-    navigate('/bosses', { replace: true })
+    const query = searchParams.toString()
+    navigate(`/bosses${query ? `?${query}` : ''}`, { replace: true })
   }
 
   function openItem(itemId: number) {
@@ -395,7 +435,15 @@ export default function BossTracker() {
         })}
       </div>
 
-      {openBoss && <BossDrawer boss={openBoss} onClose={closeGuide} onItemClick={openItem} />}
+      {openBoss && (
+        <BossDrawer
+          boss={openBoss}
+          onClose={closeGuide}
+          onItemClick={openItem}
+          gearClass={gearClass}
+          onGearClassChange={setGearClass}
+        />
+      )}
 
       {confirmReset && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
