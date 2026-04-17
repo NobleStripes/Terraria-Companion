@@ -1,3 +1,7 @@
+  "include": [
+    "src",
+    "lib-index.ts"
+  ]
 {
   "files": [],
   "references": [

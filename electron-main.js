@@ -1,7 +1,6 @@
 const { app, BrowserWindow, Menu } = require('electron');
 const path = require('path');
 const isDev = require('electron-is-dev');
-
 let mainWindow;
 
 function createWindow() {

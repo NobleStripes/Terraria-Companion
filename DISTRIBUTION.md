@@ -14,7 +14,6 @@ Perfect for users who just want to run the app locally without installation.
 ### For End Users:
 
 **Prerequisites:**
-- Node.js installed ([download here](https://nodejs.org/))
 
 **Steps:**
 
@@ -56,7 +55,6 @@ start-server.bat        # Windows batch script
 start-server.sh         # macOS/Linux shell script
 ```
 
----
 
 ## Option 2: Electron Desktop App
 
@@ -65,8 +63,6 @@ Create professional `.exe` and `.dmg` installers for distribution.
 ### For Developers:
 
 **Prerequisites:**
-- Node.js installed
-- Build tools (for native modules):
   - **Windows:** Visual Studio Build Tools
   - **macOS:** Xcode Command Line Tools (`xcode-select --install`)
   - **Linux:** Build essentials (`sudo apt-get install build-essential`)
@@ -79,9 +75,6 @@ npm run electron-dev
 ```
 
 This starts:
-- Vite dev server on `http://localhost:5173`
-- Electron window connecting to the dev server
-- DevTools automatically opens for debugging
 
 ### Building Installers:
 
@@ -107,12 +100,7 @@ dist/                  # Built Electron apps and installers
 
 ### Electron Configuration:
 
-The Electron setup uses:
-- `electron-main.cjs` - Main process (Node.js, system access)
-- `electron-preload.cjs` - Preload script (secure bridge to renderer)
-- `electron-builder.json` - Build configuration for installers
 
----
 
 ## Option 3: NPM Library
 
@@ -120,10 +108,6 @@ For developers who want to use Terraria game data in their own projects.
 
 ### Features:
 
-- **Full TypeScript support** — Complete type definitions for all data
-- **Lightweight** — Just the data, no UI dependencies
-- **Easy integration** — Install as npm package, import what you need
-- **Reusable** — Use in any Node.js or browser project
 
 ### Example Usage:
 
@@ -161,7 +145,6 @@ npm install terraria-companion-data
 
 **Full guide:** See [NPM_PUBLISHING.md](./NPM_PUBLISHING.md)
 
----
 
 | Feature | Server | Electron | NPM Library |
 |---------|--------|----------|------------|
@@ -178,7 +161,6 @@ npm install terraria-companion-data
 | Reusable in Other Apps | No | No | Yes |
 | Distribution | Share `dist/` folder | Share installer | Publish to npm |
 
----
 
 ## Deployment Tips
 
@@ -236,22 +218,9 @@ npm install terraria-companion-data
 ## Troubleshooting
 
 ### Server Issues:
-- **"Port 8000 already in use":** Change port: `PORT=3000 node server.js`
-- **"dist folder not found":** Run `npm run build` first
-- **Node.js not found:** Install from https://nodejs.org/
 
 ### Electron Issues:
-- **"Cannot find module 'electron'":** Run `npm install`
-- **Blank window:** Check console for errors (DevTools opens automatically in dev mode)
-- **Build fails:** Ensure build tools are installed for your OS
-- **File permissions:** On macOS/Linux, run `chmod +x start-server.sh` and `npm run electron-build`
 
----
 
 ## Next Steps
 
-- **Add auto-update capability** to Electron app
-- **Create branded installer** with custom logo/icon
-- **Add crash reporting** with services like Sentry
-- **Code signing** for production distribution
-- **Release to app stores** (Microsoft Store, Mac App Store, etc.)

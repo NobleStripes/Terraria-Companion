@@ -1,6 +1,5 @@
 // Preload script for Electron
 // This runs in a secure context between the main process and renderer process
-
 const { contextBridge } = require('electron');
 
 // Safely expose APIs to the renderer process
