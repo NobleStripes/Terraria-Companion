@@ -98,6 +98,13 @@ start-server.bat  # Windows launcher for standalone server
 start-server.sh   # macOS/Linux launcher for standalone server
 ```
 
+## Content & Trademarks
+
+- Terraria Companion is an unofficial fan-made project.
+- It is **not affiliated with or endorsed by** [Re-Logic](https://re-logic.com/).
+- **Terraria** and related names/logos are trademarks of [Re-Logic](https://re-logic.com/).
+- Game-reference content is sourced from [Terraria Wiki](https://terraria.wiki.gg/) and should be treated as informational guidance.
+
 ## License
 
-This is an unofficial fan project and is not affiliated with [Re-Logic](https://re-logic.com/). Terraria is a trademark of [Re-Logic](https://re-logic.com/).
+Code and project-specific assets in this repository are provided under the repository license.
