@@ -295,5 +295,63 @@
   { "id": 284, "name": "Adamantite Drill", "type": "tool", "rarity": "orange", "tooltip": "Drills through all ores except Chlorophyte.", "sources": ["Crafted"], "wikiSlug": "Adamantite_Drill" },
   { "id": 285, "name": "Titanium Sword", "type": "weapon", "rarity": "orange", "tooltip": "A powerful Titanium sword. Alternate to Adamantite.", "sources": ["Crafted"], "wikiSlug": "Titanium_Sword" },
   { "id": 286, "name": "Titanium Repeater", "type": "weapon", "rarity": "orange", "tooltip": "A Titanium bow that auto-fires.", "sources": ["Crafted"], "wikiSlug": "Titanium_Repeater" },
-  { "id": 287, "name": "Titanium Drill", "type": "tool", "rarity": "orange", "tooltip": "Drills through all ores except Chlorophyte.", "sources": ["Crafted"], "wikiSlug": "Titanium_Drill" }
+  { "id": 287, "name": "Titanium Drill", "type": "tool", "rarity": "orange", "tooltip": "Drills through all ores except Chlorophyte.", "sources": ["Crafted"], "wikiSlug": "Titanium_Drill" },
+
+  { "id": 288, "name": "Lihzahrd Ore", "type": "material", "rarity": "orange", "tooltip": "A brick-like ore found in the Lihzahrd Temple.", "sources": ["Lihzahrd Temple (Cavern)"], "wikiSlug": "Lihzahrd_Ore" },
+  { "id": 289, "name": "Lihzahrd Brick", "type": "material", "rarity": "orange", "tooltip": "A brick used to build in the Lihzahrd Temple.", "sources": ["Lihzahrd Temple", "Lihzahrds (drop)"], "wikiSlug": "Lihzahrd_Brick" },
+  { "id": 290, "name": "Ancient Cobalt Pickaxe", "type": "tool", "rarity": "orange", "tooltip": "An ancient tool from the temple.", "sources": ["Lihzahrd Temple"], "wikiSlug": "Ancient_Cobalt_Pickaxe" },
+  { "id": 291, "name": "Ancient Cobalt Axe", "type": "tool", "rarity": "orange", "tooltip": "An ancient tool from the temple.", "sources": ["Lihzahrd Temple"], "wikiSlug": "Ancient_Cobalt_Axe" },
+  { "id": 292, "name": "Ancient Cobalt Sword", "type": "weapon", "rarity": "orange", "tooltip": "An ancient sword from the temple.", "sources": ["Lihzahrd Temple"], "wikiSlug": "Ancient_Cobalt_Sword" },
+
+  { "id": 293, "name": "Ectoplasm Bar", "type": "material", "rarity": "light-purple", "tooltip": "A bar of ectoplasm.", "sources": ["Crafted (Ectoplasm)"], "wikiSlug": "Ectoplasm_Bar" },
+  { "id": 294, "name": "Ichor", "type": "material", "rarity": "pink", "tooltip": "A golden liquid that reduces defense.", "sources": ["Golden Critters (Hardmode Cavern)", "Heresy weapons"], "wikiSlug": "Ichor" },
+  { "id": 295, "name": "Cursed Flame", "type": "material", "rarity": "pink", "tooltip": "A cursed flame from the Corruption.", "sources": ["Eater of Worlds (drop)", "Cursed Skulls (Corrupted Hardmode)", "Dark Harpy (Corrupted Floating Island)"], "wikiSlug": "Cursed_Flame" },
+  { "id": 296, "name": "Souls of Blight", "type": "material", "rarity": "yellow", "tooltip": "A crafting material for post-Moon Lord items.", "sources": ["Soul Harvester (Hardmode Dungeon)"], "wikiSlug": "Soul_of_Blight" },
+  { "id": 297, "name": "Calamity Ore", "type": "material", "rarity": "red", "tooltip": "A rare ore infused with cosmic power.", "sources": ["Hardmode Dungeon (rare)", "Crafted"], "wikiSlug": "Calamity_Ore" },
+
+  { "id": 298, "name": "Cogs", "type": "material", "rarity": "white", "tooltip": "A mechanical gear used in crafting.", "sources": ["Goblin Tinkerer", "Crafted"], "wikiSlug": "Cogs" },
+  { "id": 299, "name": "Iron Wire", "type": "material", "rarity": "white", "tooltip": "Used to craft traps and mechanisms.", "sources": ["Crafted"], "wikiSlug": "Iron_Wire" },
+  { "id": 300, "name": "Mechanical Wiring", "type": "material", "rarity": "blue", "tooltip": "Advanced wiring for mechanisms.", "sources": ["Crafted"], "wikiSlug": "Mechanical_Wiring" },
+  { "id": 301, "name": "Rotten Chunks", "type": "material", "rarity": "blue", "tooltip": "From corrupt creatures.", "sources": ["Eater of Worlds (drop)", "Corruption enemies"], "wikiSlug": "Rotten_Chunks" },
+  { "id": 302, "name": "Vertebrae", "type": "material", "rarity": "blue", "tooltip": "From crimson creatures.", "sources": ["Brain of Cthulhu (drop)", "Crimson enemies"], "wikiSlug": "Vertebrae" },
+  { "id": 303, "name": "Corrupt Seeds", "type": "material", "rarity": "white", "tooltip": "Seeds that grow Corruption.", "sources": ["Eater of Worlds (drop)", "Corruption", "Traveling Merchant"], "wikiSlug": "Corrupt_Seeds" },
+  { "id": 304, "name": "Crimson Seeds", "type": "material", "rarity": "white", "tooltip": "Seeds that grow Crimson.", "sources": ["Brain of Cthulhu (drop)", "Crimson", "Traveling Merchant"], "wikiSlug": "Crimson_Seeds" },
+  { "id": 305, "name": "Hallowed Seeds", "type": "material", "rarity": "pink", "tooltip": "Seeds that grow Hallow.", "sources": ["Hallowed enemies (rare)", "Hardmode"], "wikiSlug": "Hallowed_Seeds" },
+
+  { "id": 306, "name": "Jungle Armor Helmet", "type": "armor", "rarity": "green", "tooltip": "Best pre-hardmode magic helmet.", "sources": ["Crafted"], "wikiSlug": "Jungle_Armor_Helmet" },
+  { "id": 307, "name": "Jungle Armor Chestplate", "type": "armor", "rarity": "green", "tooltip": "Part of Jungle Armor.", "sources": ["Crafted"], "wikiSlug": "Jungle_Armor_Chestplate" },
+  { "id": 308, "name": "Jungle Armor Leggings", "type": "armor", "rarity": "green", "tooltip": "Part of Jungle Armor.", "sources": ["Crafted"], "wikiSlug": "Jungle_Armor_Leggings" },
+
+  { "id": 309, "name": "Corruption Armor Helmet", "type": "armor", "rarity": "blue", "tooltip": "Part of Corruption Armor.", "sources": ["Crafted"], "wikiSlug": "Corruption_Armor_Helmet" },
+  { "id": 310, "name": "Corruption Armor Chestplate", "type": "armor", "rarity": "blue", "tooltip": "Part of Corruption Armor.", "sources": ["Crafted"], "wikiSlug": "Corruption_Armor_Chestplate" },
+  { "id": 311, "name": "Corruption Armor Leggings", "type": "armor", "rarity": "blue", "tooltip": "Part of Corruption Armor.", "sources": ["Crafted"], "wikiSlug": "Corruption_Armor_Leggings" },
+
+  { "id": 312, "name": "Crimson Armor Helmet", "type": "armor", "rarity": "blue", "tooltip": "Part of Crimson Armor.", "sources": ["Crafted"], "wikiSlug": "Crimson_Armor_Helmet" },
+  { "id": 313, "name": "Crimson Armor Chestplate", "type": "armor", "rarity": "blue", "tooltip": "Part of Crimson Armor.", "sources": ["Crafted"], "wikiSlug": "Crimson_Armor_Chestplate" },
+  { "id": 314, "name": "Crimson Armor Leggings", "type": "armor", "rarity": "blue", "tooltip": "Part of Crimson Armor.", "sources": ["Crafted"], "wikiSlug": "Crimson_Armor_Leggings" },
+
+  { "id": 315, "name": "Ebonwood", "type": "material", "rarity": "blue", "tooltip": "Dark wood from the Corruption.", "sources": ["Corruption trees"], "wikiSlug": "Ebonwood" },
+  { "id": 316, "name": "Shadewood", "type": "material", "rarity": "blue", "tooltip": "Dark wood from the Crimson.", "sources": ["Crimson trees"], "wikiSlug": "Shadewood" },
+  { "id": 317, "name": "Pearlwood", "type": "material", "rarity": "pink", "tooltip": "Shimmering wood from the Hallow.", "sources": ["Hallow trees (Hardmode)"], "wikiSlug": "Pearlwood" },
+  { "id": 318, "name": "Rich Mahogany", "type": "material", "rarity": "orange", "tooltip": "Exotic wood from the Jungle.", "sources": ["Jungle trees"], "wikiSlug": "Rich_Mahogany" },
+  { "id": 319, "name": "Palm Wood", "type": "material", "rarity": "white", "tooltip": "Tropical wood found in the Underground Desert.", "sources": ["Underground Desert trees"], "wikiSlug": "Palm_Wood" },
+  { "id": 320, "name": "Boreal Wood", "type": "material", "rarity": "white", "tooltip": "Cold wood from the Snow biome.", "sources": ["Snow biome trees"], "wikiSlug": "Boreal_Wood" },
+
+  { "id": 321, "name": "Silt Block", "type": "material", "rarity": "white", "tooltip": "Can be processed by Extractinators to find ore.", "sources": ["Underground and Cavern"], "wikiSlug": "Silt_Block" },
+  { "id": 322, "name": "Slush Block", "type": "material", "rarity": "white", "tooltip": "Frozen slime. Can be processed by Extractinators.", "sources": ["Underground Snow biome"], "wikiSlug": "Slush_Block" },
+  { "id": 323, "name": "Desert Fossil", "type": "material", "rarity": "white", "tooltip": "Ancient remains. Can be processed by Extractinators.", "sources": ["Underground Desert"], "wikiSlug": "Desert_Fossil" },
+  { "id": 324, "name": "Amber", "type": "material", "rarity": "orange", "tooltip": "Fossilized tree resin.", "sources": ["Crafted (Fossil in Furnace)"], "wikiSlug": "Amber" },
+
+  { "id": 325, "name": "Lenses", "type": "material", "rarity": "white", "tooltip": "Optical lenses used in crafting.", "sources": ["Crafted"], "wikiSlug": "Lenses" },
+  { "id": 326, "name": "Copper Bars", "type": "material", "rarity": "white", "tooltip": "Basic bars used in many crafting recipes.", "sources": ["Crafted (smelt Copper Ore)"], "wikiSlug": "Copper_Bars" },
+  { "id": 327, "name": "Iron Bars", "type": "material", "rarity": "white", "tooltip": "Used to craft multiple armor sets and weapons.", "sources": ["Crafted (smelt Iron Ore)"], "wikiSlug": "Iron_Bars" },
+  { "id": 328, "name": "Silver Bars", "type": "material", "rarity": "white", "tooltip": "Used to craft Silver equipment.", "sources": ["Crafted (smelt Silver Ore)"], "wikiSlug": "Silver_Bars" },
+
+  { "id": 329, "name": "Molten Pickaxe", "type": "tool", "rarity": "orange", "tooltip": "Can mine Hardmode ores.", "sources": ["Crafted"], "wikiSlug": "Molten_Pickaxe" },
+  { "id": 330, "name": "Molten Axe", "type": "tool", "rarity": "orange", "tooltip": "A fiery axe for chopping.", "sources": ["Crafted"], "wikiSlug": "Molten_Axe" },
+  { "id": 331, "name": "Molten Hamaxe", "type": "tool", "rarity": "orange", "tooltip": "Functions as both hammer and axe.", "sources": ["Crafted"], "wikiSlug": "Molten_Hamaxe" },
+
+  { "id": 332, "name": "Chlorophyte Pickaxe", "type": "tool", "rarity": "lime", "tooltip": "Can mine all ores including Chlorophyte.", "sources": ["Crafted"], "wikiSlug": "Chlorophyte_Pickaxe" },
+  { "id": 333, "name": "Chlorophyte Axe", "type": "tool", "rarity": "lime", "tooltip": "A verdant axe for chopping.", "sources": ["Crafted"], "wikiSlug": "Chlorophyte_Axe" },
+  { "id": 334, "name": "Chlorophyte Chainsaw", "type": "tool", "rarity": "lime", "tooltip": "Rapidly chops through wood.", "sources": ["Crafted"], "wikiSlug": "Chlorophyte_Chainsaw" }
 ]
