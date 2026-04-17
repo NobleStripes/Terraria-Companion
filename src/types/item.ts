@@ -36,6 +36,7 @@ export interface Item {
   rarity: Rarity
   tooltip: string
   sources: string[]
+  enemyDrops?: string[]
   wikiSlug?: string
   // Stats (optional, depending on item type)
   damage?: number

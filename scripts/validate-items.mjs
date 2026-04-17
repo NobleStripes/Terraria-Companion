@@ -150,6 +150,19 @@ for (const item of items) {
     }
   }
 
+  if (item.enemyDrops !== undefined) {
+    if (!Array.isArray(item.enemyDrops)) {
+      errors.push(`[${item.id}] ${item.name}: enemyDrops must be an array when provided`)
+    } else {
+      for (const drop of item.enemyDrops) {
+        if (typeof drop !== 'string' || drop.trim().length === 0) {
+          errors.push(`[${item.id}] ${item.name}: enemyDrops entries must be non-empty strings`)
+          break
+        }
+      }
+    }
+  }
+
   const sources = Array.isArray(item.sources) ? item.sources : []
   const hasMigrationTag = sources.includes(MIGRATION_PLACEHOLDER_TAG)
   const hasLegacyMigrationTag = sources.includes(LEGACY_MIGRATION_TAG)

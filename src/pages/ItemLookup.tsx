@@ -205,6 +205,20 @@ function ItemDetailPanel({
         </div>
       )}
 
+      {item.enemyDrops && item.enemyDrops.length > 0 && (
+        <div>
+          <h3 className="text-terra-gold text-xs font-pixel mb-2">Enemy Drops</h3>
+          <ul className="space-y-1">
+            {item.enemyDrops.map((drop) => (
+              <li key={drop} className="text-gray-300 text-sm flex items-center gap-2">
+                <span className="w-1.5 h-1.5 bg-terra-red rounded-full shrink-0" />
+                {drop}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
       {crafts.length > 0 && (
         <div>
           <h3 className="text-terra-gold text-xs font-pixel mb-2">

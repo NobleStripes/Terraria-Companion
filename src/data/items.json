@@ -181,7 +181,12 @@
       "Slimes (drop)"
     ],
     "wikiSlug": "Gel",
-    "progressionTier": "early-game"
+    "progressionTier": "early-game",
+    "enemyDrops": [
+      "Blue Slime",
+      "Green Slime",
+      "Pinky (higher quantity)"
+    ]
   },
   {
     "id": 15,
@@ -1287,7 +1292,10 @@
       "Wall of Flesh (drop)"
     ],
     "wikiSlug": "Warrior_Emblem",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Wall of Flesh"
+    ]
   },
   {
     "id": 92,
@@ -1299,7 +1307,10 @@
       "Wall of Flesh (drop)"
     ],
     "wikiSlug": "Ranger_Emblem",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Wall of Flesh"
+    ]
   },
   {
     "id": 93,
@@ -1311,7 +1322,10 @@
       "Wall of Flesh (drop)"
     ],
     "wikiSlug": "Sorcerer_Emblem",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Wall of Flesh"
+    ]
   },
   {
     "id": 94,
@@ -1323,7 +1337,10 @@
       "Wall of Flesh (drop)"
     ],
     "wikiSlug": "Summoner_Emblem",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Wall of Flesh"
+    ]
   },
   {
     "id": 95,
@@ -1445,7 +1462,10 @@
       "The Destroyer (drop)"
     ],
     "wikiSlug": "Soul_of_Might",
-    "progressionTier": "early-game"
+    "progressionTier": "early-game",
+    "enemyDrops": [
+      "The Destroyer"
+    ]
   },
   {
     "id": 105,
@@ -1457,7 +1477,10 @@
       "The Twins (drop)"
     ],
     "wikiSlug": "Soul_of_Sight",
-    "progressionTier": "early-game"
+    "progressionTier": "early-game",
+    "enemyDrops": [
+      "The Twins"
+    ]
   },
   {
     "id": 106,
@@ -1469,7 +1492,10 @@
       "Skeletron Prime (drop)"
     ],
     "wikiSlug": "Soul_of_Fright",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Skeletron Prime"
+    ]
   },
   {
     "id": 107,
@@ -1481,7 +1507,10 @@
       "Hallowed enemies"
     ],
     "wikiSlug": "Soul_of_Light",
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "Underground Hallow enemies"
+    ]
   },
   {
     "id": 108,
@@ -1493,7 +1522,10 @@
       "Corruption/Crimson enemies"
     ],
     "wikiSlug": "Soul_of_Night",
-    "progressionTier": "early-game"
+    "progressionTier": "early-game",
+    "enemyDrops": [
+      "Underground Corruption/Crimson enemies"
+    ]
   },
   {
     "id": 109,
@@ -1542,7 +1574,11 @@
       "Jungle"
     ],
     "wikiSlug": "Stinger",
-    "progressionTier": "early-game"
+    "progressionTier": "early-game",
+    "enemyDrops": [
+      "Hornet",
+      "Spiked Jungle Slime"
+    ]
   },
   {
     "id": 113,
@@ -1688,7 +1724,10 @@
       "Giant Tortoises (Jungle, Hardmode)"
     ],
     "wikiSlug": "Turtle_Shell",
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "Giant Tortoise"
+    ]
   },
   {
     "id": 124,
@@ -1724,7 +1763,10 @@
       "Dungeon Spirits (Hardmode Dungeon)"
     ],
     "wikiSlug": "Ectoplasm",
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "Dungeon Spirit"
+    ]
   },
   {
     "id": 127,
@@ -2313,7 +2355,10 @@
       "Eater of Worlds (drop, Expert Mode)"
     ],
     "wikiSlug": "Worm_Scarf",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Eater of Worlds (Treasure Bag, Expert/Master)"
+    ]
   },
   {
     "id": 173,
@@ -4406,7 +4451,11 @@
       "Crafted"
     ],
     "wikiSlug": "Lenses",
-    "progressionTier": "early-game"
+    "progressionTier": "early-game",
+    "enemyDrops": [
+      "Demon Eye",
+      "Wandering Eye"
+    ]
   },
   {
     "id": 326,
@@ -6015,7 +6064,11 @@
       "Blood Moon enemies (drop)"
     ],
     "wikiSlug": "Shark_Tooth_Necklace",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Blood Zombie",
+      "Drippler"
+    ]
   },
   {
     "id": 434,
