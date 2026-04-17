@@ -6,7 +6,8 @@ A second-screen browser reference for Terraria players. Look up items, track bos
 
 ## Features
 
-- **Item Lookup** — Search ~180 items with fuzzy matching, view crafting recipes (crafts & used-in chains), and jump to the wiki
+- **Item Lookup** — Search 350+ items with fuzzy matching, view crafting recipes (crafts & used-in chains), inspect item stats, tool powers, and jump to the wiki
+- **Prefix System** — Select prefixes in Item Lookup to preview effective stat changes live (base → prefixed values)
 - **Boss Tracker** — All ~16 bosses with gear recommendations and strategy notes; progress is saved to localStorage
 - **Build Planner** — Multi-loadout system with armor, weapon, and accessory slots; filter by class; saved to localStorage
 - **NPC Guide** — All ~25 NPCs with full happiness tables and biome filter chips
@@ -38,9 +39,11 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 | Command | Description |
 |---|---|
 | `npm run dev` | Start dev server |
-| `npm run build` | Type-check and build for production |
+| `npm run validate:data` | Validate item data rules (stats, class rules, mana/crit consistency) |
+| `npm run build` | Validate data, type-check, and build for production |
 | `npm run preview` | Preview production build locally |
 | `npm run lint` | Run ESLint |
+| `npm run lib:build` | Generate declaration files for library output |
 
 
 
@@ -62,7 +65,18 @@ Terraria Companion is now distributed only as a standalone local server for publ
 	```
 3. Open [http://localhost:8000](http://localhost:8000) in your browser.
 
-No installation or code signing required. Electron and NPM package distribution are no longer available for public users.
+No installation or code signing required. Electron distribution is no longer used.
+
+## Data Quality Rules
+
+The project includes an automated data validator at `scripts/validate-items.mjs`.
+
+- Weapons and tools must define `damage`
+- Armor must define `defense`
+- Summon/whip items must define `critChance: 0`
+- `manaCost` is explicit only for magic/summon items
+
+This validator runs automatically as part of `npm run build`.
 
 ## Project Structure
 
