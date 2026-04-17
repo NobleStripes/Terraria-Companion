@@ -6,7 +6,7 @@ import { DATA_VERSION } from '@/data/index'
 const Home = lazy(() => import('@/pages/Home'))
 const ItemLookup = lazy(() => import('@/pages/ItemLookup'))
 const BossTracker = lazy(() => import('@/pages/BossTracker'))
-const BuildPlanner = lazy(() => import('@/pages/BuildPlanner'))
+const BuildStages = lazy(() => import('@/pages/BuildStages'))
 const NpcGuide = lazy(() => import('@/pages/NpcGuide'))
 
 function Layout() {
@@ -45,7 +45,7 @@ const router = createBrowserRouter([
       { path: 'items/:itemId', element: <ItemLookup /> },
       { path: 'bosses', element: <BossTracker /> },
       { path: 'bosses/:bossId', element: <BossTracker /> },
-      { path: 'build', element: <BuildPlanner /> },
+      { path: 'build', element: <BuildStages /> },
       { path: 'npcs', element: <NpcGuide /> },
       { path: 'npcs/:npcId', element: <NpcGuide /> },
     ],

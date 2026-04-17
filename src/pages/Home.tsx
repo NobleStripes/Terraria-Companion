@@ -21,7 +21,7 @@ const features = [
     to: '/build',
     icon: Shield,
     title: 'Build Planner',
-    description: 'Plan armor, weapons, and accessories for any class.',
+    description: 'View recommended builds by progression stage and class.',
     color: 'text-terra-green',
   },
   {

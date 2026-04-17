@@ -25,6 +25,120 @@ const slotTypes: Record<string, ItemType[]> = {
   accessory: ['accessory'],
 }
 
+interface StageRecommendation {
+  stage: string
+  armor: string
+  weapon: string
+  accessories: string[]
+}
+
+const stagedBuilds: Record<BuildClass, StageRecommendation[]> = {
+  melee: [
+    {
+      stage: 'Early Game',
+      armor: 'Platinum Armor',
+      weapon: 'Platinum Broadsword',
+      accessories: ['Hermes Boots', 'Cloud in a Bottle', 'Band of Regeneration'],
+    },
+    {
+      stage: 'Pre-Hardmode',
+      armor: 'Molten Armor',
+      weapon: "Night's Edge",
+      accessories: ['Obsidian Shield', 'Spectre Boots', 'Worm Scarf'],
+    },
+    {
+      stage: 'Early Hardmode',
+      armor: 'Titanium Armor',
+      weapon: 'Excalibur',
+      accessories: ['Warrior Emblem', 'Lightning Boots', 'Worm Scarf'],
+    },
+    {
+      stage: 'Endgame',
+      armor: 'Solar Flare Armor',
+      weapon: 'Zenith',
+      accessories: ['Celestial Shell', 'Ankh Shield', 'Fishron Wings'],
+    },
+  ],
+  ranged: [
+    {
+      stage: 'Early Game',
+      armor: 'Gold Armor',
+      weapon: 'Platinum Bow',
+      accessories: ['Hermes Boots', 'Lucky Horseshoe', 'Cloud in a Bottle'],
+    },
+    {
+      stage: 'Pre-Hardmode',
+      armor: 'Necro Armor',
+      weapon: 'Minishark',
+      accessories: ['Shark Tooth Necklace', 'Spectre Boots', 'Obsidian Shield'],
+    },
+    {
+      stage: 'Early Hardmode',
+      armor: 'Hallowed Armor',
+      weapon: 'Daedalus Stormbow',
+      accessories: ['Ranger Emblem', 'Lightning Boots', 'Wings'],
+    },
+    {
+      stage: 'Endgame',
+      armor: 'Vortex Armor',
+      weapon: 'Phantasm',
+      accessories: ['Celestial Shell', 'Ankh Shield', 'Fishron Wings'],
+    },
+  ],
+  magic: [
+    {
+      stage: 'Early Game',
+      armor: 'Jungle Armor',
+      weapon: 'Space Gun',
+      accessories: ['Band of Regeneration', 'Cloud in a Bottle', 'Hermes Boots'],
+    },
+    {
+      stage: 'Pre-Hardmode',
+      armor: 'Jungle Armor',
+      weapon: 'Water Bolt',
+      accessories: ['Mana Flower', 'Spectre Boots', 'Obsidian Shield'],
+    },
+    {
+      stage: 'Early Hardmode',
+      armor: 'Titanium Armor',
+      weapon: 'Golden Shower',
+      accessories: ['Sorcerer Emblem', 'Lightning Boots', 'Wings'],
+    },
+    {
+      stage: 'Endgame',
+      armor: 'Nebula Armor',
+      weapon: 'Last Prism',
+      accessories: ['Celestial Shell', 'Ankh Shield', 'Fishron Wings'],
+    },
+  ],
+  summoner: [
+    {
+      stage: 'Early Game',
+      armor: 'Bee Armor',
+      weapon: 'Imp Staff',
+      accessories: ['Hermes Boots', 'Cloud in a Bottle', 'Band of Regeneration'],
+    },
+    {
+      stage: 'Pre-Hardmode',
+      armor: 'Bee Armor',
+      weapon: 'Imp Staff',
+      accessories: ['Feral Claws', 'Spectre Boots', 'Obsidian Shield'],
+    },
+    {
+      stage: 'Early Hardmode',
+      armor: 'Spider Armor',
+      weapon: 'Spider Staff',
+      accessories: ['Summoner Emblem', 'Lightning Boots', 'Wings'],
+    },
+    {
+      stage: 'Endgame',
+      armor: 'Stardust Armor',
+      weapon: 'Stardust Dragon Staff',
+      accessories: ['Papyrus Scarab', 'Necromantic Scroll', 'Fishron Wings'],
+    },
+  ],
+}
+
 interface ItemPickerModalProps {
   label: string
   types: ItemType[]
@@ -254,10 +368,11 @@ function LoadoutEditor({ loadout }: { loadout: Loadout }) {
   )
 }
 
-export default function BuildPlanner() {
+export default function BuildStages() {
   const { loadouts, activeLoadoutId, addLoadout, removeLoadout, setActive, duplicateLoadout } = useBuildStore()
   const activeLoadout = loadouts.find((l) => l.id === activeLoadoutId)
   const [confirmDelete, setConfirmDelete] = useState<string | null>(null)
+  const selectedClass: BuildClass = activeLoadout?.class ?? 'melee'
 
   function createNew() {
     addLoadout({
@@ -270,6 +385,23 @@ export default function BuildPlanner() {
   return (
     <div className="max-w-7xl mx-auto px-4 py-6">
       <h1 className="font-pixel text-terra-gold text-sm mb-6">Build Planner</h1>
+
+      <div className="mb-4 bg-terra-surface border border-terra-border rounded-xl p-4">
+        <h2 className="text-terra-gold text-xs font-pixel mb-3">Recommended Builds By Stage ({classConfig[selectedClass].label})</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3">
+          {stagedBuilds[selectedClass].map((entry) => (
+            <div key={entry.stage} className="bg-terra-bg border border-terra-border rounded-lg p-3">
+              <h3 className="text-sm font-semibold text-white mb-2">{entry.stage}</h3>
+              <p className="text-xs text-gray-400 mb-1">Armor</p>
+              <p className="text-sm text-gray-200 mb-2">{entry.armor}</p>
+              <p className="text-xs text-gray-400 mb-1">Weapon</p>
+              <p className="text-sm text-gray-200 mb-2">{entry.weapon}</p>
+              <p className="text-xs text-gray-400 mb-1">Accessories</p>
+              <p className="text-sm text-gray-200">{entry.accessories.join(' • ')}</p>
+            </div>
+          ))}
+        </div>
+      </div>
 
       <div className="flex flex-col md:flex-row gap-4 h-[calc(100vh-160px)]">
         {/* Sidebar */}
