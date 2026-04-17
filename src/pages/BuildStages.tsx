@@ -10,7 +10,7 @@ import {
   progressionCaps,
   worldEvilOptions,
 } from '@/data/builds'
-import { items } from '@/data/index'
+import { bosses, items } from '@/data/index'
 
 const classes: BuildClass[] = ['melee', 'ranged', 'magic', 'summoner']
 const stageOrder: StageName[] = progressionCaps.map((cap) => cap.stage)
@@ -88,6 +88,25 @@ function normalizeGearName(value: string): string {
 const itemIdByNormalizedName = new Map(
   items.map((item) => [normalizeGearName(item.name), item.id])
 )
+
+const stageBossMap: Record<StageName, string[]> = {
+  'Early Game': ['king-slime', 'eye-of-cthulhu', 'eater-of-worlds', 'brain-of-cthulhu', 'queen-bee', 'skeletron'],
+  'Pre-Hardmode': ['wall-of-flesh'],
+  'Early Hardmode': ['queen-slime', 'the-twins', 'the-destroyer', 'skeletron-prime', 'plantera', 'golem'],
+  Endgame: ['duke-fishron', 'empress-of-light', 'lunatic-cultist', 'moon-lord'],
+}
+
+const stageBossesByStage = new Map(
+  Object.entries(stageBossMap).map(([stage, ids]) => [
+    stage,
+    bosses.filter((boss) => ids.includes(boss.id)),
+  ])
+)
+
+function getProgressionFocusBoss(stage: StageName) {
+  const pool = stageBossesByStage.get(stage) ?? []
+  return pool[pool.length - 1]
+}
 
 function resolveGearItemId(name: string): number | undefined {
   return itemIdByNormalizedName.get(normalizeGearName(name))
@@ -380,6 +399,7 @@ export default function BuildStages() {
   const presetImportRef = useRef<HTMLInputElement>(null)
 
   const { label, icon: Icon, color, description } = classConfig[selectedClass]
+  const progressionFocusBoss = getProgressionFocusBoss(progressionCap)
 
   const baseBuilds = useMemo(
     () => getFilteredStageBuilds(selectedClass, {
@@ -857,6 +877,17 @@ export default function BuildStages() {
           </div>
         </div>
         <p className="text-sm text-gray-400">{description}</p>
+        {progressionFocusBoss ? (
+          <p className="text-xs text-gray-500 mt-2">
+            Progression focus for current cap:{' '}
+            <Link
+              to={`/bosses/${progressionFocusBoss.id}?class=${selectedClass}`}
+              className="text-terra-sky hover:text-terra-gold transition-colors"
+            >
+              {progressionFocusBoss.name}
+            </Link>
+          </p>
+        ) : null}
 
         <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-xs">
           <p className="text-gray-500">Filter state is synced to URL for sharing.</p>
@@ -1256,6 +1287,23 @@ export default function BuildStages() {
               </div>
               {expandedStages.includes(entry.stage) ? (
                 <>
+                  {(stageBossesByStage.get(entry.stage) ?? []).length > 0 ? (
+                    <>
+                      <p className="text-xs text-gray-400 mb-1">Use this build for</p>
+                      <div className="flex flex-wrap gap-1 mb-2">
+                        {(stageBossesByStage.get(entry.stage) ?? []).map((boss) => (
+                          <Link
+                            key={`${entry.stage}-${boss.id}`}
+                            to={`/bosses/${boss.id}?class=${selectedClass}`}
+                            className="text-[10px] px-1.5 py-0.5 rounded border border-terra-border text-terra-sky hover:text-terra-gold hover:border-terra-gold transition-colors"
+                          >
+                            {boss.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </>
+                  ) : null}
+
                   <p className="text-xs text-gray-400 mb-1">Accessories</p>
                   <div className="flex flex-wrap gap-1 mb-2">
                     {entry.accessories.map((accessory, index) => (

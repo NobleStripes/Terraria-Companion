@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { ExternalLink, Package } from 'lucide-react'
+import { ExternalLink, Package, Scale, X } from 'lucide-react'
 import { SearchBar } from '@/components/ui/SearchBar'
 import { ItemCard } from '@/components/ui/ItemCard'
 import { RecipeCard } from '@/components/ui/RecipeCard'
@@ -13,17 +13,76 @@ import type { Item } from '@/types/item'
 import { applyPrefixToItemStats } from '@/lib/prefixes'
 
 const RECENT_COUNT = 20
+const MAX_COMPARE_ITEMS = 3
+
+type ItemClassFilter = 'all' | 'melee' | 'ranged' | 'magic' | 'summoner' | 'utility'
+type DamageFilter = 'all' | 'has-damage' | 'non-damage'
+type SourceFilter = 'all' | 'crafted' | 'drop' | 'vendor' | 'event' | 'exploration'
+type TierFilter = 'all' | 'early-game' | 'pre-hardmode' | 'early-hardmode' | 'endgame'
+
+function getItemClassBucket(item: Item): Exclude<ItemClassFilter, 'all'> {
+  const lower = item.name.toLowerCase()
+
+  if (item.type === 'material' || item.type === 'furniture' || item.type === 'consumable' || item.type === 'misc') {
+    return 'utility'
+  }
+
+  if (item.type === 'accessory' || item.type === 'armor' || item.type === 'tool') {
+    return 'utility'
+  }
+
+  if ((item.manaCost ?? 0) > 0 && (item.critChance ?? 0) === 0) {
+    if (lower.includes('staff') || lower.includes('whip') || lower.includes('summon')) {
+      return 'summoner'
+    }
+    return 'magic'
+  }
+
+  if ((item.manaCost ?? 0) > 0) {
+    return 'magic'
+  }
+
+  if (/(bow|gun|rifle|launcher|arrow|bullet|dart|stormbow|quiver|cannon)/.test(lower)) {
+    return 'ranged'
+  }
+
+  if (/(whip|staff|sanguine|spider|imp)/.test(lower) && (item.critChance ?? 0) === 0) {
+    return 'summoner'
+  }
+
+  return 'melee'
+}
+
+function getSourceType(item: Item): Exclude<SourceFilter, 'all'> {
+  const sourceText = item.sources.join(' ').toLowerCase()
+
+  if (/(craft|anvil|work bench|station)/.test(sourceText)) return 'crafted'
+  if (/(merchant|npc|sold by|vendor|traveling)/.test(sourceText)) return 'vendor'
+  if (/(event|invasion|moon|pumpkin|frost)/.test(sourceText)) return 'event'
+  if (/(drop|boss|enemy|found in|obtained from)/.test(sourceText)) return 'drop'
+  return 'exploration'
+}
+
+function compareStat(a?: number, b?: number) {
+  if (a === undefined || b === undefined) return ''
+  if (a === b) return 'tie'
+  return a > b ? 'win' : 'lose'
+}
 
 function ItemDetailPanel({
   item,
   onItemClick,
   selectedPrefixId,
   onPrefixChange,
+  onCompareToggle,
+  compareSelected,
 }: {
   item: Item
   onItemClick: (itemId: number) => void
   selectedPrefixId: string
   onPrefixChange: (prefixId: string) => void
+  onCompareToggle: (itemId: number) => void
+  compareSelected: boolean
 }) {
   const { crafts, usedIn } = useRecipesForItem(item.id)
   const availablePrefixes = usePrefixesForItem(item)
@@ -93,6 +152,13 @@ function ItemDetailPanel({
           </div>
         )}
         <p className="text-gray-300 text-sm italic leading-relaxed">{item.tooltip}</p>
+        <button
+          onClick={() => onCompareToggle(item.id)}
+          className="mt-3 inline-flex items-center gap-1.5 px-2 py-1 rounded border border-terra-border text-xs text-gray-300 hover:text-terra-gold hover:border-terra-gold transition-colors"
+        >
+          <Scale className="w-3.5 h-3.5" />
+          {compareSelected ? 'Remove from compare' : 'Add to compare'}
+        </button>
       </div>
 
       {stats.length > 0 && (
@@ -200,14 +266,46 @@ export default function ItemLookup() {
     itemId ? parseInt(itemId, 10) : undefined
   )
   const [selectedPrefixId, setSelectedPrefixId] = useState('')
+  const [classFilter, setClassFilter] = useState<ItemClassFilter>('all')
+  const [damageFilter, setDamageFilter] = useState<DamageFilter>('all')
+  const [sourceFilter, setSourceFilter] = useState<SourceFilter>('all')
+  const [tierFilter, setTierFilter] = useState<TierFilter>('all')
+  const [compareIds, setCompareIds] = useState<number[]>([])
   const listRef = useRef<HTMLDivElement>(null)
 
   const searchResults = useItemSearch(query)
-  const displayItems = query.trim().length >= 2
+  const queriedItems = query.trim().length >= 2
     ? searchResults.map((r) => r.item)
     : items.slice(0, RECENT_COUNT)
 
+  const displayItems = useMemo(() => {
+    return queriedItems.filter((item) => {
+      if (classFilter !== 'all' && getItemClassBucket(item) !== classFilter) {
+        return false
+      }
+
+      if (damageFilter === 'has-damage' && item.damage === undefined) {
+        return false
+      }
+
+      if (damageFilter === 'non-damage' && item.damage !== undefined) {
+        return false
+      }
+
+      if (sourceFilter !== 'all' && getSourceType(item) !== sourceFilter) {
+        return false
+      }
+
+      if (tierFilter !== 'all' && item.progressionTier !== tierFilter) {
+        return false
+      }
+
+      return true
+    })
+  }, [queriedItems, classFilter, damageFilter, sourceFilter, tierFilter])
+
   const selectedItem = selectedId !== undefined ? itemsById.get(selectedId) : undefined
+  const comparedItems = useMemo(() => compareIds.map((id) => itemsById.get(id)).filter((item): item is Item => Boolean(item)), [compareIds])
 
   useEffect(() => {
     setSelectedPrefixId('')
@@ -224,6 +322,20 @@ export default function ItemLookup() {
   useEffect(() => {
     if (itemId) setSelectedId(parseInt(itemId, 10))
   }, [itemId])
+
+  function toggleCompare(itemIdToToggle: number) {
+    setCompareIds((prev) => {
+      if (prev.includes(itemIdToToggle)) {
+        return prev.filter((id) => id !== itemIdToToggle)
+      }
+
+      if (prev.length >= MAX_COMPARE_ITEMS) {
+        return [...prev.slice(1), itemIdToToggle]
+      }
+
+      return [...prev, itemIdToToggle]
+    })
+  }
 
   // keyboard navigation
   useEffect(() => {
@@ -261,6 +373,57 @@ export default function ItemLookup() {
             autoFocus
           />
 
+          <div className="grid grid-cols-2 gap-2">
+            <select
+              value={classFilter}
+              onChange={(e) => setClassFilter(e.target.value as ItemClassFilter)}
+              className="bg-terra-bg border border-terra-border rounded px-2 py-1.5 text-xs text-white focus:border-terra-gold focus:outline-none"
+              aria-label="Filter by class"
+            >
+              <option value="all">All Classes</option>
+              <option value="melee">Melee</option>
+              <option value="ranged">Ranged</option>
+              <option value="magic">Magic</option>
+              <option value="summoner">Summoner</option>
+              <option value="utility">Utility</option>
+            </select>
+            <select
+              value={damageFilter}
+              onChange={(e) => setDamageFilter(e.target.value as DamageFilter)}
+              className="bg-terra-bg border border-terra-border rounded px-2 py-1.5 text-xs text-white focus:border-terra-gold focus:outline-none"
+              aria-label="Filter by damage profile"
+            >
+              <option value="all">All Damage</option>
+              <option value="has-damage">Has Damage</option>
+              <option value="non-damage">Non-Damage</option>
+            </select>
+            <select
+              value={sourceFilter}
+              onChange={(e) => setSourceFilter(e.target.value as SourceFilter)}
+              className="bg-terra-bg border border-terra-border rounded px-2 py-1.5 text-xs text-white focus:border-terra-gold focus:outline-none"
+              aria-label="Filter by source"
+            >
+              <option value="all">All Sources</option>
+              <option value="crafted">Crafted</option>
+              <option value="drop">Drops</option>
+              <option value="vendor">Vendors</option>
+              <option value="event">Events</option>
+              <option value="exploration">Exploration</option>
+            </select>
+            <select
+              value={tierFilter}
+              onChange={(e) => setTierFilter(e.target.value as TierFilter)}
+              className="bg-terra-bg border border-terra-border rounded px-2 py-1.5 text-xs text-white focus:border-terra-gold focus:outline-none"
+              aria-label="Filter by progression tier"
+            >
+              <option value="all">All Tiers</option>
+              <option value="early-game">Early Game</option>
+              <option value="pre-hardmode">Pre-Hardmode</option>
+              <option value="early-hardmode">Early Hardmode</option>
+              <option value="endgame">Endgame</option>
+            </select>
+          </div>
+
           <div
             ref={listRef}
             className="flex-1 overflow-y-auto space-y-1.5 pr-1"
@@ -288,12 +451,60 @@ export default function ItemLookup() {
 
         {/* Right panel */}
         <div className="flex-1 bg-terra-surface border border-terra-border rounded-lg p-5 overflow-y-auto">
+          {comparedItems.length > 0 && (
+            <div className="mb-5 bg-terra-bg border border-terra-border rounded-lg p-3">
+              <div className="flex items-center justify-between gap-2 mb-2">
+                <h3 className="text-terra-gold text-xs font-pixel">Compare Items ({comparedItems.length}/{MAX_COMPARE_ITEMS})</h3>
+                <button
+                  onClick={() => setCompareIds([])}
+                  className="text-xs text-gray-400 hover:text-white transition-colors"
+                >
+                  Clear
+                </button>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
+                {comparedItems.map((item) => {
+                  const first = comparedItems[0]
+                  return (
+                    <div key={`compare-${item.id}`} className="border border-terra-border rounded p-2">
+                      <div className="flex items-start justify-between gap-2 mb-1">
+                        <button
+                          onClick={() => selectItem(item.id)}
+                          className="text-sm font-semibold text-terra-sky hover:text-terra-gold transition-colors text-left"
+                        >
+                          {item.name}
+                        </button>
+                        <button
+                          onClick={() => toggleCompare(item.id)}
+                          className="text-gray-500 hover:text-white"
+                          aria-label={`Remove ${item.name} from compare`}
+                        >
+                          <X className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+                      <div className="text-xs text-gray-400 space-y-1">
+                        <div>Damage: <span className={compareStat(item.damage, first?.damage) === 'win' ? 'text-green-400' : compareStat(item.damage, first?.damage) === 'lose' ? 'text-red-400' : 'text-gray-300'}>{item.damage ?? '-'}</span></div>
+                        <div>Defense: <span className={compareStat(item.defense, first?.defense) === 'win' ? 'text-green-400' : compareStat(item.defense, first?.defense) === 'lose' ? 'text-red-400' : 'text-gray-300'}>{item.defense ?? '-'}</span></div>
+                        <div>Use Time: <span className="text-gray-300">{item.useTime ?? '-'}</span></div>
+                        <div>Crit: <span className="text-gray-300">{item.critChance !== undefined ? `${item.critChance}%` : '-'}</span></div>
+                        <div>Tier: <span className="text-gray-300 capitalize">{item.progressionTier ?? 'unknown'}</span></div>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          )}
+
           {selectedItem ? (
             <ItemDetailPanel
               item={selectedItem}
               onItemClick={selectItem}
               selectedPrefixId={selectedPrefixId}
               onPrefixChange={setSelectedPrefixId}
+              onCompareToggle={toggleCompare}
+              compareSelected={compareIds.includes(selectedItem.id)}
             />
           ) : (
             <div className="flex flex-col items-center justify-center h-full text-center">

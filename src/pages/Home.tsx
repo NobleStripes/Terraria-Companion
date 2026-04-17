@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Search, Shield, Sword, Users } from 'lucide-react'
-import { DATA_VERSION } from '@/data/index'
+import { DATA_VERSION, changelog } from '@/data/index'
 
 const features = [
   {
@@ -64,6 +64,27 @@ export default function Home() {
           </Link>
         ))}
       </div>
+
+      {changelog.length > 0 && (
+        <div className="mt-8 bg-terra-surface border border-terra-border rounded-lg p-5">
+          <h2 className="font-pixel text-terra-gold text-xs mb-3">Data Changelog</h2>
+          <div className="space-y-3">
+            {changelog.slice(0, 2).map((entry) => (
+              <div key={`${entry.version}-${entry.date}`} className="border border-terra-border rounded p-3 bg-terra-bg">
+                <div className="flex items-center justify-between gap-2 mb-1">
+                  <span className="text-sm text-white font-semibold">v{entry.version}</span>
+                  <span className="text-xs text-gray-500">{entry.date}</span>
+                </div>
+                <ul className="text-xs text-gray-300 space-y-1 list-disc list-inside">
+                  {entry.highlights.map((line) => (
+                    <li key={line}>{line}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       <p className="text-center text-gray-600 text-xs mt-10">Data version: {DATA_VERSION}</p>
     </div>

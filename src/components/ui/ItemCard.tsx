@@ -1,6 +1,7 @@
 import { cn } from '@/lib/cn'
 import { RarityBadge, TypeBadge, getRarityBorderClass } from './Badge'
 import type { Item } from '@/types/item'
+import type { ReactNode } from 'react'
 
 interface ItemCardProps {
   item: Item
@@ -8,9 +9,10 @@ interface ItemCardProps {
   onClick?: () => void
   compact?: boolean
   prefixLabel?: string
+  rightAction?: ReactNode
 }
 
-export function ItemCard({ item, selected, onClick, compact, prefixLabel }: ItemCardProps) {
+export function ItemCard({ item, selected, onClick, compact, prefixLabel, rightAction }: ItemCardProps) {
   return (
     <button
       onClick={onClick}
@@ -25,16 +27,19 @@ export function ItemCard({ item, selected, onClick, compact, prefixLabel }: Item
     >
       <div className="flex items-center justify-between gap-2">
         <span className="font-semibold text-sm text-white truncate">{item.name}</span>
-        {!compact && (
-          <div className="flex items-center gap-1.5 shrink-0">
+        <div className="flex items-center gap-1.5 shrink-0">
+          {rightAction}
+          {!compact && (
+            <>
             {prefixLabel && (
               <span className="text-[10px] leading-none px-1.5 py-1 rounded border border-terra-gold/70 bg-terra-bg text-terra-gold font-pixel">
                 {prefixLabel}
               </span>
             )}
             <RarityBadge rarity={item.rarity} className="shrink-0" />
-          </div>
-        )}
+            </>
+          )}
+        </div>
       </div>
       {!compact && (
         <div className="flex items-center gap-1 mt-1">

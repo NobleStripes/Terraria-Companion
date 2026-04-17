@@ -81,11 +81,11 @@
       "Hermes Boots make dodging teleports trivial"
     ],
     "strategySections": {
-      "arena": "Build a long flat platform as an arena",
-      "mobility": "He teleports when off-screen, so keep him visible",
-      "buffs": "Use standard combat buffs and regeneration support before the encounter.",
-      "dangerWindows": "Watch for phase transitions and burst windows where incoming damage spikes.",
-      "execution": "King Slime is the easiest boss. He moves slowly and occasionally teleports. Use a flat arena and attack from the side while avoiding his teleports. He spawns Blue Slimes as he takes damage. Stay mobile and keep your distance."
+      "arena": "Flatten a surface lane with two wooden platform rows so you can jump over slams and minions cleanly.",
+      "mobility": "Keep moving horizontally after each teleport and avoid getting pinned by summoned slimes.",
+      "buffs": "Early Ironskin and Regeneration potions are enough to smooth out chip damage in this fight.",
+      "dangerWindows": "Teleport + immediate contact chain is the main kill pattern when space is too tight.",
+      "execution": "Punish teleports with burst, clear nearby minions quickly, then reset spacing before the next slam cycle."
     }
   },
   {
@@ -178,11 +178,11 @@
       "A long platform with campfires speeds up health regen"
     ],
     "strategySections": {
-      "arena": "A long platform with campfires speeds up health regen",
-      "mobility": "Phase 2 dashes are faster and more dangerous than phase 1",
-      "buffs": "Ironskin Potions and Regeneration Potions help greatly",
-      "dangerWindows": "Fight at night only — the Eye retreats at dawn",
-      "execution": "The Eye of Cthulhu has two phases. In phase 1, it hovers above and sends Servants of Cthulhu at you. In phase 2 (around 50% HP), it loses its pupil and dashes rapidly at you. Build a long platform and keep moving. Use wings or a double jump to avoid the phase 2 dashes."
+      "arena": "Build a long platform runway with one upper lane so you can kite during phase two dashes.",
+      "mobility": "Use wide turns instead of short hops to avoid clipping into rapid dash angles.",
+      "buffs": "Swiftness and Ironskin are high value here; add Archery or Magic Power depending on your class.",
+      "dangerWindows": "Phase two chained dashes become lethal if you stop to greed hits.",
+      "execution": "Maintain ranged pressure during spins, then commit burst only after each dash finishes."
     }
   },
   {
@@ -269,11 +269,11 @@
       "The Corruption's Chasms make great natural arenas"
     ],
     "strategySections": {
-      "arena": "The Corruption's Chasms make great natural arenas",
-      "mobility": "Prioritize consistent movement and spacing over raw face-tanking.",
-      "buffs": "Ironskin + Thorns Potions help for melee",
-      "dangerWindows": "Splitting the worm creates smaller, faster segments — focus fire",
-      "execution": "The Eater of Worlds is a worm-type boss. Attacking any segment deals damage, and splitting it creates more segments. Weapons that hit multiple segments (like the Vilethorn or Ball O' Hurt) are very effective. Fight in the Corruption near the surface for more room."
+      "arena": "Fight on a broad Corruption surface lane or bridge above chasms to reduce terrain traps.",
+      "mobility": "Stay elevated and reposition often so split segments do not surround you from both sides.",
+      "buffs": "Ironskin plus food buffs are enough; piercing setups gain the most value per potion spent.",
+      "dangerWindows": "Segment splitting spikes contact damage when the body is clustered tightly around you.",
+      "execution": "Use piercing weapons to hit multiple segments, clear small worms fast, and keep safe spacing."
     }
   },
   {
@@ -355,11 +355,11 @@
       "Fight in a flat Crimson area or build an arena above it"
     ],
     "strategySections": {
-      "arena": "Fight in a flat Crimson area or build an arena above it",
-      "mobility": "Prioritize consistent movement and spacing over raw face-tanking.",
-      "buffs": "Use standard combat buffs and regeneration support before the encounter.",
-      "dangerWindows": "In phase 2, only the real Brain takes damage — look for the non-translucent one",
-      "execution": "The Brain of Cthulhu has two phases. First, kill all 20 Creepers surrounding it — the Brain is invincible until they're gone. In phase 2, the Brain becomes visible and dashes at you erratically while creating illusions. Focus on the real Brain (it's the one that can be damaged)."
+      "arena": "Use a clean Crimson arena with lanterns and campfire so Creeper phase remains readable.",
+      "mobility": "Circle in one direction to control Creeper spread before phase two dash patterns begin.",
+      "buffs": "Use regeneration and class damage buffs before summon to shorten the Creeper clear.",
+      "dangerWindows": "Phase two fake-image overlap creates burst contact risks when you lose target tracking.",
+      "execution": "Delete Creepers first with AoE, then focus the real Brain between dash intervals."
     }
   },
   {
@@ -450,11 +450,11 @@
       "Honey Potions are cheap to make and very effective here"
     ],
     "strategySections": {
-      "arena": "Set up a clean arena with enough room to maneuver for this fight.",
-      "mobility": "Prioritize consistent movement and spacing over raw face-tanking.",
-      "buffs": "Honey gives a regeneration buff — lure her near honey pools",
-      "dangerWindows": "She speeds up significantly in later phases",
-      "execution": "Queen Bee alternates between charging, hovering and firing stingers, and summoning Bees. She becomes faster as her HP drops. Build a vertical arena or find a large open cave. Keep moving horizontally during charges and position below her during stinger phases."
+      "arena": "Create a medium-width hive arena with 2-3 platform tiers and cleared side walls.",
+      "mobility": "Short vertical dodges during charge strings are safer than long horizontal commitments.",
+      "buffs": "Honey pools, Regeneration, and class-specific offense buffs give excellent sustain here.",
+      "dangerWindows": "Late-fight enraged speed makes repeated charges the primary wipe mechanic.",
+      "execution": "Track charge rhythm, counterattack after pass-throughs, and thin summoned bees on sight."
     }
   },
   {
@@ -542,11 +542,11 @@
       "Water Bolt from the Dungeon bookshelves is incredible here"
     ],
     "strategySections": {
-      "arena": "Set up a clean arena with enough room to maneuver for this fight.",
-      "mobility": "During the spinning phase, keep distance and don't attack",
-      "buffs": "Use standard combat buffs and regeneration support before the encounter.",
-      "dangerWindows": "Fight only at night — he becomes invincible at dawn",
-      "execution": "Skeletron has a head and two hands. The hands can be killed first to remove their attacks, but the head must be defeated to win. Destroy the hands first to make the fight easier. During the spinning phase (head spins rapidly), avoid contact and wait. Fight only at night — at dawn Skeletron enters a permanently spinning state and is effectively invincible."
+      "arena": "Set a long, flat Dungeon entrance platform with one upper lane for hand and head angles.",
+      "mobility": "Move in arcs around the head and disengage hard when spin phase begins.",
+      "buffs": "Nighttime burst is crucial, so stack offense buffs with at least one defensive potion.",
+      "dangerWindows": "Dawn timeout and spin-phase contact are both instant run killers if misplayed.",
+      "execution": "Break hands first to reduce pressure, then burst the head while respecting spin windows."
     }
   },
   {
@@ -642,11 +642,11 @@
       "Defeating this boss triggers Hardmode"
     ],
     "strategySections": {
-      "arena": "Build a 1500+ block long platform across the Underworld beforehand",
-      "mobility": "Prioritize consistent movement and spacing over raw face-tanking.",
-      "buffs": "Buff up with all potions before throwing the doll — no time to recover",
-      "dangerWindows": "Focus the Laser Eye for most efficient damage",
-      "execution": "The Wall of Flesh spans the entire height of the Underworld and moves horizontally. You must outrun it while dealing damage. Build a long straight platform across the Underworld. Focus damage on the eyes (especially the laser eye). The Hungry enemies on the wall deal constant contact damage — kill them first. If it catches you, you die instantly."
+      "arena": "Prepare a long Underworld bridge and clear houses/obstacles before summoning.",
+      "mobility": "Maintain constant forward pace and avoid backtracking during Hungry and laser overlap.",
+      "buffs": "Pre-buff fully before summon because the fight offers very few safe reset moments.",
+      "dangerWindows": "Laser acceleration plus stacked Hungry contact can end attempts instantly mid-run.",
+      "execution": "Focus Hungry early, then commit sustained damage on eyes while preserving movement lane."
     }
   },
   {
@@ -737,11 +737,11 @@
       "Multiple platform layers help dodge her gel rain attacks"
     ],
     "strategySections": {
-      "arena": "Multiple platform layers help dodge her gel rain attacks",
-      "mobility": "Must be fought in the Hallow — she teleports back if you leave",
-      "buffs": "Use standard combat buffs and regeneration support before the encounter.",
-      "dangerWindows": "Phase 2 wings make her significantly more mobile",
-      "execution": "Queen Slime has two phases. In phase 1 she bounces around the Hallow and fires gel projectiles. In phase 2 she gains wings and launches gel projectiles that fall like rain. She must be fought in the Hallow. Build a wide flat arena with multiple platform layers."
+      "arena": "Build a wide Hallow arena with staggered platform tiers to dodge rain projectiles.",
+      "mobility": "In phase two, prioritize diagonal movement to break her aerial projectile tracking.",
+      "buffs": "Standard hardmode defense plus class offense buffs provide reliable consistency.",
+      "dangerWindows": "Aerial gel rain in phase two punishes staying directly underneath her.",
+      "execution": "Control summons in phase one, then kite high and punish landing windows in phase two."
     }
   },
   {
@@ -834,11 +834,11 @@
       "Daedalus Stormbow with Holy Arrows destroys them quickly"
     ],
     "strategySections": {
-      "arena": "Set up a clean arena with enough room to maneuver for this fight.",
-      "mobility": "Prioritize consistent movement and spacing over raw face-tanking.",
-      "buffs": "Use standard combat buffs and regeneration support before the encounter.",
-      "dangerWindows": "Must defeat both before dawn or they fully heal",
-      "execution": "The Twins are two mechanical eyes — Retinazer (fires lasers) and Spazmatism (fires cursed flames). Each has two phases. Defeat them both before dawn or they regenerate to full HP. Kill Spazmatism first as it becomes more dangerous in phase 2. A large open arena with long platforms is essential."
+      "arena": "Use a long sky runway with occasional platforms for vertical reset options.",
+      "mobility": "Keep momentum at all times and avoid getting boxed by both eyes on the same side.",
+      "buffs": "Night-limited fight rewards full buff stack and one emergency heal setup.",
+      "dangerWindows": "Spazmatism phase two flame pressure is the most dangerous sustained damage source.",
+      "execution": "Focus Spazmatism first, then isolate Retinazer and finish before dawn."
     }
   },
   {
@@ -922,11 +922,11 @@
       "Must be defeated before dawn"
     ],
     "strategySections": {
-      "arena": "Set up a clean arena with enough room to maneuver for this fight.",
-      "mobility": "Prioritize consistent movement and spacing over raw face-tanking.",
-      "buffs": "Use standard combat buffs and regeneration support before the encounter.",
-      "dangerWindows": "Kill Probes quickly — they stack up and their lasers overwhelm you",
-      "execution": "The Destroyer is a massive mechanical worm. It releases Probes that fire lasers when damaged. The Daedalus Stormbow with Holy Arrows is exceptionally strong here because the arrows hit multiple segments. Build a long sky platform to keep distance. Kill Probes as they appear to reduce incoming laser fire."
+      "arena": "Fight from elevated platforms to reduce body contact and improve probe visibility.",
+      "mobility": "Maintain lateral movement so probe lasers miss while you keep line of sight on segments.",
+      "buffs": "Defense plus ranged/magic burst buffs maximize multi-segment damage efficiency.",
+      "dangerWindows": "Probe accumulation is the key failure mode; unmanaged lasers snowball quickly.",
+      "execution": "Use piercing or multi-hit setups, delete probes immediately, and keep distance from body loops."
     }
   },
   {
@@ -1012,11 +1012,11 @@
       "Arms respawn if the head is still alive — prioritize the head after arms"
     ],
     "strategySections": {
-      "arena": "Set up a clean arena with enough room to maneuver for this fight.",
-      "mobility": "Prioritize consistent movement and spacing over raw face-tanking.",
-      "buffs": "Use standard combat buffs and regeneration support before the encounter.",
-      "dangerWindows": "Head spinning is a safe phase to reload/heal if needed",
-      "execution": "Skeletron Prime has a head and four arms: Cannon, Saw, Vice, and Laser. The hands are optional kills but removing them makes the fight much easier. The Cannon is the most dangerous arm. Defeat all arms first, then focus the head. The head spins like regular Skeletron — avoid contact during spin phase."
+      "arena": "Create a broad platform arena with clear overhead to track all arm approach angles.",
+      "mobility": "Rotate around Prime to desync arm attacks rather than standing your ground.",
+      "buffs": "Stack offense buffs to beat dawn timer while maintaining baseline survivability.",
+      "dangerWindows": "Cannon and laser overlap during spin windows creates heavy unavoidable pressure.",
+      "execution": "Break high-threat arms first, then punish head openings between spin and pursuit cycles."
     }
   },
   {
@@ -1113,11 +1113,11 @@
       "Bring more DPS than for mechanical bosses — she has a lot of HP"
     ],
     "strategySections": {
-      "arena": "Build a large circular arena in the Jungle — at least 100 blocks wide",
-      "mobility": "Prioritize consistent movement and spacing over raw face-tanking.",
-      "buffs": "Use standard combat buffs and regeneration support before the encounter.",
-      "dangerWindows": "Phase 2 is much faster and more aggressive — be ready",
-      "execution": "Plantera has two phases. In phase 1, she is tethered by vines and moves slowly, firing seeds and spores. In phase 2 (below 50% HP), she releases her petals, speeds up dramatically, and fires pink spiky balls. Build a large circular arena in the Underground Jungle. Phase 2 requires constant circular movement."
+      "arena": "Carve a large Underground Jungle arena with side pockets for emergency movement resets.",
+      "mobility": "Use grapples and wing taps to maintain circular movement during hook and seed pressure.",
+      "buffs": "Arena regen objects plus class buffs are critical for stabilizing phase two.",
+      "dangerWindows": "Phase two tentacle rush punishes corners and low-mobility loadouts immediately.",
+      "execution": "Chip phase one safely at range, then kite in wide circles while focusing core in phase two."
     }
   },
   {
@@ -1212,11 +1212,11 @@
       "Beetle Armor's defensive set helps greatly for melee players"
     ],
     "strategySections": {
-      "arena": "The Temple arena is naturally enclosed — clear some space beforehand",
-      "mobility": "Prioritize consistent movement and spacing over raw face-tanking.",
-      "buffs": "Use standard combat buffs and regeneration support before the encounter.",
-      "dangerWindows": "Watch for phase transitions and burst windows where incoming damage spikes.",
-      "execution": "Golem is fought inside the Jungle Temple. It fires lasers, punches with its fists, and its head can detach and fly. Focus the fists first, then the body. The head becomes a separate target — kill it quickly. The fight is relatively straightforward compared to Plantera."
+      "arena": "Expand the Temple room where possible to improve jump arcs and line-of-sight control.",
+      "mobility": "Prioritize short hops and repositioning around fists to avoid corner lock.",
+      "buffs": "Standard hardmode combat buffs are sufficient when your room pathing is clean.",
+      "dangerWindows": "Head laser plus fist pressure becomes dangerous when both fists remain active.",
+      "execution": "Destroy fists first, then body, then kite and finish the detached head safely."
     }
   },
   {
@@ -1304,11 +1304,11 @@
       "Dodge his charge attacks by moving perpendicular to his trajectory"
     ],
     "strategySections": {
-      "arena": "Fight over the Ocean and build a platform above it",
-      "mobility": "Fishron Wings from his drops are among the best wings",
-      "buffs": "Use standard combat buffs and regeneration support before the encounter.",
-      "dangerWindows": "Phase 3 is extremely difficult — high DPS is essential",
-      "execution": "Duke Fishron is an optional but extremely tough boss. He has three phases. In phase 1, he charges and fires Sharknadoes. In phase 2 (below 50% HP), he spawns Cthulunados and moves faster. In phase 3 (below 15% HP), he becomes enraged: invisible, super fast, and devastating. Either burst him down before phase 3 or be prepared for extreme difficulty."
+      "arena": "Build a long ocean runway with vertical checkpoints to survive high-speed charge loops.",
+      "mobility": "Dash timing and directional discipline are more important than raw armor in this fight.",
+      "buffs": "Use premium buffs and mobility accessories to smooth out burst-heavy phase transitions.",
+      "dangerWindows": "Phase three charge chains can one-cycle players who overcommit attacks.",
+      "execution": "Respect each charge cadence, counterattack in short windows, and preserve cooldown tools for phase three."
     }
   },
   {
@@ -1396,11 +1396,11 @@
       "The Terraprisma is worth the effort for Summoners"
     ],
     "strategySections": {
-      "arena": "Set up a clean arena with enough room to maneuver for this fight.",
-      "mobility": "Prioritize consistent movement and spacing over raw face-tanking.",
-      "buffs": "Use standard combat buffs and regeneration support before the encounter.",
-      "dangerWindows": "The Terraprisma is worth the effort for Summoners",
-      "execution": "Empress of Light is a highly mobile boss with elaborate attack patterns. She fires beams, summons phantasmal spheres, and has sweeping sword attacks. For the Terraprisma (best summon weapon), she must be killed entirely during the day — but all daytime attacks one-shot you. This requires near-perfect dodge skill or specific cheese strategies."
+      "arena": "Use a very large Hallow arena with clear visibility for pattern recognition.",
+      "mobility": "Treat the fight like a pattern test: pre-move before projectiles spawn, not after.",
+      "buffs": "Damage buffs shorten dangerous phases; mobility and vision consistency are mandatory.",
+      "dangerWindows": "Daytime variant is effectively a no-hit challenge due to instant-kill damage.",
+      "execution": "Learn attack order, keep a stable rhythm, and only take safe punish windows between patterns."
     }
   },
   {
@@ -1486,11 +1486,11 @@
       "Ancient Manipulator dropped here is needed for endgame crafting"
     ],
     "strategySections": {
-      "arena": "Set up a clean arena with enough room to maneuver for this fight.",
-      "mobility": "Prioritize consistent movement and spacing over raw face-tanking.",
-      "buffs": "Use standard combat buffs and regeneration support before the encounter.",
-      "dangerWindows": "Kill impostor Cultists quickly to prevent him summoning the Celestial Pillars early",
-      "execution": "Lunatic Cultist has two phases. Kill the real cultist among the four first (attack them all — the imposters disappear). He then summons Ancient Doom, Phantasm Dragon, and Ancient Light. He creates illusions — only the real one takes damage. High mobility is key to dodge his diverse attack patterns."
+      "arena": "Clear the Dungeon entrance and remove stray enemies so clone mechanics stay readable.",
+      "mobility": "Use controlled circles and vertical taps to avoid projectile stacks from multiple casts.",
+      "buffs": "Pre-buff with offense and mana/ranged sustain to burst through add phases quickly.",
+      "dangerWindows": "Hitting fake clones spawns extra threats and can rapidly overwhelm the arena.",
+      "execution": "Identify the real cultist each clone cycle, burst decisively, and reset spacing immediately."
     }
   },
   {
@@ -1592,11 +1592,11 @@
       "The Nurse NPC can be used for emergency healing during the fight"
     ],
     "strategySections": {
-      "arena": "Keep a large arena — he spawns True Eyes of Cthulhu at the end",
-      "mobility": "Prioritize consistent movement and spacing over raw face-tanking.",
-      "buffs": "Buff up with every possible potion",
-      "dangerWindows": "Watch for phase transitions and burst windows where incoming damage spikes.",
-      "execution": "Moon Lord is the final boss. He has three eyes: two on his hands and one on his forehead. Each eye has a core that must be destroyed when it opens. After all three eyes are destroyed, his core on his chest is exposed — destroy it to win. He fires phantasmal bolts, true eye beams, and summons True Eyes of Cthulhu when defeated. Constant movement and maximum gear are required."
+      "arena": "Prepare an endgame lane with nurse access, regen objects, and teleport fallback if desired.",
+      "mobility": "Keep movement smooth and predictable to avoid crossing simultaneous true-eye beams.",
+      "buffs": "Use full endgame buff stack including food and class amplifiers before summon.",
+      "dangerWindows": "Synchronized beam and projectile windows punish greedy positioning near multiple eyes.",
+      "execution": "Break outer eyes methodically, then focus the core while preserving survival cooldowns."
     }
   }
 ]

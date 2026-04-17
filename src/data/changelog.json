@@ -1,0 +1,22 @@
+[
+  {
+    "version": "1.4.5.6",
+    "date": "2026-01-18",
+    "highlights": [
+      "Boss gear references normalized to canonical item IDs with curated strategy sections.",
+      "Build Stages now cross-links into boss progression guides.",
+      "Item Lookup gained class/source/tier filters and side-by-side compare panel.",
+      "NPC Happiness Planner added for biome and roommate optimization.",
+      "Accessibility pass: high-contrast mode, reduced-motion mode, stronger focus visibility."
+    ]
+  },
+  {
+    "version": "1.4.5.5",
+    "date": "2025-12-09",
+    "highlights": [
+      "Expanded item and recipe dataset coverage.",
+      "Prefix compatibility validation improvements.",
+      "Boss tracker guide drawer quality improvements."
+    ]
+  }
+]

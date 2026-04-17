@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Menu, X, Sword } from 'lucide-react'
 import { cn } from '@/lib/cn'
@@ -33,9 +33,21 @@ function NavItem({ to, label, onClick }: { to: string; label: string; onClick?: 
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const [highContrast, setHighContrast] = useState(() => window.localStorage.getItem('terra-high-contrast') === '1')
+  const [reducedMotion, setReducedMotion] = useState(() => window.localStorage.getItem('terra-reduced-motion') === '1')
   const defeatedBosses = useBossStore((s) => s.defeatedBosses)
   const total = bosses.length
   const defeated = defeatedBosses.length
+
+  useEffect(() => {
+    document.documentElement.dataset.contrast = highContrast ? 'high' : 'normal'
+    window.localStorage.setItem('terra-high-contrast', highContrast ? '1' : '0')
+  }, [highContrast])
+
+  useEffect(() => {
+    document.documentElement.dataset.reducedMotion = reducedMotion ? 'true' : 'false'
+    window.localStorage.setItem('terra-reduced-motion', reducedMotion ? '1' : '0')
+  }, [reducedMotion])
 
   return (
     <header className="sticky top-0 z-50 bg-terra-surface border-b border-terra-border">
@@ -58,6 +70,33 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-1">
+            <button
+              onClick={() => setHighContrast((v) => !v)}
+              className={cn(
+                'px-2 py-1 rounded text-[10px] border transition-colors',
+                highContrast
+                  ? 'border-terra-gold text-terra-gold bg-terra-panel'
+                  : 'border-terra-border text-gray-400 hover:text-white hover:border-terra-gold'
+              )}
+              aria-pressed={highContrast}
+            >
+              Contrast
+            </button>
+            <button
+              onClick={() => setReducedMotion((v) => !v)}
+              className={cn(
+                'px-2 py-1 rounded text-[10px] border transition-colors',
+                reducedMotion
+                  ? 'border-terra-gold text-terra-gold bg-terra-panel'
+                  : 'border-terra-border text-gray-400 hover:text-white hover:border-terra-gold'
+              )}
+              aria-pressed={reducedMotion}
+            >
+              Motion
+            </button>
+          </div>
+
           {/* Boss progress pill */}
           <NavLink
             to="/bosses"

@@ -13,7 +13,8 @@
     "damage": 5,
     "knockback": 4,
     "critChance": 4,
-    "useTime": 12
+    "useTime": 12,
+    "progressionTier": "early-game"
   },
   {
     "id": 2,
@@ -29,7 +30,8 @@
     "damage": 4,
     "knockback": 2,
     "useTime": 23,
-    "pickaxePower": 35
+    "pickaxePower": 35,
+    "progressionTier": "early-game"
   },
   {
     "id": 3,
@@ -41,7 +43,8 @@
       "Underground",
       "Surface"
     ],
-    "wikiSlug": "Copper_Ore"
+    "wikiSlug": "Copper_Ore",
+    "progressionTier": "early-game"
   },
   {
     "id": 4,
@@ -52,7 +55,8 @@
     "sources": [
       "Underground"
     ],
-    "wikiSlug": "Iron_Ore"
+    "wikiSlug": "Iron_Ore",
+    "progressionTier": "early-game"
   },
   {
     "id": 5,
@@ -63,7 +67,8 @@
     "sources": [
       "Underground"
     ],
-    "wikiSlug": "Silver_Ore"
+    "wikiSlug": "Silver_Ore",
+    "progressionTier": "early-game"
   },
   {
     "id": 6,
@@ -74,7 +79,8 @@
     "sources": [
       "Underground"
     ],
-    "wikiSlug": "Gold_Ore"
+    "wikiSlug": "Gold_Ore",
+    "progressionTier": "early-game"
   },
   {
     "id": 7,
@@ -85,7 +91,8 @@
     "sources": [
       "Underground"
     ],
-    "wikiSlug": "Platinum_Ore"
+    "wikiSlug": "Platinum_Ore",
+    "progressionTier": "early-game"
   },
   {
     "id": 8,
@@ -98,7 +105,8 @@
       "Eater of Worlds (drop)",
       "Underground Corruption"
     ],
-    "wikiSlug": "Demonite_Ore"
+    "wikiSlug": "Demonite_Ore",
+    "progressionTier": "pre-hardmode"
   },
   {
     "id": 9,
@@ -111,7 +119,8 @@
       "Brain of Cthulhu (drop)",
       "Underground Crimson"
     ],
-    "wikiSlug": "Crimtane_Ore"
+    "wikiSlug": "Crimtane_Ore",
+    "progressionTier": "pre-hardmode"
   },
   {
     "id": 10,
@@ -122,7 +131,8 @@
     "sources": [
       "Underworld"
     ],
-    "wikiSlug": "Hellstone"
+    "wikiSlug": "Hellstone",
+    "progressionTier": "pre-hardmode"
   },
   {
     "id": 11,
@@ -134,7 +144,8 @@
       "Crafted (water + lava)",
       "Underworld"
     ],
-    "wikiSlug": "Obsidian"
+    "wikiSlug": "Obsidian",
+    "progressionTier": "pre-hardmode"
   },
   {
     "id": 12,
@@ -145,7 +156,8 @@
     "sources": [
       "Chop trees"
     ],
-    "wikiSlug": "Wood"
+    "wikiSlug": "Wood",
+    "progressionTier": "early-game"
   },
   {
     "id": 13,
@@ -156,7 +168,8 @@
     "sources": [
       "Mining underground"
     ],
-    "wikiSlug": "Stone_Block"
+    "wikiSlug": "Stone_Block",
+    "progressionTier": "early-game"
   },
   {
     "id": 14,
@@ -167,7 +180,8 @@
     "sources": [
       "Slimes (drop)"
     ],
-    "wikiSlug": "Gel"
+    "wikiSlug": "Gel",
+    "progressionTier": "early-game"
   },
   {
     "id": 15,
@@ -179,7 +193,8 @@
       "Crafted",
       "Merchant"
     ],
-    "wikiSlug": "Torch"
+    "wikiSlug": "Torch",
+    "progressionTier": "early-game"
   },
   {
     "id": 16,
@@ -194,7 +209,8 @@
     "damage": 13,
     "knockback": 5,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game"
   },
   {
     "id": 17,
@@ -209,7 +225,8 @@
     "damage": 15,
     "knockback": 5,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game"
   },
   {
     "id": 18,
@@ -224,7 +241,8 @@
     "damage": 42,
     "knockback": 4.5,
     "critChance": 4,
-    "useTime": 18
+    "useTime": 18,
+    "progressionTier": "early-game"
   },
   {
     "id": 19,
@@ -239,7 +257,8 @@
     "damage": 24,
     "knockback": 2.25,
     "critChance": 4,
-    "useTime": 18
+    "useTime": 18,
+    "progressionTier": "early-game"
   },
   {
     "id": 20,
@@ -254,7 +273,8 @@
     "damage": 28,
     "knockback": 4.5,
     "critChance": 4,
-    "useTime": 28
+    "useTime": 28,
+    "progressionTier": "early-game"
   },
   {
     "id": 21,
@@ -269,7 +289,8 @@
     "damage": 36,
     "knockback": 6.5,
     "critChance": 4,
-    "useTime": 30
+    "useTime": 30,
+    "progressionTier": "early-game"
   },
   {
     "id": 22,
@@ -284,7 +305,8 @@
     "damage": 17,
     "knockback": 3,
     "critChance": 4,
-    "useTime": 23
+    "useTime": 23,
+    "progressionTier": "early-game"
   },
   {
     "id": 23,
@@ -299,7 +321,8 @@
     "damage": 22,
     "knockback": 5,
     "critChance": 4,
-    "useTime": 25
+    "useTime": 25,
+    "progressionTier": "early-game"
   },
   {
     "id": 24,
@@ -314,7 +337,8 @@
     "damage": 70,
     "knockback": 6.5,
     "critChance": 4,
-    "useTime": 16
+    "useTime": 16,
+    "progressionTier": "early-game"
   },
   {
     "id": 25,
@@ -329,7 +353,8 @@
     "damage": 92,
     "knockback": 6.5,
     "critChance": 4,
-    "useTime": 16
+    "useTime": 16,
+    "progressionTier": "early-game"
   },
   {
     "id": 26,
@@ -344,7 +369,8 @@
     "damage": 95,
     "knockback": 6.5,
     "critChance": 4,
-    "useTime": 14
+    "useTime": 14,
+    "progressionTier": "early-game"
   },
   {
     "id": 27,
@@ -359,7 +385,8 @@
     "damage": 200,
     "knockback": 6.5,
     "critChance": 4,
-    "useTime": 16
+    "useTime": 16,
+    "progressionTier": "endgame"
   },
   {
     "id": 28,
@@ -374,7 +401,8 @@
     "damage": 170,
     "knockback": 6.5,
     "critChance": 4,
-    "useTime": 16
+    "useTime": 16,
+    "progressionTier": "endgame"
   },
   {
     "id": 29,
@@ -389,7 +417,8 @@
     "damage": 110,
     "knockback": 6.5,
     "critChance": 4,
-    "useTime": 19
+    "useTime": 19,
+    "progressionTier": "endgame"
   },
   {
     "id": 30,
@@ -404,7 +433,8 @@
     "damage": 57,
     "knockback": 5.6,
     "critChance": 4,
-    "useTime": 25
+    "useTime": 25,
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 31,
@@ -419,7 +449,8 @@
     "damage": 6,
     "knockback": 0.5,
     "critChance": 4,
-    "useTime": 7
+    "useTime": 7,
+    "progressionTier": "early-game"
   },
   {
     "id": 32,
@@ -434,7 +465,8 @@
     "damage": 25,
     "knockback": 2.5,
     "critChance": 4,
-    "useTime": 7
+    "useTime": 7,
+    "progressionTier": "early-game"
   },
   {
     "id": 33,
@@ -449,7 +481,8 @@
     "damage": 38,
     "knockback": 2,
     "critChance": 4,
-    "useTime": 16
+    "useTime": 16,
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 34,
@@ -464,7 +497,8 @@
     "damage": 50,
     "knockback": 2,
     "critChance": 4,
-    "useTime": 12
+    "useTime": 12,
+    "progressionTier": "endgame"
   },
   {
     "id": 35,
@@ -479,7 +513,8 @@
     "damage": 50,
     "knockback": 3.25,
     "critChance": 4,
-    "useTime": 8
+    "useTime": 8,
+    "progressionTier": "endgame"
   },
   {
     "id": 36,
@@ -495,7 +530,8 @@
     "knockback": 0,
     "critChance": 4,
     "useTime": 19,
-    "manaCost": 6
+    "manaCost": 6,
+    "progressionTier": "early-game"
   },
   {
     "id": 37,
@@ -511,7 +547,8 @@
     "knockback": 5.25,
     "critChance": 4,
     "useTime": 22,
-    "manaCost": 15
+    "manaCost": 15,
+    "progressionTier": "early-game"
   },
   {
     "id": 38,
@@ -527,7 +564,8 @@
     "knockback": 2,
     "critChance": 4,
     "useTime": 8,
-    "manaCost": 4
+    "manaCost": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 39,
@@ -543,7 +581,8 @@
     "knockback": 4,
     "critChance": 4,
     "useTime": 11,
-    "manaCost": 7
+    "manaCost": 7,
+    "progressionTier": "early-game"
   },
   {
     "id": 40,
@@ -559,7 +598,8 @@
     "knockback": 0,
     "critChance": 4,
     "useTime": 10,
-    "manaCost": 12
+    "manaCost": 12,
+    "progressionTier": "endgame"
   },
   {
     "id": 41,
@@ -575,7 +615,8 @@
     "knockback": 7,
     "critChance": 4,
     "useTime": 18,
-    "manaCost": 16
+    "manaCost": 16,
+    "progressionTier": "early-game"
   },
   {
     "id": 42,
@@ -592,7 +633,8 @@
     "knockback": 2,
     "useTime": 28,
     "manaCost": 10,
-    "critChance": 0
+    "critChance": 0,
+    "progressionTier": "early-game"
   },
   {
     "id": 43,
@@ -608,7 +650,8 @@
     "knockback": 2,
     "useTime": 36,
     "manaCost": 10,
-    "critChance": 0
+    "critChance": 0,
+    "progressionTier": "early-game"
   },
   {
     "id": 44,
@@ -624,7 +667,8 @@
     "knockback": 3,
     "useTime": 36,
     "manaCost": 10,
-    "critChance": 0
+    "critChance": 0,
+    "progressionTier": "early-game"
   },
   {
     "id": 45,
@@ -640,7 +684,8 @@
     "knockback": 2,
     "useTime": 36,
     "manaCost": 10,
-    "critChance": 0
+    "critChance": 0,
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 46,
@@ -656,7 +701,8 @@
     "knockback": 3,
     "useTime": 36,
     "manaCost": 10,
-    "critChance": 0
+    "critChance": 0,
+    "progressionTier": "endgame"
   },
   {
     "id": 47,
@@ -671,7 +717,8 @@
     "damage": 190,
     "knockback": 8.5,
     "critChance": 14,
-    "useTime": 12
+    "useTime": 12,
+    "progressionTier": "endgame"
   },
   {
     "id": 48,
@@ -686,7 +733,8 @@
     "damage": 190,
     "knockback": 6.5,
     "critChance": 4,
-    "useTime": 30
+    "useTime": 30,
+    "progressionTier": "early-game"
   },
   {
     "id": 49,
@@ -698,7 +746,8 @@
       "Crafted"
     ],
     "wikiSlug": "Copper_Helmet",
-    "defense": 1
+    "defense": 1,
+    "progressionTier": "early-game"
   },
   {
     "id": 50,
@@ -710,7 +759,8 @@
       "Crafted"
     ],
     "wikiSlug": "Gold_Helmet",
-    "defense": 4
+    "defense": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 51,
@@ -722,7 +772,8 @@
       "Crafted"
     ],
     "wikiSlug": "Gold_Chainmail",
-    "defense": 5
+    "defense": 5,
+    "progressionTier": "early-game"
   },
   {
     "id": 52,
@@ -734,7 +785,8 @@
       "Crafted"
     ],
     "wikiSlug": "Gold_Greaves",
-    "defense": 3
+    "defense": 3,
+    "progressionTier": "early-game"
   },
   {
     "id": 53,
@@ -746,7 +798,8 @@
       "Crafted"
     ],
     "wikiSlug": "Molten_Helmet",
-    "defense": 8
+    "defense": 8,
+    "progressionTier": "early-game"
   },
   {
     "id": 54,
@@ -758,7 +811,8 @@
       "Crafted"
     ],
     "wikiSlug": "Molten_Breastplate",
-    "defense": 9
+    "defense": 9,
+    "progressionTier": "early-game"
   },
   {
     "id": 55,
@@ -770,7 +824,8 @@
       "Crafted"
     ],
     "wikiSlug": "Molten_Greaves",
-    "defense": 8
+    "defense": 8,
+    "progressionTier": "early-game"
   },
   {
     "id": 56,
@@ -782,7 +837,8 @@
       "Crafted"
     ],
     "wikiSlug": "Meteor_Helmet",
-    "defense": 6
+    "defense": 6,
+    "progressionTier": "early-game"
   },
   {
     "id": 57,
@@ -794,7 +850,8 @@
       "Crafted"
     ],
     "wikiSlug": "Meteor_Suit",
-    "defense": 7
+    "defense": 7,
+    "progressionTier": "early-game"
   },
   {
     "id": 58,
@@ -806,7 +863,8 @@
       "Crafted"
     ],
     "wikiSlug": "Meteor_Leggings",
-    "defense": 6
+    "defense": 6,
+    "progressionTier": "early-game"
   },
   {
     "id": 59,
@@ -818,7 +876,8 @@
       "Crafted"
     ],
     "wikiSlug": "Necro_Helmet",
-    "defense": 6
+    "defense": 6,
+    "progressionTier": "early-game"
   },
   {
     "id": 60,
@@ -830,7 +889,8 @@
       "Crafted"
     ],
     "wikiSlug": "Necro_Breastplate",
-    "defense": 7
+    "defense": 7,
+    "progressionTier": "early-game"
   },
   {
     "id": 61,
@@ -842,7 +902,8 @@
       "Crafted"
     ],
     "wikiSlug": "Necro_Greaves",
-    "defense": 6
+    "defense": 6,
+    "progressionTier": "early-game"
   },
   {
     "id": 62,
@@ -854,7 +915,8 @@
       "Crafted"
     ],
     "wikiSlug": "Jungle_Shirt",
-    "defense": 8
+    "defense": 8,
+    "progressionTier": "early-game"
   },
   {
     "id": 63,
@@ -866,7 +928,8 @@
       "Crafted"
     ],
     "wikiSlug": "Jungle_Hat",
-    "defense": 6
+    "defense": 6,
+    "progressionTier": "early-game"
   },
   {
     "id": 64,
@@ -878,7 +941,8 @@
       "Crafted"
     ],
     "wikiSlug": "Jungle_Pants",
-    "defense": 7
+    "defense": 7,
+    "progressionTier": "early-game"
   },
   {
     "id": 65,
@@ -890,7 +954,8 @@
       "Crafted"
     ],
     "wikiSlug": "Hallowed_Helmet",
-    "defense": 24
+    "defense": 24,
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 66,
@@ -902,7 +967,8 @@
       "Crafted"
     ],
     "wikiSlug": "Hallowed_Plate_Mail",
-    "defense": 30
+    "defense": 30,
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 67,
@@ -914,7 +980,8 @@
       "Crafted"
     ],
     "wikiSlug": "Hallowed_Greaves",
-    "defense": 20
+    "defense": 20,
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 68,
@@ -926,7 +993,8 @@
       "Crafted"
     ],
     "wikiSlug": "Chlorophyte_Helmet",
-    "defense": 25
+    "defense": 25,
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 69,
@@ -938,7 +1006,8 @@
       "Crafted"
     ],
     "wikiSlug": "Chlorophyte_Plate_Mail",
-    "defense": 28
+    "defense": 28,
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 70,
@@ -950,7 +1019,8 @@
       "Crafted"
     ],
     "wikiSlug": "Chlorophyte_Greaves",
-    "defense": 20
+    "defense": 20,
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 71,
@@ -962,7 +1032,8 @@
       "Crafted"
     ],
     "wikiSlug": "Turtle_Helmet",
-    "defense": 21
+    "defense": 21,
+    "progressionTier": "early-game"
   },
   {
     "id": 72,
@@ -974,7 +1045,8 @@
       "Crafted"
     ],
     "wikiSlug": "Turtle_Scale_Mail",
-    "defense": 27
+    "defense": 27,
+    "progressionTier": "early-game"
   },
   {
     "id": 73,
@@ -986,7 +1058,8 @@
       "Crafted"
     ],
     "wikiSlug": "Turtle_Leggings",
-    "defense": 17
+    "defense": 17,
+    "progressionTier": "early-game"
   },
   {
     "id": 74,
@@ -998,7 +1071,8 @@
       "Crafted (Luminite + Solar Fragment)"
     ],
     "wikiSlug": "Solar_Flare_Helmet",
-    "defense": 24
+    "defense": 24,
+    "progressionTier": "endgame"
   },
   {
     "id": 75,
@@ -1010,7 +1084,8 @@
       "Crafted (Luminite + Solar Fragment)"
     ],
     "wikiSlug": "Solar_Flare_Breastplate",
-    "defense": 34
+    "defense": 34,
+    "progressionTier": "endgame"
   },
   {
     "id": 76,
@@ -1022,7 +1097,8 @@
       "Crafted (Luminite + Solar Fragment)"
     ],
     "wikiSlug": "Solar_Flare_Leggings",
-    "defense": 20
+    "defense": 20,
+    "progressionTier": "endgame"
   },
   {
     "id": 77,
@@ -1034,7 +1110,8 @@
       "Crafted (Luminite + Vortex Fragment)"
     ],
     "wikiSlug": "Vortex_Helmet",
-    "defense": 18
+    "defense": 18,
+    "progressionTier": "endgame"
   },
   {
     "id": 78,
@@ -1046,7 +1123,8 @@
       "Crafted (Luminite + Vortex Fragment)"
     ],
     "wikiSlug": "Vortex_Breastplate",
-    "defense": 28
+    "defense": 28,
+    "progressionTier": "endgame"
   },
   {
     "id": 79,
@@ -1058,7 +1136,8 @@
       "Crafted (Luminite + Vortex Fragment)"
     ],
     "wikiSlug": "Vortex_Leggings",
-    "defense": 12
+    "defense": 12,
+    "progressionTier": "endgame"
   },
   {
     "id": 80,
@@ -1070,7 +1149,8 @@
       "Crafted (Luminite + Nebula Fragment)"
     ],
     "wikiSlug": "Nebula_Helmet",
-    "defense": 10
+    "defense": 10,
+    "progressionTier": "endgame"
   },
   {
     "id": 81,
@@ -1082,7 +1162,8 @@
       "Crafted (Luminite + Nebula Fragment)"
     ],
     "wikiSlug": "Nebula_Breastplate",
-    "defense": 18
+    "defense": 18,
+    "progressionTier": "endgame"
   },
   {
     "id": 82,
@@ -1094,7 +1175,8 @@
       "Crafted (Luminite + Nebula Fragment)"
     ],
     "wikiSlug": "Nebula_Leggings",
-    "defense": 16
+    "defense": 16,
+    "progressionTier": "endgame"
   },
   {
     "id": 83,
@@ -1106,7 +1188,8 @@
       "Crafted (Luminite + Stardust Fragment)"
     ],
     "wikiSlug": "Stardust_Helmet",
-    "defense": 10
+    "defense": 10,
+    "progressionTier": "endgame"
   },
   {
     "id": 84,
@@ -1118,7 +1201,8 @@
       "Crafted (Luminite + Stardust Fragment)"
     ],
     "wikiSlug": "Stardust_Plate_Mail",
-    "defense": 16
+    "defense": 16,
+    "progressionTier": "endgame"
   },
   {
     "id": 85,
@@ -1130,7 +1214,8 @@
       "Crafted (Luminite + Stardust Fragment)"
     ],
     "wikiSlug": "Stardust_Leggings",
-    "defense": 12
+    "defense": 12,
+    "progressionTier": "endgame"
   },
   {
     "id": 86,
@@ -1141,7 +1226,8 @@
     "sources": [
       "Underground Chests"
     ],
-    "wikiSlug": "Hermes_Boots"
+    "wikiSlug": "Hermes_Boots",
+    "progressionTier": "early-game"
   },
   {
     "id": 87,
@@ -1152,7 +1238,8 @@
     "sources": [
       "Underground Chests"
     ],
-    "wikiSlug": "Cloud_in_a_Bottle"
+    "wikiSlug": "Cloud_in_a_Bottle",
+    "progressionTier": "early-game"
   },
   {
     "id": 88,
@@ -1163,7 +1250,8 @@
     "sources": [
       "Underground Chests"
     ],
-    "wikiSlug": "Band_of_Regeneration"
+    "wikiSlug": "Band_of_Regeneration",
+    "progressionTier": "early-game"
   },
   {
     "id": 89,
@@ -1174,7 +1262,8 @@
     "sources": [
       "Crafted"
     ],
-    "wikiSlug": "Obsidian_Shield"
+    "wikiSlug": "Obsidian_Shield",
+    "progressionTier": "early-game"
   },
   {
     "id": 90,
@@ -1185,7 +1274,8 @@
     "sources": [
       "Crafted"
     ],
-    "wikiSlug": "Ankh_Shield"
+    "wikiSlug": "Ankh_Shield",
+    "progressionTier": "early-game"
   },
   {
     "id": 91,
@@ -1196,7 +1286,8 @@
     "sources": [
       "Wall of Flesh (drop)"
     ],
-    "wikiSlug": "Warrior_Emblem"
+    "wikiSlug": "Warrior_Emblem",
+    "progressionTier": "pre-hardmode"
   },
   {
     "id": 92,
@@ -1207,7 +1298,8 @@
     "sources": [
       "Wall of Flesh (drop)"
     ],
-    "wikiSlug": "Ranger_Emblem"
+    "wikiSlug": "Ranger_Emblem",
+    "progressionTier": "pre-hardmode"
   },
   {
     "id": 93,
@@ -1218,7 +1310,8 @@
     "sources": [
       "Wall of Flesh (drop)"
     ],
-    "wikiSlug": "Sorcerer_Emblem"
+    "wikiSlug": "Sorcerer_Emblem",
+    "progressionTier": "pre-hardmode"
   },
   {
     "id": 94,
@@ -1229,7 +1322,8 @@
     "sources": [
       "Wall of Flesh (drop)"
     ],
-    "wikiSlug": "Summoner_Emblem"
+    "wikiSlug": "Summoner_Emblem",
+    "progressionTier": "pre-hardmode"
   },
   {
     "id": 95,
@@ -1240,7 +1334,8 @@
     "sources": [
       "Crafted"
     ],
-    "wikiSlug": "Celestial_Shell"
+    "wikiSlug": "Celestial_Shell",
+    "progressionTier": "early-game"
   },
   {
     "id": 96,
@@ -1251,7 +1346,8 @@
     "sources": [
       "Crafted"
     ],
-    "wikiSlug": "Lightning_Boots"
+    "wikiSlug": "Lightning_Boots",
+    "progressionTier": "early-game"
   },
   {
     "id": 97,
@@ -1262,7 +1358,8 @@
     "sources": [
       "Crafted"
     ],
-    "wikiSlug": "Spectre_Boots"
+    "wikiSlug": "Spectre_Boots",
+    "progressionTier": "early-game"
   },
   {
     "id": 98,
@@ -1273,7 +1370,8 @@
     "sources": [
       "Various"
     ],
-    "wikiSlug": "Wings"
+    "wikiSlug": "Wings",
+    "progressionTier": "early-game"
   },
   {
     "id": 99,
@@ -1284,7 +1382,8 @@
     "sources": [
       "Duke Fishron (drop)"
     ],
-    "wikiSlug": "Fishron_Wings"
+    "wikiSlug": "Fishron_Wings",
+    "progressionTier": "early-game"
   },
   {
     "id": 100,
@@ -1295,7 +1394,8 @@
     "sources": [
       "Moon Lord (drop)"
     ],
-    "wikiSlug": "Celestial_Starboard"
+    "wikiSlug": "Celestial_Starboard",
+    "progressionTier": "endgame"
   },
   {
     "id": 101,
@@ -1308,7 +1408,8 @@
       "Skeletron Prime (drop)",
       "The Destroyer (drop)"
     ],
-    "wikiSlug": "Hallowed_Bars"
+    "wikiSlug": "Hallowed_Bars",
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 102,
@@ -1319,7 +1420,8 @@
     "sources": [
       "Underground Jungle (Hardmode)"
     ],
-    "wikiSlug": "Chlorophyte_Ore"
+    "wikiSlug": "Chlorophyte_Ore",
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 103,
@@ -1330,7 +1432,8 @@
     "sources": [
       "Moon Lord (drop)"
     ],
-    "wikiSlug": "Luminite"
+    "wikiSlug": "Luminite",
+    "progressionTier": "endgame"
   },
   {
     "id": 104,
@@ -1341,7 +1444,8 @@
     "sources": [
       "The Destroyer (drop)"
     ],
-    "wikiSlug": "Soul_of_Might"
+    "wikiSlug": "Soul_of_Might",
+    "progressionTier": "early-game"
   },
   {
     "id": 105,
@@ -1352,7 +1456,8 @@
     "sources": [
       "The Twins (drop)"
     ],
-    "wikiSlug": "Soul_of_Sight"
+    "wikiSlug": "Soul_of_Sight",
+    "progressionTier": "early-game"
   },
   {
     "id": 106,
@@ -1363,7 +1468,8 @@
     "sources": [
       "Skeletron Prime (drop)"
     ],
-    "wikiSlug": "Soul_of_Fright"
+    "wikiSlug": "Soul_of_Fright",
+    "progressionTier": "pre-hardmode"
   },
   {
     "id": 107,
@@ -1374,7 +1480,8 @@
     "sources": [
       "Hallowed enemies"
     ],
-    "wikiSlug": "Soul_of_Light"
+    "wikiSlug": "Soul_of_Light",
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 108,
@@ -1385,7 +1492,8 @@
     "sources": [
       "Corruption/Crimson enemies"
     ],
-    "wikiSlug": "Soul_of_Night"
+    "wikiSlug": "Soul_of_Night",
+    "progressionTier": "early-game"
   },
   {
     "id": 109,
@@ -1396,7 +1504,8 @@
     "sources": [
       "Eater of Worlds (drop)"
     ],
-    "wikiSlug": "Shadow_Scale"
+    "wikiSlug": "Shadow_Scale",
+    "progressionTier": "pre-hardmode"
   },
   {
     "id": 110,
@@ -1407,7 +1516,8 @@
     "sources": [
       "Brain of Cthulhu (drop)"
     ],
-    "wikiSlug": "Tissue_Sample"
+    "wikiSlug": "Tissue_Sample",
+    "progressionTier": "pre-hardmode"
   },
   {
     "id": 111,
@@ -1418,7 +1528,8 @@
     "sources": [
       "Underground Jungle"
     ],
-    "wikiSlug": "Jungle_Spores"
+    "wikiSlug": "Jungle_Spores",
+    "progressionTier": "early-game"
   },
   {
     "id": 112,
@@ -1430,7 +1541,8 @@
       "Hornets (drop)",
       "Jungle"
     ],
-    "wikiSlug": "Stinger"
+    "wikiSlug": "Stinger",
+    "progressionTier": "early-game"
   },
   {
     "id": 113,
@@ -1441,7 +1553,8 @@
     "sources": [
       "Meteorite crash site"
     ],
-    "wikiSlug": "Meteorite"
+    "wikiSlug": "Meteorite",
+    "progressionTier": "early-game"
   },
   {
     "id": 114,
@@ -1452,7 +1565,8 @@
     "sources": [
       "Crafted (smelt Iron Ore)"
     ],
-    "wikiSlug": "Iron_Bar"
+    "wikiSlug": "Iron_Bar",
+    "progressionTier": "early-game"
   },
   {
     "id": 115,
@@ -1463,7 +1577,8 @@
     "sources": [
       "Crafted (smelt Gold Ore)"
     ],
-    "wikiSlug": "Gold_Bar"
+    "wikiSlug": "Gold_Bar",
+    "progressionTier": "early-game"
   },
   {
     "id": 116,
@@ -1474,7 +1589,8 @@
     "sources": [
       "Crafted"
     ],
-    "wikiSlug": "Hellstone_Bar"
+    "wikiSlug": "Hellstone_Bar",
+    "progressionTier": "early-game"
   },
   {
     "id": 117,
@@ -1485,7 +1601,8 @@
     "sources": [
       "Crafted (smelt Demonite Ore)"
     ],
-    "wikiSlug": "Demonite_Bar"
+    "wikiSlug": "Demonite_Bar",
+    "progressionTier": "early-game"
   },
   {
     "id": 118,
@@ -1500,7 +1617,8 @@
     "damage": 38,
     "hammerPower": 80,
     "useTime": 24,
-    "knockback": 4
+    "knockback": 4,
+    "progressionTier": "pre-hardmode"
   },
   {
     "id": 119,
@@ -1516,7 +1634,8 @@
     "pickaxePower": 210,
     "axePower": 125,
     "useTime": 7,
-    "knockback": 0.5
+    "knockback": 0.5,
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 120,
@@ -1532,7 +1651,8 @@
     "pickaxePower": 200,
     "axePower": 110,
     "useTime": 7,
-    "knockback": 0.5
+    "knockback": 0.5,
+    "progressionTier": "early-game"
   },
   {
     "id": 121,
@@ -1543,7 +1663,8 @@
     "sources": [
       "Crafted (Truffle's Autohammer)"
     ],
-    "wikiSlug": "Shroomite_Bar"
+    "wikiSlug": "Shroomite_Bar",
+    "progressionTier": "early-game"
   },
   {
     "id": 122,
@@ -1554,7 +1675,8 @@
     "sources": [
       "Crafted (smelt Chlorophyte Ore)"
     ],
-    "wikiSlug": "Chlorophyte_Bar"
+    "wikiSlug": "Chlorophyte_Bar",
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 123,
@@ -1565,7 +1687,8 @@
     "sources": [
       "Giant Tortoises (Jungle, Hardmode)"
     ],
-    "wikiSlug": "Turtle_Shell"
+    "wikiSlug": "Turtle_Shell",
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 124,
@@ -1576,7 +1699,8 @@
     "sources": [
       "Black Recluse (Hardmode Spider Cave)"
     ],
-    "wikiSlug": "Spider_Fang"
+    "wikiSlug": "Spider_Fang",
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 125,
@@ -1587,7 +1711,8 @@
     "sources": [
       "Queen Bee (drop)"
     ],
-    "wikiSlug": "Bee_Wax"
+    "wikiSlug": "Bee_Wax",
+    "progressionTier": "pre-hardmode"
   },
   {
     "id": 126,
@@ -1598,7 +1723,8 @@
     "sources": [
       "Dungeon Spirits (Hardmode Dungeon)"
     ],
-    "wikiSlug": "Ectoplasm"
+    "wikiSlug": "Ectoplasm",
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 127,
@@ -1609,7 +1735,8 @@
     "sources": [
       "Vortex Pillar enemies"
     ],
-    "wikiSlug": "Vortex_Fragment"
+    "wikiSlug": "Vortex_Fragment",
+    "progressionTier": "endgame"
   },
   {
     "id": 128,
@@ -1620,7 +1747,8 @@
     "sources": [
       "Nebula Pillar enemies"
     ],
-    "wikiSlug": "Nebula_Fragment"
+    "wikiSlug": "Nebula_Fragment",
+    "progressionTier": "endgame"
   },
   {
     "id": 129,
@@ -1631,7 +1759,8 @@
     "sources": [
       "Solar Pillar enemies"
     ],
-    "wikiSlug": "Solar_Fragment"
+    "wikiSlug": "Solar_Fragment",
+    "progressionTier": "endgame"
   },
   {
     "id": 130,
@@ -1642,7 +1771,8 @@
     "sources": [
       "Stardust Pillar enemies"
     ],
-    "wikiSlug": "Stardust_Fragment"
+    "wikiSlug": "Stardust_Fragment",
+    "progressionTier": "endgame"
   },
   {
     "id": 131,
@@ -1654,7 +1784,8 @@
       "Crafted",
       "Chests (rare)"
     ],
-    "wikiSlug": "Suspicious_Looking_Eye"
+    "wikiSlug": "Suspicious_Looking_Eye",
+    "progressionTier": "early-game"
   },
   {
     "id": 132,
@@ -1665,7 +1796,8 @@
     "sources": [
       "Crafted"
     ],
-    "wikiSlug": "Worm_Food"
+    "wikiSlug": "Worm_Food",
+    "progressionTier": "early-game"
   },
   {
     "id": 133,
@@ -1676,7 +1808,8 @@
     "sources": [
       "Crafted"
     ],
-    "wikiSlug": "Bloody_Spine"
+    "wikiSlug": "Bloody_Spine",
+    "progressionTier": "early-game"
   },
   {
     "id": 134,
@@ -1687,7 +1820,8 @@
     "sources": [
       "Crafted"
     ],
-    "wikiSlug": "Abeemination"
+    "wikiSlug": "Abeemination",
+    "progressionTier": "early-game"
   },
   {
     "id": 135,
@@ -1698,7 +1832,8 @@
     "sources": [
       "Voodoo Demon (Underworld drop)"
     ],
-    "wikiSlug": "Guide_Voodoo_Doll"
+    "wikiSlug": "Guide_Voodoo_Doll",
+    "progressionTier": "pre-hardmode"
   },
   {
     "id": 136,
@@ -1710,7 +1845,8 @@
       "Crafted",
       "Dungeon Chests (rare)"
     ],
-    "wikiSlug": "Mechanical_Eye"
+    "wikiSlug": "Mechanical_Eye",
+    "progressionTier": "early-game"
   },
   {
     "id": 137,
@@ -1721,7 +1857,8 @@
     "sources": [
       "Crafted"
     ],
-    "wikiSlug": "Mechanical_Worm"
+    "wikiSlug": "Mechanical_Worm",
+    "progressionTier": "early-game"
   },
   {
     "id": 138,
@@ -1732,7 +1869,8 @@
     "sources": [
       "Crafted"
     ],
-    "wikiSlug": "Mechanical_Skull"
+    "wikiSlug": "Mechanical_Skull",
+    "progressionTier": "early-game"
   },
   {
     "id": 139,
@@ -1743,7 +1881,8 @@
     "sources": [
       "Underground Mushroom Biome (rare)"
     ],
-    "wikiSlug": "Truffle_Worm"
+    "wikiSlug": "Truffle_Worm",
+    "progressionTier": "early-game"
   },
   {
     "id": 140,
@@ -1754,7 +1893,8 @@
     "sources": [
       "Underground Hallow"
     ],
-    "wikiSlug": "Gelatin_Crystal"
+    "wikiSlug": "Gelatin_Crystal",
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 141,
@@ -1766,7 +1906,8 @@
       "Lihzahrd Chests",
       "Lihzahrds (rare drop)"
     ],
-    "wikiSlug": "Lihzahrd_Power_Cell"
+    "wikiSlug": "Lihzahrd_Power_Cell",
+    "progressionTier": "early-game"
   },
   {
     "id": 142,
@@ -1777,7 +1918,8 @@
     "sources": [
       "Crafted"
     ],
-    "wikiSlug": "Celestial_Sigil"
+    "wikiSlug": "Celestial_Sigil",
+    "progressionTier": "early-game"
   },
   {
     "id": 143,
@@ -1790,7 +1932,8 @@
       "Pots",
       "Chests"
     ],
-    "wikiSlug": "Ironskin_Potion"
+    "wikiSlug": "Ironskin_Potion",
+    "progressionTier": "early-game"
   },
   {
     "id": 144,
@@ -1803,7 +1946,8 @@
       "Pots",
       "Chests"
     ],
-    "wikiSlug": "Regeneration_Potion"
+    "wikiSlug": "Regeneration_Potion",
+    "progressionTier": "early-game"
   },
   {
     "id": 145,
@@ -1816,7 +1960,8 @@
       "Pots",
       "Chests"
     ],
-    "wikiSlug": "Swiftness_Potion"
+    "wikiSlug": "Swiftness_Potion",
+    "progressionTier": "early-game"
   },
   {
     "id": 146,
@@ -1827,7 +1972,8 @@
     "sources": [
       "Crafted"
     ],
-    "wikiSlug": "Magic_Power_Potion"
+    "wikiSlug": "Magic_Power_Potion",
+    "progressionTier": "early-game"
   },
   {
     "id": 147,
@@ -1838,7 +1984,8 @@
     "sources": [
       "Crafted"
     ],
-    "wikiSlug": "Archery_Potion"
+    "wikiSlug": "Archery_Potion",
+    "progressionTier": "early-game"
   },
   {
     "id": 148,
@@ -1849,7 +1996,8 @@
     "sources": [
       "Crafted"
     ],
-    "wikiSlug": "Endurance_Potion"
+    "wikiSlug": "Endurance_Potion",
+    "progressionTier": "early-game"
   },
   {
     "id": 149,
@@ -1862,7 +2010,8 @@
       "Pots",
       "Chests"
     ],
-    "wikiSlug": "Recall_Potion"
+    "wikiSlug": "Recall_Potion",
+    "progressionTier": "early-game"
   },
   {
     "id": 150,
@@ -1878,7 +2027,8 @@
     "useTime": 20,
     "knockback": 2,
     "critChance": 4,
-    "manaCost": 10
+    "manaCost": 10,
+    "progressionTier": "early-game"
   },
   {
     "id": 151,
@@ -1893,7 +2043,8 @@
     "damage": 22,
     "useTime": 20,
     "knockback": 5,
-    "critChance": 4
+    "critChance": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 152,
@@ -1904,7 +2055,8 @@
     "sources": [
       "Sky Island Chest"
     ],
-    "wikiSlug": "Lucky_Horseshoe"
+    "wikiSlug": "Lucky_Horseshoe",
+    "progressionTier": "early-game"
   },
   {
     "id": 153,
@@ -1916,7 +2068,8 @@
       "Crafted (Spectre Bar + Ectoplasm)"
     ],
     "wikiSlug": "Spectre_Hood",
-    "defense": 6
+    "defense": 6,
+    "progressionTier": "early-game"
   },
   {
     "id": 154,
@@ -1928,7 +2081,8 @@
       "Crafted (Spectre Bar + Ectoplasm)"
     ],
     "wikiSlug": "Spectre_Mask",
-    "defense": 11
+    "defense": 11,
+    "progressionTier": "early-game"
   },
   {
     "id": 155,
@@ -1940,7 +2094,8 @@
       "Crafted (Spectre Bar + Ectoplasm)"
     ],
     "wikiSlug": "Spectre_Robe",
-    "defense": 14
+    "defense": 14,
+    "progressionTier": "early-game"
   },
   {
     "id": 156,
@@ -1952,7 +2107,8 @@
       "Crafted (Spectre Bar + Ectoplasm)"
     ],
     "wikiSlug": "Spectre_Pants",
-    "defense": 8
+    "defense": 8,
+    "progressionTier": "early-game"
   },
   {
     "id": 157,
@@ -1964,7 +2120,8 @@
       "Crafted"
     ],
     "wikiSlug": "Bee_Breastplate",
-    "defense": 8
+    "defense": 8,
+    "progressionTier": "early-game"
   },
   {
     "id": 158,
@@ -1976,7 +2133,8 @@
       "Crafted"
     ],
     "wikiSlug": "Spider_Breastplate",
-    "defense": 10
+    "defense": 10,
+    "progressionTier": "early-game"
   },
   {
     "id": 159,
@@ -1988,7 +2146,8 @@
       "Witch Doctor (sells in Hardmode Jungle)"
     ],
     "wikiSlug": "Tiki_Mask",
-    "defense": 10
+    "defense": 10,
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 160,
@@ -2000,7 +2159,8 @@
       "Crafted (Shroomite Bar)"
     ],
     "wikiSlug": "Shroomite_Helmet",
-    "defense": 15
+    "defense": 15,
+    "progressionTier": "early-game"
   },
   {
     "id": 161,
@@ -2012,7 +2172,8 @@
       "Crafted (Shroomite Bar)"
     ],
     "wikiSlug": "Shroomite_Breastplate",
-    "defense": 18
+    "defense": 18,
+    "progressionTier": "early-game"
   },
   {
     "id": 162,
@@ -2024,7 +2185,8 @@
       "Crafted (Shroomite Bar)"
     ],
     "wikiSlug": "Shroomite_Leggings",
-    "defense": 14
+    "defense": 14,
+    "progressionTier": "early-game"
   },
   {
     "id": 163,
@@ -2036,7 +2198,8 @@
       "Crafted (Turtle Armor + Beetle Husk)"
     ],
     "wikiSlug": "Beetle_Helmet",
-    "defense": 23
+    "defense": 23,
+    "progressionTier": "early-game"
   },
   {
     "id": 164,
@@ -2048,7 +2211,8 @@
       "Crafted (Turtle Armor + Beetle Husk)"
     ],
     "wikiSlug": "Beetle_Scale_Mail",
-    "defense": 32
+    "defense": 32,
+    "progressionTier": "early-game"
   },
   {
     "id": 165,
@@ -2060,7 +2224,8 @@
       "Crafted (Turtle Armor + Beetle Husk)"
     ],
     "wikiSlug": "Beetle_Shell",
-    "defense": 32
+    "defense": 32,
+    "progressionTier": "early-game"
   },
   {
     "id": 166,
@@ -2071,7 +2236,8 @@
     "sources": [
       "Golem (drop)"
     ],
-    "wikiSlug": "Beetle_Husk"
+    "wikiSlug": "Beetle_Husk",
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 167,
@@ -2084,7 +2250,8 @@
       "Goblin Tinkerer"
     ],
     "wikiSlug": "Grappling_Hook",
-    "damage": 0
+    "damage": 0,
+    "progressionTier": "early-game"
   },
   {
     "id": 168,
@@ -2096,7 +2263,8 @@
       "Underground Chests"
     ],
     "wikiSlug": "Magic_Mirror",
-    "damage": 0
+    "damage": 0,
+    "progressionTier": "early-game"
   },
   {
     "id": 169,
@@ -2108,7 +2276,8 @@
       "Underground Ice Chest"
     ],
     "wikiSlug": "Ice_Mirror",
-    "damage": 0
+    "damage": 0,
+    "progressionTier": "early-game"
   },
   {
     "id": 170,
@@ -2119,7 +2288,8 @@
     "sources": [
       "Crafted"
     ],
-    "wikiSlug": "Ankh_Charm"
+    "wikiSlug": "Ankh_Charm",
+    "progressionTier": "early-game"
   },
   {
     "id": 171,
@@ -2130,7 +2300,8 @@
     "sources": [
       "Mimics (Underground)"
     ],
-    "wikiSlug": "Cross_Necklace"
+    "wikiSlug": "Cross_Necklace",
+    "progressionTier": "early-game"
   },
   {
     "id": 172,
@@ -2141,7 +2312,8 @@
     "sources": [
       "Eater of Worlds (drop, Expert Mode)"
     ],
-    "wikiSlug": "Worm_Scarf"
+    "wikiSlug": "Worm_Scarf",
+    "progressionTier": "pre-hardmode"
   },
   {
     "id": 173,
@@ -2152,7 +2324,8 @@
     "sources": [
       "Crafted"
     ],
-    "wikiSlug": "Papyrus_Scarab"
+    "wikiSlug": "Papyrus_Scarab",
+    "progressionTier": "early-game"
   },
   {
     "id": 174,
@@ -2163,7 +2336,8 @@
     "sources": [
       "Hardmode enemies (rare)"
     ],
-    "wikiSlug": "Necromantic_Scroll"
+    "wikiSlug": "Necromantic_Scroll",
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 175,
@@ -2174,7 +2348,8 @@
     "sources": [
       "Goblin Tinkerer"
     ],
-    "wikiSlug": "Tinkerer%27s_Workshop"
+    "wikiSlug": "Tinkerer%27s_Workshop",
+    "progressionTier": "early-game"
   },
   {
     "id": 176,
@@ -2190,7 +2365,8 @@
     "useTime": 30,
     "knockback": 2,
     "manaCost": 10,
-    "critChance": 0
+    "critChance": 0,
+    "progressionTier": "early-game"
   },
   {
     "id": 177,
@@ -2206,7 +2382,8 @@
     "useTime": 30,
     "knockback": 2,
     "manaCost": 10,
-    "critChance": 0
+    "critChance": 0,
+    "progressionTier": "early-game"
   },
   {
     "id": 178,
@@ -2221,7 +2398,8 @@
     "damage": 53,
     "useTime": 23,
     "knockback": 2,
-    "critChance": 4
+    "critChance": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 179,
@@ -2236,7 +2414,8 @@
     "damage": 66,
     "useTime": 20,
     "knockback": 8,
-    "critChance": 4
+    "critChance": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 180,
@@ -2252,7 +2431,8 @@
     "useTime": 23,
     "knockback": 2,
     "critChance": 4,
-    "manaCost": 5
+    "manaCost": 5,
+    "progressionTier": "early-game"
   },
   {
     "id": 181,
@@ -2268,7 +2448,8 @@
     "useTime": 30,
     "knockback": 2,
     "critChance": 0,
-    "manaCost": 0
+    "manaCost": 0,
+    "progressionTier": "early-game"
   },
   {
     "id": 182,
@@ -2284,7 +2465,8 @@
     "useTime": 30,
     "knockback": 2,
     "critChance": 0,
-    "manaCost": 0
+    "manaCost": 0,
+    "progressionTier": "early-game"
   },
   {
     "id": 183,
@@ -2300,7 +2482,8 @@
     "useTime": 20,
     "knockback": 5,
     "critChance": 0,
-    "manaCost": 0
+    "manaCost": 0,
+    "progressionTier": "early-game"
   },
   {
     "id": 184,
@@ -2316,7 +2499,8 @@
     "useTime": 20,
     "knockback": 5,
     "critChance": 0,
-    "manaCost": 0
+    "manaCost": 0,
+    "progressionTier": "early-game"
   },
   {
     "id": 185,
@@ -2332,7 +2516,8 @@
     "useTime": 20,
     "knockback": 5,
     "critChance": 0,
-    "manaCost": 0
+    "manaCost": 0,
+    "progressionTier": "early-game"
   },
   {
     "id": 186,
@@ -2348,7 +2533,8 @@
     "useTime": 20,
     "knockback": 5,
     "critChance": 0,
-    "manaCost": 0
+    "manaCost": 0,
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 187,
@@ -2364,7 +2550,8 @@
     "useTime": 20,
     "knockback": 5,
     "critChance": 0,
-    "manaCost": 0
+    "manaCost": 0,
+    "progressionTier": "early-game"
   },
   {
     "id": 188,
@@ -2380,7 +2567,8 @@
     "useTime": 30,
     "knockback": 2,
     "critChance": 0,
-    "manaCost": 0
+    "manaCost": 0,
+    "progressionTier": "endgame"
   },
   {
     "id": 189,
@@ -2396,7 +2584,8 @@
     "useTime": 20,
     "knockback": 5,
     "critChance": 0,
-    "manaCost": 0
+    "manaCost": 0,
+    "progressionTier": "endgame"
   },
   {
     "id": 190,
@@ -2412,7 +2601,8 @@
     "damage": 18,
     "useTime": 20,
     "knockback": 5,
-    "critChance": 4
+    "critChance": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 191,
@@ -2428,7 +2618,8 @@
     "damage": 30,
     "useTime": 23,
     "knockback": 2,
-    "critChance": 4
+    "critChance": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 192,
@@ -2444,7 +2635,8 @@
     "useTime": 20,
     "knockback": 2,
     "critChance": 4,
-    "manaCost": 8
+    "manaCost": 8,
+    "progressionTier": "early-game"
   },
   {
     "id": 193,
@@ -2460,7 +2652,8 @@
     "useTime": 30,
     "knockback": 2,
     "manaCost": 10,
-    "critChance": 0
+    "critChance": 0,
+    "progressionTier": "early-game"
   },
   {
     "id": 194,
@@ -2477,7 +2670,8 @@
     "useTime": 30,
     "knockback": 2,
     "manaCost": 10,
-    "critChance": 0
+    "critChance": 0,
+    "progressionTier": "early-game"
   },
   {
     "id": 195,
@@ -2489,7 +2683,8 @@
       "Blood Moon (Dead Cells crossover)",
       "Traveling Merchant"
     ],
-    "wikiSlug": "Ram_Rune"
+    "wikiSlug": "Ram_Rune",
+    "progressionTier": "early-game"
   },
   {
     "id": 196,
@@ -2505,7 +2700,8 @@
     "useTime": 30,
     "knockback": 2,
     "manaCost": 10,
-    "critChance": 0
+    "critChance": 0,
+    "progressionTier": "early-game"
   },
   {
     "id": 197,
@@ -2521,7 +2717,8 @@
     "useTime": 30,
     "knockback": 2,
     "manaCost": 10,
-    "critChance": 0
+    "critChance": 0,
+    "progressionTier": "early-game"
   },
   {
     "id": 198,
@@ -2535,7 +2732,8 @@
     "wikiSlug": "Digtoise",
     "damage": 20,
     "useTime": 24,
-    "knockback": 4
+    "knockback": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 199,
@@ -2546,7 +2744,8 @@
     "sources": [
       "Huge Dragon Egg (Cavern layer)"
     ],
-    "wikiSlug": "Chillet"
+    "wikiSlug": "Chillet",
+    "progressionTier": "early-game"
   },
   {
     "id": 200,
@@ -2557,7 +2756,8 @@
     "sources": [
       "Huge Dragon Egg (Cavern layer)"
     ],
-    "wikiSlug": "Chillet_Ignis"
+    "wikiSlug": "Chillet_Ignis",
+    "progressionTier": "early-game"
   },
   {
     "id": 201,
@@ -2568,7 +2768,8 @@
     "sources": [
       "Glowing Mushroom Biome"
     ],
-    "wikiSlug": "Glowing_Mushroom"
+    "wikiSlug": "Glowing_Mushroom",
+    "progressionTier": "early-game"
   },
   {
     "id": 202,
@@ -2580,7 +2781,8 @@
       "Caves",
       "Spider Nests"
     ],
-    "wikiSlug": "Cobweb"
+    "wikiSlug": "Cobweb",
+    "progressionTier": "early-game"
   },
   {
     "id": 203,
@@ -2591,7 +2793,8 @@
     "sources": [
       "Crafted (smelt Crimtane Ore)"
     ],
-    "wikiSlug": "Crimtane_Bar"
+    "wikiSlug": "Crimtane_Bar",
+    "progressionTier": "early-game"
   },
   {
     "id": 204,
@@ -2602,7 +2805,8 @@
     "sources": [
       "Crafted (smelt Meteorite)"
     ],
-    "wikiSlug": "Meteorite_Bar"
+    "wikiSlug": "Meteorite_Bar",
+    "progressionTier": "early-game"
   },
   {
     "id": 205,
@@ -2614,7 +2818,8 @@
       "Crafted",
       "Merchant"
     ],
-    "wikiSlug": "Chain"
+    "wikiSlug": "Chain",
+    "progressionTier": "early-game"
   },
   {
     "id": 206,
@@ -2625,7 +2830,8 @@
     "sources": [
       "Falls at night"
     ],
-    "wikiSlug": "Fallen_Star"
+    "wikiSlug": "Fallen_Star",
+    "progressionTier": "early-game"
   },
   {
     "id": 207,
@@ -2637,7 +2843,8 @@
       "Glowing Mushroom Biome",
       "Merchant (Hardmode)"
     ],
-    "wikiSlug": "Mushroom_Grass_Seeds"
+    "wikiSlug": "Mushroom_Grass_Seeds",
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 208,
@@ -2649,7 +2856,8 @@
       "Crafted"
     ],
     "wikiSlug": "Prospector_Helmet",
-    "defense": 1
+    "defense": 1,
+    "progressionTier": "early-game"
   },
   {
     "id": 209,
@@ -2661,7 +2869,8 @@
       "Crafted"
     ],
     "wikiSlug": "Prospector_Breastplate",
-    "defense": 2
+    "defense": 2,
+    "progressionTier": "early-game"
   },
   {
     "id": 210,
@@ -2673,7 +2882,8 @@
       "Crafted"
     ],
     "wikiSlug": "Prospector_Greaves",
-    "defense": 1
+    "defense": 1,
+    "progressionTier": "early-game"
   },
   {
     "id": 211,
@@ -2685,7 +2895,8 @@
       "Underground",
       "Surface"
     ],
-    "wikiSlug": "Tin_Ore"
+    "wikiSlug": "Tin_Ore",
+    "progressionTier": "early-game"
   },
   {
     "id": 212,
@@ -2696,7 +2907,8 @@
     "sources": [
       "Underground"
     ],
-    "wikiSlug": "Lead_Ore"
+    "wikiSlug": "Lead_Ore",
+    "progressionTier": "early-game"
   },
   {
     "id": 213,
@@ -2707,7 +2919,8 @@
     "sources": [
       "Underground"
     ],
-    "wikiSlug": "Tungsten_Ore"
+    "wikiSlug": "Tungsten_Ore",
+    "progressionTier": "early-game"
   },
   {
     "id": 214,
@@ -2718,7 +2931,8 @@
     "sources": [
       "Underground (Hardmode)"
     ],
-    "wikiSlug": "Cobalt_Ore"
+    "wikiSlug": "Cobalt_Ore",
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 215,
@@ -2729,7 +2943,8 @@
     "sources": [
       "Underground (Hardmode)"
     ],
-    "wikiSlug": "Palladium_Ore"
+    "wikiSlug": "Palladium_Ore",
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 216,
@@ -2740,7 +2955,8 @@
     "sources": [
       "Underground (Hardmode, after 2nd altar)"
     ],
-    "wikiSlug": "Mythril_Ore"
+    "wikiSlug": "Mythril_Ore",
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 217,
@@ -2751,7 +2967,8 @@
     "sources": [
       "Underground (Hardmode, after 2nd altar)"
     ],
-    "wikiSlug": "Orichalcum_Ore"
+    "wikiSlug": "Orichalcum_Ore",
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 218,
@@ -2762,7 +2979,8 @@
     "sources": [
       "Underground (Hardmode, after 3rd altar)"
     ],
-    "wikiSlug": "Adamantite_Ore"
+    "wikiSlug": "Adamantite_Ore",
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 219,
@@ -2773,7 +2991,8 @@
     "sources": [
       "Underground (Hardmode, after 3rd altar)"
     ],
-    "wikiSlug": "Titanium_Ore"
+    "wikiSlug": "Titanium_Ore",
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 220,
@@ -2784,7 +3003,8 @@
     "sources": [
       "Crafted (smelt Copper Ore)"
     ],
-    "wikiSlug": "Copper_Bar"
+    "wikiSlug": "Copper_Bar",
+    "progressionTier": "early-game"
   },
   {
     "id": 221,
@@ -2795,7 +3015,8 @@
     "sources": [
       "Crafted (smelt Tin Ore)"
     ],
-    "wikiSlug": "Tin_Bar"
+    "wikiSlug": "Tin_Bar",
+    "progressionTier": "early-game"
   },
   {
     "id": 222,
@@ -2806,7 +3027,8 @@
     "sources": [
       "Crafted (smelt Lead Ore)"
     ],
-    "wikiSlug": "Lead_Bar"
+    "wikiSlug": "Lead_Bar",
+    "progressionTier": "early-game"
   },
   {
     "id": 223,
@@ -2817,7 +3039,8 @@
     "sources": [
       "Crafted (smelt Silver Ore)"
     ],
-    "wikiSlug": "Silver_Bar"
+    "wikiSlug": "Silver_Bar",
+    "progressionTier": "early-game"
   },
   {
     "id": 224,
@@ -2828,7 +3051,8 @@
     "sources": [
       "Crafted (smelt Tungsten Ore)"
     ],
-    "wikiSlug": "Tungsten_Bar"
+    "wikiSlug": "Tungsten_Bar",
+    "progressionTier": "early-game"
   },
   {
     "id": 225,
@@ -2839,7 +3063,8 @@
     "sources": [
       "Crafted (smelt Platinum Ore)"
     ],
-    "wikiSlug": "Platinum_Bar"
+    "wikiSlug": "Platinum_Bar",
+    "progressionTier": "early-game"
   },
   {
     "id": 226,
@@ -2850,7 +3075,8 @@
     "sources": [
       "Crafted (smelt Cobalt Ore)"
     ],
-    "wikiSlug": "Cobalt_Bar"
+    "wikiSlug": "Cobalt_Bar",
+    "progressionTier": "early-game"
   },
   {
     "id": 227,
@@ -2861,7 +3087,8 @@
     "sources": [
       "Crafted (smelt Palladium Ore)"
     ],
-    "wikiSlug": "Palladium_Bar"
+    "wikiSlug": "Palladium_Bar",
+    "progressionTier": "early-game"
   },
   {
     "id": 228,
@@ -2872,7 +3099,8 @@
     "sources": [
       "Crafted (smelt Mythril Ore)"
     ],
-    "wikiSlug": "Mythril_Bar"
+    "wikiSlug": "Mythril_Bar",
+    "progressionTier": "early-game"
   },
   {
     "id": 229,
@@ -2883,7 +3111,8 @@
     "sources": [
       "Crafted (smelt Orichalcum Ore)"
     ],
-    "wikiSlug": "Orichalcum_Bar"
+    "wikiSlug": "Orichalcum_Bar",
+    "progressionTier": "early-game"
   },
   {
     "id": 230,
@@ -2894,7 +3123,8 @@
     "sources": [
       "Crafted (smelt Adamantite Ore)"
     ],
-    "wikiSlug": "Adamantite_Bar"
+    "wikiSlug": "Adamantite_Bar",
+    "progressionTier": "early-game"
   },
   {
     "id": 231,
@@ -2905,7 +3135,8 @@
     "sources": [
       "Crafted (smelt Titanium Ore)"
     ],
-    "wikiSlug": "Titanium_Bar"
+    "wikiSlug": "Titanium_Bar",
+    "progressionTier": "early-game"
   },
   {
     "id": 232,
@@ -2916,7 +3147,8 @@
     "sources": [
       "Crafted (Chlorophyte Bar + Ectoplasm)"
     ],
-    "wikiSlug": "Spectre_Bar"
+    "wikiSlug": "Spectre_Bar",
+    "progressionTier": "early-game"
   },
   {
     "id": 233,
@@ -2927,7 +3159,8 @@
     "sources": [
       "Ice Golem (drop, during blizzard)"
     ],
-    "wikiSlug": "Ice_Feather"
+    "wikiSlug": "Ice_Feather",
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 234,
@@ -2939,7 +3172,8 @@
       "Crafted"
     ],
     "wikiSlug": "Tin_Helmet",
-    "defense": 2
+    "defense": 2,
+    "progressionTier": "early-game"
   },
   {
     "id": 235,
@@ -2951,7 +3185,8 @@
       "Crafted"
     ],
     "wikiSlug": "Tin_Chainmail",
-    "defense": 3
+    "defense": 3,
+    "progressionTier": "early-game"
   },
   {
     "id": 236,
@@ -2963,7 +3198,8 @@
       "Crafted"
     ],
     "wikiSlug": "Tin_Greaves",
-    "defense": 2
+    "defense": 2,
+    "progressionTier": "early-game"
   },
   {
     "id": 237,
@@ -2975,7 +3211,8 @@
       "Crafted"
     ],
     "wikiSlug": "Lead_Helmet",
-    "defense": 3
+    "defense": 3,
+    "progressionTier": "early-game"
   },
   {
     "id": 238,
@@ -2987,7 +3224,8 @@
       "Crafted"
     ],
     "wikiSlug": "Lead_Chainmail",
-    "defense": 4
+    "defense": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 239,
@@ -2999,7 +3237,8 @@
       "Crafted"
     ],
     "wikiSlug": "Lead_Greaves",
-    "defense": 3
+    "defense": 3,
+    "progressionTier": "early-game"
   },
   {
     "id": 240,
@@ -3011,7 +3250,8 @@
       "Crafted"
     ],
     "wikiSlug": "Silver_Helmet",
-    "defense": 2
+    "defense": 2,
+    "progressionTier": "early-game"
   },
   {
     "id": 241,
@@ -3023,7 +3263,8 @@
       "Crafted"
     ],
     "wikiSlug": "Silver_Chainmail",
-    "defense": 3
+    "defense": 3,
+    "progressionTier": "early-game"
   },
   {
     "id": 242,
@@ -3035,7 +3276,8 @@
       "Crafted"
     ],
     "wikiSlug": "Silver_Greaves",
-    "defense": 2
+    "defense": 2,
+    "progressionTier": "early-game"
   },
   {
     "id": 243,
@@ -3047,7 +3289,8 @@
       "Crafted"
     ],
     "wikiSlug": "Tungsten_Helmet",
-    "defense": 3
+    "defense": 3,
+    "progressionTier": "early-game"
   },
   {
     "id": 244,
@@ -3059,7 +3302,8 @@
       "Crafted"
     ],
     "wikiSlug": "Tungsten_Chainmail",
-    "defense": 4
+    "defense": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 245,
@@ -3071,7 +3315,8 @@
       "Crafted"
     ],
     "wikiSlug": "Tungsten_Greaves",
-    "defense": 3
+    "defense": 3,
+    "progressionTier": "early-game"
   },
   {
     "id": 246,
@@ -3083,7 +3328,8 @@
       "Crafted"
     ],
     "wikiSlug": "Platinum_Helmet",
-    "defense": 4
+    "defense": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 247,
@@ -3095,7 +3341,8 @@
       "Crafted"
     ],
     "wikiSlug": "Platinum_Chainmail",
-    "defense": 5
+    "defense": 5,
+    "progressionTier": "early-game"
   },
   {
     "id": 248,
@@ -3107,7 +3354,8 @@
       "Crafted"
     ],
     "wikiSlug": "Platinum_Greaves",
-    "defense": 3
+    "defense": 3,
+    "progressionTier": "early-game"
   },
   {
     "id": 249,
@@ -3119,7 +3367,8 @@
       "Crafted"
     ],
     "wikiSlug": "Cobalt_Helmet",
-    "defense": 11
+    "defense": 11,
+    "progressionTier": "early-game"
   },
   {
     "id": 250,
@@ -3131,7 +3380,8 @@
       "Crafted"
     ],
     "wikiSlug": "Cobalt_Breastplate",
-    "defense": 14
+    "defense": 14,
+    "progressionTier": "early-game"
   },
   {
     "id": 251,
@@ -3143,7 +3393,8 @@
       "Crafted"
     ],
     "wikiSlug": "Cobalt_Leggings",
-    "defense": 9
+    "defense": 9,
+    "progressionTier": "early-game"
   },
   {
     "id": 252,
@@ -3155,7 +3406,8 @@
       "Crafted"
     ],
     "wikiSlug": "Palladium_Helmet",
-    "defense": 10
+    "defense": 10,
+    "progressionTier": "early-game"
   },
   {
     "id": 253,
@@ -3167,7 +3419,8 @@
       "Crafted"
     ],
     "wikiSlug": "Palladium_Breastplate",
-    "defense": 12
+    "defense": 12,
+    "progressionTier": "early-game"
   },
   {
     "id": 254,
@@ -3179,7 +3432,8 @@
       "Crafted"
     ],
     "wikiSlug": "Palladium_Leggings",
-    "defense": 8
+    "defense": 8,
+    "progressionTier": "early-game"
   },
   {
     "id": 255,
@@ -3191,7 +3445,8 @@
       "Crafted"
     ],
     "wikiSlug": "Mythril_Helmet",
-    "defense": 10
+    "defense": 10,
+    "progressionTier": "early-game"
   },
   {
     "id": 256,
@@ -3203,7 +3458,8 @@
       "Crafted"
     ],
     "wikiSlug": "Mythril_Chainmail",
-    "defense": 13
+    "defense": 13,
+    "progressionTier": "early-game"
   },
   {
     "id": 257,
@@ -3215,7 +3471,8 @@
       "Crafted"
     ],
     "wikiSlug": "Mythril_Greaves",
-    "defense": 7
+    "defense": 7,
+    "progressionTier": "early-game"
   },
   {
     "id": 258,
@@ -3227,7 +3484,8 @@
       "Crafted"
     ],
     "wikiSlug": "Orichalcum_Helmet",
-    "defense": 11
+    "defense": 11,
+    "progressionTier": "early-game"
   },
   {
     "id": 259,
@@ -3239,7 +3497,8 @@
       "Crafted"
     ],
     "wikiSlug": "Orichalcum_Breastplate",
-    "defense": 16
+    "defense": 16,
+    "progressionTier": "early-game"
   },
   {
     "id": 260,
@@ -3251,7 +3510,8 @@
       "Crafted"
     ],
     "wikiSlug": "Orichalcum_Leggings",
-    "defense": 10
+    "defense": 10,
+    "progressionTier": "early-game"
   },
   {
     "id": 261,
@@ -3263,7 +3523,8 @@
       "Crafted"
     ],
     "wikiSlug": "Adamantite_Helmet",
-    "defense": 12
+    "defense": 12,
+    "progressionTier": "early-game"
   },
   {
     "id": 262,
@@ -3275,7 +3536,8 @@
       "Crafted"
     ],
     "wikiSlug": "Adamantite_Breastplate",
-    "defense": 20
+    "defense": 20,
+    "progressionTier": "early-game"
   },
   {
     "id": 263,
@@ -3287,7 +3549,8 @@
       "Crafted"
     ],
     "wikiSlug": "Adamantite_Leggings",
-    "defense": 12
+    "defense": 12,
+    "progressionTier": "early-game"
   },
   {
     "id": 264,
@@ -3299,7 +3562,8 @@
       "Crafted"
     ],
     "wikiSlug": "Titanium_Helmet",
-    "defense": 12
+    "defense": 12,
+    "progressionTier": "early-game"
   },
   {
     "id": 265,
@@ -3311,7 +3575,8 @@
       "Crafted"
     ],
     "wikiSlug": "Titanium_Breastplate",
-    "defense": 20
+    "defense": 20,
+    "progressionTier": "early-game"
   },
   {
     "id": 266,
@@ -3323,7 +3588,8 @@
       "Crafted"
     ],
     "wikiSlug": "Titanium_Leggings",
-    "defense": 12
+    "defense": 12,
+    "progressionTier": "early-game"
   },
   {
     "id": 267,
@@ -3335,7 +3601,8 @@
       "Crafted"
     ],
     "wikiSlug": "Frost_Helmet",
-    "defense": 10
+    "defense": 10,
+    "progressionTier": "early-game"
   },
   {
     "id": 268,
@@ -3347,7 +3614,8 @@
       "Crafted"
     ],
     "wikiSlug": "Frost_Breastplate",
-    "defense": 20
+    "defense": 20,
+    "progressionTier": "early-game"
   },
   {
     "id": 269,
@@ -3359,7 +3627,8 @@
       "Crafted"
     ],
     "wikiSlug": "Frost_Leggings",
-    "defense": 13
+    "defense": 13,
+    "progressionTier": "early-game"
   },
   {
     "id": 270,
@@ -3374,7 +3643,8 @@
     "damage": 39,
     "useTime": 20,
     "knockback": 5,
-    "critChance": 4
+    "critChance": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 271,
@@ -3389,7 +3659,8 @@
     "damage": 32,
     "useTime": 23,
     "knockback": 2,
-    "critChance": 4
+    "critChance": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 272,
@@ -3404,7 +3675,8 @@
     "damage": 10,
     "pickaxePower": 110,
     "useTime": 7,
-    "knockback": 0.5
+    "knockback": 0.5,
+    "progressionTier": "early-game"
   },
   {
     "id": 273,
@@ -3419,7 +3691,8 @@
     "damage": 45,
     "useTime": 20,
     "knockback": 5,
-    "critChance": 4
+    "critChance": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 274,
@@ -3434,7 +3707,8 @@
     "damage": 38,
     "useTime": 23,
     "knockback": 2,
-    "critChance": 4
+    "critChance": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 275,
@@ -3449,7 +3723,8 @@
     "damage": 12,
     "pickaxePower": 130,
     "useTime": 7,
-    "knockback": 0.5
+    "knockback": 0.5,
+    "progressionTier": "early-game"
   },
   {
     "id": 276,
@@ -3464,7 +3739,8 @@
     "damage": 49,
     "useTime": 20,
     "knockback": 5,
-    "critChance": 4
+    "critChance": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 277,
@@ -3479,7 +3755,8 @@
     "damage": 39,
     "useTime": 23,
     "knockback": 2,
-    "critChance": 4
+    "critChance": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 278,
@@ -3494,7 +3771,8 @@
     "damage": 15,
     "pickaxePower": 150,
     "useTime": 7,
-    "knockback": 0.5
+    "knockback": 0.5,
+    "progressionTier": "early-game"
   },
   {
     "id": 279,
@@ -3509,7 +3787,8 @@
     "damage": 50,
     "useTime": 20,
     "knockback": 5,
-    "critChance": 4
+    "critChance": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 280,
@@ -3524,7 +3803,8 @@
     "damage": 41,
     "useTime": 23,
     "knockback": 2,
-    "critChance": 4
+    "critChance": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 281,
@@ -3539,7 +3819,8 @@
     "damage": 17,
     "pickaxePower": 165,
     "useTime": 7,
-    "knockback": 0.5
+    "knockback": 0.5,
+    "progressionTier": "early-game"
   },
   {
     "id": 282,
@@ -3554,7 +3835,8 @@
     "damage": 56,
     "useTime": 20,
     "knockback": 5,
-    "critChance": 4
+    "critChance": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 283,
@@ -3569,7 +3851,8 @@
     "damage": 43,
     "useTime": 23,
     "knockback": 2,
-    "critChance": 4
+    "critChance": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 284,
@@ -3584,7 +3867,8 @@
     "damage": 20,
     "pickaxePower": 180,
     "useTime": 7,
-    "knockback": 0.5
+    "knockback": 0.5,
+    "progressionTier": "early-game"
   },
   {
     "id": 285,
@@ -3599,7 +3883,8 @@
     "damage": 57,
     "useTime": 20,
     "knockback": 5,
-    "critChance": 4
+    "critChance": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 286,
@@ -3614,7 +3899,8 @@
     "damage": 44,
     "useTime": 23,
     "knockback": 2,
-    "critChance": 4
+    "critChance": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 287,
@@ -3629,7 +3915,8 @@
     "damage": 22,
     "pickaxePower": 190,
     "useTime": 7,
-    "knockback": 0.5
+    "knockback": 0.5,
+    "progressionTier": "early-game"
   },
   {
     "id": 288,
@@ -3640,7 +3927,8 @@
     "sources": [
       "Lihzahrd Temple (Cavern)"
     ],
-    "wikiSlug": "Lihzahrd_Ore"
+    "wikiSlug": "Lihzahrd_Ore",
+    "progressionTier": "early-game"
   },
   {
     "id": 289,
@@ -3652,7 +3940,8 @@
       "Lihzahrd Temple",
       "Lihzahrds (drop)"
     ],
-    "wikiSlug": "Lihzahrd_Brick"
+    "wikiSlug": "Lihzahrd_Brick",
+    "progressionTier": "early-game"
   },
   {
     "id": 290,
@@ -3667,7 +3956,8 @@
     "damage": 7,
     "pickaxePower": 35,
     "useTime": 24,
-    "knockback": 4
+    "knockback": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 291,
@@ -3682,7 +3972,8 @@
     "damage": 7,
     "axePower": 35,
     "useTime": 24,
-    "knockback": 4
+    "knockback": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 292,
@@ -3697,7 +3988,8 @@
     "damage": 39,
     "useTime": 20,
     "knockback": 5,
-    "critChance": 4
+    "critChance": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 293,
@@ -3708,7 +4000,8 @@
     "sources": [
       "Crafted (Ectoplasm)"
     ],
-    "wikiSlug": "Ectoplasm_Bar"
+    "wikiSlug": "Ectoplasm_Bar",
+    "progressionTier": "early-game"
   },
   {
     "id": 294,
@@ -3720,7 +4013,8 @@
       "Golden Critters (Hardmode Cavern)",
       "Heresy weapons"
     ],
-    "wikiSlug": "Ichor"
+    "wikiSlug": "Ichor",
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 295,
@@ -3733,7 +4027,8 @@
       "Cursed Skulls (Corrupted Hardmode)",
       "Dark Harpy (Corrupted Floating Island)"
     ],
-    "wikiSlug": "Cursed_Flame"
+    "wikiSlug": "Cursed_Flame",
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 296,
@@ -3744,7 +4039,8 @@
     "sources": [
       "Soul Harvester (Hardmode Dungeon)"
     ],
-    "wikiSlug": "Soul_of_Blight"
+    "wikiSlug": "Soul_of_Blight",
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 297,
@@ -3756,7 +4052,8 @@
       "Hardmode Dungeon (rare)",
       "Crafted"
     ],
-    "wikiSlug": "Calamity_Ore"
+    "wikiSlug": "Calamity_Ore",
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 298,
@@ -3768,7 +4065,8 @@
       "Goblin Tinkerer",
       "Crafted"
     ],
-    "wikiSlug": "Cogs"
+    "wikiSlug": "Cogs",
+    "progressionTier": "early-game"
   },
   {
     "id": 299,
@@ -3779,7 +4077,8 @@
     "sources": [
       "Crafted"
     ],
-    "wikiSlug": "Iron_Wire"
+    "wikiSlug": "Iron_Wire",
+    "progressionTier": "early-game"
   },
   {
     "id": 300,
@@ -3790,7 +4089,8 @@
     "sources": [
       "Crafted"
     ],
-    "wikiSlug": "Mechanical_Wiring"
+    "wikiSlug": "Mechanical_Wiring",
+    "progressionTier": "early-game"
   },
   {
     "id": 301,
@@ -3802,7 +4102,8 @@
       "Eater of Worlds (drop)",
       "Corruption enemies"
     ],
-    "wikiSlug": "Rotten_Chunks"
+    "wikiSlug": "Rotten_Chunks",
+    "progressionTier": "pre-hardmode"
   },
   {
     "id": 302,
@@ -3814,7 +4115,8 @@
       "Brain of Cthulhu (drop)",
       "Crimson enemies"
     ],
-    "wikiSlug": "Vertebrae"
+    "wikiSlug": "Vertebrae",
+    "progressionTier": "pre-hardmode"
   },
   {
     "id": 303,
@@ -3827,7 +4129,8 @@
       "Corruption",
       "Traveling Merchant"
     ],
-    "wikiSlug": "Corrupt_Seeds"
+    "wikiSlug": "Corrupt_Seeds",
+    "progressionTier": "pre-hardmode"
   },
   {
     "id": 304,
@@ -3840,7 +4143,8 @@
       "Crimson",
       "Traveling Merchant"
     ],
-    "wikiSlug": "Crimson_Seeds"
+    "wikiSlug": "Crimson_Seeds",
+    "progressionTier": "pre-hardmode"
   },
   {
     "id": 305,
@@ -3852,7 +4156,8 @@
       "Hallowed enemies (rare)",
       "Hardmode"
     ],
-    "wikiSlug": "Hallowed_Seeds"
+    "wikiSlug": "Hallowed_Seeds",
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 306,
@@ -3864,7 +4169,8 @@
       "Crafted"
     ],
     "wikiSlug": "Jungle_Armor_Helmet",
-    "defense": 5
+    "defense": 5,
+    "progressionTier": "early-game"
   },
   {
     "id": 307,
@@ -3876,7 +4182,8 @@
       "Crafted"
     ],
     "wikiSlug": "Jungle_Armor_Chestplate",
-    "defense": 6
+    "defense": 6,
+    "progressionTier": "early-game"
   },
   {
     "id": 308,
@@ -3888,7 +4195,8 @@
       "Crafted"
     ],
     "wikiSlug": "Jungle_Armor_Leggings",
-    "defense": 4
+    "defense": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 309,
@@ -3900,7 +4208,8 @@
       "Crafted"
     ],
     "wikiSlug": "Corruption_Armor_Helmet",
-    "defense": 6
+    "defense": 6,
+    "progressionTier": "early-game"
   },
   {
     "id": 310,
@@ -3912,7 +4221,8 @@
       "Crafted"
     ],
     "wikiSlug": "Corruption_Armor_Chestplate",
-    "defense": 7
+    "defense": 7,
+    "progressionTier": "early-game"
   },
   {
     "id": 311,
@@ -3924,7 +4234,8 @@
       "Crafted"
     ],
     "wikiSlug": "Corruption_Armor_Leggings",
-    "defense": 6
+    "defense": 6,
+    "progressionTier": "early-game"
   },
   {
     "id": 312,
@@ -3936,7 +4247,8 @@
       "Crafted"
     ],
     "wikiSlug": "Crimson_Armor_Helmet",
-    "defense": 6
+    "defense": 6,
+    "progressionTier": "early-game"
   },
   {
     "id": 313,
@@ -3948,7 +4260,8 @@
       "Crafted"
     ],
     "wikiSlug": "Crimson_Armor_Chestplate",
-    "defense": 7
+    "defense": 7,
+    "progressionTier": "early-game"
   },
   {
     "id": 314,
@@ -3960,7 +4273,8 @@
       "Crafted"
     ],
     "wikiSlug": "Crimson_Armor_Leggings",
-    "defense": 6
+    "defense": 6,
+    "progressionTier": "early-game"
   },
   {
     "id": 315,
@@ -3971,7 +4285,8 @@
     "sources": [
       "Corruption trees"
     ],
-    "wikiSlug": "Ebonwood"
+    "wikiSlug": "Ebonwood",
+    "progressionTier": "early-game"
   },
   {
     "id": 316,
@@ -3982,7 +4297,8 @@
     "sources": [
       "Crimson trees"
     ],
-    "wikiSlug": "Shadewood"
+    "wikiSlug": "Shadewood",
+    "progressionTier": "early-game"
   },
   {
     "id": 317,
@@ -3993,7 +4309,8 @@
     "sources": [
       "Hallow trees (Hardmode)"
     ],
-    "wikiSlug": "Pearlwood"
+    "wikiSlug": "Pearlwood",
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 318,
@@ -4004,7 +4321,8 @@
     "sources": [
       "Jungle trees"
     ],
-    "wikiSlug": "Rich_Mahogany"
+    "wikiSlug": "Rich_Mahogany",
+    "progressionTier": "early-game"
   },
   {
     "id": 319,
@@ -4015,7 +4333,8 @@
     "sources": [
       "Underground Desert trees"
     ],
-    "wikiSlug": "Palm_Wood"
+    "wikiSlug": "Palm_Wood",
+    "progressionTier": "early-game"
   },
   {
     "id": 320,
@@ -4026,7 +4345,8 @@
     "sources": [
       "Snow biome trees"
     ],
-    "wikiSlug": "Boreal_Wood"
+    "wikiSlug": "Boreal_Wood",
+    "progressionTier": "early-game"
   },
   {
     "id": 321,
@@ -4037,7 +4357,8 @@
     "sources": [
       "Underground and Cavern"
     ],
-    "wikiSlug": "Silt_Block"
+    "wikiSlug": "Silt_Block",
+    "progressionTier": "early-game"
   },
   {
     "id": 322,
@@ -4048,7 +4369,8 @@
     "sources": [
       "Underground Snow biome"
     ],
-    "wikiSlug": "Slush_Block"
+    "wikiSlug": "Slush_Block",
+    "progressionTier": "early-game"
   },
   {
     "id": 323,
@@ -4059,7 +4381,8 @@
     "sources": [
       "Underground Desert"
     ],
-    "wikiSlug": "Desert_Fossil"
+    "wikiSlug": "Desert_Fossil",
+    "progressionTier": "early-game"
   },
   {
     "id": 324,
@@ -4070,7 +4393,8 @@
     "sources": [
       "Crafted (Fossil in Furnace)"
     ],
-    "wikiSlug": "Amber"
+    "wikiSlug": "Amber",
+    "progressionTier": "early-game"
   },
   {
     "id": 325,
@@ -4081,7 +4405,8 @@
     "sources": [
       "Crafted"
     ],
-    "wikiSlug": "Lenses"
+    "wikiSlug": "Lenses",
+    "progressionTier": "early-game"
   },
   {
     "id": 326,
@@ -4092,7 +4417,8 @@
     "sources": [
       "Crafted (smelt Copper Ore)"
     ],
-    "wikiSlug": "Copper_Bars"
+    "wikiSlug": "Copper_Bars",
+    "progressionTier": "early-game"
   },
   {
     "id": 327,
@@ -4103,7 +4429,8 @@
     "sources": [
       "Crafted (smelt Iron Ore)"
     ],
-    "wikiSlug": "Iron_Bars"
+    "wikiSlug": "Iron_Bars",
+    "progressionTier": "early-game"
   },
   {
     "id": 328,
@@ -4114,7 +4441,8 @@
     "sources": [
       "Crafted (smelt Silver Ore)"
     ],
-    "wikiSlug": "Silver_Bars"
+    "wikiSlug": "Silver_Bars",
+    "progressionTier": "early-game"
   },
   {
     "id": 329,
@@ -4129,7 +4457,8 @@
     "damage": 12,
     "pickaxePower": 100,
     "useTime": 24,
-    "knockback": 4
+    "knockback": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 330,
@@ -4144,7 +4473,8 @@
     "damage": 20,
     "axePower": 100,
     "useTime": 24,
-    "knockback": 4
+    "knockback": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 331,
@@ -4160,7 +4490,8 @@
     "hammerPower": 80,
     "axePower": 32,
     "useTime": 24,
-    "knockback": 4
+    "knockback": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 332,
@@ -4175,7 +4506,8 @@
     "damage": 40,
     "pickaxePower": 200,
     "useTime": 24,
-    "knockback": 4
+    "knockback": 4,
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 333,
@@ -4190,7 +4522,8 @@
     "damage": 43,
     "axePower": 110,
     "useTime": 24,
-    "knockback": 4
+    "knockback": 4,
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 334,
@@ -4205,7 +4538,8 @@
     "damage": 46,
     "axePower": 125,
     "useTime": 7,
-    "knockback": 0.5
+    "knockback": 0.5,
+    "progressionTier": "early-hardmode"
   },
   {
     "id": 335,
@@ -4220,7 +4554,8 @@
     "damage": 4,
     "pickaxePower": 35,
     "useTime": 24,
-    "knockback": 4
+    "knockback": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 336,
@@ -4235,7 +4570,8 @@
     "damage": 5,
     "axePower": 35,
     "useTime": 24,
-    "knockback": 4
+    "knockback": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 337,
@@ -4250,7 +4586,8 @@
     "damage": 7,
     "hammerPower": 35,
     "useTime": 24,
-    "knockback": 4
+    "knockback": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 338,
@@ -4265,7 +4602,8 @@
     "damage": 8,
     "useTime": 20,
     "knockback": 5,
-    "critChance": 4
+    "critChance": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 339,
@@ -4280,7 +4618,8 @@
     "damage": 7,
     "useTime": 15,
     "knockback": 5,
-    "critChance": 4
+    "critChance": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 340,
@@ -4295,7 +4634,8 @@
     "damage": 7,
     "useTime": 23,
     "knockback": 2,
-    "critChance": 4
+    "critChance": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 341,
@@ -4310,7 +4650,8 @@
     "damage": 6,
     "pickaxePower": 43,
     "useTime": 24,
-    "knockback": 4
+    "knockback": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 342,
@@ -4325,7 +4666,8 @@
     "damage": 7,
     "axePower": 40,
     "useTime": 24,
-    "knockback": 4
+    "knockback": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 343,
@@ -4340,7 +4682,8 @@
     "damage": 9,
     "hammerPower": 40,
     "useTime": 24,
-    "knockback": 4
+    "knockback": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 344,
@@ -4355,7 +4698,8 @@
     "damage": 11,
     "useTime": 20,
     "knockback": 5,
-    "critChance": 4
+    "critChance": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 345,
@@ -4370,7 +4714,8 @@
     "damage": 9,
     "useTime": 15,
     "knockback": 5,
-    "critChance": 4
+    "critChance": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 346,
@@ -4385,7 +4730,8 @@
     "damage": 9,
     "useTime": 23,
     "knockback": 2,
-    "critChance": 4
+    "critChance": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 347,
@@ -4400,7 +4746,8 @@
     "damage": 6,
     "pickaxePower": 55,
     "useTime": 24,
-    "knockback": 4
+    "knockback": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 348,
@@ -4415,7 +4762,8 @@
     "damage": 7,
     "axePower": 45,
     "useTime": 24,
-    "knockback": 4
+    "knockback": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 349,
@@ -4430,7 +4778,8 @@
     "damage": 9,
     "hammerPower": 45,
     "useTime": 24,
-    "knockback": 4
+    "knockback": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 350,
@@ -4445,7 +4794,8 @@
     "damage": 14,
     "useTime": 20,
     "knockback": 5,
-    "critChance": 4
+    "critChance": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 351,
@@ -4460,7 +4810,8 @@
     "damage": 12,
     "useTime": 15,
     "knockback": 5,
-    "critChance": 4
+    "critChance": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 352,
@@ -4475,7 +4826,8 @@
     "damage": 10,
     "useTime": 23,
     "knockback": 2,
-    "critChance": 4
+    "critChance": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 353,
@@ -4490,7 +4842,8 @@
     "damage": 6,
     "pickaxePower": 59,
     "useTime": 24,
-    "knockback": 4
+    "knockback": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 354,
@@ -4505,7 +4858,8 @@
     "damage": 7,
     "axePower": 50,
     "useTime": 24,
-    "knockback": 4
+    "knockback": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 355,
@@ -4520,7 +4874,8 @@
     "damage": 9,
     "hammerPower": 50,
     "useTime": 24,
-    "knockback": 4
+    "knockback": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 356,
@@ -4535,7 +4890,8 @@
     "damage": 15,
     "useTime": 20,
     "knockback": 5,
-    "critChance": 4
+    "critChance": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 357,
@@ -4550,7 +4906,8 @@
     "damage": 13,
     "useTime": 15,
     "knockback": 5,
-    "critChance": 4
+    "critChance": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 358,
@@ -4565,938 +4922,1111 @@
     "damage": 11,
     "useTime": 23,
     "knockback": 2,
-    "critChance": 4
+    "critChance": 4,
+    "progressionTier": "early-game"
   },
   {
     "id": 359,
     "name": "Wood Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Wood Armor.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
-    "defense": 1
+    "defense": 1,
+    "progressionTier": "early-game",
+    "wikiSlug": "Wood_Armor"
   },
   {
     "id": 360,
     "name": "Cactus Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Cactus Armor.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
-    "defense": 1
+    "defense": 1,
+    "progressionTier": "early-game",
+    "wikiSlug": "Cactus_Armor"
   },
   {
     "id": 361,
     "name": "Copper Broadsword",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Copper Broadsword.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Copper_Broadsword"
   },
   {
     "id": 362,
     "name": "Wooden Boomerang",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Wooden Boomerang.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Wooden_Boomerang"
   },
   {
     "id": 363,
     "name": "Spiky Ball",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Spiky Ball.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Spiky_Ball"
   },
   {
     "id": 364,
     "name": "Bow",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Bow.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Bow"
   },
   {
     "id": 365,
     "name": "Flintlock Pistol",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Flintlock Pistol.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Flintlock_Pistol"
   },
   {
     "id": 366,
     "name": "Wand of Sparking",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Wand of Sparking.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Wand_of_Sparking"
   },
   {
     "id": 367,
     "name": "Gold Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Gold Armor.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
-    "defense": 1
+    "defense": 1,
+    "progressionTier": "early-game",
+    "wikiSlug": "Gold_Armor"
   },
   {
     "id": 368,
     "name": "Platinum Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Platinum Armor.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
-    "defense": 1
+    "defense": 1,
+    "progressionTier": "early-game",
+    "wikiSlug": "Platinum_Armor"
   },
   {
     "id": 369,
     "name": "Gold Bow",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Gold Bow.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Gold_Bow"
   },
   {
     "id": 370,
     "name": "Vilethorn",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Vilethorn.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Vilethorn"
   },
   {
     "id": 371,
     "name": "Magic Cuffs",
     "type": "accessory",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Magic Cuffs.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
-    ]
+      "Curated boss progression recommendation set"
+    ],
+    "progressionTier": "early-game",
+    "wikiSlug": "Magic_Cuffs"
   },
   {
     "id": 372,
     "name": "Shadow Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Shadow Armor.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
-    "defense": 1
+    "defense": 1,
+    "progressionTier": "early-game",
+    "wikiSlug": "Shadow_Armor"
   },
   {
     "id": 373,
     "name": "Ball O' Hurt",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Ball O' Hurt.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Ball_O'_Hurt"
   },
   {
     "id": 374,
     "name": "Quiver",
     "type": "accessory",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Quiver.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
-    ]
+      "Curated boss progression recommendation set"
+    ],
+    "progressionTier": "early-game",
+    "wikiSlug": "Quiver"
   },
   {
     "id": 375,
     "name": "Meteor Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Meteor Armor.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
-    "defense": 1
+    "defense": 1,
+    "progressionTier": "early-game",
+    "wikiSlug": "Meteor_Armor"
   },
   {
     "id": 376,
     "name": "Crimson Rod",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Crimson Rod.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Crimson_Rod"
   },
   {
     "id": 377,
     "name": "Jungle Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Jungle Armor.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
-    "defense": 1
+    "defense": 1,
+    "progressionTier": "early-game",
+    "wikiSlug": "Jungle_Armor"
   },
   {
     "id": 378,
     "name": "Molten Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Molten Armor.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
-    "defense": 1
+    "defense": 1,
+    "progressionTier": "early-game",
+    "wikiSlug": "Molten_Armor"
   },
   {
     "id": 379,
     "name": "Crimson Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Crimson Armor.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
-    "defense": 1
+    "defense": 1,
+    "progressionTier": "early-game",
+    "wikiSlug": "Crimson_Armor"
   },
   {
     "id": 380,
     "name": "Fireblossom",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Fireblossom.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Fireblossom"
   },
   {
     "id": 381,
     "name": "Necro Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Necro Armor.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
-    "defense": 1
+    "defense": 1,
+    "progressionTier": "early-game",
+    "wikiSlug": "Necro_Armor"
   },
   {
     "id": 382,
     "name": "Musket",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Musket.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Musket"
   },
   {
     "id": 383,
     "name": "Star Cannon",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Star Cannon.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Star_Cannon"
   },
   {
     "id": 384,
     "name": "Volcano",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Volcano.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Volcano"
   },
   {
     "id": 385,
     "name": "Sunfury",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Sunfury.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Sunfury"
   },
   {
     "id": 386,
     "name": "Magma Stone",
     "type": "accessory",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Magma Stone.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
-    ]
+      "Curated boss progression recommendation set"
+    ],
+    "progressionTier": "early-game",
+    "wikiSlug": "Magma_Stone"
   },
   {
     "id": 387,
     "name": "Lava Waders",
     "type": "accessory",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Lava Waders.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
-    ]
+      "Curated boss progression recommendation set"
+    ],
+    "progressionTier": "early-game",
+    "wikiSlug": "Lava_Waders"
   },
   {
     "id": 388,
     "name": "Molten Fury",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Molten Fury.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Molten_Fury"
   },
   {
     "id": 389,
     "name": "Magic Quiver",
     "type": "accessory",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Magic Quiver.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
-    ]
+      "Curated boss progression recommendation set"
+    ],
+    "progressionTier": "early-game",
+    "wikiSlug": "Magic_Quiver"
   },
   {
     "id": 390,
     "name": "Flower of Fire",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Flower of Fire.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Flower_of_Fire"
   },
   {
     "id": 391,
     "name": "Palladium Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Palladium Armor.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
-    "defense": 1
+    "defense": 1,
+    "progressionTier": "early-game",
+    "wikiSlug": "Palladium_Armor"
   },
   {
     "id": 392,
     "name": "Cobalt Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Cobalt Armor.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
-    "defense": 1
+    "defense": 1,
+    "progressionTier": "early-game",
+    "wikiSlug": "Cobalt_Armor"
   },
   {
     "id": 393,
     "name": "Dao of Pow",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Dao of Pow.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Dao_of_Pow"
   },
   {
     "id": 394,
     "name": "Cutlass",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Cutlass.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Cutlass"
   },
   {
     "id": 395,
     "name": "Amarok",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Amarok.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Amarok"
   },
   {
     "id": 396,
     "name": "Shield of Cthulhu",
     "type": "accessory",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Shield of Cthulhu.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
-    ]
+      "Curated boss progression recommendation set"
+    ],
+    "progressionTier": "early-game",
+    "wikiSlug": "Shield_of_Cthulhu"
   },
   {
     "id": 397,
     "name": "Megashark prototype",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Megashark prototype.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Megashark_prototype"
   },
   {
     "id": 398,
     "name": "Cursed Flames",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Cursed Flames.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Cursed_Flames"
   },
   {
     "id": 399,
     "name": "Titanium Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Titanium Armor.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
-    "defense": 1
+    "defense": 1,
+    "progressionTier": "early-game",
+    "wikiSlug": "Titanium_Armor"
   },
   {
     "id": 400,
     "name": "Aerial Bane",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Aerial Bane.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Aerial_Bane"
   },
   {
     "id": 401,
     "name": "Adamantite Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Adamantite Armor.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
-    "defense": 1
+    "defense": 1,
+    "progressionTier": "early-game",
+    "wikiSlug": "Adamantite_Armor"
   },
   {
     "id": 402,
     "name": "Spell Book",
     "type": "accessory",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Spell Book.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
-    ]
+      "Curated boss progression recommendation set"
+    ],
+    "progressionTier": "early-game",
+    "wikiSlug": "Spell_Book"
   },
   {
     "id": 403,
     "name": "Optic Staff",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Optic Staff.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Optic_Staff"
   },
   {
     "id": 404,
     "name": "Frost Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Frost Armor.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
-    "defense": 1
+    "defense": 1,
+    "progressionTier": "early-game",
+    "wikiSlug": "Frost_Armor"
   },
   {
     "id": 405,
     "name": "Frost Brand",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Frost Brand.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Frost_Brand"
   },
   {
     "id": 406,
     "name": "Inferno Fork",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Inferno Fork.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Inferno_Fork"
   },
   {
     "id": 407,
     "name": "Hallowed Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Hallowed Armor.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
-    "defense": 1
+    "defense": 1,
+    "progressionTier": "early-hardmode",
+    "wikiSlug": "Hallowed_Armor"
   },
   {
     "id": 408,
     "name": "Flower Pow",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Flower Pow.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Flower_Pow"
   },
   {
     "id": 409,
     "name": "Venus Magnum",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Venus Magnum.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Venus_Magnum"
   },
   {
     "id": 410,
     "name": "Dart Rifle",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Dart Rifle.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Dart_Rifle"
   },
   {
     "id": 411,
     "name": "Turtle Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Turtle Armor.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
-    "defense": 1
+    "defense": 1,
+    "progressionTier": "early-game",
+    "wikiSlug": "Turtle_Armor"
   },
   {
     "id": 412,
     "name": "Flower of Frost",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Flower of Frost.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Flower_of_Frost"
   },
   {
     "id": 413,
     "name": "Mana Flower",
     "type": "accessory",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Mana Flower.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
-    ]
+      "Curated boss progression recommendation set"
+    ],
+    "progressionTier": "early-game",
+    "wikiSlug": "Mana_Flower"
   },
   {
     "id": 414,
     "name": "Beetle Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Beetle Armor.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
-    "defense": 1
+    "defense": 1,
+    "progressionTier": "early-game",
+    "wikiSlug": "Beetle_Armor"
   },
   {
     "id": 415,
     "name": "Possessed Hatchet",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Possessed Hatchet.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Possessed_Hatchet"
   },
   {
     "id": 416,
     "name": "Shroomite Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Shroomite Armor.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
-    "defense": 1
+    "defense": 1,
+    "progressionTier": "early-game",
+    "wikiSlug": "Shroomite_Armor"
   },
   {
     "id": 417,
     "name": "Uzi",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Uzi.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Uzi"
   },
   {
     "id": 418,
     "name": "Chlorophyte Shotbow",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Chlorophyte Shotbow.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-hardmode",
+    "wikiSlug": "Chlorophyte_Shotbow"
   },
   {
     "id": 419,
     "name": "Spectre Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Spectre Armor.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
-    "defense": 1
+    "defense": 1,
+    "progressionTier": "early-game",
+    "wikiSlug": "Spectre_Armor"
   },
   {
     "id": 420,
     "name": "Laser Machinegun",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Laser Machinegun.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Laser_Machinegun"
   },
   {
     "id": 421,
     "name": "Xeno Staff",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Xeno Staff.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Xeno_Staff"
   },
   {
     "id": 422,
     "name": "Stardust Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Stardust Armor.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
-    "defense": 1
+    "defense": 1,
+    "progressionTier": "early-game",
+    "wikiSlug": "Stardust_Armor"
   },
   {
     "id": 423,
     "name": "Kaleidoscope",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Kaleidoscope.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Kaleidoscope"
   },
   {
     "id": 424,
     "name": "Eye of Cthulhu (yoyo)",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Eye of Cthulhu (yoyo).",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Eye_of_Cthulhu_(yoyo)"
   },
   {
     "id": 425,
     "name": "Solar Flare Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Solar Flare Armor.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
-    "defense": 1
+    "defense": 1,
+    "progressionTier": "early-game",
+    "wikiSlug": "Solar_Flare_Armor"
   },
   {
     "id": 426,
     "name": "Daybreak",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Daybreak.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Daybreak"
   },
   {
     "id": 427,
     "name": "Solar Eruption",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Solar Eruption.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Solar_Eruption"
   },
   {
     "id": 428,
     "name": "Vortex Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Vortex Armor.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
-    "defense": 1
+    "defense": 1,
+    "progressionTier": "early-game",
+    "wikiSlug": "Vortex_Armor"
   },
   {
     "id": 429,
     "name": "Nebula Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Nebula Armor.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
-    "defense": 1
+    "defense": 1,
+    "progressionTier": "early-game",
+    "wikiSlug": "Nebula_Armor"
   },
   {
     "id": 430,
     "name": "Lunar Flare",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Lunar Flare.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Lunar_Flare"
   },
   {
     "id": 431,
     "name": "Nebula Blaze",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Nebula Blaze.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Nebula_Blaze"
   },
   {
     "id": 432,
     "name": "Stardust Cell Staff",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Boss recommendation entry.",
+    "tooltip": "Curated progression recommendation for Stardust Cell Staff.",
     "sources": [
-      "Migration: Boss Gear Placeholder"
+      "Curated boss progression recommendation set"
     ],
     "damage": 1,
     "knockback": 1,
     "critChance": 4,
-    "useTime": 20
+    "useTime": 20,
+    "progressionTier": "early-game",
+    "wikiSlug": "Stardust_Cell_Staff"
+  },
+  {
+    "id": 433,
+    "name": "Shark Tooth Necklace",
+    "type": "accessory",
+    "rarity": "orange",
+    "tooltip": "Increases armor penetration by 5.",
+    "sources": [
+      "Blood Moon enemies (drop)"
+    ],
+    "wikiSlug": "Shark_Tooth_Necklace",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 434,
+    "name": "Feral Claws",
+    "type": "accessory",
+    "rarity": "orange",
+    "tooltip": "Increases melee attack speed and enables auto swing for melee weapons.",
+    "sources": [
+      "Jungle shrine and Ivy Chest loot"
+    ],
+    "wikiSlug": "Feral_Claws",
+    "progressionTier": "pre-hardmode"
   }
 ]

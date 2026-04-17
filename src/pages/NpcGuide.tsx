@@ -215,6 +215,8 @@ export default function NpcGuide() {
   const [searchParams, setSearchParams] = useSearchParams()
   const tab = searchParams.get('tab') === 'biomes' ? 'biomes' : 'npcs'
   const [biomeFilter, setBiomeFilter] = useState<string | null>(null)
+  const [plannerBiome, setPlannerBiome] = useState<string>('Forest')
+  const [plannerRoommates, setPlannerRoommates] = useState<string[]>([])
 
   function setTab(t: string) {
     setSearchParams(t === 'biomes' ? { tab: 'biomes' } : {})
@@ -231,6 +233,41 @@ export default function NpcGuide() {
   const sortedBiomes = [...biomes].sort(
     (a, b) => (layerOrder[a.layer] ?? 5) - (layerOrder[b.layer] ?? 5)
   )
+
+  const plannerRows = [...npcs]
+    .map((npc) => {
+      let score = 0
+      if (npc.happiness.lovedBiomes.includes(plannerBiome)) score += 3
+      if (npc.happiness.likedBiomes.includes(plannerBiome)) score += 1
+      if (npc.happiness.dislikedBiomes.includes(plannerBiome)) score -= 1
+      if (npc.happiness.hatedBiomes.includes(plannerBiome)) score -= 3
+
+      for (const roommateId of plannerRoommates) {
+        const roommate = npcs.find((entry) => entry.id === roommateId)
+        if (!roommate) continue
+
+        if (npc.happiness.lovedNeighbors.includes(roommate.name)) score += 2
+        if (npc.happiness.likedNeighbors.includes(roommate.name)) score += 1
+        if (npc.happiness.dislikedNeighbors.includes(roommate.name)) score -= 1
+        if (npc.happiness.hatedNeighbors.includes(roommate.name)) score -= 2
+
+        if (roommate.happiness.lovedNeighbors.includes(npc.name)) score += 1
+        if (roommate.happiness.hatedNeighbors.includes(npc.name)) score -= 1
+      }
+
+      return { npc, score }
+    })
+    .sort((a, b) => b.score - a.score)
+
+  const conflictRows = plannerRows.filter((row) => row.score < 0).slice(0, 4)
+
+  function togglePlannerRoommate(id: string) {
+    setPlannerRoommates((prev) => (
+      prev.includes(id)
+        ? prev.filter((entry) => entry !== id)
+        : [...prev, id].slice(0, 4)
+    ))
+  }
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-6">
@@ -256,6 +293,75 @@ export default function NpcGuide() {
 
       {tab === 'npcs' && (
         <div>
+          <div className="mb-5 bg-terra-surface border border-terra-border rounded-lg p-4">
+            <h3 className="text-terra-gold text-xs font-pixel mb-3">NPC Happiness Planner</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
+              <div>
+                <p className="text-xs text-gray-400 mb-1">Target Biome</p>
+                <select
+                  value={plannerBiome}
+                  onChange={(e) => setPlannerBiome(e.target.value)}
+                  className="w-full bg-terra-bg border border-terra-border rounded px-2 py-1.5 text-xs text-white focus:outline-none focus:border-terra-gold"
+                >
+                  {allBiomeNames.map((name) => (
+                    <option key={`planner-${name}`} value={name}>{name}</option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <p className="text-xs text-gray-400 mb-1">Current Roommates (up to 4)</p>
+                <div className="flex flex-wrap gap-1">
+                  {npcs.map((npc) => (
+                    <button
+                      key={`planner-roommate-${npc.id}`}
+                      onClick={() => togglePlannerRoommate(npc.id)}
+                      className={cn(
+                        'text-[10px] px-2 py-1 rounded border transition-colors',
+                        plannerRoommates.includes(npc.id)
+                          ? 'border-terra-gold text-terra-gold bg-terra-panel'
+                          : 'border-terra-border text-gray-400 hover:text-white hover:border-terra-gold'
+                      )}
+                    >
+                      {npc.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div>
+                <p className="text-xs text-gray-400 mb-1">Best Fits</p>
+                <div className="space-y-1">
+                  {plannerRows.slice(0, 6).map((row) => (
+                    <div key={`planner-best-${row.npc.id}`} className="flex items-center justify-between text-xs border border-terra-border rounded px-2 py-1">
+                      <span className="text-gray-200">{row.npc.name}</span>
+                      <span className={cn('font-semibold', row.score >= 3 ? 'text-terra-green' : row.score > 0 ? 'text-terra-sky' : 'text-gray-400')}>
+                        {row.score >= 0 ? `+${row.score}` : row.score}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <p className="text-xs text-gray-400 mb-1">Conflict Highlights</p>
+                {conflictRows.length === 0 ? (
+                  <div className="text-xs text-terra-green border border-terra-border rounded px-2 py-1">No major conflicts for this setup.</div>
+                ) : (
+                  <div className="space-y-1">
+                    {conflictRows.map((row) => (
+                      <div key={`planner-conflict-${row.npc.id}`} className="flex items-center justify-between text-xs border border-terra-border rounded px-2 py-1">
+                        <span className="text-gray-200">{row.npc.name}</span>
+                        <span className="text-terra-red font-semibold">{row.score}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+
           {/* Biome filter chips */}
           <div className="flex flex-wrap gap-1.5 mb-4">
             <button

@@ -11,6 +11,7 @@ import bossesRaw from './bosses.json'
 import npcsRaw from './npcs.json'
 import biomesRaw from './biomes.json'
 import prefixesRaw from './prefixes.json'
+import changelogRaw from './changelog.json'
 
 export const DATA_VERSION = '1.4.5.6'
 
@@ -20,6 +21,7 @@ export const bosses: Boss[] = bossesRaw as Boss[]
 export const npcs: Npc[] = npcsRaw as Npc[]
 export const biomes: Biome[] = biomesRaw as Biome[]
 export const prefixes: Prefix[] = prefixesRaw as Prefix[]
+export const changelog = changelogRaw as Array<{ version: string; date: string; highlights: string[] }>
 
 export const itemsById = new Map<number, Item>(items.map((item) => [item.id, item]))
 export const prefixesById = new Map<string, Prefix>(prefixes.map((prefix) => [prefix.id, prefix]))

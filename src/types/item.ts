@@ -23,6 +23,12 @@ export type Rarity =
   | 'red'
   | 'purple'
 
+export type ProgressionTier =
+  | 'early-game'
+  | 'pre-hardmode'
+  | 'early-hardmode'
+  | 'endgame'
+
 export interface Item {
   id: number
   name: string
@@ -43,4 +49,5 @@ export interface Item {
   axePower?: number
   hammerPower?: number
   alternatePrefixes?: string[]
+  progressionTier?: ProgressionTier
 }

@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
-import { useParams, useNavigate, useSearchParams } from 'react-router-dom'
+import { useParams, useNavigate, useSearchParams, Link } from 'react-router-dom'
 import { CheckCircle, Circle, ChevronDown, ChevronUp, RotateCcw, Shield, Sword, Zap, Star } from 'lucide-react'
 import { ProgressBar } from '@/components/ui/ProgressBar'
 import { useBosses } from '@/hooks/useBosses'
 import { cn } from '@/lib/cn'
 import type { Boss, BuildClass, GamePhase } from '@/types/boss'
 import { itemsById } from '@/data/index'
+import type { StageName } from '@/types/build'
 
 const phaseLabels: Record<GamePhase, string> = {
   'pre-hardmode': 'Pre-Hardmode',
@@ -122,6 +123,23 @@ function GearTab({
     (alternate.armor.length > 0 || alternate.weapons.length > 0 || alternate.accessories.length > 0)
   )
 
+  function getRecommendedStageForBoss(targetBoss: Boss): StageName {
+    if (targetBoss.phase === 'pre-hardmode') {
+      return targetBoss.id === 'wall-of-flesh' ? 'Pre-Hardmode' : 'Early Game'
+    }
+
+    if (targetBoss.phase === 'hardmode') {
+      if (targetBoss.id === 'lunatic-cultist' || targetBoss.id === 'moon-lord') {
+        return 'Endgame'
+      }
+      return 'Early Hardmode'
+    }
+
+    return 'Endgame'
+  }
+
+  const recommendedStage = getRecommendedStageForBoss(boss)
+
   return (
     <div>
       <div className="flex gap-1 mb-4 border-b border-terra-border pb-2">
@@ -168,6 +186,15 @@ function GearTab({
 
           <div className="text-xs text-gray-500">
             Tip: Primary recommendations are listed first; additional options appear under Alternate Gear.
+          </div>
+          <div className="text-xs text-gray-400">
+            Recommended build stage:{' '}
+            <Link
+              to={`/build?class=${selectedClass}&stage=${encodeURIComponent(recommendedStage)}&cap=${encodeURIComponent(recommendedStage)}`}
+              className="text-terra-sky hover:text-terra-gold transition-colors"
+            >
+              {recommendedStage}
+            </Link>
           </div>
         </div>
       ) : (

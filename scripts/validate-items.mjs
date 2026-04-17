@@ -12,6 +12,7 @@ const prefixes = JSON.parse(fs.readFileSync(prefixesPath, 'utf8'))
 const errors = []
 const MIGRATION_PLACEHOLDER_TAG = 'Migration: Boss Gear Placeholder'
 const LEGACY_MIGRATION_TAG = 'Boss strategy recommendation'
+const progressionTiers = new Set(['early-game', 'pre-hardmode', 'early-hardmode', 'endgame'])
 
 const isFiniteNumber = (value) => typeof value === 'number' && Number.isFinite(value)
 const isFinitePositiveNumber = (value) => isFiniteNumber(value) && value > 0
@@ -152,18 +153,13 @@ for (const item of items) {
   const sources = Array.isArray(item.sources) ? item.sources : []
   const hasMigrationTag = sources.includes(MIGRATION_PLACEHOLDER_TAG)
   const hasLegacyMigrationTag = sources.includes(LEGACY_MIGRATION_TAG)
-  const isMigrationPlaceholder = item.tooltip === 'Boss recommendation entry.'
 
-  if (hasLegacyMigrationTag) {
-    errors.push(`[${item.id}] ${item.name}: uses legacy migration source tag '${LEGACY_MIGRATION_TAG}'`)
+  if (hasLegacyMigrationTag || hasMigrationTag) {
+    errors.push(`[${item.id}] ${item.name}: legacy migration source tags are no longer allowed`)
   }
 
-  if (isMigrationPlaceholder && !hasMigrationTag) {
-    errors.push(`[${item.id}] ${item.name}: placeholder item must include source tag '${MIGRATION_PLACEHOLDER_TAG}'`)
-  }
-
-  if (hasMigrationTag && !isMigrationPlaceholder) {
-    errors.push(`[${item.id}] ${item.name}: migration source tag '${MIGRATION_PLACEHOLDER_TAG}' is reserved for placeholder entries`)
+  if (!item.progressionTier || !progressionTiers.has(item.progressionTier)) {
+    errors.push(`[${item.id}] ${item.name}: progressionTier must be one of early-game, pre-hardmode, early-hardmode, endgame`)
   }
 }
 

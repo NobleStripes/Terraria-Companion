@@ -9,7 +9,9 @@ import type {
   StagedBuildsByClass,
   WorldEvil,
 } from '@/types/build'
+import type { ProgressionTier } from '@/types/item'
 import { stageOrder } from '@/types/build'
+import { items } from '@/data/index'
 
 export const progressionCaps: Array<{ label: string; stage: StageName }> = [
   { label: 'Early Game', stage: 'Early Game' },
@@ -220,6 +222,49 @@ const difficultyRules: Record<Difficulty, StageAdjustmentRule[]> = {
   ],
 }
 
+const stageTierRank: Record<StageName, number> = {
+  'Early Game': 0,
+  'Pre-Hardmode': 1,
+  'Early Hardmode': 2,
+  Endgame: 3,
+}
+
+const itemTierRank: Record<ProgressionTier, number> = {
+  'early-game': 0,
+  'pre-hardmode': 1,
+  'early-hardmode': 2,
+  endgame: 3,
+}
+
+function normalizeGearName(value: string): string {
+  return value.toLowerCase().replace(/[^a-z0-9]/g, '')
+}
+
+const itemTierByNormalizedName = new Map(
+  items
+    .filter((item) => item.progressionTier)
+    .map((item) => [normalizeGearName(item.name), item.progressionTier as ProgressionTier])
+)
+
+function getItemTierRankByName(name: string): number | undefined {
+  const tier = itemTierByNormalizedName.get(normalizeGearName(name))
+  return tier ? itemTierRank[tier] : undefined
+}
+
+function isBuildEntryCompatibleWithStage(entry: StageRecommendation): boolean {
+  const stageRank = stageTierRank[entry.stage]
+
+  const pieces = [entry.armor, entry.weapon, ...entry.accessories]
+  for (const piece of pieces) {
+    const pieceRank = getItemTierRankByName(piece)
+    if (pieceRank !== undefined && pieceRank > stageRank) {
+      return false
+    }
+  }
+
+  return true
+}
+
 function ruleApplies(entry: StageRecommendation, rule: StageAdjustmentRule): boolean {
   if (!rule.applyIf) {
     return true
@@ -308,5 +353,6 @@ export function getFilteredStageBuilds(buildClass: BuildClass, filters: BuildFil
 
   return baseBuilds
     .filter((entry) => stageOrder.indexOf(entry.stage) <= maxStageIndex)
+    .filter((entry) => isBuildEntryCompatibleWithStage(entry))
     .map((entry) => applyRules(entry, activeRules))
 }
