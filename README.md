@@ -41,42 +41,28 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 | `npm run build` | Type-check and build for production |
 | `npm run preview` | Preview production build locally |
 | `npm run lint` | Run ESLint |
-| `npm run electron-dev` | Run Electron app in dev mode |
-| `npm run electron-build` | Build Electron installers (all platforms) |
-| `npm run electron-build:win` | Build Windows .exe installer |
-| `npm run electron-build:mac` | Build macOS .dmg installer |
-| `npm run electron-build:linux` | Build Linux installers |
-| `npm run lib:build` | Build NPM library (TypeScript declarations) |
 
-## Distribution & Deployment
 
-Three ways to distribute Terraria Companion:
 
-### 🌐 **Standalone Server** (No Installation)
-For users who just want to run it locally:
-```bash
-npm run build
-node server.js
-# Opens http://localhost:8000
-```
-See `start-server.bat` (Windows) and `start-server.sh` (macOS/Linux) for user-friendly launchers.
+## Deployment (Public Users)
 
-### 🖥️ **Electron Desktop App** (.exe / .dmg Installers)
-For professional distribution as a desktop application:
-```bash
-npm run electron-build
-# Creates installers in dist/
-```
+Terraria Companion is now distributed only as a standalone local server for public users.
 
-### 📦 **NPM Library** (For Developers)
-Publish game data as a reusable npm package:
-```bash
-npm run lib:build
-npm publish
-```
-Other developers can then: `npm install terraria-companion-data`
+### 🌐 Standalone Server (Recommended)
 
-**Full guide:** See [DISTRIBUTION.md](./DISTRIBUTION.md) and [NPM_PUBLISHING.md](./NPM_PUBLISHING.md)
+1. Build the app:
+	```bash
+	npm install
+	npm run build
+	```
+2. Start the local server:
+	```bash
+	node server.js
+	# or use start-server.bat (Windows) / start-server.sh (macOS/Linux)
+	```
+3. Open [http://localhost:8000](http://localhost:8000) in your browser.
+
+No installation or code signing required. Electron and NPM package distribution are no longer available for public users.
 
 ## Project Structure
 
