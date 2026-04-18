@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Search, Shield, Sword, Users } from 'lucide-react'
+import { Map, Search, Shield, Sword, Users } from 'lucide-react'
 import { DATA_VERSION, changelog } from '@/data/index'
 
 const features = [
@@ -25,11 +25,18 @@ const features = [
     color: 'text-terra-green',
   },
   {
+    to: '/biomes',
+    icon: Map,
+    title: 'Biome Guide',
+    description: 'Browse biome layers, key resources, enemies, and NPC housing fits.',
+    color: 'text-terra-purple',
+  },
+  {
     to: '/npcs',
     icon: Users,
-    title: 'NPC & Biomes',
-    description: 'NPC happiness, housing requirements, and biome guides.',
-    color: 'text-terra-purple',
+    title: 'NPC Guide',
+    description: 'Plan happiness, check unlocks, and review housing requirements.',
+    color: 'text-terra-sky',
   },
 ]
 

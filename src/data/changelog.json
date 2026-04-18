@@ -1,4 +1,12 @@
-[
+[  {
+    "version": "1.0.1",
+    "date": "2026-04-18",
+    "highlights": [
+      "Dedicated Biome Guide route added to main navigation and home discovery.",
+      "Biome Guide and NPC Guide now support shareable filtered views via URL-backed state.",
+      "NPC Guide simplified to NPC planning and preference workflows, with duplicate biome tab removed."
+    ]
+  },
   {
     "version": "1.4.5.6",
     "date": "2026-01-18",

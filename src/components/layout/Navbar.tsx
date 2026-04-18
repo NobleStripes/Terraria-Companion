@@ -9,6 +9,7 @@ const navItems = [
   { to: '/items', label: 'Items' },
   { to: '/bosses', label: 'Bosses' },
   { to: '/build', label: 'Builds' },
+  { to: '/biomes', label: 'Biomes' },
   { to: '/npcs', label: 'NPCs' },
 ]
 

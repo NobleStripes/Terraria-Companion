@@ -1,13 +1,15 @@
 import { lazy, Suspense } from 'react'
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
 import Navbar from '@/components/layout/Navbar'
-import { DATA_VERSION } from '@/data/index'
+import { APP_VERSION, DATA_VERSION } from '@/data/index'
 
 const Home = lazy(() => import('@/pages/Home'))
 const ItemLookup = lazy(() => import('@/pages/ItemLookup'))
 const BossTracker = lazy(() => import('@/pages/BossTracker'))
 const BuildStages = lazy(() => import('@/pages/BuildStages'))
+const BiomeGuide = lazy(() => import('@/pages/BiomeGuide'))
 const NpcGuide = lazy(() => import('@/pages/NpcGuide'))
+const NotFound = lazy(() => import('@/pages/NotFound'))
 
 function Layout() {
   return (
@@ -25,7 +27,7 @@ function Layout() {
         </Suspense>
       </main>
       <footer className="border-t border-terra-border py-3 px-4 text-center text-xs text-gray-600">
-        Terraria Companion · Data version {DATA_VERSION} · Data sourced from{' '}
+        Terraria Companion · App v{APP_VERSION} · Data version {DATA_VERSION} · Data sourced from{' '}
         <a href="https://terraria.wiki.gg" target="_blank" rel="noopener noreferrer" className="text-terra-sky hover:text-terra-gold transition-colors">
           Terraria Wiki
         </a>{' '}
@@ -46,8 +48,10 @@ const router = createBrowserRouter([
       { path: 'bosses', element: <BossTracker /> },
       { path: 'bosses/:bossId', element: <BossTracker /> },
       { path: 'build', element: <BuildStages /> },
+      { path: 'biomes', element: <BiomeGuide /> },
       { path: 'npcs', element: <NpcGuide /> },
       { path: 'npcs/:npcId', element: <NpcGuide /> },
+      { path: '*', element: <NotFound /> },
     ],
   },
 ])

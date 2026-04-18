@@ -1,9 +1,8 @@
 import { useState } from 'react'
-import { useSearchParams } from 'react-router-dom'
-import { ChevronDown, ChevronUp, Heart, ThumbsDown, Minus, X } from 'lucide-react'
-import { npcs, biomes } from '@/data/index'
+import { Link, useSearchParams } from 'react-router-dom'
+import { Check, ChevronDown, ChevronUp, Copy, Heart, ThumbsDown, Minus, Trees, X } from 'lucide-react'
+import { npcs } from '@/data/index'
 import type { Npc } from '@/types/npc'
-import type { Biome } from '@/types/biome'
 import { cn } from '@/lib/cn'
 
 const allBiomeNames = Array.from(
@@ -138,88 +137,65 @@ function NpcCard({ npc }: { npc: Npc }) {
   )
 }
 
-const layerOrder: Record<string, number> = {
-  sky: 0, surface: 1, underground: 2, cavern: 3, underworld: 4,
-}
-
-function BiomeCard({ biome }: { biome: Biome }) {
-  const [expanded, setExpanded] = useState(false)
-
-  return (
-    <div className="bg-terra-surface border border-terra-border rounded-lg overflow-hidden hover:border-terra-gold transition-colors">
-      <button onClick={() => setExpanded((v) => !v)} className="w-full text-left p-4">
-        <div className="flex items-center justify-between gap-2">
-          <div className="flex items-center gap-3 min-w-0">
-            <h3 className="font-semibold text-white text-sm">{biome.name}</h3>
-            <span className="text-xs border border-terra-border rounded px-1.5 py-0.5 text-gray-400 capitalize shrink-0">
-              {biome.layer}
-            </span>
-            {biome.hardmodeOnly && (
-              <span className="text-xs border border-terra-gold rounded px-1.5 py-0.5 text-terra-gold shrink-0">
-                Hardmode
-              </span>
-            )}
-          </div>
-          {expanded ? <ChevronUp className="w-4 h-4 text-gray-400 shrink-0" /> : <ChevronDown className="w-4 h-4 text-gray-400 shrink-0" />}
-        </div>
-        {!expanded && <p className="text-gray-500 text-xs mt-1 line-clamp-1">{biome.description}</p>}
-      </button>
-
-      {expanded && (
-        <div className="px-4 pb-4 pt-0 border-t border-terra-border space-y-4">
-          <p className="text-gray-300 text-sm leading-relaxed mt-3">{biome.description}</p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
-            <div>
-              <h4 className="text-terra-gold text-xs font-pixel mb-2">Resources</h4>
-              <ul className="space-y-1">
-                {biome.resources.map((r) => <li key={r} className="text-gray-300 text-xs">• {r}</li>)}
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-terra-gold text-xs font-pixel mb-2">Common Enemies</h4>
-              <ul className="space-y-1">
-                {biome.commonEnemies.map((e) => <li key={e} className="text-gray-300 text-xs">• {e}</li>)}
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-terra-gold text-xs font-pixel mb-2">Unique Features</h4>
-              <ul className="space-y-1">
-                {biome.uniqueFeatures.map((f) => <li key={f} className="text-gray-300 text-xs">• {f}</li>)}
-              </ul>
-            </div>
-          </div>
-
-          {biome.happyNpcs.length > 0 && (
-            <div>
-              <h4 className="text-terra-gold text-xs font-pixel mb-2">Happy NPCs Here</h4>
-              <div className="flex flex-wrap gap-1">
-                {biome.happyNpcs.map((id) => {
-                  const npc = npcs.find((n) => n.id === id)
-                  return (
-                    <span key={id} className="bg-terra-bg border border-terra-green rounded px-2 py-0.5 text-xs text-terra-green">
-                      {npc?.name ?? id}
-                    </span>
-                  )
-                })}
-              </div>
-            </div>
-          )}
-        </div>
-      )}
-    </div>
-  )
-}
-
 export default function NpcGuide() {
   const [searchParams, setSearchParams] = useSearchParams()
-  const tab = searchParams.get('tab') === 'biomes' ? 'biomes' : 'npcs'
-  const [biomeFilter, setBiomeFilter] = useState<string | null>(null)
-  const [plannerBiome, setPlannerBiome] = useState<string>('Forest')
-  const [plannerRoommates, setPlannerRoommates] = useState<string[]>([])
+  const [copyState, setCopyState] = useState<'idle' | 'copied' | 'error'>('idle')
 
-  function setTab(t: string) {
-    setSearchParams(t === 'biomes' ? { tab: 'biomes' } : {})
+  const biomeFilterParam = searchParams.get('biome')
+  const plannerBiomeParam = searchParams.get('plannerBiome')
+  const roommatesParam = searchParams.get('roommates')
+
+  const biomeFilter = biomeFilterParam && allBiomeNames.includes(biomeFilterParam) ? biomeFilterParam : null
+  const plannerBiome = plannerBiomeParam && allBiomeNames.includes(plannerBiomeParam) ? plannerBiomeParam : 'Forest'
+  const plannerRoommates = roommatesParam
+    ? roommatesParam
+        .split(',')
+        .map((value) => value.trim())
+        .filter((value, index, list) => value && list.indexOf(value) === index)
+        .filter((value) => npcs.some((npc) => npc.id === value))
+        .slice(0, 4)
+    : []
+
+  function updateParams(next: { biome?: string | null; plannerBiome?: string; roommates?: string[] }) {
+    const nextParams = new URLSearchParams(searchParams)
+    const nextBiome = next.biome !== undefined ? next.biome : biomeFilter
+    const nextPlannerBiome = next.plannerBiome ?? plannerBiome
+    const nextRoommates = next.roommates ?? plannerRoommates
+
+    if (nextBiome) {
+      nextParams.set('biome', nextBiome)
+    } else {
+      nextParams.delete('biome')
+    }
+
+    if (nextPlannerBiome === 'Forest') {
+      nextParams.delete('plannerBiome')
+    } else {
+      nextParams.set('plannerBiome', nextPlannerBiome)
+    }
+
+    if (nextRoommates.length > 0) {
+      nextParams.set('roommates', nextRoommates.join(','))
+    } else {
+      nextParams.delete('roommates')
+    }
+
+    setSearchParams(nextParams)
+  }
+
+  async function copyCurrentViewLink() {
+    const shareUrl = `${window.location.origin}${window.location.pathname}${window.location.search}`
+
+    try {
+      await navigator.clipboard.writeText(shareUrl)
+      setCopyState('copied')
+    } catch {
+      setCopyState('error')
+    }
+
+    window.setTimeout(() => {
+      setCopyState('idle')
+    }, 1800)
   }
 
   const filteredNpcs = biomeFilter
@@ -229,10 +205,6 @@ export default function NpcGuide() {
           n.happiness.likedBiomes.includes(biomeFilter)
       )
     : npcs
-
-  const sortedBiomes = [...biomes].sort(
-    (a, b) => (layerOrder[a.layer] ?? 5) - (layerOrder[b.layer] ?? 5)
-  )
 
   const plannerRows = [...npcs]
     .map((npc) => {
@@ -262,37 +234,56 @@ export default function NpcGuide() {
   const conflictRows = plannerRows.filter((row) => row.score < 0).slice(0, 4)
 
   function togglePlannerRoommate(id: string) {
-    setPlannerRoommates((prev) => (
-      prev.includes(id)
-        ? prev.filter((entry) => entry !== id)
-        : [...prev, id].slice(0, 4)
-    ))
+    const nextRoommates = plannerRoommates.includes(id)
+      ? plannerRoommates.filter((entry) => entry !== id)
+      : [...plannerRoommates, id].slice(0, 4)
+
+    updateParams({ roommates: nextRoommates })
   }
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-6">
-      <h1 className="font-pixel text-terra-gold text-sm mb-6">NPC & Biome Guide</h1>
+      <div className="flex flex-col gap-3 mb-6">
+        <div>
+          <h1 className="font-pixel text-terra-gold text-sm">NPC Guide</h1>
+          <p className="text-gray-400 text-sm mt-2 max-w-2xl">
+            Plan biome happiness, compare roommate compatibility, and review unlock and housing notes for every town NPC.
+          </p>
+        </div>
 
-      {/* Tabs */}
-      <div className="flex border-b border-terra-border mb-6">
-        {['npcs', 'biomes'].map((t) => (
-          <button
-            key={t}
-            onClick={() => setTab(t)}
-            className={cn(
-              'px-6 py-2.5 text-sm font-semibold capitalize transition-colors',
-              tab === t
-                ? 'text-terra-gold border-b-2 border-terra-gold -mb-px'
-                : 'text-gray-400 hover:text-white'
-            )}
-          >
-            {t === 'npcs' ? 'NPCs' : 'Biomes'}
-          </button>
-        ))}
+        <div className="bg-terra-surface border border-terra-border rounded-lg p-4 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+          <div className="flex items-start gap-3">
+            <div className="w-9 h-9 rounded-lg bg-terra-panel border border-terra-border flex items-center justify-center shrink-0">
+              <Trees className="w-4 h-4 text-terra-gold" />
+            </div>
+            <div>
+              <p className="text-white text-sm font-semibold">Need biome details?</p>
+              <p className="text-gray-400 text-xs mt-1">
+                Open the dedicated biome route for layer filters, hardmode-only views, and shareable biome URLs.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={copyCurrentViewLink}
+              className="inline-flex items-center justify-center gap-1.5 rounded border border-terra-border px-3 py-2 text-xs text-gray-300 hover:border-terra-gold hover:text-white transition-colors"
+            >
+              {copyState === 'copied' ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+              {copyState === 'copied' ? 'Link copied' : copyState === 'error' ? 'Copy failed' : 'Copy setup'}
+            </button>
+            <Link
+              to="/biomes"
+              className="inline-flex items-center justify-center rounded border border-terra-border px-3 py-2 text-xs text-gray-300 hover:border-terra-gold hover:text-white transition-colors"
+            >
+              Browse Biomes
+            </Link>
+          </div>
+        </div>
       </div>
 
-      {tab === 'npcs' && (
-        <div>
+      <div>
           <div className="mb-5 bg-terra-surface border border-terra-border rounded-lg p-4">
             <h3 className="text-terra-gold text-xs font-pixel mb-3">NPC Happiness Planner</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
@@ -300,7 +291,7 @@ export default function NpcGuide() {
                 <p className="text-xs text-gray-400 mb-1">Target Biome</p>
                 <select
                   value={plannerBiome}
-                  onChange={(e) => setPlannerBiome(e.target.value)}
+                  onChange={(e) => updateParams({ plannerBiome: e.target.value })}
                   className="w-full bg-terra-bg border border-terra-border rounded px-2 py-1.5 text-xs text-white focus:outline-none focus:border-terra-gold"
                 >
                   {allBiomeNames.map((name) => (
@@ -365,7 +356,7 @@ export default function NpcGuide() {
           {/* Biome filter chips */}
           <div className="flex flex-wrap gap-1.5 mb-4">
             <button
-              onClick={() => setBiomeFilter(null)}
+              onClick={() => updateParams({ biome: null })}
               className={cn(
                 'px-3 py-1 rounded-full text-xs font-semibold border transition-colors',
                 biomeFilter === null
@@ -378,7 +369,7 @@ export default function NpcGuide() {
             {allBiomeNames.map((name) => (
               <button
                 key={name}
-                onClick={() => setBiomeFilter(biomeFilter === name ? null : name)}
+                onClick={() => updateParams({ biome: biomeFilter === name ? null : name })}
                 className={cn(
                   'px-3 py-1 rounded-full text-xs font-semibold border transition-colors',
                   biomeFilter === name
@@ -406,16 +397,7 @@ export default function NpcGuide() {
           {filteredNpcs.length === 0 && (
             <p className="text-gray-500 text-sm text-center py-8">No NPCs prefer this biome.</p>
           )}
-        </div>
-      )}
-
-      {tab === 'biomes' && (
-        <div className="space-y-3">
-          {sortedBiomes.map((biome) => (
-            <BiomeCard key={biome.id} biome={biome} />
-          ))}
-        </div>
-      )}
+      </div>
     </div>
   )
 }
