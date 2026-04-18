@@ -2,6 +2,7 @@
 
 A second-screen browser reference for Terraria players. Look up items, track bosses, browse recommended builds by stage, and explore NPC/biome guides — all in one place.
 
+**App version:** 1.0.2  
 **Data version:** 1.4.5.6 (Bigger & Boulder)
 
 ## Features
@@ -92,6 +93,7 @@ Terraria Companion is now distributed only as a standalone local server for publ
 	# or use start-server.bat (Windows) / start-server.sh (macOS/Linux)
 	```
 3. Open [http://localhost:8000](http://localhost:8000) in your browser.
+4. To open the production build from another device on your local network, use `http://<your-pc-ip>:8000`.
 
 No installation or code signing required. Electron distribution is no longer used.
 

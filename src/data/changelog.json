@@ -1,4 +1,13 @@
 [  {
+    "version": "1.0.2",
+    "date": "2026-04-18",
+    "highlights": [
+      "Phone and tablet layouts were polished across Item Lookup, Build Stages, Boss Tracker, Biome Guide, and NPC Guide.",
+      "Shared UI controls now use roomier touch targets and more legible badges for non-desktop play.",
+      "Home, navigation, and README guidance were updated to better support local-network use on mobile and tablet devices."
+    ]
+  },
+  {
     "version": "1.0.1",
     "date": "2026-04-18",
     "highlights": [
