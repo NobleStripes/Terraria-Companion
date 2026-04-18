@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { Sword, Shield, Zap, Star } from 'lucide-react'
+import { Filter, FolderCog, Sword, Shield, Zap, Star } from 'lucide-react'
 import type { BuildClass } from '@/types/boss'
 import type { Difficulty, StageName, WorldEvil } from '@/types/build'
 import { Link, useSearchParams } from 'react-router-dom'
@@ -11,6 +11,7 @@ import {
   worldEvilOptions,
 } from '@/data/builds'
 import { bosses, items } from '@/data/index'
+import { useViewport } from '@/hooks/useViewport'
 
 const classes: BuildClass[] = ['melee', 'ranged', 'magic', 'summoner']
 const stageOrder: StageName[] = progressionCaps.map((cap) => cap.stage)
@@ -287,6 +288,7 @@ function readPinnedStages(): StageName[] {
 }
 
 export default function BuildStages() {
+  const { isMobile, isTablet } = useViewport()
   const [searchParams, setSearchParams] = useSearchParams()
   const stored = useMemo(() => readStoredPreferences(), [])
   const initialSavedPresets = useMemo(() => readSavedPresets(), [])
@@ -396,6 +398,8 @@ export default function BuildStages() {
   const [showWhyInCompact, setShowWhyInCompact] = useState(() => stored.density === 'cozy')
   const [showOnlyPinned, setShowOnlyPinned] = useState(() => searchParams.get('pinsonly') === '1')
   const [expandedStages, setExpandedStages] = useState<StageName[]>(() => [...stageOrder])
+  const [showFiltersPanel, setShowFiltersPanel] = useState(false)
+  const [showPresetsPanel, setShowPresetsPanel] = useState(false)
   const presetImportRef = useRef<HTMLInputElement>(null)
 
   const { label, icon: Icon, color, description } = classConfig[selectedClass]
@@ -613,6 +617,15 @@ export default function BuildStages() {
     showOnlyPinned,
     setSearchParams,
   ])
+
+  const filtersPanelVisible = !isMobile || showFiltersPanel
+  const presetsPanelVisible = !isMobile || showPresetsPanel
+  const primaryFiltersGridClass = isTablet
+    ? 'mt-4 grid grid-cols-1 md:grid-cols-2 gap-3'
+    : 'mt-4 grid grid-cols-1 md:grid-cols-3 gap-3'
+  const secondaryFiltersGridClass = isTablet
+    ? 'mt-3 grid grid-cols-1 md:grid-cols-2 gap-3'
+    : 'mt-3 grid grid-cols-1 md:grid-cols-5 gap-3'
 
   async function copyShareLink() {
     try {
@@ -850,13 +863,13 @@ export default function BuildStages() {
     <div className="max-w-7xl mx-auto px-4 py-6 space-y-4">
       <h1 className="font-pixel text-terra-gold text-sm">Recommended Builds</h1>
 
-      <div className="bg-terra-surface border border-terra-border rounded-xl p-4">
+      <div className={cn('bg-terra-surface border border-terra-border rounded-xl', isMobile ? 'p-3' : 'p-4')}>
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-4">
           <div className="flex items-center gap-2">
             <Icon className={cn('w-5 h-5', color)} />
             <h2 className="text-white font-semibold">{label} Progression</h2>
           </div>
-          <div className="flex flex-wrap gap-1">
+          <div className={cn('flex gap-1', isMobile ? 'overflow-x-auto pb-1' : 'flex-wrap')}>
             {classes.map((buildClass) => {
               const cfg = classConfig[buildClass]
               const ClassIcon = cfg.icon
@@ -890,6 +903,25 @@ export default function BuildStages() {
             </Link>
           </p>
         ) : null}
+
+        {isMobile && (
+          <div className="mt-3 grid grid-cols-2 gap-2">
+            <button
+              onClick={() => setShowFiltersPanel((visible) => !visible)}
+              className="inline-flex items-center justify-center gap-1.5 px-2 py-2 rounded border border-terra-border text-xs text-gray-300 hover:text-terra-gold hover:border-terra-gold transition-colors"
+            >
+              <Filter className="w-3.5 h-3.5" />
+              {filtersPanelVisible ? 'Hide Filters' : 'Show Filters'}
+            </button>
+            <button
+              onClick={() => setShowPresetsPanel((visible) => !visible)}
+              className="inline-flex items-center justify-center gap-1.5 px-2 py-2 rounded border border-terra-border text-xs text-gray-300 hover:text-terra-gold hover:border-terra-gold transition-colors"
+            >
+              <FolderCog className="w-3.5 h-3.5" />
+              {presetsPanelVisible ? 'Hide Presets' : 'Show Presets'}
+            </button>
+          </div>
+        )}
 
         <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-xs">
           <p className="text-gray-500">Filter state is synced to URL for sharing.</p>
@@ -925,7 +957,9 @@ export default function BuildStages() {
           <p className="mt-2 text-xs text-terra-gold">{clipboardMessage}</p>
         ) : null}
 
-        <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3">
+        {filtersPanelVisible && (
+          <>
+            <div className={primaryFiltersGridClass}>
           <div className="bg-terra-bg border border-terra-border rounded-lg px-3 py-2">
             <p className="text-xs text-gray-400 mb-1">World Evil</p>
             <div className="flex gap-1">
@@ -978,9 +1012,9 @@ export default function BuildStages() {
               ))}
             </select>
           </div>
-        </div>
+            </div>
 
-        <div className="mt-3 grid grid-cols-1 md:grid-cols-5 gap-3">
+            <div className={secondaryFiltersGridClass}>
           <div className="bg-terra-bg border border-terra-border rounded-lg px-3 py-2 md:col-span-2">
             <p className="text-xs text-gray-400 mb-1">Filter Gear / Notes</p>
             <input
@@ -1045,9 +1079,9 @@ export default function BuildStages() {
               ))}
             </div>
           </div>
-        </div>
+            </div>
 
-        <div className="mt-3 flex items-center gap-2">
+            <div className="mt-3 flex flex-wrap items-center gap-2">
           <button
             onClick={() => setVariantOnly((v) => !v)}
             className={cn(
@@ -1071,9 +1105,12 @@ export default function BuildStages() {
             Pinned Only
           </button>
           <p className="text-xs text-gray-500">Showing {visibleBuilds.length} stage{visibleBuilds.length === 1 ? '' : 's'}</p>
-        </div>
+            </div>
+          </>
+        )}
 
-        <div className="mt-3 grid grid-cols-1 md:grid-cols-3 gap-3">
+        {presetsPanelVisible && (
+          <div className={cn('mt-3 grid grid-cols-1 gap-3', isTablet ? 'md:grid-cols-2' : 'md:grid-cols-3')}>
           <div className="bg-terra-bg border border-terra-border rounded-lg px-3 py-2 md:col-span-2">
             <p className="text-xs text-gray-400 mb-1">Saved Presets</p>
             <input
@@ -1142,7 +1179,8 @@ export default function BuildStages() {
               Show "Why" in compact view
             </label>
           </div>
-        </div>
+          </div>
+        )}
 
         {visibleBuilds.length > 0 ? (
           <div className="mt-4 bg-terra-bg border border-terra-border rounded-lg p-3">

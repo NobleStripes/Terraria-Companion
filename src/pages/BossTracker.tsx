@@ -3,6 +3,7 @@ import { useParams, useNavigate, useSearchParams, Link } from 'react-router-dom'
 import { CheckCircle, Circle, ChevronDown, ChevronUp, RotateCcw, Shield, Sword, Zap, Star } from 'lucide-react'
 import { ProgressBar } from '@/components/ui/ProgressBar'
 import { useBosses } from '@/hooks/useBosses'
+import { useViewport } from '@/hooks/useViewport'
 import { cn } from '@/lib/cn'
 import type { Boss, BuildClass, GamePhase } from '@/types/boss'
 import { itemsById } from '@/data/index'
@@ -212,21 +213,32 @@ function BossDrawer({
   onItemClick,
   gearClass,
   onGearClassChange,
+  isMobile,
+  isTablet,
 }: {
   boss: Boss
   onClose: () => void
   onItemClick: (itemId: number) => void
   gearClass: BuildClass
   onGearClassChange: (value: BuildClass) => void
+  isMobile: boolean
+  isTablet: boolean
 }) {
   const [tab, setTab] = useState<DrawerTab>('overview')
   const tabs: DrawerTab[] = ['overview', 'gear', 'tips']
 
   return (
-    <div className="fixed inset-0 z-50 flex">
+    <div className="fixed inset-0 z-50 flex justify-end items-end md:items-stretch">
       <div className="flex-1 bg-black/60" onClick={onClose} />
-      <div className="w-full max-w-lg bg-terra-surface border-l border-terra-border overflow-y-auto flex flex-col">
-        <div className="p-5 border-b border-terra-border">
+      <div className={cn(
+        'bg-terra-surface overflow-y-auto flex flex-col',
+        isMobile
+          ? 'w-full h-[88vh] border-t border-x border-terra-border rounded-t-2xl'
+          : isTablet
+            ? 'w-full max-w-xl border-l border-terra-border'
+            : 'w-full max-w-lg border-l border-terra-border'
+      )}>
+        <div className={cn('border-b border-terra-border', isMobile ? 'p-4' : 'p-5')}>
           <div className="flex items-center justify-between">
             <h2 className="font-pixel text-terra-gold text-xs">{boss.name}</h2>
             <button onClick={onClose} className="text-gray-400 hover:text-white text-xl leading-none">✕</button>
@@ -256,7 +268,7 @@ function BossDrawer({
           ))}
         </div>
 
-        <div className="p-5 flex-1">
+        <div className={cn('flex-1', isMobile ? 'p-4' : 'p-5')}>
           {tab === 'overview' && (
             <div className="space-y-4">
               {boss.strategySections ? (
@@ -372,6 +384,7 @@ function BossCard({ boss, isDefeated, onToggle, onOpen }: {
 }
 
 export default function BossTracker() {
+  const { isMobile, isTablet } = useViewport()
   const { bossId } = useParams()
   const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
@@ -413,12 +426,12 @@ export default function BossTracker() {
   }
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-6">
-      <div className="flex items-center justify-between mb-6">
+    <div className={cn('mx-auto px-4 py-6', isTablet ? 'max-w-4xl' : 'max-w-3xl')}>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
         <h1 className="font-pixel text-terra-gold text-sm">Boss Tracker</h1>
         <button
           onClick={() => setConfirmReset(true)}
-          className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-terra-red transition-colors border border-terra-border hover:border-terra-red rounded px-2.5 py-1.5"
+          className="w-full sm:w-auto flex items-center justify-center gap-1.5 text-xs text-gray-400 hover:text-terra-red transition-colors border border-terra-border hover:border-terra-red rounded px-2.5 py-2"
         >
           <RotateCcw className="w-3.5 h-3.5" />
           Reset All
@@ -463,6 +476,8 @@ export default function BossTracker() {
           onItemClick={openItem}
           gearClass={gearClass}
           onGearClassChange={setGearClass}
+          isMobile={isMobile}
+          isTablet={isTablet}
         />
       )}
 

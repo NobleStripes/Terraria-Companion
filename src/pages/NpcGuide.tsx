@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { Check, ChevronDown, ChevronUp, Copy, Heart, ThumbsDown, Minus, Trees, X } from 'lucide-react'
+import { Check, ChevronDown, ChevronUp, Copy, Filter, Heart, SlidersHorizontal, ThumbsDown, Minus, Trees, X } from 'lucide-react'
 import { npcs } from '@/data/index'
 import type { Npc } from '@/types/npc'
 import { cn } from '@/lib/cn'
+import { useViewport } from '@/hooks/useViewport'
 
 const allBiomeNames = Array.from(
   new Set([
@@ -34,7 +35,7 @@ function HappinessPill({ text, tier }: { text: string; tier: HappinessTier }) {
   )
 }
 
-function NpcCard({ npc }: { npc: Npc }) {
+function NpcCard({ npc, isMobile }: { npc: Npc; isMobile: boolean }) {
   const [expanded, setExpanded] = useState(false)
 
   const lovedBiome = npc.happiness.lovedBiomes[0]
@@ -44,7 +45,7 @@ function NpcCard({ npc }: { npc: Npc }) {
     <div className="bg-terra-surface border border-terra-border rounded-lg overflow-hidden hover:border-terra-gold transition-colors">
       <button
         onClick={() => setExpanded((v) => !v)}
-        className="w-full text-left p-4"
+        className={cn('w-full text-left', isMobile ? 'p-3.5' : 'p-4')}
       >
         <div className="flex items-start justify-between gap-2">
           <div className="flex-1 min-w-0">
@@ -138,8 +139,11 @@ function NpcCard({ npc }: { npc: Npc }) {
 }
 
 export default function NpcGuide() {
+  const { isMobile, isTablet } = useViewport()
   const [searchParams, setSearchParams] = useSearchParams()
   const [copyState, setCopyState] = useState<'idle' | 'copied' | 'error'>('idle')
+  const [showPlannerPanel, setShowPlannerPanel] = useState(false)
+  const [showBiomePanel, setShowBiomePanel] = useState(false)
 
   const biomeFilterParam = searchParams.get('biome')
   const plannerBiomeParam = searchParams.get('plannerBiome')
@@ -232,6 +236,8 @@ export default function NpcGuide() {
     .sort((a, b) => b.score - a.score)
 
   const conflictRows = plannerRows.filter((row) => row.score < 0).slice(0, 4)
+  const plannerPanelVisible = !isMobile || showPlannerPanel
+  const biomePanelVisible = !isMobile || showBiomePanel
 
   function togglePlannerRoommate(id: string) {
     const nextRoommates = plannerRoommates.includes(id)
@@ -264,26 +270,46 @@ export default function NpcGuide() {
             </div>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full md:w-auto">
             <button
               type="button"
               onClick={copyCurrentViewLink}
-              className="inline-flex items-center justify-center gap-1.5 rounded border border-terra-border px-3 py-2 text-xs text-gray-300 hover:border-terra-gold hover:text-white transition-colors"
+              className="inline-flex items-center justify-center gap-1.5 rounded border border-terra-border px-3 py-2 text-xs text-gray-300 hover:border-terra-gold hover:text-white transition-colors w-full sm:w-auto"
             >
               {copyState === 'copied' ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
               {copyState === 'copied' ? 'Link copied' : copyState === 'error' ? 'Copy failed' : 'Copy setup'}
             </button>
             <Link
               to="/biomes"
-              className="inline-flex items-center justify-center rounded border border-terra-border px-3 py-2 text-xs text-gray-300 hover:border-terra-gold hover:text-white transition-colors"
+              className="inline-flex items-center justify-center rounded border border-terra-border px-3 py-2 text-xs text-gray-300 hover:border-terra-gold hover:text-white transition-colors w-full sm:w-auto"
             >
               Browse Biomes
             </Link>
           </div>
         </div>
+
+        {isMobile && (
+          <div className="grid grid-cols-2 gap-2">
+            <button
+              onClick={() => setShowPlannerPanel((visible) => !visible)}
+              className="inline-flex items-center justify-center gap-1.5 rounded border border-terra-border px-2 py-2 text-xs text-gray-300 hover:border-terra-gold hover:text-white transition-colors"
+            >
+              <SlidersHorizontal className="w-3.5 h-3.5" />
+              {plannerPanelVisible ? 'Hide Planner' : 'Show Planner'}
+            </button>
+            <button
+              onClick={() => setShowBiomePanel((visible) => !visible)}
+              className="inline-flex items-center justify-center gap-1.5 rounded border border-terra-border px-2 py-2 text-xs text-gray-300 hover:border-terra-gold hover:text-white transition-colors"
+            >
+              <Filter className="w-3.5 h-3.5" />
+              {biomePanelVisible ? 'Hide Biomes' : 'Show Biomes'}
+            </button>
+          </div>
+        )}
       </div>
 
       <div>
+          {plannerPanelVisible && (
           <div className="mb-5 bg-terra-surface border border-terra-border rounded-lg p-4">
             <h3 className="text-terra-gold text-xs font-pixel mb-3">NPC Happiness Planner</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
@@ -301,7 +327,7 @@ export default function NpcGuide() {
               </div>
               <div>
                 <p className="text-xs text-gray-400 mb-1">Current Roommates (up to 4)</p>
-                <div className="flex flex-wrap gap-1">
+                <div className={cn('flex gap-1', isMobile ? 'overflow-x-auto pb-1' : 'flex-wrap')}>
                   {npcs.map((npc) => (
                     <button
                       key={`planner-roommate-${npc.id}`}
@@ -352,13 +378,15 @@ export default function NpcGuide() {
               </div>
             </div>
           </div>
+          )}
 
           {/* Biome filter chips */}
-          <div className="flex flex-wrap gap-1.5 mb-4">
+          {biomePanelVisible && (
+          <div className={cn('gap-1.5 mb-4', isMobile ? 'flex overflow-x-auto pb-1' : 'flex flex-wrap')}>
             <button
               onClick={() => updateParams({ biome: null })}
               className={cn(
-                'px-3 py-1 rounded-full text-xs font-semibold border transition-colors',
+                'px-3 py-1 rounded-full text-xs font-semibold border transition-colors whitespace-nowrap',
                 biomeFilter === null
                   ? 'border-terra-gold text-terra-gold bg-terra-panel'
                   : 'border-terra-border text-gray-400 hover:border-terra-gold hover:text-terra-gold'
@@ -371,7 +399,7 @@ export default function NpcGuide() {
                 key={name}
                 onClick={() => updateParams({ biome: biomeFilter === name ? null : name })}
                 className={cn(
-                  'px-3 py-1 rounded-full text-xs font-semibold border transition-colors',
+                  'px-3 py-1 rounded-full text-xs font-semibold border transition-colors whitespace-nowrap',
                   biomeFilter === name
                     ? 'border-terra-gold text-terra-gold bg-terra-panel'
                     : 'border-terra-border text-gray-400 hover:border-terra-gold hover:text-terra-gold'
@@ -381,6 +409,7 @@ export default function NpcGuide() {
               </button>
             ))}
           </div>
+          )}
 
           {biomeFilter && (
             <p className="text-gray-400 text-xs mb-3">
@@ -388,9 +417,9 @@ export default function NpcGuide() {
             </p>
           )}
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <div className={cn('grid gap-3', isTablet ? 'grid-cols-2' : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3')}>
             {filteredNpcs.map((npc) => (
-              <NpcCard key={npc.id} npc={npc} />
+              <NpcCard key={npc.id} npc={npc} isMobile={isMobile} />
             ))}
           </div>
 

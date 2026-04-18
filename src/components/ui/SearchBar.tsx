@@ -23,7 +23,7 @@ export function SearchBar({ value, onChange, placeholder = 'Search…', classNam
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         autoFocus={autoFocus}
-        className="w-full bg-terra-bg border border-terra-border rounded-lg pl-9 pr-9 py-2 text-sm text-white placeholder-gray-500 focus:border-terra-gold focus:outline-none transition-colors"
+        className="w-full bg-terra-bg border border-terra-border rounded-lg pl-9 pr-10 py-2.5 text-sm text-white placeholder-gray-500 focus:border-terra-gold focus:outline-none transition-colors"
       />
       {value && (
         <button
@@ -31,7 +31,7 @@ export function SearchBar({ value, onChange, placeholder = 'Search…', classNam
             onChange('')
             inputRef.current?.focus()
           }}
-          className="absolute right-3 text-gray-500 hover:text-white transition-colors"
+          className="absolute right-2 p-1 text-gray-500 hover:text-white transition-colors"
           aria-label="Clear search"
         >
           <X className="w-4 h-4" />

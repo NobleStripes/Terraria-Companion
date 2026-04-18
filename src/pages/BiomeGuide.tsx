@@ -1,9 +1,10 @@
 import { useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { Check, ChevronDown, ChevronUp, Copy, Mountain, Trees } from 'lucide-react'
+import { Check, ChevronDown, ChevronUp, Copy, Filter, Mountain, Trees } from 'lucide-react'
 import { biomes, npcs } from '@/data/index'
 import type { Biome } from '@/types/biome'
 import { cn } from '@/lib/cn'
+import { useViewport } from '@/hooks/useViewport'
 
 const layerOrder: Record<Biome['layer'], number> = {
   sky: 0,
@@ -21,7 +22,7 @@ const layerLabels: Record<Biome['layer'], string> = {
   underworld: 'Underworld',
 }
 
-function BiomeCard({ biome }: { biome: Biome }) {
+function BiomeCard({ biome, isMobile, isTablet }: { biome: Biome; isMobile: boolean; isTablet: boolean }) {
   const [expanded, setExpanded] = useState(false)
 
   return (
@@ -57,7 +58,7 @@ function BiomeCard({ biome }: { biome: Biome }) {
 
       {expanded && (
         <div className="px-4 pb-4 pt-0 border-t border-terra-border space-y-4">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-3">
+          <div className={cn('pt-3 gap-4', isMobile ? 'grid grid-cols-1' : isTablet ? 'grid grid-cols-2' : 'grid grid-cols-1 sm:grid-cols-3')}>
             <div>
               <h3 className="text-terra-gold text-xs font-pixel mb-2">Resources</h3>
               <ul className="space-y-1">
@@ -110,8 +111,10 @@ function BiomeCard({ biome }: { biome: Biome }) {
 }
 
 export default function BiomeGuide() {
+  const { isMobile, isTablet } = useViewport()
   const [searchParams, setSearchParams] = useSearchParams()
   const [copyState, setCopyState] = useState<'idle' | 'copied' | 'error'>('idle')
+  const [showFiltersPanel, setShowFiltersPanel] = useState(false)
 
   const layerParam = searchParams.get('layer')
   const selectedLayer: 'all' | Biome['layer'] =
@@ -179,6 +182,8 @@ export default function BiomeGuide() {
       return left.name.localeCompare(right.name)
     })
 
+  const filtersVisible = !isMobile || showFiltersPanel
+
   return (
     <div className="max-w-5xl mx-auto px-4 py-6">
       <div className="flex flex-col gap-3 mb-6">
@@ -194,17 +199,29 @@ export default function BiomeGuide() {
           </div>
         </div>
 
-        <div className="bg-terra-surface border border-terra-border rounded-lg p-4 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div className="space-y-2">
+        {isMobile && (
+          <button
+            type="button"
+            onClick={() => setShowFiltersPanel((visible) => !visible)}
+            className="inline-flex items-center justify-center gap-2 rounded border border-terra-border px-3 py-2 text-xs text-gray-300 hover:border-terra-gold hover:text-white transition-colors w-full"
+          >
+            <Filter className="w-3.5 h-3.5" />
+            {filtersVisible ? 'Hide Filters' : 'Show Filters'}
+          </button>
+        )}
+
+        {filtersVisible && (
+          <div className="bg-terra-surface border border-terra-border rounded-lg p-4 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div className="space-y-2 min-w-0">
             <p className="text-terra-gold text-xs font-pixel">Filters</p>
-            <div className="flex flex-wrap gap-2">
+            <div className={cn('flex gap-2', isMobile ? 'overflow-x-auto pb-1' : 'flex-wrap')}>
               {(['all', 'sky', 'surface', 'underground', 'cavern', 'underworld'] as const).map((layer) => (
                 <button
                   key={layer}
                   type="button"
                   onClick={() => updateFilters({ layer })}
                   className={cn(
-                    'px-3 py-1.5 rounded border text-xs transition-colors',
+                    'px-3 py-1.5 rounded border text-xs transition-colors whitespace-nowrap',
                     selectedLayer === layer
                       ? 'border-terra-gold text-terra-gold bg-terra-panel'
                       : 'border-terra-border text-gray-300 hover:border-terra-gold hover:text-white'
@@ -217,7 +234,7 @@ export default function BiomeGuide() {
             </div>
           </div>
 
-          <label className="inline-flex items-center gap-2 text-xs text-gray-300">
+          <label className="inline-flex items-center gap-2 text-xs text-gray-300 whitespace-nowrap">
             <input
               type="checkbox"
               checked={hardmodeOnly}
@@ -237,7 +254,8 @@ export default function BiomeGuide() {
               {copyState === 'copied' ? 'Link copied' : copyState === 'error' ? 'Copy failed' : 'Copy link'}
             </button>
           </div>
-        </div>
+          </div>
+        )}
       </div>
 
       <div className="mb-4 flex items-center justify-between gap-3 text-xs text-gray-500">
@@ -248,9 +266,9 @@ export default function BiomeGuide() {
         </span>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <div className={cn('grid gap-4', isTablet ? 'grid-cols-2' : 'grid-cols-1 lg:grid-cols-2')}>
         {filteredBiomes.map((biome) => (
-          <BiomeCard key={biome.id} biome={biome} />
+          <BiomeCard key={biome.id} biome={biome} isMobile={isMobile} isTablet={isTablet} />
         ))}
       </div>
 

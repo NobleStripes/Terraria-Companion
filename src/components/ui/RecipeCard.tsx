@@ -16,7 +16,7 @@ export function RecipeCard({ recipe, onItemClick, showResult }: RecipeCardProps)
       {showResult && resultItem && (
         <button
           onClick={() => onItemClick?.(recipe.resultItemId)}
-          className="text-terra-gold font-semibold text-sm mb-2 hover:underline text-left"
+          className="text-terra-gold font-semibold text-sm mb-2 hover:underline text-left py-1"
         >
           → {resultItem.name} {recipe.resultQuantity > 1 ? `×${recipe.resultQuantity}` : ''}
         </button>
@@ -34,7 +34,7 @@ export function RecipeCard({ recipe, onItemClick, showResult }: RecipeCardProps)
             <button
               key={ing.itemId}
               onClick={() => onItemClick?.(ing.itemId)}
-              className="flex items-center gap-1 bg-terra-surface border border-terra-border rounded px-2 py-1 text-xs hover:border-terra-gold transition-colors"
+              className="flex items-center gap-1 bg-terra-surface border border-terra-border rounded px-2 py-1.5 text-xs hover:border-terra-gold transition-colors"
             >
               <span className="text-white">{ingItem?.name ?? `Item #${ing.itemId}`}</span>
               {ing.quantity > 1 && (

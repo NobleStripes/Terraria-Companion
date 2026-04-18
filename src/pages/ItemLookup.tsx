@@ -1,11 +1,12 @@
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { ExternalLink, Package, Scale, X } from 'lucide-react'
+import { ExternalLink, Filter, Package, Scale, X } from 'lucide-react'
 import { SearchBar } from '@/components/ui/SearchBar'
 import { ItemCard } from '@/components/ui/ItemCard'
 import { RecipeCard } from '@/components/ui/RecipeCard'
 import { RarityBadge, TypeBadge } from '@/components/ui/Badge'
 import { useItemSearch } from '@/hooks/useItemSearch'
+import { useViewport } from '@/hooks/useViewport'
 import { useRecipesForItem } from '@/hooks/useRecipes'
 import { usePrefixesForItem } from '@/hooks/usePrefixes'
 import { itemsById, items, prefixesById } from '@/data/index'
@@ -275,6 +276,7 @@ function ItemDetailPanel({
 export default function ItemLookup() {
   const { itemId } = useParams()
   const navigate = useNavigate()
+  const { isMobile, isTablet } = useViewport()
   const [query, setQuery] = useState('')
   const selectedId = useMemo(() => {
     if (!itemId) return undefined
@@ -287,6 +289,7 @@ export default function ItemLookup() {
   const [sourceFilter, setSourceFilter] = useState<SourceFilter>('all')
   const [tierFilter, setTierFilter] = useState<TierFilter>('all')
   const [compareIds, setCompareIds] = useState<number[]>([])
+  const [showFilters, setShowFilters] = useState(false)
   const listRef = useRef<HTMLDivElement>(null)
 
   const searchResults = useItemSearch(query)
@@ -326,9 +329,12 @@ export default function ItemLookup() {
   const selectItem = useCallback(
     (id: number) => {
       setSelectedPrefixId('')
+      if (isMobile) {
+        setShowFilters(false)
+      }
       navigate(`/items/${id}`, { replace: true })
     },
-    [navigate]
+    [navigate, isMobile]
   )
 
   function toggleCompare(itemIdToToggle: number) {
@@ -367,13 +373,15 @@ export default function ItemLookup() {
     return () => window.removeEventListener('keydown', onKey)
   }, [displayItems, selectedId, selectItem])
 
+  const filtersVisible = !isMobile || showFilters
+
   return (
     <div className="max-w-7xl mx-auto px-4 py-6 flex flex-col gap-4">
       <h1 className="font-pixel text-terra-gold text-sm">Item Lookup</h1>
 
-      <div className="flex flex-col md:flex-row gap-4 h-[calc(100vh-160px)]">
+      <div className={`flex flex-col gap-4 ${isMobile ? '' : 'md:flex-row'} ${isMobile ? '' : isTablet ? 'h-[calc(100vh-190px)]' : 'h-[calc(100vh-160px)]'}`}>
         {/* Left panel */}
-        <div className="md:w-72 lg:w-80 flex flex-col gap-3 shrink-0">
+        <div className={`${isMobile ? 'w-full' : isTablet ? 'md:w-72' : 'md:w-72 lg:w-80'} flex flex-col gap-3 shrink-0`}>
           <SearchBar
             value={query}
             onChange={setQuery}
@@ -381,60 +389,73 @@ export default function ItemLookup() {
             autoFocus
           />
 
-          <div className="grid grid-cols-2 gap-2">
-            <select
-              value={classFilter}
-              onChange={(e) => setClassFilter(e.target.value as ItemClassFilter)}
-              className="bg-terra-bg border border-terra-border rounded px-2 py-1.5 text-xs text-white focus:border-terra-gold focus:outline-none"
-              aria-label="Filter by class"
+          {isMobile && (
+            <button
+              onClick={() => setShowFilters((visible) => !visible)}
+              className="inline-flex items-center justify-center gap-2 border border-terra-border bg-terra-surface rounded px-3 py-2 text-xs text-gray-300 hover:text-terra-gold hover:border-terra-gold transition-colors"
             >
-              <option value="all">All Classes</option>
-              <option value="melee">Melee</option>
-              <option value="ranged">Ranged</option>
-              <option value="magic">Magic</option>
-              <option value="summoner">Summoner</option>
-              <option value="utility">Utility</option>
-            </select>
-            <select
-              value={damageFilter}
-              onChange={(e) => setDamageFilter(e.target.value as DamageFilter)}
-              className="bg-terra-bg border border-terra-border rounded px-2 py-1.5 text-xs text-white focus:border-terra-gold focus:outline-none"
-              aria-label="Filter by damage profile"
-            >
-              <option value="all">All Damage</option>
-              <option value="has-damage">Has Damage</option>
-              <option value="non-damage">Non-Damage</option>
-            </select>
-            <select
-              value={sourceFilter}
-              onChange={(e) => setSourceFilter(e.target.value as SourceFilter)}
-              className="bg-terra-bg border border-terra-border rounded px-2 py-1.5 text-xs text-white focus:border-terra-gold focus:outline-none"
-              aria-label="Filter by source"
-            >
-              <option value="all">All Sources</option>
-              <option value="crafted">Crafted</option>
-              <option value="drop">Drops</option>
-              <option value="vendor">Vendors</option>
-              <option value="event">Events</option>
-              <option value="exploration">Exploration</option>
-            </select>
-            <select
-              value={tierFilter}
-              onChange={(e) => setTierFilter(e.target.value as TierFilter)}
-              className="bg-terra-bg border border-terra-border rounded px-2 py-1.5 text-xs text-white focus:border-terra-gold focus:outline-none"
-              aria-label="Filter by progression tier"
-            >
-              <option value="all">All Tiers</option>
-              <option value="early-game">Early Game</option>
-              <option value="pre-hardmode">Pre-Hardmode</option>
-              <option value="early-hardmode">Early Hardmode</option>
-              <option value="endgame">Endgame</option>
-            </select>
-          </div>
+              <Filter className="w-3.5 h-3.5" />
+              {filtersVisible ? 'Hide Filters' : 'Show Filters'}
+            </button>
+          )}
+
+          {filtersVisible && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <select
+                value={classFilter}
+                onChange={(e) => setClassFilter(e.target.value as ItemClassFilter)}
+                className="bg-terra-bg border border-terra-border rounded px-2 py-2 text-xs text-white focus:border-terra-gold focus:outline-none"
+                aria-label="Filter by class"
+              >
+                <option value="all">All Classes</option>
+                <option value="melee">Melee</option>
+                <option value="ranged">Ranged</option>
+                <option value="magic">Magic</option>
+                <option value="summoner">Summoner</option>
+                <option value="utility">Utility</option>
+              </select>
+              <select
+                value={damageFilter}
+                onChange={(e) => setDamageFilter(e.target.value as DamageFilter)}
+                className="bg-terra-bg border border-terra-border rounded px-2 py-2 text-xs text-white focus:border-terra-gold focus:outline-none"
+                aria-label="Filter by damage profile"
+              >
+                <option value="all">All Damage</option>
+                <option value="has-damage">Has Damage</option>
+                <option value="non-damage">Non-Damage</option>
+              </select>
+              <select
+                value={sourceFilter}
+                onChange={(e) => setSourceFilter(e.target.value as SourceFilter)}
+                className="bg-terra-bg border border-terra-border rounded px-2 py-2 text-xs text-white focus:border-terra-gold focus:outline-none"
+                aria-label="Filter by source"
+              >
+                <option value="all">All Sources</option>
+                <option value="crafted">Crafted</option>
+                <option value="drop">Drops</option>
+                <option value="vendor">Vendors</option>
+                <option value="event">Events</option>
+                <option value="exploration">Exploration</option>
+              </select>
+              <select
+                value={tierFilter}
+                onChange={(e) => setTierFilter(e.target.value as TierFilter)}
+                className="bg-terra-bg border border-terra-border rounded px-2 py-2 text-xs text-white focus:border-terra-gold focus:outline-none"
+                aria-label="Filter by progression tier"
+              >
+                <option value="all">All Tiers</option>
+                <option value="early-game">Early Game</option>
+                <option value="pre-hardmode">Pre-Hardmode</option>
+                <option value="early-hardmode">Early Hardmode</option>
+                <option value="endgame">Endgame</option>
+              </select>
+            </div>
+          )}
 
           <div
             ref={listRef}
-            className="flex-1 overflow-y-auto space-y-1.5 pr-1"
+            className={`${isMobile ? 'max-h-[42vh]' : 'flex-1'} overflow-y-auto space-y-1.5 pr-1`
+            }
           >
             {displayItems.length === 0 && query.trim().length >= 2 && (
               <p className="text-gray-500 text-sm text-center py-8">No items found.</p>
@@ -458,7 +479,7 @@ export default function ItemLookup() {
         </div>
 
         {/* Right panel */}
-        <div className="flex-1 bg-terra-surface border border-terra-border rounded-lg p-5 overflow-y-auto">
+        <div className={`flex-1 bg-terra-surface border border-terra-border rounded-lg ${isMobile ? 'p-4' : 'p-5'} overflow-y-auto`}>
           {comparedItems.length > 0 && (
             <div className="mb-5 bg-terra-bg border border-terra-border rounded-lg p-3">
               <div className="flex items-center justify-between gap-2 mb-2">
@@ -471,7 +492,7 @@ export default function ItemLookup() {
                 </button>
               </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
                 {comparedItems.map((item) => {
                   const first = comparedItems[0]
                   return (
