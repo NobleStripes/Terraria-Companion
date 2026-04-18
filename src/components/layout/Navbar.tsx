@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { Menu, X, Sword } from 'lucide-react'
 import { cn } from '@/lib/cn'
 import { useBossStore } from '@/store/bossStore'
@@ -34,7 +34,6 @@ function NavItem({ to, label, onClick }: { to: string; label: string; onClick?: 
 }
 
 export default function Navbar() {
-  const location = useLocation()
   const { isDesktop } = useViewport()
   const [open, setOpen] = useState(false)
   const [highContrast, setHighContrast] = useState(() => window.localStorage.getItem('terra-high-contrast') === '1')
@@ -52,16 +51,6 @@ export default function Navbar() {
     document.documentElement.dataset.reducedMotion = reducedMotion ? 'true' : 'false'
     window.localStorage.setItem('terra-reduced-motion', reducedMotion ? '1' : '0')
   }, [reducedMotion])
-
-  useEffect(() => {
-    setOpen(false)
-  }, [location.pathname])
-
-  useEffect(() => {
-    if (isDesktop) {
-      setOpen(false)
-    }
-  }, [isDesktop])
 
   return (
     <header className="sticky top-0 z-50 bg-terra-surface border-b border-terra-border">
@@ -133,7 +122,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {open && (
+      {open && !isDesktop && (
         <div id="mobile-navigation" className="md:hidden bg-terra-surface border-t border-terra-border px-4 py-3 flex flex-col gap-1">
           {navItems.map((item) => (
             <NavItem key={item.to} {...item} onClick={() => setOpen(false)} />
