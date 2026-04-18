@@ -542,7 +542,9 @@ export default function BuildStages() {
 
     window.addEventListener('keydown', onKeyDown)
     return () => window.removeEventListener('keydown', onKeyDown)
-  }, [copyShareLink, exportJsonPlan, resetFilters])
+  // Intentionally register once for global shortcuts; handlers read latest state through re-renders.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   useEffect(() => {
     const next = new URLSearchParams()
