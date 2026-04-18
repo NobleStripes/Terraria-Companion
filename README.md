@@ -34,6 +34,34 @@ npm run dev
 
 Open [http://localhost:5173](http://localhost:5173) in your browser.
 
+### Using on Mobile or Tablet
+
+The app is fully responsive and works on phones and tablets via a local network connection.
+
+1. Start the dev or production server on your PC as normal.
+2. Find your PC's local IP address (e.g. `192.168.1.x`):
+   - **Windows:** run `ipconfig` in Command Prompt and look for *IPv4 Address* under your active adapter
+   - **macOS/Linux:** run `ip addr` or `ifconfig`
+3. On your phone or tablet, open a browser and navigate to:
+   - Dev server: `http://<your-pc-ip>:5173`
+   - Production server: `http://<your-pc-ip>:8000`
+4. Both devices must be on the same Wi-Fi network.
+
+> **Note:** The dev server (`npm run dev`) may need `--host` to expose itself on the network:
+> ```bash
+> npm run dev -- --host
+> ```
+
+#### Mobile UI notes
+
+| Page | Mobile behaviour |
+|---|---|
+| Item Lookup | Filter panel is hidden by default — tap **Filters** to expand |
+| Build Stages | Filters and Presets panels each have a dedicated toggle button |
+| Boss Tracker | The boss guide opens as a bottom sheet rather than a side drawer |
+| Biome Guide | Filter panel collapsed by default; layer chips scroll horizontally |
+| NPC Guide | Planner and Biome panels each have a toggle button; chip rows scroll horizontally |
+
 ## Scripts
 
 | Command | Description |
