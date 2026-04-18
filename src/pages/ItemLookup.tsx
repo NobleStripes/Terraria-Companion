@@ -276,9 +276,11 @@ export default function ItemLookup() {
   const { itemId } = useParams()
   const navigate = useNavigate()
   const [query, setQuery] = useState('')
-  const [selectedId, setSelectedId] = useState<number | undefined>(
-    itemId ? parseInt(itemId, 10) : undefined
-  )
+  const selectedId = useMemo(() => {
+    if (!itemId) return undefined
+    const parsed = Number.parseInt(itemId, 10)
+    return Number.isNaN(parsed) ? undefined : parsed
+  }, [itemId])
   const [selectedPrefixId, setSelectedPrefixId] = useState('')
   const [classFilter, setClassFilter] = useState<ItemClassFilter>('all')
   const [damageFilter, setDamageFilter] = useState<DamageFilter>('all')
@@ -321,21 +323,13 @@ export default function ItemLookup() {
   const selectedItem = selectedId !== undefined ? itemsById.get(selectedId) : undefined
   const comparedItems = useMemo(() => compareIds.map((id) => itemsById.get(id)).filter((item): item is Item => Boolean(item)), [compareIds])
 
-  useEffect(() => {
-    setSelectedPrefixId('')
-  }, [selectedId])
-
   const selectItem = useCallback(
     (id: number) => {
-      setSelectedId(id)
+      setSelectedPrefixId('')
       navigate(`/items/${id}`, { replace: true })
     },
     [navigate]
   )
-
-  useEffect(() => {
-    if (itemId) setSelectedId(parseInt(itemId, 10))
-  }, [itemId])
 
   function toggleCompare(itemIdToToggle: number) {
     setCompareIds((prev) => {

@@ -17,22 +17,6 @@ const rarityColors: Record<Rarity, string> = {
   purple: 'text-[#ab47bc] border-[#ab47bc]',
 }
 
-const rarityBorders: Record<Rarity, string> = {
-  gray: 'border-[#9e9e9e]',
-  white: 'border-white',
-  blue: 'border-[#2196f3]',
-  green: 'border-[#4caf50]',
-  orange: 'border-[#ff9800]',
-  'light-red': 'border-[#ef5350]',
-  pink: 'border-[#f06292]',
-  'light-purple': 'border-[#ce93d8]',
-  lime: 'border-[#cddc39]',
-  yellow: 'border-[#ffeb3b]',
-  cyan: 'border-[#00bcd4]',
-  red: 'border-[#f44336]',
-  purple: 'border-[#ab47bc]',
-}
-
 interface RarityBadgeProps {
   rarity: Rarity
   className?: string
@@ -80,8 +64,4 @@ export function TypeBadge({ type, className }: TypeBadgeProps) {
       {type}
     </span>
   )
-}
-
-export function getRarityBorderClass(rarity: Rarity) {
-  return rarityBorders[rarity]
 }

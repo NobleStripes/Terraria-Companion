@@ -1,5 +1,6 @@
 import { cn } from '@/lib/cn'
-import { RarityBadge, TypeBadge, getRarityBorderClass } from './Badge'
+import { RarityBadge, TypeBadge } from './Badge'
+import { getRarityBorderClass } from './badgeStyles'
 import type { Item } from '@/types/item'
 import type { ReactNode } from 'react'
 

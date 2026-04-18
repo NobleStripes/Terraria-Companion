@@ -170,16 +170,14 @@ export default function BiomeGuide() {
     )
   }, [])
 
-  const filteredBiomes = useMemo(() => {
-    return [...biomes]
-      .filter((biome) => selectedLayer === 'all' || biome.layer === selectedLayer)
-      .filter((biome) => !hardmodeOnly || biome.hardmodeOnly)
-      .sort((left, right) => {
-        const layerDiff = layerOrder[left.layer] - layerOrder[right.layer]
-        if (layerDiff !== 0) return layerDiff
-        return left.name.localeCompare(right.name)
-      })
-  }, [hardmodeOnly, selectedLayer])
+  const filteredBiomes = [...biomes]
+    .filter((biome) => selectedLayer === 'all' || biome.layer === selectedLayer)
+    .filter((biome) => !hardmodeOnly || biome.hardmodeOnly)
+    .sort((left, right) => {
+      const layerDiff = layerOrder[left.layer] - layerOrder[right.layer]
+      if (layerDiff !== 0) return layerDiff
+      return left.name.localeCompare(right.name)
+    })
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-6">

@@ -542,7 +542,7 @@ export default function BuildStages() {
 
     window.addEventListener('keydown', onKeyDown)
     return () => window.removeEventListener('keydown', onKeyDown)
-  }, [])
+  }, [copyShareLink, exportJsonPlan, resetFilters])
 
   useEffect(() => {
     const next = new URLSearchParams()

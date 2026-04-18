@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useDeferredValue, useMemo } from 'react'
 import type { FuseResult } from 'fuse.js'
 import type { Item, ItemType } from '@/types/item'
 import { searchItems } from '@/lib/search'
@@ -10,21 +10,14 @@ interface UseItemSearchOptions {
 }
 
 export function useItemSearch(query: string, options: UseItemSearchOptions = {}) {
-  const { types, debounceMs = 150 } = options
-  const [results, setResults] = useState<FuseResult<Item>[]>([])
+  const { types } = options
+  const deferredQuery = useDeferredValue(query)
+  const normalizedQuery = deferredQuery.trim()
 
-  useEffect(() => {
-    if (!query || query.trim().length < 2) {
-      setResults([])
-      return
-    }
-    const timer = setTimeout(() => {
-      setResults(searchItems(query.trim(), types))
-    }, debounceMs)
-    return () => clearTimeout(timer)
-  }, [query, types, debounceMs])
-
-  return results
+  return useMemo<FuseResult<Item>[]>(() => {
+    if (normalizedQuery.length < 2) return []
+    return searchItems(normalizedQuery, types)
+  }, [normalizedQuery, types])
 }
 
 export function useAllItems(types?: ItemType[]) {

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { useParams, useNavigate, useSearchParams, Link } from 'react-router-dom'
 import { CheckCircle, Circle, ChevronDown, ChevronUp, RotateCcw, Shield, Sword, Zap, Star } from 'lucide-react'
 import { ProgressBar } from '@/components/ui/ProgressBar'
@@ -376,7 +376,6 @@ export default function BossTracker() {
   const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
   const { grouped, totalCount, defeatedCount, toggleBoss, resetAll, isDefeated } = useBosses()
-  const [openBoss, setOpenBoss] = useState<Boss | undefined>()
   const [confirmReset, setConfirmReset] = useState(false)
   const [gearClass, setGearClass] = useState<BuildClass>(() => {
     const fromUrl = searchParams.get('class')
@@ -384,12 +383,9 @@ export default function BossTracker() {
   })
 
   const phases: GamePhase[] = ['pre-hardmode', 'hardmode', 'post-moonlord']
-
-  useEffect(() => {
-    if (bossId) {
-      const found = Object.values(grouped).flat().find((b) => b.id === bossId)
-      if (found) setOpenBoss(found)
-    }
+  const openBoss = useMemo(() => {
+    if (!bossId) return undefined
+    return Object.values(grouped).flat().find((boss) => boss.id === bossId)
   }, [bossId, grouped])
 
   useEffect(() => {
@@ -403,13 +399,11 @@ export default function BossTracker() {
   }, [gearClass, searchParams, setSearchParams])
 
   function openGuide(boss: Boss) {
-    setOpenBoss(boss)
     const query = searchParams.toString()
     navigate(`/bosses/${boss.id}${query ? `?${query}` : ''}`, { replace: true })
   }
 
   function closeGuide() {
-    setOpenBoss(undefined)
     const query = searchParams.toString()
     navigate(`/bosses${query ? `?${query}` : ''}`, { replace: true })
   }
