@@ -26,7 +26,7 @@ export function RarityBadge({ rarity, className }: RarityBadgeProps) {
   return (
     <span
       className={cn(
-        'inline-flex items-center px-1.5 py-0.5 text-[10px] font-semibold border rounded capitalize',
+        'inline-flex items-center px-2 py-0.5 text-[11px] font-semibold border rounded capitalize leading-none',
         rarityColors[rarity],
         className
       )}
@@ -56,7 +56,7 @@ export function TypeBadge({ type, className }: TypeBadgeProps) {
   return (
     <span
       className={cn(
-        'inline-flex items-center px-1.5 py-0.5 text-[10px] font-semibold border rounded capitalize',
+        'inline-flex items-center px-2 py-0.5 text-[11px] font-semibold border rounded capitalize leading-none',
         typeColors[type],
         className
       )}

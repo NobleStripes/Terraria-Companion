@@ -18,7 +18,7 @@ export function ItemCard({ item, selected, onClick, compact, prefixLabel, rightA
     <button
       onClick={onClick}
       className={cn(
-        'w-full text-left rounded-lg border px-3 py-2 transition-colors duration-150 focus:outline-none',
+        'w-full text-left rounded-lg border px-3 py-2.5 transition-colors duration-150 min-h-11 focus:outline-none focus-visible:ring-2 focus-visible:ring-terra-gold/70 focus-visible:ring-offset-1 focus-visible:ring-offset-terra-bg',
         selected
           ? 'bg-terra-panel border-terra-gold'
           : 'bg-terra-surface border-terra-border hover:border-terra-gold hover:bg-terra-panel',
@@ -27,13 +27,13 @@ export function ItemCard({ item, selected, onClick, compact, prefixLabel, rightA
       )}
     >
       <div className="flex items-center justify-between gap-2">
-        <span className="font-semibold text-sm text-white truncate">{item.name}</span>
+        <span className="font-semibold text-sm text-white truncate leading-snug">{item.name}</span>
         <div className="flex items-center gap-1.5 shrink-0">
           {rightAction}
           {!compact && (
             <>
             {prefixLabel && (
-              <span className="text-[10px] leading-none px-1.5 py-1 rounded border border-terra-gold/70 bg-terra-bg text-terra-gold font-pixel">
+              <span className="text-[10px] leading-none px-2 py-1 rounded border border-terra-gold/70 bg-terra-bg text-terra-gold font-pixel">
                 {prefixLabel}
               </span>
             )}
