@@ -908,14 +908,18 @@ export default function BuildStages() {
           <div className="mt-3 grid grid-cols-2 gap-2">
             <button
               onClick={() => setShowFiltersPanel((visible) => !visible)}
-              className="inline-flex items-center justify-center gap-1.5 px-2 py-2 rounded border border-terra-border text-xs text-gray-300 hover:text-terra-gold hover:border-terra-gold transition-colors"
+              className="inline-flex items-center justify-center gap-1.5 px-2 py-2.5 min-h-11 rounded border border-terra-border text-xs text-gray-300 hover:text-terra-gold hover:border-terra-gold transition-colors"
+              aria-expanded={filtersPanelVisible}
+              aria-controls="build-stage-filters"
             >
               <Filter className="w-3.5 h-3.5" />
               {filtersPanelVisible ? 'Hide Filters' : 'Show Filters'}
             </button>
             <button
               onClick={() => setShowPresetsPanel((visible) => !visible)}
-              className="inline-flex items-center justify-center gap-1.5 px-2 py-2 rounded border border-terra-border text-xs text-gray-300 hover:text-terra-gold hover:border-terra-gold transition-colors"
+              className="inline-flex items-center justify-center gap-1.5 px-2 py-2.5 min-h-11 rounded border border-terra-border text-xs text-gray-300 hover:text-terra-gold hover:border-terra-gold transition-colors"
+              aria-expanded={presetsPanelVisible}
+              aria-controls="build-stage-presets"
             >
               <FolderCog className="w-3.5 h-3.5" />
               {presetsPanelVisible ? 'Hide Presets' : 'Show Presets'}
@@ -928,25 +932,25 @@ export default function BuildStages() {
           <div className="flex flex-wrap items-center gap-2">
             <button
               onClick={copyShareLink}
-              className="px-2 py-1 rounded border border-terra-border text-gray-300 hover:text-white hover:border-terra-gold transition-colors"
+              className="px-2.5 py-1.5 min-h-9 rounded border border-terra-border text-gray-300 hover:text-white hover:border-terra-gold transition-colors"
             >
               Copy Link
             </button>
             <button
               onClick={copyMarkdownSummary}
-              className="px-2 py-1 rounded border border-terra-border text-gray-300 hover:text-white hover:border-terra-gold transition-colors"
+              className="px-2.5 py-1.5 min-h-9 rounded border border-terra-border text-gray-300 hover:text-white hover:border-terra-gold transition-colors"
             >
               Copy Summary
             </button>
             <button
               onClick={exportJsonPlan}
-              className="px-2 py-1 rounded border border-terra-border text-gray-300 hover:text-white hover:border-terra-gold transition-colors"
+              className="px-2.5 py-1.5 min-h-9 rounded border border-terra-border text-gray-300 hover:text-white hover:border-terra-gold transition-colors"
             >
               Export JSON
             </button>
             <button
               onClick={resetFilters}
-              className="px-2 py-1 rounded border border-terra-border text-gray-300 hover:text-white hover:border-terra-gold transition-colors"
+              className="px-2.5 py-1.5 min-h-9 rounded border border-terra-border text-gray-300 hover:text-white hover:border-terra-gold transition-colors"
             >
               Reset
             </button>
@@ -958,7 +962,7 @@ export default function BuildStages() {
         ) : null}
 
         {filtersPanelVisible && (
-          <>
+          <div id="build-stage-filters">
             <div className={primaryFiltersGridClass}>
           <div className="bg-terra-bg border border-terra-border rounded-lg px-3 py-2">
             <p className="text-xs text-gray-400 mb-1">World Evil</p>
@@ -1106,7 +1110,7 @@ export default function BuildStages() {
           </button>
           <p className="text-xs text-gray-500">Showing {visibleBuilds.length} stage{visibleBuilds.length === 1 ? '' : 's'}</p>
             </div>
-          </>
+          </div>
         )}
 
         {presetsPanelVisible && (

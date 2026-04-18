@@ -203,7 +203,9 @@ export default function BiomeGuide() {
           <button
             type="button"
             onClick={() => setShowFiltersPanel((visible) => !visible)}
-            className="inline-flex items-center justify-center gap-2 rounded border border-terra-border px-3 py-2 text-xs text-gray-300 hover:border-terra-gold hover:text-white transition-colors w-full"
+            className="inline-flex items-center justify-center gap-2 rounded border border-terra-border px-3 py-2.5 min-h-11 text-xs text-gray-300 hover:border-terra-gold hover:text-white transition-colors w-full"
+            aria-expanded={filtersVisible}
+            aria-controls="biome-guide-filters"
           >
             <Filter className="w-3.5 h-3.5" />
             {filtersVisible ? 'Hide Filters' : 'Show Filters'}
@@ -211,7 +213,7 @@ export default function BiomeGuide() {
         )}
 
         {filtersVisible && (
-          <div className="bg-terra-surface border border-terra-border rounded-lg p-4 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div id="biome-guide-filters" className="bg-terra-surface border border-terra-border rounded-lg p-4 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="space-y-2 min-w-0">
             <p className="text-terra-gold text-xs font-pixel">Filters</p>
             <div className={cn('flex gap-2', isMobile ? 'overflow-x-auto pb-1' : 'flex-wrap')}>
@@ -248,7 +250,7 @@ export default function BiomeGuide() {
             <button
               type="button"
               onClick={copyCurrentViewLink}
-              className="inline-flex items-center gap-1.5 rounded border border-terra-border px-3 py-2 text-xs text-gray-300 hover:border-terra-gold hover:text-white transition-colors"
+              className="inline-flex items-center gap-1.5 rounded border border-terra-border px-3 py-2.5 min-h-11 text-xs text-gray-300 hover:border-terra-gold hover:text-white transition-colors"
             >
               {copyState === 'copied' ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
               {copyState === 'copied' ? 'Link copied' : copyState === 'error' ? 'Copy failed' : 'Copy link'}

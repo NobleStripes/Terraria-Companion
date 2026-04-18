@@ -274,14 +274,14 @@ export default function NpcGuide() {
             <button
               type="button"
               onClick={copyCurrentViewLink}
-              className="inline-flex items-center justify-center gap-1.5 rounded border border-terra-border px-3 py-2 text-xs text-gray-300 hover:border-terra-gold hover:text-white transition-colors w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-1.5 rounded border border-terra-border px-3 py-2.5 min-h-11 text-xs text-gray-300 hover:border-terra-gold hover:text-white transition-colors w-full sm:w-auto"
             >
               {copyState === 'copied' ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
               {copyState === 'copied' ? 'Link copied' : copyState === 'error' ? 'Copy failed' : 'Copy setup'}
             </button>
             <Link
               to="/biomes"
-              className="inline-flex items-center justify-center rounded border border-terra-border px-3 py-2 text-xs text-gray-300 hover:border-terra-gold hover:text-white transition-colors w-full sm:w-auto"
+              className="inline-flex items-center justify-center rounded border border-terra-border px-3 py-2.5 min-h-11 text-xs text-gray-300 hover:border-terra-gold hover:text-white transition-colors w-full sm:w-auto"
             >
               Browse Biomes
             </Link>
@@ -292,14 +292,18 @@ export default function NpcGuide() {
           <div className="grid grid-cols-2 gap-2">
             <button
               onClick={() => setShowPlannerPanel((visible) => !visible)}
-              className="inline-flex items-center justify-center gap-1.5 rounded border border-terra-border px-2 py-2 text-xs text-gray-300 hover:border-terra-gold hover:text-white transition-colors"
+              className="inline-flex items-center justify-center gap-1.5 rounded border border-terra-border px-2 py-2.5 min-h-11 text-xs text-gray-300 hover:border-terra-gold hover:text-white transition-colors"
+              aria-expanded={plannerPanelVisible}
+              aria-controls="npc-planner-panel"
             >
               <SlidersHorizontal className="w-3.5 h-3.5" />
               {plannerPanelVisible ? 'Hide Planner' : 'Show Planner'}
             </button>
             <button
               onClick={() => setShowBiomePanel((visible) => !visible)}
-              className="inline-flex items-center justify-center gap-1.5 rounded border border-terra-border px-2 py-2 text-xs text-gray-300 hover:border-terra-gold hover:text-white transition-colors"
+              className="inline-flex items-center justify-center gap-1.5 rounded border border-terra-border px-2 py-2.5 min-h-11 text-xs text-gray-300 hover:border-terra-gold hover:text-white transition-colors"
+              aria-expanded={biomePanelVisible}
+              aria-controls="npc-biome-panel"
             >
               <Filter className="w-3.5 h-3.5" />
               {biomePanelVisible ? 'Hide Biomes' : 'Show Biomes'}
@@ -310,7 +314,7 @@ export default function NpcGuide() {
 
       <div>
           {plannerPanelVisible && (
-          <div className="mb-5 bg-terra-surface border border-terra-border rounded-lg p-4">
+          <div id="npc-planner-panel" className="mb-5 bg-terra-surface border border-terra-border rounded-lg p-4">
             <h3 className="text-terra-gold text-xs font-pixel mb-3">NPC Happiness Planner</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
               <div>
@@ -333,7 +337,7 @@ export default function NpcGuide() {
                       key={`planner-roommate-${npc.id}`}
                       onClick={() => togglePlannerRoommate(npc.id)}
                       className={cn(
-                        'text-[10px] px-2 py-1 rounded border transition-colors',
+                        'text-xs px-2.5 py-1.5 rounded border transition-colors whitespace-nowrap',
                         plannerRoommates.includes(npc.id)
                           ? 'border-terra-gold text-terra-gold bg-terra-panel'
                           : 'border-terra-border text-gray-400 hover:text-white hover:border-terra-gold'
@@ -382,7 +386,7 @@ export default function NpcGuide() {
 
           {/* Biome filter chips */}
           {biomePanelVisible && (
-          <div className={cn('gap-1.5 mb-4', isMobile ? 'flex overflow-x-auto pb-1' : 'flex flex-wrap')}>
+          <div id="npc-biome-panel" className={cn('gap-1.5 mb-4', isMobile ? 'flex overflow-x-auto pb-1' : 'flex flex-wrap')}>
             <button
               onClick={() => updateParams({ biome: null })}
               className={cn(

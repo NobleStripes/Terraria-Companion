@@ -48,7 +48,7 @@ export default function Home() {
     <div className="max-w-5xl mx-auto px-4 py-8 sm:py-10 lg:py-12">
       <div className="grid gap-6 lg:grid-cols-[minmax(0,1.3fr)_minmax(280px,0.7fr)] lg:items-start mb-8">
         <div className="text-center lg:text-left">
-          <div className="inline-flex items-center gap-2 rounded-full border border-terra-border bg-terra-surface px-3 py-1.5 text-xs text-gray-300 mb-4">
+          <div className="inline-flex flex-wrap items-center justify-center gap-2 rounded-full border border-terra-border bg-terra-surface px-3 py-1.5 text-xs text-gray-300 mb-4 lg:justify-start">
             <span className="font-semibold text-terra-gold">v{APP_VERSION}</span>
             <span className="text-gray-500">|</span>
             <span>Responsive polish for desktop, tablet, and phone</span>
@@ -64,7 +64,7 @@ export default function Home() {
         {latestRelease && (
           <section className="bg-terra-surface border border-terra-border rounded-xl p-5 text-left">
             <p className="text-xs uppercase tracking-[0.2em] text-gray-500 mb-2">Latest Release</p>
-            <div className="flex items-center justify-between gap-3 mb-3">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-3 mb-3">
               <h2 className="font-semibold text-white">v{latestRelease.version}</h2>
               <span className="text-xs text-gray-500">{latestRelease.date}</span>
             </div>

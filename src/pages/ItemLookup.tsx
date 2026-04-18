@@ -392,7 +392,9 @@ export default function ItemLookup() {
           {isMobile && (
             <button
               onClick={() => setShowFilters((visible) => !visible)}
-              className="inline-flex items-center justify-center gap-2 border border-terra-border bg-terra-surface rounded px-3 py-2 text-xs text-gray-300 hover:text-terra-gold hover:border-terra-gold transition-colors"
+              className="inline-flex items-center justify-center gap-2 border border-terra-border bg-terra-surface rounded px-3 py-2.5 min-h-11 text-xs text-gray-300 hover:text-terra-gold hover:border-terra-gold transition-colors"
+              aria-expanded={filtersVisible}
+              aria-controls="item-lookup-filters"
             >
               <Filter className="w-3.5 h-3.5" />
               {filtersVisible ? 'Hide Filters' : 'Show Filters'}
@@ -400,7 +402,7 @@ export default function ItemLookup() {
           )}
 
           {filtersVisible && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div id="item-lookup-filters" className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               <select
                 value={classFilter}
                 onChange={(e) => setClassFilter(e.target.value as ItemClassFilter)}
@@ -486,7 +488,7 @@ export default function ItemLookup() {
                 <h3 className="text-terra-gold text-xs font-pixel">Compare Items ({comparedItems.length}/{MAX_COMPARE_ITEMS})</h3>
                 <button
                   onClick={() => setCompareIds([])}
-                  className="text-xs text-gray-400 hover:text-white transition-colors"
+                  className="text-xs text-gray-400 hover:text-white transition-colors px-2 py-1.5 min-h-9 rounded"
                 >
                   Clear
                 </button>
@@ -506,7 +508,7 @@ export default function ItemLookup() {
                         </button>
                         <button
                           onClick={() => toggleCompare(item.id)}
-                          className="text-gray-500 hover:text-white"
+                          className="text-gray-500 hover:text-white p-1.5 min-h-8 min-w-8 rounded"
                           aria-label={`Remove ${item.name} from compare`}
                         >
                           <X className="w-3.5 h-3.5" />

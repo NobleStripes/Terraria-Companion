@@ -226,10 +226,11 @@ function BossDrawer({
 }) {
   const [tab, setTab] = useState<DrawerTab>('overview')
   const tabs: DrawerTab[] = ['overview', 'gear', 'tips']
+  const headingId = `boss-drawer-title-${boss.id}`
 
   return (
-    <div className="fixed inset-0 z-50 flex justify-end items-end md:items-stretch">
-      <div className="flex-1 bg-black/60" onClick={onClose} />
+    <div className="fixed inset-0 z-50 flex justify-end items-end md:items-stretch" role="dialog" aria-modal="true" aria-labelledby={headingId}>
+      <button type="button" className="flex-1 bg-black/60 cursor-default" onClick={onClose} aria-label="Close boss guide" />
       <div className={cn(
         'bg-terra-surface overflow-y-auto flex flex-col',
         isMobile
@@ -240,8 +241,8 @@ function BossDrawer({
       )}>
         <div className={cn('border-b border-terra-border', isMobile ? 'p-4' : 'p-5')}>
           <div className="flex items-center justify-between">
-            <h2 className="font-pixel text-terra-gold text-xs">{boss.name}</h2>
-            <button onClick={onClose} className="text-gray-400 hover:text-white text-xl leading-none">✕</button>
+            <h2 id={headingId} className="font-pixel text-terra-gold text-xs">{boss.name}</h2>
+            <button onClick={onClose} className="text-gray-400 hover:text-white text-xl leading-none min-h-11 min-w-11 flex items-center justify-center rounded" aria-label="Close boss guide">✕</button>
           </div>
           {boss.summonItem && (
             <p className="text-gray-400 text-xs mt-2">
@@ -259,7 +260,7 @@ function BossDrawer({
               key={t}
               onClick={() => setTab(t)}
               className={cn(
-                'flex-1 py-2.5 text-xs font-semibold capitalize transition-colors',
+                'flex-1 py-2.5 min-h-11 text-xs font-semibold capitalize transition-colors',
                 tab === t ? 'text-terra-gold border-b-2 border-terra-gold' : 'text-gray-400 hover:text-white'
               )}
             >
@@ -332,7 +333,7 @@ function BossCard({ boss, isDefeated, onToggle, onOpen }: {
       <div className="flex items-center gap-3 p-3">
         <button
           onClick={onToggle}
-          className="shrink-0 text-terra-green hover:scale-110 transition-transform"
+          className="shrink-0 text-terra-green hover:scale-110 transition-transform min-h-11 min-w-11 flex items-center justify-center rounded"
           aria-label={isDefeated ? 'Mark as not defeated' : 'Mark as defeated'}
         >
           {isDefeated
@@ -353,13 +354,13 @@ function BossCard({ boss, isDefeated, onToggle, onOpen }: {
         <div className="flex items-center gap-2 shrink-0">
           <button
             onClick={onOpen}
-            className="text-xs text-terra-sky hover:text-terra-gold transition-colors px-2 py-1 border border-terra-border rounded hover:border-terra-gold"
+            className="text-xs text-terra-sky hover:text-terra-gold transition-colors px-2.5 py-1.5 min-h-9 border border-terra-border rounded hover:border-terra-gold"
           >
             Guide
           </button>
           <button
             onClick={() => setExpanded((v) => !v)}
-            className="text-gray-400 hover:text-white transition-colors"
+            className="text-gray-400 hover:text-white transition-colors min-h-9 min-w-9 flex items-center justify-center rounded"
             aria-label="Toggle drops"
           >
             {expanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
@@ -483,8 +484,8 @@ export default function BossTracker() {
 
       {confirmReset && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
-          <div className="bg-terra-surface border border-terra-border rounded-xl p-6 max-w-sm w-full mx-4">
-            <h3 className="font-pixel text-terra-red text-xs mb-4">Reset Progress?</h3>
+          <div className="bg-terra-surface border border-terra-border rounded-xl p-6 max-w-sm w-full mx-4" role="dialog" aria-modal="true" aria-labelledby="boss-reset-title">
+            <h3 id="boss-reset-title" className="font-pixel text-terra-red text-xs mb-4">Reset Progress?</h3>
             <p className="text-gray-300 text-sm mb-6">
               This will clear all defeated boss progress. This cannot be undone.
             </p>

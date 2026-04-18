@@ -116,6 +116,7 @@ export default function Navbar() {
             aria-label="Toggle menu"
             aria-expanded={open}
             aria-controls="mobile-navigation"
+            aria-haspopup="true"
           >
             {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -127,7 +128,7 @@ export default function Navbar() {
           {navItems.map((item) => (
             <NavItem key={item.to} {...item} onClick={() => setOpen(false)} />
           ))}
-          <div className="mt-2 pt-3 border-t border-terra-border grid grid-cols-1 xs:grid-cols-2 gap-2">
+          <div className="mt-2 pt-3 border-t border-terra-border grid grid-cols-1 sm:grid-cols-2 gap-2">
             <button
               onClick={() => setHighContrast((value) => !value)}
               className={cn(
