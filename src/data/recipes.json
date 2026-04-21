@@ -93,5 +93,6 @@
   { "id": 92, "resultItemId": 453, "resultQuantity": 1, "ingredients": [{ "itemId": 447, "quantity": 5 }, { "itemId": 448, "quantity": 5 }], "station": "Loom" },
   { "id": 93, "resultItemId": 199, "resultQuantity": 1, "ingredients": [{ "itemId": 454, "quantity": 1 }], "station": "Open Huge Dragon Egg" },
   { "id": 94, "resultItemId": 200, "resultQuantity": 1, "ingredients": [{ "itemId": 454, "quantity": 1 }], "station": "Open Huge Dragon Egg" },
-  { "id": 95, "resultItemId": 461, "resultQuantity": 1, "ingredients": [{ "itemId": 460, "quantity": 1 }], "station": "Dryad (Purify)" }
+  { "id": 95, "resultItemId": 461, "resultQuantity": 1, "ingredients": [{ "itemId": 460, "quantity": 1 }], "station": "Dryad (Purify)" },
+  { "id": 96, "resultItemId": 479, "resultQuantity": 1, "ingredients": [{ "itemId": 471, "quantity": 1 }, { "itemId": 472, "quantity": 15 }, { "itemId": 107, "quantity": 10 }], "station": "Mythril or Orichalcum Anvil" }
 ]

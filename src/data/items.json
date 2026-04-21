@@ -6605,5 +6605,173 @@
     ],
     "wikiSlug": "Sail",
     "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 471,
+    "name": "Wooden Yoyo",
+    "type": "weapon",
+    "rarity": "white",
+    "tooltip": "Basic yoyo used to craft Chik.",
+    "sources": [
+      "Crafted from 10 Wood and 20 Cobweb at a Work Bench"
+    ],
+    "wikiSlug": "Wooden_Yoyo",
+    "damage": 9,
+    "knockback": 2.5,
+    "critChance": 4,
+    "useTime": 25,
+    "progressionTier": "early-game"
+  },
+  {
+    "id": 472,
+    "name": "Crystal Shard",
+    "type": "material",
+    "rarity": "blue",
+    "tooltip": "Common Hardmode crafting material from the Underground Hallow.",
+    "sources": [
+      "Naturally grows on Pearlstone, Pink Ice, Pearlsand, Hardened Pearlsand, and Pearlsandstone in the Underground Hallow",
+      "50% chance from Divine Crates in stacks of 4 to 10"
+    ],
+    "wikiSlug": "Crystal_Shard",
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 473,
+    "name": "Rally",
+    "type": "weapon",
+    "rarity": "blue",
+    "tooltip": "One Drop crossover yoyo.",
+    "sources": [
+      "6.5% drop from Crawdads, Giant Shellies, and Salamanders in the Cavern layer",
+      "One Drop crossover"
+    ],
+    "wikiSlug": "Rally",
+    "damage": 14,
+    "knockback": 3.5,
+    "critChance": 4,
+    "useTime": 25,
+    "progressionTier": "early-game"
+  },
+  {
+    "id": 474,
+    "name": "Code 1",
+    "type": "weapon",
+    "rarity": "green",
+    "tooltip": "One Drop crossover yoyo.",
+    "sources": [
+      "Purchased from the Traveling Merchant for 5 after defeating the Eye of Cthulhu",
+      "One Drop crossover"
+    ],
+    "wikiSlug": "Code_1",
+    "damage": 21,
+    "knockback": 3.25,
+    "critChance": 4,
+    "useTime": 25,
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 475,
+    "name": "Valor",
+    "type": "weapon",
+    "rarity": "orange",
+    "tooltip": "One Drop crossover yoyo.",
+    "sources": [
+      "14.29% chance from Locked Gold Chests in the Dungeon",
+      "14.29% chance from Golden Lock Boxes",
+      "One Drop crossover"
+    ],
+    "wikiSlug": "Valor",
+    "damage": 28,
+    "knockback": 3.85,
+    "critChance": 4,
+    "useTime": 25,
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 476,
+    "name": "Cascade",
+    "type": "weapon",
+    "rarity": "orange",
+    "tooltip": "One Drop crossover yoyo that can inflict On Fire!",
+    "sources": [
+      "0.25% drop from enemies in or near the Underworld after Skeletron and before Hardmode",
+      "Drops only from enemies that also drop at least 1 coin",
+      "One Drop crossover"
+    ],
+    "wikiSlug": "Cascade",
+    "damage": 27,
+    "knockback": 4.3,
+    "critChance": 4,
+    "useTime": 25,
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 477,
+    "name": "Format:C",
+    "type": "weapon",
+    "rarity": "orange",
+    "tooltip": "One Drop crossover yoyo.",
+    "sources": [
+      "Purchased from the Skeleton Merchant for 20 during moon phases 5 to 8",
+      "One Drop crossover"
+    ],
+    "wikiSlug": "Format:C",
+    "damage": 39,
+    "knockback": 3.25,
+    "critChance": 4,
+    "useTime": 25,
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 478,
+    "name": "Gradient",
+    "type": "weapon",
+    "rarity": "orange",
+    "tooltip": "One Drop crossover yoyo.",
+    "sources": [
+      "Purchased from the Skeleton Merchant for 20 during moon phases 1 to 4",
+      "One Drop crossover"
+    ],
+    "wikiSlug": "Gradient",
+    "damage": 49,
+    "knockback": 3.8,
+    "critChance": 4,
+    "useTime": 25,
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 479,
+    "name": "Chik",
+    "type": "weapon",
+    "rarity": "light-red",
+    "tooltip": "One Drop crossover yoyo.",
+    "sources": [
+      "Crafted from Wooden Yoyo, 15 Crystal Shards, and 10 Souls of Light at a Mythril or Orichalcum Anvil",
+      "One Drop crossover"
+    ],
+    "wikiSlug": "Chik",
+    "damage": 39,
+    "knockback": 3.3,
+    "critChance": 4,
+    "useTime": 25,
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 480,
+    "name": "Yelets",
+    "type": "weapon",
+    "rarity": "lime",
+    "tooltip": "One Drop crossover yoyo.",
+    "sources": [
+      "0.5% drop from enemies in the Jungle and Underground Jungle after defeating one mechanical boss",
+      "Includes enemies in the Jungle Temple",
+      "One Drop crossover"
+    ],
+    "wikiSlug": "Yelets",
+    "damage": 60,
+    "knockback": 3.1,
+    "critChance": 4,
+    "useTime": 25,
+    "progressionTier": "early-hardmode"
   }
 ]
