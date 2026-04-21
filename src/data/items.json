@@ -7454,5 +7454,22 @@
     "wikiSlug": "Valhalla_Knight%27s_Greaves",
     "defense": 24,
     "progressionTier": "endgame"
+  },
+  {
+    "id": 525,
+    "name": "Code 2",
+    "type": "weapon",
+    "rarity": "pink",
+    "tooltip": "One Drop crossover yoyo.",
+    "sources": [
+      "Purchased from the Traveling Merchant for 25 after defeating one mechanical boss",
+      "One Drop crossover"
+    ],
+    "wikiSlug": "Code_2",
+    "damage": 54,
+    "knockback": 3.8,
+    "critChance": 4,
+    "useTime": 25,
+    "progressionTier": "early-hardmode"
   }
 ]

@@ -6,6 +6,8 @@
       "The first DD2 class-accessory wave is now modeled with Apprentice's Scarf and Squire's Shield from Dark Mage plus Huntress's Buckler and Monk's Belt from Ogre.",
       "All four Tavernkeep sentry families are now represented across their Rod, Cane, and Staff tiers: Flameburst, Lightning Aura, Explosive Trap, and Ballista.",
       "DD2 class loadouts now include the full Apprentice, Huntress, Monk, and Squire armor sets plus their post-Golem upgrades: Dark Artist, Red Riding, Shinobi Infiltrator, and Valhalla Knight.",
+      "Item Lookup now shows the DD2 sentry-family shimmer transmutation cycle for every rod, cane, and staff tier instead of only the Tavernkeep purchase unlocks.",
+      "The next smallest official crossover gap after DD2 was closed with One Drop's Code 2, keeping the 1.4.5.6 crossover pass incremental and current-version only.",
       "App release surfaces were bumped to 1.0.4 while keeping the Terraria data version fixed at 1.4.5.6."
     ]
   },

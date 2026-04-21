@@ -94,5 +94,17 @@
   { "id": 93, "resultItemId": 199, "resultQuantity": 1, "ingredients": [{ "itemId": 454, "quantity": 1 }], "station": "Open Huge Dragon Egg" },
   { "id": 94, "resultItemId": 200, "resultQuantity": 1, "ingredients": [{ "itemId": 454, "quantity": 1 }], "station": "Open Huge Dragon Egg" },
   { "id": 95, "resultItemId": 461, "resultQuantity": 1, "ingredients": [{ "itemId": 460, "quantity": 1 }], "station": "Dryad (Purify)" },
-  { "id": 96, "resultItemId": 479, "resultQuantity": 1, "ingredients": [{ "itemId": 471, "quantity": 1 }, { "itemId": 472, "quantity": 15 }, { "itemId": 107, "quantity": 10 }], "station": "Mythril or Orichalcum Anvil" }
+  { "id": 96, "resultItemId": 479, "resultQuantity": 1, "ingredients": [{ "itemId": 471, "quantity": 1 }, { "itemId": 472, "quantity": 15 }, { "itemId": 107, "quantity": 10 }], "station": "Mythril or Orichalcum Anvil" },
+  { "id": 97, "resultItemId": 489, "resultQuantity": 1, "ingredients": [{ "itemId": 498, "quantity": 1 }], "station": "Shimmer" },
+  { "id": 98, "resultItemId": 490, "resultQuantity": 1, "ingredients": [{ "itemId": 499, "quantity": 1 }], "station": "Shimmer" },
+  { "id": 99, "resultItemId": 491, "resultQuantity": 1, "ingredients": [{ "itemId": 500, "quantity": 1 }], "station": "Shimmer" },
+  { "id": 100, "resultItemId": 492, "resultQuantity": 1, "ingredients": [{ "itemId": 489, "quantity": 1 }], "station": "Shimmer" },
+  { "id": 101, "resultItemId": 493, "resultQuantity": 1, "ingredients": [{ "itemId": 490, "quantity": 1 }], "station": "Shimmer" },
+  { "id": 102, "resultItemId": 494, "resultQuantity": 1, "ingredients": [{ "itemId": 491, "quantity": 1 }], "station": "Shimmer" },
+  { "id": 103, "resultItemId": 495, "resultQuantity": 1, "ingredients": [{ "itemId": 492, "quantity": 1 }], "station": "Shimmer" },
+  { "id": 104, "resultItemId": 496, "resultQuantity": 1, "ingredients": [{ "itemId": 493, "quantity": 1 }], "station": "Shimmer" },
+  { "id": 105, "resultItemId": 497, "resultQuantity": 1, "ingredients": [{ "itemId": 494, "quantity": 1 }], "station": "Shimmer" },
+  { "id": 106, "resultItemId": 498, "resultQuantity": 1, "ingredients": [{ "itemId": 495, "quantity": 1 }], "station": "Shimmer" },
+  { "id": 107, "resultItemId": 499, "resultQuantity": 1, "ingredients": [{ "itemId": 496, "quantity": 1 }], "station": "Shimmer" },
+  { "id": 108, "resultItemId": 500, "resultQuantity": 1, "ingredients": [{ "itemId": 497, "quantity": 1 }], "station": "Shimmer" }
 ]
