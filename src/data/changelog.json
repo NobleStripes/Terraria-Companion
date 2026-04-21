@@ -1,4 +1,13 @@
 [  {
+    "version": "1.0.3",
+    "date": "2026-04-21",
+    "highlights": [
+      "Biome Guide and NPC Guide now include copy-link actions for sharing the current filtered view.",
+      "NPC Guide planner and biome preference filters persist in the URL for restorable shared setups.",
+      "App-version visibility was tightened across the footer, changelog, and release metadata surfaces."
+    ]
+  },
+  {
     "version": "1.0.2",
     "date": "2026-04-18",
     "highlights": [
