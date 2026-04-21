@@ -14,7 +14,7 @@ import prefixesRaw from './prefixes.json'
 import changelogRaw from './changelog.json'
 
 export const DATA_VERSION = '1.4.5.6'
-export const APP_VERSION = '1.0.3'
+export const APP_VERSION = '1.0.4'
 
 export const items: Item[] = itemsRaw as Item[]
 export const recipes: Recipe[] = recipesRaw as Recipe[]

@@ -1,4 +1,15 @@
 [  {
+    "version": "1.0.4",
+    "date": "2026-04-21",
+    "highlights": [
+      "The next crossover release batch starts Dungeon Defenders 2 coverage with the Old One's Army foundation items: Defender Medal, Eternia Crystal, Eternia Crystal Stand, and Ale Tosser.",
+      "The first DD2 class-accessory wave is now modeled with Apprentice's Scarf and Squire's Shield from Dark Mage plus Huntress's Buckler and Monk's Belt from Ogre.",
+      "All four Tavernkeep sentry families are now represented across their Rod, Cane, and Staff tiers: Flameburst, Lightning Aura, Explosive Trap, and Ballista.",
+      "DD2 class loadouts now include the full Apprentice, Huntress, Monk, and Squire armor sets plus their post-Golem upgrades: Dark Artist, Red Riding, Shinobi Infiltrator, and Valhalla Knight.",
+      "App release surfaces were bumped to 1.0.4 while keeping the Terraria data version fixed at 1.4.5.6."
+    ]
+  },
+  {
     "version": "1.0.3",
     "date": "2026-04-21",
     "highlights": [

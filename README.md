@@ -2,7 +2,7 @@
 
 A second-screen browser reference for Terraria players. Look up items, track bosses, browse recommended builds by stage, and explore NPC/biome guides — all in one place.
 
-**App version:** 1.0.3  
+**App version:** 1.0.4  
 **Data version:** 1.4.5.6 (Bigger & Boulder)
 
 ## Features
