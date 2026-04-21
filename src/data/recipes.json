@@ -80,5 +80,18 @@
   { "id": 79, "resultItemId": 188, "resultQuantity": 1, "ingredients": [{ "itemId": 130, "quantity": 18 }], "station": "Ancient Manipulator" },
   { "id": 80, "resultItemId": 193, "resultQuantity": 1, "ingredients": [{ "itemId": 201, "quantity": 300 }, { "itemId": 207, "quantity": 5 }, { "itemId": 109, "quantity": 5 }], "station": "Iron Anvil" },
   { "id": 81, "resultItemId": 436, "resultQuantity": 1, "ingredients": [{ "itemId": 435, "quantity": 3 }, { "itemId": 8, "quantity": 5 }, { "itemId": 325, "quantity": 1 }], "station": "Demon Altar" },
-  { "id": 82, "resultItemId": 436, "resultQuantity": 1, "ingredients": [{ "itemId": 435, "quantity": 3 }, { "itemId": 9, "quantity": 5 }, { "itemId": 325, "quantity": 1 }], "station": "Demon Altar" }
+  { "id": 82, "resultItemId": 436, "resultQuantity": 1, "ingredients": [{ "itemId": 435, "quantity": 3 }, { "itemId": 9, "quantity": 5 }, { "itemId": 325, "quantity": 1 }], "station": "Demon Altar" },
+  { "id": 83, "resultItemId": 445, "resultQuantity": 1, "ingredients": [{ "itemId": 457, "quantity": 2 }], "station": "Furnace" },
+  { "id": 84, "resultItemId": 443, "resultQuantity": 1, "ingredients": [{ "itemId": 445, "quantity": 6 }, { "itemId": 205, "quantity": 1 }], "station": "Furnace" },
+  { "id": 85, "resultItemId": 444, "resultQuantity": 1, "ingredients": [{ "itemId": 446, "quantity": 1 }], "station": "Shimmer" },
+  { "id": 86, "resultItemId": 446, "resultQuantity": 1, "ingredients": [{ "itemId": 444, "quantity": 1 }], "station": "Shimmer" },
+  { "id": 87, "resultItemId": 450, "resultQuantity": 1, "ingredients": [{ "itemId": 117, "quantity": 3 }, { "itemId": 15, "quantity": 1 }], "station": "Work Bench + Ecto Mist" },
+  { "id": 88, "resultItemId": 450, "resultQuantity": 1, "ingredients": [{ "itemId": 203, "quantity": 3 }, { "itemId": 15, "quantity": 1 }], "station": "Work Bench + Ecto Mist" },
+  { "id": 89, "resultItemId": 452, "resultQuantity": 1, "ingredients": [{ "itemId": 447, "quantity": 5 }, { "itemId": 449, "quantity": 1 }], "station": "Loom" },
+  { "id": 90, "resultItemId": 451, "resultQuantity": 1, "ingredients": [{ "itemId": 108, "quantity": 10 }, { "itemId": 450, "quantity": 1 }, { "itemId": 301, "quantity": 10 }], "station": "Demon or Crimson Altar" },
+  { "id": 91, "resultItemId": 451, "resultQuantity": 1, "ingredients": [{ "itemId": 108, "quantity": 10 }, { "itemId": 450, "quantity": 1 }, { "itemId": 302, "quantity": 10 }], "station": "Demon or Crimson Altar" },
+  { "id": 92, "resultItemId": 453, "resultQuantity": 1, "ingredients": [{ "itemId": 447, "quantity": 5 }, { "itemId": 448, "quantity": 5 }], "station": "Loom" },
+  { "id": 93, "resultItemId": 199, "resultQuantity": 1, "ingredients": [{ "itemId": 454, "quantity": 1 }], "station": "Open Huge Dragon Egg" },
+  { "id": 94, "resultItemId": 200, "resultQuantity": 1, "ingredients": [{ "itemId": 454, "quantity": 1 }], "station": "Open Huge Dragon Egg" },
+  { "id": 95, "resultItemId": 461, "resultQuantity": 1, "ingredients": [{ "itemId": 460, "quantity": 1 }], "station": "Dryad (Purify)" }
 ]

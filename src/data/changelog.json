@@ -5,7 +5,12 @@
       "Biome Guide and NPC Guide now include copy-link actions with clearer share-state guidance for the current filtered view.",
       "NPC Guide planner and biome preference filters persist in the URL for restorable shared setups.",
       "App-version visibility and 404 recovery links were tightened across release-facing surfaces.",
-      "Item Lookup gained a focused Don't Starve Together crossover batch, including Deer Thing support items and recipes."
+      "Item Lookup gained focused Don't Starve Together and Dead Cells crossover expansions, including Deer Thing support items, The Beheaded's vanity set, and exact Item Flask and Alchemy Flask crafting coverage.",
+      "Palworld coverage advanced incrementally with rescue-style acquisition notes for the Pal companions, exact Digtoise worldgen sourcing, Huge Dragon Egg opening outcomes, and the Pal Metal vanity set.",
+      "Base-material coverage was widened with Sand Block so Glass now has an exact upstream Furnace recipe instead of only downstream usage coverage.",
+      "The remaining single-item Core Keeper gap was closed with Glow Tulip and its exact world-generation sourcing.",
+      "Stardew Valley crossover coverage started with Joja Cola, Stardrop purification through the Dryad, and Blue Chicken Egg vendor coverage.",
+      "The next official crossover gap was continued with Project Zomboid via Spiffo Plush and its exact zombie-family drop source."
     ]
   },
   {
