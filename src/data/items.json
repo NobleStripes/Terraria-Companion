@@ -6483,5 +6483,127 @@
     ],
     "wikiSlug": "Blue_Chicken_Egg",
     "progressionTier": "early-game"
+  },
+  {
+    "id": 463,
+    "name": "Creeper Mask",
+    "type": "armor",
+    "rarity": "white",
+    "tooltip": "Minecraft vanity headpiece from the Creeper set.",
+    "sources": [
+      "Drops from Goodie Bags during Halloween as part of the Creeper set",
+      "Creeper set has a 2/57 (3.51%) chance to drop from Goodie Bags during Halloween",
+      "Minecraft crossover"
+    ],
+    "wikiSlug": "Creeper_Mask",
+    "defense": 0,
+    "progressionTier": "early-game"
+  },
+  {
+    "id": 464,
+    "name": "Creeper Shirt",
+    "type": "armor",
+    "rarity": "white",
+    "tooltip": "Minecraft vanity body piece from the Creeper set.",
+    "sources": [
+      "Drops from Goodie Bags during Halloween as part of the Creeper set",
+      "Creeper set has a 2/57 (3.51%) chance to drop from Goodie Bags during Halloween",
+      "Minecraft crossover"
+    ],
+    "wikiSlug": "Creeper_Shirt",
+    "defense": 0,
+    "progressionTier": "early-game"
+  },
+  {
+    "id": 465,
+    "name": "Creeper Pants",
+    "type": "armor",
+    "rarity": "white",
+    "tooltip": "Minecraft vanity legwear from the Creeper set.",
+    "sources": [
+      "Drops from Goodie Bags during Halloween as part of the Creeper set",
+      "Creeper set has a 2/57 (3.51%) chance to drop from Goodie Bags during Halloween",
+      "Minecraft crossover"
+    ],
+    "wikiSlug": "Creeper_Pants",
+    "defense": 0,
+    "progressionTier": "early-game"
+  },
+  {
+    "id": 466,
+    "name": "Falcon Blade",
+    "type": "weapon",
+    "rarity": "light-red",
+    "tooltip": "Rapid attacks deal more damage",
+    "sources": [
+      "6.08% chance from Iron Crates",
+      "5.98% chance from Mythril Crates",
+      "Pixel Piracy crossover"
+    ],
+    "wikiSlug": "Falcon_Blade",
+    "damage": 25,
+    "knockback": 6,
+    "critChance": 4,
+    "useTime": 20,
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 467,
+    "name": "Pirate Staff",
+    "type": "weapon",
+    "rarity": "pink",
+    "tooltip": "Summons pirates to fight for you",
+    "sources": [
+      "0.1% drop from regular pirates during the Pirate Invasion",
+      "0.4% drop from Pirate Captains and 6.67% drop from the Flying Dutchman",
+      "Pixel Piracy crossover"
+    ],
+    "wikiSlug": "Pirate_Staff",
+    "damage": 40,
+    "knockback": 6,
+    "useTime": 36,
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 468,
+    "name": "Ginger Beard",
+    "type": "accessory",
+    "rarity": "pink",
+    "tooltip": "Pixel Piracy vanity beard accessory.",
+    "sources": [
+      "4% chance from Iron Crates",
+      "3.93% chance from Mythril Crates",
+      "Pixel Piracy crossover"
+    ],
+    "wikiSlug": "Ginger_Beard",
+    "progressionTier": "early-game"
+  },
+  {
+    "id": 469,
+    "name": "Pillagin' Me Pixels",
+    "type": "furniture",
+    "rarity": "white",
+    "tooltip": "'J. Hayes'",
+    "sources": [
+      "Angler quest reward painting",
+      "Portrait of a pirate ship from Pixel Piracy",
+      "Pixel Piracy crossover"
+    ],
+    "wikiSlug": "Pillagin%27_Me_Pixels",
+    "progressionTier": "early-game"
+  },
+  {
+    "id": 470,
+    "name": "Sail",
+    "type": "furniture",
+    "rarity": "white",
+    "tooltip": "Pixel Piracy decorative sail wall sold by the Pirate.",
+    "sources": [
+      "Purchased from the Pirate for 50 each",
+      "Valid housing wall",
+      "Pixel Piracy crossover"
+    ],
+    "wikiSlug": "Sail",
+    "progressionTier": "early-hardmode"
   }
 ]

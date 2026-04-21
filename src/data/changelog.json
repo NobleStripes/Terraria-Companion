@@ -10,6 +10,8 @@
       "Base-material coverage was widened with Sand Block so Glass now has an exact upstream Furnace recipe instead of only downstream usage coverage.",
       "The remaining single-item Core Keeper gap was closed with Glow Tulip and its exact world-generation sourcing.",
       "Stardew Valley crossover coverage started with Joja Cola, Stardrop purification through the Dryad, and Blue Chicken Egg vendor coverage.",
+      "After the 1.4.4 and 1.4.5 crossover pass, the next smallest official gap was picked up with Minecraft's Creeper vanity set and its exact Halloween Goodie Bag sourcing.",
+      "Worms 3 was left out of the main dataset because its crossover items are legacy-only, so the current-version pass moved to Pixel Piracy with Falcon Blade, Pirate Staff, Ginger Beard, Pillagin' Me Pixels, and Sail.",
       "The next official crossover gap was continued with Project Zomboid via Spiffo Plush and its exact zombie-family drop source."
     ]
   },
