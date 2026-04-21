@@ -26,6 +26,18 @@ export default function NotFound() {
           >
             Browse Biomes
           </Link>
+          <Link
+            to="/items"
+            className="px-4 py-2 rounded border border-terra-border text-gray-300 text-sm hover:border-terra-gold hover:text-white transition-colors"
+          >
+            Browse Items
+          </Link>
+          <Link
+            to="/npcs"
+            className="px-4 py-2 rounded border border-terra-border text-gray-300 text-sm hover:border-terra-gold hover:text-white transition-colors"
+          >
+            Browse NPCs
+          </Link>
         </div>
       </div>
     </div>

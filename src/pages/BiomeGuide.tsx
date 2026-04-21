@@ -247,14 +247,19 @@ export default function BiomeGuide() {
           </label>
 
           <div className="flex items-center gap-2 self-start md:self-auto">
-            <button
-              type="button"
-              onClick={copyCurrentViewLink}
-              className="inline-flex items-center gap-1.5 rounded border border-terra-border px-3 py-2.5 min-h-11 text-xs text-gray-300 hover:border-terra-gold hover:text-white transition-colors"
-            >
-              {copyState === 'copied' ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-              {copyState === 'copied' ? 'Link copied' : copyState === 'error' ? 'Copy failed' : 'Copy link'}
-            </button>
+            <div className="flex flex-col items-start gap-1.5">
+              <button
+                type="button"
+                onClick={copyCurrentViewLink}
+                className="inline-flex items-center gap-1.5 rounded border border-terra-border px-3 py-2.5 min-h-11 text-xs text-gray-300 hover:border-terra-gold hover:text-white transition-colors"
+              >
+                {copyState === 'copied' ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+                {copyState === 'copied' ? 'Link copied' : copyState === 'error' ? 'Copy failed' : 'Copy link'}
+              </button>
+              <p className="text-[11px] text-gray-500 leading-relaxed max-w-56">
+                Shares the current layer and hardmode filters so the same biome view opens for anyone with the link.
+              </p>
+            </div>
           </div>
           </div>
         )}
