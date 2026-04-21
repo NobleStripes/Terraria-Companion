@@ -6081,5 +6081,112 @@
     ],
     "wikiSlug": "Feral_Claws",
     "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 435,
+    "name": "Flinx Fur",
+    "type": "material",
+    "rarity": "white",
+    "tooltip": "Soft fur used in cold-weather crafting and summoning rituals.",
+    "sources": [
+      "Snow Flinx (drop)"
+    ],
+    "wikiSlug": "Flinx_Fur",
+    "progressionTier": "early-game",
+    "enemyDrops": [
+      "Snow Flinx"
+    ]
+  },
+  {
+    "id": 436,
+    "name": "Deer Thing",
+    "type": "consumable",
+    "rarity": "orange",
+    "tooltip": "Summons Deerclops in a snowy biome.",
+    "sources": [
+      "Crafted",
+      "Don't Starve Together crossover"
+    ],
+    "wikiSlug": "Deer_Thing",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 437,
+    "name": "Lucy the Axe",
+    "type": "tool",
+    "rarity": "orange",
+    "tooltip": "A chatty axe that tears through trees with frightening enthusiasm.",
+    "sources": [
+      "Deerclops (drop)",
+      "Don't Starve Together crossover"
+    ],
+    "wikiSlug": "Lucy_the_Axe",
+    "damage": 27,
+    "knockback": 6,
+    "useTime": 20,
+    "axePower": 150,
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 438,
+    "name": "Eyebrella",
+    "type": "accessory",
+    "rarity": "orange",
+    "tooltip": "A weatherproof umbrella that helps keep rough rain off your back.",
+    "sources": [
+      "Deerclops (drop)",
+      "Don't Starve Together crossover"
+    ],
+    "wikiSlug": "Eyebrella",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 439,
+    "name": "Weather Pain",
+    "type": "weapon",
+    "rarity": "orange",
+    "tooltip": "Calls down rain and lightning near the cursor.",
+    "sources": [
+      "Deerclops (drop)",
+      "Don't Starve Together crossover"
+    ],
+    "wikiSlug": "Weather_Pain",
+    "damage": 24,
+    "useTime": 25,
+    "knockback": 4,
+    "critChance": 4,
+    "manaCost": 9,
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 440,
+    "name": "Houndius Shootius",
+    "type": "weapon",
+    "rarity": "pink",
+    "tooltip": "Summons a stationary hound turret to guard the area.",
+    "sources": [
+      "Deerclops (drop)",
+      "Don't Starve Together crossover"
+    ],
+    "wikiSlug": "Houndius_Shootius",
+    "damage": 30,
+    "useTime": 36,
+    "knockback": 2,
+    "critChance": 0,
+    "manaCost": 10,
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 441,
+    "name": "The Lazy Forager",
+    "type": "accessory",
+    "rarity": "orange",
+    "tooltip": "Automatically picks nearby plants and seeds while you explore.",
+    "sources": [
+      "Deerclops (drop)",
+      "Don't Starve Together crossover"
+    ],
+    "wikiSlug": "The_Lazy_Forager",
+    "progressionTier": "pre-hardmode"
   }
 ]

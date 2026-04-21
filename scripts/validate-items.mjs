@@ -30,9 +30,10 @@ const summonOrWhipIds = new Set([
   176, 177,
   181, 182, 183, 184, 185, 186, 187, 188, 189,
   193, 194, 196, 197,
+  440,
 ])
 
-const magicIds = new Set([36, 37, 38, 39, 40, 41, 150, 180, 192])
+const magicIds = new Set([36, 37, 38, 39, 40, 41, 150, 180, 192, 439])
 const manaAllowedIds = new Set([...summonOrWhipIds, ...magicIds])
 
 const seenIds = new Set()

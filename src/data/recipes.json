@@ -78,5 +78,7 @@
   { "id": 77, "resultItemId": 184, "resultQuantity": 1, "ingredients": [{ "itemId": 203, "quantity": 12 }], "station": "Iron Anvil" },
   { "id": 78, "resultItemId": 185, "resultQuantity": 1, "ingredients": [{ "itemId": 204, "quantity": 20 }, { "itemId": 205, "quantity": 10 }, { "itemId": 206, "quantity": 10 }], "station": "Iron Anvil" },
   { "id": 79, "resultItemId": 188, "resultQuantity": 1, "ingredients": [{ "itemId": 130, "quantity": 18 }], "station": "Ancient Manipulator" },
-  { "id": 80, "resultItemId": 193, "resultQuantity": 1, "ingredients": [{ "itemId": 201, "quantity": 300 }, { "itemId": 207, "quantity": 5 }, { "itemId": 109, "quantity": 5 }], "station": "Iron Anvil" }
+  { "id": 80, "resultItemId": 193, "resultQuantity": 1, "ingredients": [{ "itemId": 201, "quantity": 300 }, { "itemId": 207, "quantity": 5 }, { "itemId": 109, "quantity": 5 }], "station": "Iron Anvil" },
+  { "id": 81, "resultItemId": 436, "resultQuantity": 1, "ingredients": [{ "itemId": 435, "quantity": 3 }, { "itemId": 8, "quantity": 5 }, { "itemId": 325, "quantity": 1 }], "station": "Demon Altar" },
+  { "id": 82, "resultItemId": 436, "resultQuantity": 1, "ingredients": [{ "itemId": 435, "quantity": 3 }, { "itemId": 9, "quantity": 5 }, { "itemId": 325, "quantity": 1 }], "station": "Demon Altar" }
 ]

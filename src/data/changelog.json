@@ -4,7 +4,8 @@
     "highlights": [
       "Biome Guide and NPC Guide now include copy-link actions with clearer share-state guidance for the current filtered view.",
       "NPC Guide planner and biome preference filters persist in the URL for restorable shared setups.",
-      "App-version visibility and 404 recovery links were tightened across release-facing surfaces."
+      "App-version visibility and 404 recovery links were tightened across release-facing surfaces.",
+      "Item Lookup gained a focused Don't Starve Together crossover batch, including Deer Thing support items and recipes."
     ]
   },
   {
