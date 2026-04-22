@@ -20,8 +20,55 @@ function applyUseSpeed(baseUseTime: number, useSpeedPct: number): number {
   return Math.max(1, next)
 }
 
+function getWeaponCategories(item: Item): Array<NonNullable<Prefix['weaponCategories']>[number]> {
+  if (item.type === 'tool') {
+    return ['tool', 'melee-swing']
+  }
+
+  if (item.type !== 'weapon') {
+    return []
+  }
+
+  const lowerName = item.name.toLowerCase()
+
+  if (/(yoyo|boomerang|flail|spear|javelin|bananarang|disc)/.test(lowerName)) {
+    return []
+  }
+
+  if (lowerName === 'terrarian') {
+    return []
+  }
+
+  if (/whip/.test(lowerName)) {
+    return ['melee-swing']
+  }
+
+  if ((item.critChance ?? 0) === 0 && (item.manaCost ?? 0) > 0) {
+    return ['summon']
+  }
+
+  if ((item.manaCost ?? 0) > 0) {
+    return ['magic']
+  }
+
+  if (/(bow|gun|rifle|launcher|repeater|shotbow|musket|pistol|sniper|uzi|blaster|cannon|dart|stormbow)/.test(lowerName)) {
+    return ['ranged']
+  }
+
+  return ['melee-swing']
+}
+
 export function canApplyPrefix(item: Item, prefix: Prefix): boolean {
-  return prefix.appliesTo.includes(item.type as Prefix['appliesTo'][number])
+  if (!prefix.appliesTo.includes(item.type as Prefix['appliesTo'][number])) {
+    return false
+  }
+
+  if (!prefix.weaponCategories?.length) {
+    return true
+  }
+
+  const categories = getWeaponCategories(item)
+  return prefix.weaponCategories.some((category) => categories.includes(category))
 }
 
 export function applyPrefixToItemStats(item: Item, prefix: Prefix): PrefixedItemStats {

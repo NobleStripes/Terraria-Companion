@@ -20,6 +20,7 @@ export interface Prefix {
   id: string
   name: string
   appliesTo: PrefixAppliesTo[]
+  weaponCategories?: Array<'melee-swing' | 'ranged' | 'magic' | 'summon' | 'tool'>
   tooltip: string
   modifiers: PrefixModifiers
 }

@@ -6381,7 +6381,7 @@
     "name": "Pal Metal Chestplate",
     "type": "armor",
     "rarity": "white",
-    "tooltip": "Palworld vanity chest piece from the Pal Metal set.",
+    "tooltip": "Showcases the rugged Pal Metal style from Palworld.",
     "sources": [
       "Traveling Merchant after obtaining Cattiva, Foxparks, Digtoise, Chillet, or Chillet Ignis",
       "Palworld crossover"
@@ -6395,7 +6395,7 @@
     "name": "Pal Metal Leggings",
     "type": "armor",
     "rarity": "white",
-    "tooltip": "Palworld vanity legwear from the Pal Metal set.",
+    "tooltip": "Completes the Pal Metal vanity look with heavy frontier greaves.",
     "sources": [
       "Traveling Merchant after obtaining Cattiva, Foxparks, Digtoise, Chillet, or Chillet Ignis",
       "Palworld crossover"
@@ -6476,7 +6476,7 @@
     "name": "Blue Chicken Egg",
     "type": "consumable",
     "rarity": "orange",
-    "tooltip": "Summons a blue chicken! A regular blue chicken egg.",
+    "tooltip": "Summons a blue chicken! Fresh from Stardew Valley's coops.",
     "sources": [
       "Purchased from the Traveling Merchant for 25",
       "Stardew Valley crossover"
@@ -6489,7 +6489,7 @@
     "name": "Creeper Mask",
     "type": "armor",
     "rarity": "white",
-    "tooltip": "Minecraft vanity headpiece from the Creeper set.",
+    "tooltip": "A blocky green hood styled after Minecraft's Creeper.",
     "sources": [
       "Drops from Goodie Bags during Halloween as part of the Creeper set",
       "Creeper set has a 2/57 (3.51%) chance to drop from Goodie Bags during Halloween",
@@ -6504,7 +6504,7 @@
     "name": "Creeper Shirt",
     "type": "armor",
     "rarity": "white",
-    "tooltip": "Minecraft vanity body piece from the Creeper set.",
+    "tooltip": "A pixel-styled tunic that matches the Creeper vanity set.",
     "sources": [
       "Drops from Goodie Bags during Halloween as part of the Creeper set",
       "Creeper set has a 2/57 (3.51%) chance to drop from Goodie Bags during Halloween",
@@ -6519,7 +6519,7 @@
     "name": "Creeper Pants",
     "type": "armor",
     "rarity": "white",
-    "tooltip": "Minecraft vanity legwear from the Creeper set.",
+    "tooltip": "Blocky leggings that finish the Minecraft Creeper look.",
     "sources": [
       "Drops from Goodie Bags during Halloween as part of the Creeper set",
       "Creeper set has a 2/57 (3.51%) chance to drop from Goodie Bags during Halloween",

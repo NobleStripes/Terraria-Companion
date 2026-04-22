@@ -31,15 +31,15 @@
     "id": "deadly",
     "name": "Deadly",
     "appliesTo": ["weapon", "tool"],
-    "tooltip": "+10% damage, +2% critical strike chance, +5% knockback",
-    "modifiers": { "damagePct": 10, "critChance": 2, "knockbackPct": 5 }
+    "tooltip": "+10% damage, +10% use speed",
+    "modifiers": { "damagePct": 10, "useSpeedPct": 10 }
   },
   {
     "id": "agile",
     "name": "Agile",
     "appliesTo": ["weapon", "tool"],
-    "tooltip": "+10% use speed",
-    "modifiers": { "useSpeedPct": 10 }
+    "tooltip": "+10% use speed, +3% critical strike chance",
+    "modifiers": { "useSpeedPct": 10, "critChance": 3 }
   },
   {
     "id": "nimble",
@@ -52,8 +52,8 @@
     "id": "murderous",
     "name": "Murderous",
     "appliesTo": ["weapon", "tool"],
-    "tooltip": "+7% damage, +3% critical strike chance",
-    "modifiers": { "damagePct": 7, "critChance": 3 }
+    "tooltip": "+7% damage, +6% use speed, +3% critical strike chance",
+    "modifiers": { "damagePct": 7, "useSpeedPct": 6, "critChance": 3 }
   },
   {
     "id": "slow",
@@ -66,8 +66,8 @@
     "id": "sluggish",
     "name": "Sluggish",
     "appliesTo": ["weapon", "tool"],
-    "tooltip": "-10% use speed",
-    "modifiers": { "useSpeedPct": -10 }
+    "tooltip": "-20% use speed",
+    "modifiers": { "useSpeedPct": -20 }
   },
   {
     "id": "lazy",
@@ -80,20 +80,21 @@
     "id": "annoying",
     "name": "Annoying",
     "appliesTo": ["weapon", "tool"],
-    "tooltip": "-20% knockback",
-    "modifiers": { "knockbackPct": -20 }
+    "tooltip": "-20% damage, -15% use speed",
+    "modifiers": { "damagePct": -20, "useSpeedPct": -15 }
   },
   {
     "id": "nasty",
     "name": "Nasty",
     "appliesTo": ["weapon", "tool"],
-    "tooltip": "+5% damage, +2% critical strike chance, +10% knockback, +10% use speed",
-    "modifiers": { "damagePct": 5, "critChance": 2, "knockbackPct": 10, "useSpeedPct": 10 }
+    "tooltip": "+5% damage, +10% use speed, +2% critical strike chance, -10% knockback",
+    "modifiers": { "damagePct": 5, "useSpeedPct": 10, "critChance": 2, "knockbackPct": -10 }
   },
   {
     "id": "large",
     "name": "Large",
     "appliesTo": ["weapon", "tool"],
+    "weaponCategories": ["melee-swing", "tool"],
     "tooltip": "+12% size, +5% knockback",
     "modifiers": { "sizePct": 12, "knockbackPct": 5 }
   },
@@ -101,6 +102,7 @@
     "id": "massive",
     "name": "Massive",
     "appliesTo": ["weapon", "tool"],
+    "weaponCategories": ["melee-swing", "tool"],
     "tooltip": "+18% size, +7% knockback",
     "modifiers": { "sizePct": 18, "knockbackPct": 7 }
   },
@@ -108,13 +110,15 @@
     "id": "dangerous",
     "name": "Dangerous",
     "appliesTo": ["weapon", "tool"],
-    "tooltip": "+5% damage, +2% critical strike chance, +5% knockback, +5% size",
-    "modifiers": { "damagePct": 5, "critChance": 2, "knockbackPct": 5, "sizePct": 5 }
+    "weaponCategories": ["melee-swing", "tool"],
+    "tooltip": "+5% damage, +2% critical strike chance, +5% size",
+    "modifiers": { "damagePct": 5, "critChance": 2, "sizePct": 5 }
   },
   {
     "id": "savage",
     "name": "Savage",
     "appliesTo": ["weapon", "tool"],
+    "weaponCategories": ["melee-swing", "tool"],
     "tooltip": "+10% damage, +10% knockback, +10% size",
     "modifiers": { "damagePct": 10, "knockbackPct": 10, "sizePct": 10 }
   },
@@ -122,6 +126,7 @@
     "id": "sharp",
     "name": "Sharp",
     "appliesTo": ["weapon", "tool"],
+    "weaponCategories": ["melee-swing", "tool"],
     "tooltip": "+15% damage",
     "modifiers": { "damagePct": 15 }
   },
@@ -129,6 +134,7 @@
     "id": "pointy",
     "name": "Pointy",
     "appliesTo": ["weapon", "tool"],
+    "weaponCategories": ["melee-swing", "tool"],
     "tooltip": "+10% damage",
     "modifiers": { "damagePct": 10 }
   },
@@ -136,6 +142,7 @@
     "id": "tiny",
     "name": "Tiny",
     "appliesTo": ["weapon", "tool"],
+    "weaponCategories": ["melee-swing", "tool"],
     "tooltip": "-18% size",
     "modifiers": { "sizePct": -18 }
   },
@@ -143,13 +150,15 @@
     "id": "terrible",
     "name": "Terrible",
     "appliesTo": ["weapon", "tool"],
-    "tooltip": "-15% damage, -13% size",
-    "modifiers": { "damagePct": -15, "sizePct": -13 }
+    "weaponCategories": ["melee-swing", "tool"],
+    "tooltip": "-15% damage, -13% size, -15% knockback",
+    "modifiers": { "damagePct": -15, "sizePct": -13, "knockbackPct": -15 }
   },
   {
     "id": "small",
     "name": "Small",
     "appliesTo": ["weapon", "tool"],
+    "weaponCategories": ["melee-swing", "tool"],
     "tooltip": "-10% size",
     "modifiers": { "sizePct": -10 }
   },
@@ -157,6 +166,7 @@
     "id": "dull",
     "name": "Dull",
     "appliesTo": ["weapon", "tool"],
+    "weaponCategories": ["melee-swing", "tool"],
     "tooltip": "-15% damage",
     "modifiers": { "damagePct": -15 }
   },
@@ -164,27 +174,31 @@
     "id": "unhappy",
     "name": "Unhappy",
     "appliesTo": ["weapon", "tool"],
-    "tooltip": "-10% damage, -10% use speed",
-    "modifiers": { "damagePct": -10, "useSpeedPct": -10 }
+    "weaponCategories": ["melee-swing", "tool"],
+    "tooltip": "-10% use speed, -10% size, -10% knockback",
+    "modifiers": { "useSpeedPct": -10, "sizePct": -10, "knockbackPct": -10 }
   },
   {
     "id": "bulky",
     "name": "Bulky",
     "appliesTo": ["weapon", "tool"],
-    "tooltip": "+5% knockback, -10% use speed, -5% size",
-    "modifiers": { "knockbackPct": 5, "useSpeedPct": -10, "sizePct": -5 }
+    "weaponCategories": ["melee-swing", "tool"],
+    "tooltip": "+5% damage, -15% use speed, +10% size, +10% knockback",
+    "modifiers": { "damagePct": 5, "useSpeedPct": -15, "sizePct": 10, "knockbackPct": 10 }
   },
   {
     "id": "shameful",
     "name": "Shameful",
     "appliesTo": ["weapon", "tool"],
-    "tooltip": "-10% damage, +10% knockback",
-    "modifiers": { "damagePct": -10, "knockbackPct": 10 }
+    "weaponCategories": ["melee-swing", "tool"],
+    "tooltip": "-10% damage, +10% size, -20% knockback",
+    "modifiers": { "damagePct": -10, "sizePct": 10, "knockbackPct": -20 }
   },
   {
     "id": "heavy",
     "name": "Heavy",
     "appliesTo": ["weapon", "tool"],
+    "weaponCategories": ["melee-swing", "tool"],
     "tooltip": "+15% knockback, -10% use speed",
     "modifiers": { "knockbackPct": 15, "useSpeedPct": -10 }
   },
@@ -192,8 +206,9 @@
     "id": "light",
     "name": "Light",
     "appliesTo": ["weapon", "tool"],
-    "tooltip": "+15% use speed, -10% damage, -10% knockback",
-    "modifiers": { "useSpeedPct": 15, "damagePct": -10, "knockbackPct": -10 }
+    "weaponCategories": ["melee-swing", "tool"],
+    "tooltip": "+15% use speed, -10% knockback",
+    "modifiers": { "useSpeedPct": 15, "knockbackPct": -10 }
   },
   {
     "id": "keen",
@@ -248,13 +263,14 @@
     "id": "ruthless",
     "name": "Ruthless",
     "appliesTo": ["weapon", "tool"],
-    "tooltip": "+18% damage",
-    "modifiers": { "damagePct": 18 }
+    "tooltip": "+18% damage, -10% knockback",
+    "modifiers": { "damagePct": 18, "knockbackPct": -10 }
   },
   {
     "id": "unreal",
     "name": "Unreal",
     "appliesTo": ["weapon", "tool"],
+    "weaponCategories": ["ranged"],
     "tooltip": "+15% damage, +10% use speed, +5% critical strike chance, +10% knockback, +10% velocity",
     "modifiers": { "damagePct": 15, "useSpeedPct": 10, "critChance": 5, "knockbackPct": 10, "velocityPct": 10 }
   },
@@ -262,8 +278,318 @@
     "id": "mythical",
     "name": "Mythical",
     "appliesTo": ["weapon", "tool"],
+    "weaponCategories": ["magic"],
     "tooltip": "+15% damage, +10% use speed, +5% critical strike chance, +15% knockback, -10% mana cost",
     "modifiers": { "damagePct": 15, "useSpeedPct": 10, "critChance": 5, "knockbackPct": 15, "manaCostPct": -10 }
+  },
+  {
+    "id": "hurtful",
+    "name": "Hurtful",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "+10% damage",
+    "modifiers": { "damagePct": 10 }
+  },
+  {
+    "id": "unpleasant",
+    "name": "Unpleasant",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "+5% damage, +15% knockback",
+    "modifiers": { "damagePct": 5, "knockbackPct": 15 }
+  },
+  {
+    "id": "weak",
+    "name": "Weak",
+    "appliesTo": ["weapon", "tool"],
+    "tooltip": "-20% knockback",
+    "modifiers": { "knockbackPct": -20 }
+  },
+  {
+    "id": "legendary",
+    "name": "Legendary",
+    "appliesTo": ["weapon", "tool"],
+    "weaponCategories": ["melee-swing", "tool"],
+    "tooltip": "+15% damage, +10% use speed, +5% critical strike chance, +10% size, +15% knockback",
+    "modifiers": { "damagePct": 15, "useSpeedPct": 10, "critChance": 5, "sizePct": 10, "knockbackPct": 15 }
+  },
+  {
+    "id": "sighted",
+    "name": "Sighted",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["ranged"],
+    "tooltip": "+10% damage, +3% critical strike chance",
+    "modifiers": { "damagePct": 10, "critChance": 3 }
+  },
+  {
+    "id": "rapid",
+    "name": "Rapid",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["ranged"],
+    "tooltip": "+15% use speed, +10% velocity",
+    "modifiers": { "useSpeedPct": 15, "velocityPct": 10 }
+  },
+  {
+    "id": "hasty_ranged",
+    "name": "Hasty",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["ranged"],
+    "tooltip": "+10% use speed, +15% velocity",
+    "modifiers": { "useSpeedPct": 10, "velocityPct": 15 }
+  },
+  {
+    "id": "intimidating",
+    "name": "Intimidating",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["ranged"],
+    "tooltip": "+5% velocity, +15% knockback",
+    "modifiers": { "velocityPct": 5, "knockbackPct": 15 }
+  },
+  {
+    "id": "deadly_ranged",
+    "name": "Deadly",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["ranged"],
+    "tooltip": "+10% damage, +5% use speed, +2% critical strike chance, +5% knockback, +5% velocity",
+    "modifiers": { "damagePct": 10, "useSpeedPct": 5, "critChance": 2, "knockbackPct": 5, "velocityPct": 5 }
+  },
+  {
+    "id": "staunch",
+    "name": "Staunch",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["ranged"],
+    "tooltip": "+10% damage, +15% knockback",
+    "modifiers": { "damagePct": 10, "knockbackPct": 15 }
+  },
+  {
+    "id": "awful",
+    "name": "Awful",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["ranged"],
+    "tooltip": "-15% damage, -10% velocity, -10% knockback",
+    "modifiers": { "damagePct": -15, "velocityPct": -10, "knockbackPct": -10 }
+  },
+  {
+    "id": "lethargic",
+    "name": "Lethargic",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["ranged"],
+    "tooltip": "-15% use speed, -10% velocity",
+    "modifiers": { "useSpeedPct": -15, "velocityPct": -10 }
+  },
+  {
+    "id": "awkward",
+    "name": "Awkward",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["ranged"],
+    "tooltip": "-10% use speed, -20% knockback",
+    "modifiers": { "useSpeedPct": -10, "knockbackPct": -20 }
+  },
+  {
+    "id": "powerful",
+    "name": "Powerful",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["ranged"],
+    "tooltip": "+15% damage, -10% use speed, +1% critical strike chance",
+    "modifiers": { "damagePct": 15, "useSpeedPct": -10, "critChance": 1 }
+  },
+  {
+    "id": "frenzying",
+    "name": "Frenzying",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["ranged"],
+    "tooltip": "-15% damage, +15% use speed",
+    "modifiers": { "damagePct": -15, "useSpeedPct": 15 }
+  },
+  {
+    "id": "mystic",
+    "name": "Mystic",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["magic"],
+    "tooltip": "+10% damage, -15% mana cost",
+    "modifiers": { "damagePct": 10, "manaCostPct": -15 }
+  },
+  {
+    "id": "adept",
+    "name": "Adept",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["magic"],
+    "tooltip": "-15% mana cost",
+    "modifiers": { "manaCostPct": -15 }
+  },
+  {
+    "id": "masterful",
+    "name": "Masterful",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["magic"],
+    "tooltip": "+15% damage, -15% mana cost, +5% knockback",
+    "modifiers": { "damagePct": 15, "manaCostPct": -15, "knockbackPct": 5 }
+  },
+  {
+    "id": "inept",
+    "name": "Inept",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["magic"],
+    "tooltip": "+10% mana cost",
+    "modifiers": { "manaCostPct": 10 }
+  },
+  {
+    "id": "ignorant",
+    "name": "Ignorant",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["magic"],
+    "tooltip": "-10% damage, +20% mana cost",
+    "modifiers": { "damagePct": -10, "manaCostPct": 20 }
+  },
+  {
+    "id": "deranged",
+    "name": "Deranged",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["magic"],
+    "tooltip": "-10% damage, -10% knockback",
+    "modifiers": { "damagePct": -10, "knockbackPct": -10 }
+  },
+  {
+    "id": "intense",
+    "name": "Intense",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["magic"],
+    "tooltip": "+10% damage, +15% mana cost",
+    "modifiers": { "damagePct": 10, "manaCostPct": 15 }
+  },
+  {
+    "id": "taboo",
+    "name": "Taboo",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["magic"],
+    "tooltip": "+10% use speed, +10% mana cost, +10% knockback",
+    "modifiers": { "useSpeedPct": 10, "manaCostPct": 10, "knockbackPct": 10 }
+  },
+  {
+    "id": "celestial",
+    "name": "Celestial",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["magic"],
+    "tooltip": "+10% damage, -10% use speed, -10% mana cost, +10% knockback",
+    "modifiers": { "damagePct": 10, "useSpeedPct": -10, "manaCostPct": -10, "knockbackPct": 10 }
+  },
+  {
+    "id": "furious",
+    "name": "Furious",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["magic"],
+    "tooltip": "+15% damage, +20% mana cost, +15% knockback",
+    "modifiers": { "damagePct": 15, "manaCostPct": 20, "knockbackPct": 15 }
+  },
+  {
+    "id": "manic",
+    "name": "Manic",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["magic"],
+    "tooltip": "-10% damage, +10% use speed, -10% mana cost",
+    "modifiers": { "damagePct": -10, "useSpeedPct": 10, "manaCostPct": -10 }
+  },
+  {
+    "id": "fabled",
+    "name": "Fabled",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["summon"],
+    "tooltip": "+15% damage, +10 armor penetration, +3 summon tag damage, +15% knockback",
+    "modifiers": { "damagePct": 15, "knockbackPct": 15 }
+  },
+  {
+    "id": "loyal",
+    "name": "Loyal",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["summon"],
+    "tooltip": "+10% damage, +5 armor penetration, +3 summon tag damage, +5% knockback",
+    "modifiers": { "damagePct": 10, "knockbackPct": 5 }
+  },
+  {
+    "id": "worthy",
+    "name": "Worthy",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["summon"],
+    "tooltip": "+15% damage, +8 armor penetration",
+    "modifiers": { "damagePct": 15 }
+  },
+  {
+    "id": "focused",
+    "name": "Focused",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["summon"],
+    "tooltip": "+10% damage, +3 summon tag damage",
+    "modifiers": { "damagePct": 10 }
+  },
+  {
+    "id": "eager",
+    "name": "Eager",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["summon"],
+    "tooltip": "+25 armor penetration",
+    "modifiers": {}
+  },
+  {
+    "id": "ballistic",
+    "name": "Ballistic",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["summon"],
+    "tooltip": "+5 summon tag damage",
+    "modifiers": {}
+  },
+  {
+    "id": "scraggling",
+    "name": "Scraggling",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["summon"],
+    "tooltip": "+25% knockback",
+    "modifiers": { "knockbackPct": 25 }
+  },
+  {
+    "id": "patient",
+    "name": "Patient",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["summon"],
+    "tooltip": "-5% damage, +3 summon tag damage",
+    "modifiers": { "damagePct": -5 }
+  },
+  {
+    "id": "rabid",
+    "name": "Rabid",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["summon"],
+    "tooltip": "+10% damage, -10% knockback",
+    "modifiers": { "damagePct": 10, "knockbackPct": -10 }
+  },
+  {
+    "id": "ill_tempered",
+    "name": "Ill-Tempered",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["summon"],
+    "tooltip": "-5% damage, +10 armor penetration",
+    "modifiers": { "damagePct": -5 }
+  },
+  {
+    "id": "petty",
+    "name": "Petty",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["summon"],
+    "tooltip": "-30% damage",
+    "modifiers": { "damagePct": -30 }
+  },
+  {
+    "id": "feeble",
+    "name": "Feeble",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["summon"],
+    "tooltip": "-25% knockback",
+    "modifiers": { "knockbackPct": -25 }
+  },
+  {
+    "id": "skittish",
+    "name": "Skittish",
+    "appliesTo": ["weapon"],
+    "weaponCategories": ["summon"],
+    "tooltip": "-15% damage, -10% knockback",
+    "modifiers": { "damagePct": -15, "knockbackPct": -10 }
   },
   {
     "id": "hard",
