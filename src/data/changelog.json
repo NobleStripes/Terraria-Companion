@@ -2,9 +2,9 @@
     "version": "1.1.0",
     "date": "2026-04-22",
     "highlights": [
-      "Loadout Builder is now a first-class workflow with saved class loadouts, JSON import/export, URL-backed active selection, and direct handoff from Item Lookup and Build Stages.",
-      "Prep Guide adds a dedicated boss-readiness route with class and phase filters, copyable prep summaries, summon requirements, danger windows, and execution notes in one view.",
-      "Boss prep cards now bridge directly into Build Stages, Loadouts, Boss Guide, and Item Lookup so research can turn into a concrete gear setup without redoing filters.",
+      "Loadout Builder is now a first-class workflow with saved class loadouts, JSON import/export, URL-backed active selection, and immediate handoff from Item Lookup, Build Stages, and Boss Prep into the active loadout.",
+      "Prep Guide adds a dedicated boss-readiness route with class and phase filters, copyable per-boss or filtered prep summaries, summon requirements, danger windows, and execution notes in one view.",
+      "Boss prep cards now bridge directly into Build Stages, Loadouts, Boss Guide, and Item Lookup, including compact lookup links for the recommended weapon and armor so research can turn into a concrete gear setup without redoing filters.",
       "App release surfaces were bumped to 1.1.0 while keeping the Terraria data version fixed at 1.4.5.6."
     ]
   },
