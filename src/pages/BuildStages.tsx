@@ -12,6 +12,7 @@ import {
 } from '@/data/builds'
 import { bosses, items } from '@/data/index'
 import { useViewport } from '@/hooks/useViewport'
+import { useBuildStore } from '@/store/buildStore'
 
 const classes: BuildClass[] = ['melee', 'ranged', 'magic', 'summoner']
 const stageOrder: StageName[] = progressionCaps.map((cap) => cap.stage)
@@ -401,6 +402,7 @@ export default function BuildStages() {
   const [showFiltersPanel, setShowFiltersPanel] = useState(false)
   const [showPresetsPanel, setShowPresetsPanel] = useState(false)
   const presetImportRef = useRef<HTMLInputElement>(null)
+  const createLoadout = useBuildStore((state) => state.createLoadout)
 
   const { label, icon: Icon, color, description } = classConfig[selectedClass]
   const progressionFocusBoss = getProgressionFocusBoss(progressionCap)
@@ -859,6 +861,20 @@ export default function BuildStages() {
     setDensity('cozy')
   }
 
+  function createLoadoutFromStage(entry: typeof visibleBuilds[number]) {
+    createLoadout({
+      name: `${selectedClass[0].toUpperCase()}${selectedClass.slice(1)} ${entry.stage}`,
+      class: selectedClass,
+      slots: {
+        armor: [resolveGearItemId(entry.armor), undefined, undefined],
+        weapon: resolveGearItemId(entry.weapon),
+        accessories: entry.accessories.map((accessory) => resolveGearItemId(accessory)),
+      },
+    })
+
+    setClipboardMessage(`${entry.stage} loadout created`)
+  }
+
   return (
     <div className="max-w-7xl mx-auto px-4 py-6 space-y-4">
       <h1 className="font-pixel text-terra-gold text-sm">Recommended Builds</h1>
@@ -1239,6 +1255,12 @@ export default function BuildStages() {
                     <h3 className="text-sm font-semibold text-white">{entry.stage}</h3>
                     <div className="flex gap-1">
                       <button
+                        onClick={() => createLoadoutFromStage(entry)}
+                        className="text-[10px] px-2 py-0.5 rounded-full border border-terra-border text-gray-300 hover:text-white"
+                      >
+                        Create Loadout
+                      </button>
+                      <button
                         onClick={() => toggleStageDetails(entry.stage)}
                         className="text-[10px] px-2 py-0.5 rounded-full border border-terra-border text-gray-300 hover:text-white"
                       >
@@ -1288,6 +1310,12 @@ export default function BuildStages() {
                       Variant
                     </span>
                   ) : null}
+                  <button
+                    onClick={() => createLoadoutFromStage(entry)}
+                    className="text-[10px] px-2 py-0.5 rounded-full border border-terra-border text-gray-300 hover:text-white"
+                  >
+                    Create Loadout
+                  </button>
                   <button
                     onClick={() => toggleStageDetails(entry.stage)}
                     className="text-[10px] px-2 py-0.5 rounded-full border border-terra-border text-gray-300 hover:text-white"

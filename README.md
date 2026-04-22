@@ -1,8 +1,8 @@
 # Terraria Companion
 
-A second-screen browser reference for Terraria players. Look up items, track bosses, browse recommended builds by stage, and explore NPC/biome guides — all in one place.
+A second-screen browser reference for Terraria players. Look up items, track bosses, build loadouts, review boss prep, browse recommended builds by stage, and explore NPC/biome guides — all in one place.
 
-**App version:** 1.0.4  
+**App version:** 1.1.0  
 **Data version:** 1.4.5.6 (Bigger & Boulder)
 
 ## Features
@@ -10,7 +10,9 @@ A second-screen browser reference for Terraria players. Look up items, track bos
 - **Item Lookup** — Search 350+ items with fuzzy matching, view crafting recipes (crafts & used-in chains), inspect item stats, tool powers, and jump to the wiki
 - **Prefix System** — Select prefixes in Item Lookup to preview effective stat changes live (base → prefixed values)
 - **Boss Tracker** — All ~16 bosses with gear recommendations and strategy notes; progress is saved to localStorage
+- **Prep Guide** — Review arena setup, summon requirements, danger windows, buff stacks, and execution notes in a filterable boss-prep workflow
 - **Recommended Builds** — Stage-based progression builds (Early Game → Endgame) for melee, ranged, magic, and summoner classes
+- **Loadout Builder** — Save class-specific gear sets, import/export JSON snapshots, and jump into active loadouts from other pages
 - **NPC Guide** — All ~25 NPCs with full happiness tables and biome filter chips
 - **Biome Guide** — All ~20 biomes with resources, enemies, and NPC affinities
 

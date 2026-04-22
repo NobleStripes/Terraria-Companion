@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Map, Search, Shield, Sword, Users } from 'lucide-react'
+import { Map, Search, Shield, Sword, Users, FlaskConical } from 'lucide-react'
 import { APP_VERSION, DATA_VERSION, changelog } from '@/data/index'
 
 const features = [
@@ -16,6 +16,13 @@ const features = [
     title: 'Boss Tracker',
     description: 'Track defeated bosses and get recommended gear & strategies.',
     color: 'text-terra-red',
+  },
+  {
+    to: '/prep',
+    icon: FlaskConical,
+    title: 'Prep Guide',
+    description: 'Review boss arena setup, buff stacks, and execution notes in one page.',
+    color: 'text-terra-gold',
   },
   {
     to: '/build',

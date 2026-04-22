@@ -7,6 +7,8 @@ const Home = lazy(() => import('@/pages/Home'))
 const ItemLookup = lazy(() => import('@/pages/ItemLookup'))
 const BossTracker = lazy(() => import('@/pages/BossTracker'))
 const BuildStages = lazy(() => import('@/pages/BuildStages'))
+const LoadoutBuilder = lazy(() => import('@/pages/LoadoutBuilder'))
+const PrepGuide = lazy(() => import('@/pages/PrepGuide'))
 const BiomeGuide = lazy(() => import('@/pages/BiomeGuide'))
 const NpcGuide = lazy(() => import('@/pages/NpcGuide'))
 const NotFound = lazy(() => import('@/pages/NotFound'))
@@ -47,7 +49,9 @@ const router = createBrowserRouter([
       { path: 'items/:itemId', element: <ItemLookup /> },
       { path: 'bosses', element: <BossTracker /> },
       { path: 'bosses/:bossId', element: <BossTracker /> },
+      { path: 'prep', element: <PrepGuide /> },
       { path: 'build', element: <BuildStages /> },
+      { path: 'loadouts', element: <LoadoutBuilder /> },
       { path: 'biomes', element: <BiomeGuide /> },
       { path: 'npcs', element: <NpcGuide /> },
       { path: 'npcs/:npcId', element: <NpcGuide /> },

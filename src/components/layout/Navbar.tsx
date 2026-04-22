@@ -9,7 +9,9 @@ import { useViewport } from '@/hooks/useViewport'
 const navItems = [
   { to: '/items', label: 'Items' },
   { to: '/bosses', label: 'Bosses' },
+  { to: '/prep', label: 'Prep' },
   { to: '/build', label: 'Builds' },
+  { to: '/loadouts', label: 'Loadouts' },
   { to: '/biomes', label: 'Biomes' },
   { to: '/npcs', label: 'NPCs' },
 ]

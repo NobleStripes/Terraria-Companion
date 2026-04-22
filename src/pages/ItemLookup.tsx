@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
-import { ExternalLink, Filter, Package, Scale, X } from 'lucide-react'
+import { Link, useParams, useNavigate } from 'react-router-dom'
+import { ExternalLink, Filter, Package, Plus, Scale, X } from 'lucide-react'
 import { SearchBar } from '@/components/ui/SearchBar'
 import { ItemCard } from '@/components/ui/ItemCard'
 import { RecipeCard } from '@/components/ui/RecipeCard'
@@ -12,6 +12,7 @@ import { usePrefixesForItem } from '@/hooks/usePrefixes'
 import { itemsById, items, prefixesById } from '@/data/index'
 import type { Item } from '@/types/item'
 import { applyPrefixToItemStats } from '@/lib/prefixes'
+import { useBuildStore } from '@/store/buildStore'
 
 const RECENT_COUNT = 20
 const MAX_COMPARE_ITEMS = 3
@@ -20,6 +21,49 @@ type ItemClassFilter = 'all' | 'melee' | 'ranged' | 'magic' | 'summoner' | 'util
 type DamageFilter = 'all' | 'has-damage' | 'non-damage'
 type SourceFilter = 'all' | 'crafted' | 'drop' | 'vendor' | 'event' | 'exploration'
 type TierFilter = 'all' | 'early-game' | 'pre-hardmode' | 'early-hardmode' | 'endgame'
+type LoadoutSlotTarget =
+  | 'weapon'
+  | 'armor-head'
+  | 'armor-body'
+  | 'armor-legs'
+  | 'accessory-0'
+  | 'accessory-1'
+  | 'accessory-2'
+  | 'accessory-3'
+  | 'accessory-4'
+
+const headArmorPattern = /(helmet|mask|hood|hat|wig|cap|head|brow)/i
+const bodyArmorPattern = /(breastplate|chestplate|plate|mail|shirt|robe|jerkin|cuirass|dress|plating|tunic|vest)/i
+const legArmorPattern = /(greaves|leggings|pants|trousers|legguards|legging)/i
+
+function getEligibleLoadoutTargets(item: Item): Array<{ value: LoadoutSlotTarget; label: string }> {
+  if (item.type === 'weapon') {
+    return [{ value: 'weapon', label: 'Weapon slot' }]
+  }
+
+  if (item.type === 'accessory') {
+    return Array.from({ length: 5 }, (_, index) => ({
+      value: `accessory-${index}` as LoadoutSlotTarget,
+      label: `Accessory slot ${index + 1}`,
+    }))
+  }
+
+  if (item.type === 'armor') {
+    if (headArmorPattern.test(item.name)) {
+      return [{ value: 'armor-head', label: 'Head armor' }]
+    }
+
+    if (bodyArmorPattern.test(item.name)) {
+      return [{ value: 'armor-body', label: 'Body armor' }]
+    }
+
+    if (legArmorPattern.test(item.name)) {
+      return [{ value: 'armor-legs', label: 'Leg armor' }]
+    }
+  }
+
+  return []
+}
 
 function getItemClassBucket(item: Item): Exclude<ItemClassFilter, 'all'> {
   const lower = item.name.toLowerCase()
@@ -77,6 +121,8 @@ function ItemDetailPanel({
   onPrefixChange,
   onCompareToggle,
   compareSelected,
+  activeLoadoutName,
+  onAssignToLoadout,
 }: {
   item: Item
   onItemClick: (itemId: number) => void
@@ -84,9 +130,16 @@ function ItemDetailPanel({
   onPrefixChange: (prefixId: string) => void
   onCompareToggle: (itemId: number) => void
   compareSelected: boolean
+  activeLoadoutName: string | null
+  onAssignToLoadout: (item: Item, target: LoadoutSlotTarget) => void
 }) {
   const { crafts, usedIn } = useRecipesForItem(item.id)
   const availablePrefixes = usePrefixesForItem(item)
+  const eligibleLoadoutTargets = useMemo(() => getEligibleLoadoutTargets(item), [item])
+  const [selectedLoadoutTarget, setSelectedLoadoutTarget] = useState<LoadoutSlotTarget | ''>(
+    eligibleLoadoutTargets[0]?.value ?? ''
+  )
+  const [assignmentMessage, setAssignmentMessage] = useState('')
 
   const selectedPrefix = useMemo(
     () => availablePrefixes.find((prefix) => prefix.id === selectedPrefixId),
@@ -160,6 +213,55 @@ function ItemDetailPanel({
           <Scale className="w-3.5 h-3.5" />
           {compareSelected ? 'Remove from compare' : 'Add to compare'}
         </button>
+        {eligibleLoadoutTargets.length > 0 && (
+          <div className="mt-3 rounded-lg border border-terra-border bg-terra-bg p-3">
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-end">
+              <div className="flex-1">
+                <label className="block text-terra-gold text-xs font-pixel mb-1.5">Add To Active Loadout</label>
+                <select
+                  value={selectedLoadoutTarget}
+                  onChange={(event) => setSelectedLoadoutTarget(event.target.value as LoadoutSlotTarget)}
+                  className="w-full bg-terra-surface border border-terra-border rounded-lg px-3 py-2 text-sm text-white focus:border-terra-gold focus:outline-none"
+                  disabled={!activeLoadoutName}
+                >
+                  {eligibleLoadoutTargets.map((target) => (
+                    <option key={target.value} value={target.value}>
+                      {target.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <button
+                onClick={() => {
+                  if (!selectedLoadoutTarget) {
+                    return
+                  }
+
+                  onAssignToLoadout(item, selectedLoadoutTarget)
+                  const selectedTargetLabel = eligibleLoadoutTargets.find((target) => target.value === selectedLoadoutTarget)?.label ?? 'selected slot'
+                  setAssignmentMessage(`Added ${item.name} to ${selectedTargetLabel.toLowerCase()} in ${activeLoadoutName ?? 'your active loadout'}.`)
+                }}
+                disabled={!activeLoadoutName || !selectedLoadoutTarget}
+                className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-terra-border px-3 py-2.5 min-h-11 text-xs text-gray-300 hover:text-terra-gold hover:border-terra-gold transition-colors disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                <Plus className="w-3.5 h-3.5" />
+                Add Item
+              </button>
+            </div>
+            {activeLoadoutName ? (
+              <p className="mt-2 text-xs text-gray-400">
+                Active loadout: <span className="text-white">{activeLoadoutName}</span>
+              </p>
+            ) : (
+              <p className="mt-2 text-xs text-gray-400 leading-relaxed">
+                Create or select a loadout in <Link to="/loadouts" className="text-terra-sky hover:text-terra-gold transition-colors">Loadouts</Link> before assigning items from Item Lookup.
+              </p>
+            )}
+            {assignmentMessage && (
+              <p className="mt-2 text-xs text-terra-gold">{assignmentMessage}</p>
+            )}
+          </div>
+        )}
       </div>
 
       {stats.length > 0 && (
@@ -291,6 +393,11 @@ export default function ItemLookup() {
   const [compareIds, setCompareIds] = useState<number[]>([])
   const [showFilters, setShowFilters] = useState(false)
   const listRef = useRef<HTMLDivElement>(null)
+  const loadouts = useBuildStore((state) => state.loadouts)
+  const activeLoadoutId = useBuildStore((state) => state.activeLoadoutId)
+  const setWeapon = useBuildStore((state) => state.setWeapon)
+  const setArmorSlot = useBuildStore((state) => state.setArmorSlot)
+  const setAccessorySlot = useBuildStore((state) => state.setAccessorySlot)
 
   const searchResults = useItemSearch(query)
   const queriedItems = query.trim().length >= 2
@@ -325,6 +432,10 @@ export default function ItemLookup() {
 
   const selectedItem = selectedId !== undefined ? itemsById.get(selectedId) : undefined
   const comparedItems = useMemo(() => compareIds.map((id) => itemsById.get(id)).filter((item): item is Item => Boolean(item)), [compareIds])
+  const activeLoadout = useMemo(
+    () => loadouts.find((loadout) => loadout.id === activeLoadoutId) ?? null,
+    [activeLoadoutId, loadouts]
+  )
 
   const selectItem = useCallback(
     (id: number) => {
@@ -350,6 +461,40 @@ export default function ItemLookup() {
       return [...prev, itemIdToToggle]
     })
   }
+
+  const assignItemToLoadout = useCallback(
+    (item: Item, target: LoadoutSlotTarget) => {
+      if (!activeLoadoutId) {
+        return
+      }
+
+      if (target === 'weapon') {
+        setWeapon(activeLoadoutId, item.id)
+        return
+      }
+
+      if (target === 'armor-head') {
+        setArmorSlot(activeLoadoutId, 0, item.id)
+        return
+      }
+
+      if (target === 'armor-body') {
+        setArmorSlot(activeLoadoutId, 1, item.id)
+        return
+      }
+
+      if (target === 'armor-legs') {
+        setArmorSlot(activeLoadoutId, 2, item.id)
+        return
+      }
+
+      const accessoryIndex = Number.parseInt(target.replace('accessory-', ''), 10)
+      if (!Number.isNaN(accessoryIndex)) {
+        setAccessorySlot(activeLoadoutId, accessoryIndex, item.id)
+      }
+    },
+    [activeLoadoutId, setAccessorySlot, setArmorSlot, setWeapon]
+  )
 
   // keyboard navigation
   useEffect(() => {
@@ -530,12 +675,15 @@ export default function ItemLookup() {
 
           {selectedItem ? (
             <ItemDetailPanel
+              key={selectedItem.id}
               item={selectedItem}
               onItemClick={selectItem}
               selectedPrefixId={selectedPrefixId}
               onPrefixChange={setSelectedPrefixId}
               onCompareToggle={toggleCompare}
               compareSelected={compareIds.includes(selectedItem.id)}
+              activeLoadoutName={activeLoadout?.name ?? null}
+              onAssignToLoadout={assignItemToLoadout}
             />
           ) : (
             <div className="flex flex-col items-center justify-center h-full text-center">
