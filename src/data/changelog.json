@@ -5,7 +5,8 @@
       "Prefix compatibility coverage was expanded across the data model so Item Lookup can more accurately represent which modifiers apply to each item category.",
       "Prefix preview behavior was tightened around the shared prefix logic and hook flow, improving tooltip accuracy when browsing candidate modifiers.",
       "The prefix compatibility test suite was strengthened to lock the new matching rules in place and reduce regressions in future data updates.",
-      "App release surfaces were bumped to 1.1.1 while keeping the Terraria data version fixed at 1.4.5.6."
+      "App release surfaces were bumped to 1.1.1 while keeping the Terraria data version fixed at 1.4.5.6.",
+      "The Dungeon Defenders 2 crossover pass was extended with Etherian Mana plus the Gato, Dragon, and Creeper pet summons so Old One's Army rewards cover more of the remaining official crossover set."
     ]
   },
   {

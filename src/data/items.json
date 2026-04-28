@@ -7471,5 +7471,619 @@
     "critChance": 4,
     "useTime": 25,
     "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 526,
+    "name": "Etherian Mana",
+    "type": "misc",
+    "rarity": "white",
+    "tooltip": "Often used to manifest one's will as a physical form of defense",
+    "sources": [
+      "Dropped by Old One's Army enemies during the event",
+      "Activating an Eternia Crystal gives 10 Etherian Mana immediately",
+      "Disappears from the world and inventory when the Old One's Army ends",
+      "Dungeon Defenders 2 crossover"
+    ],
+    "wikiSlug": "Etherian_Mana",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 527,
+    "name": "Gato Egg",
+    "type": "consumable",
+    "rarity": "orange",
+    "tooltip": "Summons a pet gato",
+    "sources": [
+      "16.67% drop from Dark Mage during Old One's Army Tier 1 and 8.33% during Tier 3",
+      "Expert Mode Tier 1 drop chance is 25%",
+      "Dungeon Defenders 2 crossover"
+    ],
+    "wikiSlug": "Gato_Egg",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 528,
+    "name": "Dragon Egg",
+    "type": "consumable",
+    "rarity": "orange",
+    "tooltip": "Summons a pet dragon",
+    "sources": [
+      "16.67% drop from Dark Mage during Old One's Army Tier 1 and 8.33% during Tier 3",
+      "Expert Mode Tier 1 drop chance is 25%",
+      "Dungeon Defenders 2 crossover"
+    ],
+    "wikiSlug": "Dragon_Egg",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 529,
+    "name": "Creeper Egg",
+    "type": "consumable",
+    "rarity": "orange",
+    "tooltip": "Summons a pet flickerwick to provide light",
+    "sources": [
+      "20% drop from Ogre during Old One's Army Tier 2 and 10% during Tier 3",
+      "Expert Mode Tier 2 drop chance is 25%",
+      "Dungeon Defenders 2 crossover"
+    ],
+    "wikiSlug": "Creeper_Egg",
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5088,
+    "name": "Bernie's Button",
+    "type": "consumable",
+    "rarity": "orange",
+    "tooltip": "Summons a cherished teddy bear",
+    "sources": [
+      "Purchased from the Princess for 25 after Plantera has been defeated",
+      "Don't Starve Together crossover"
+    ],
+    "wikiSlug": "Bernie%27s_Button",
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5089,
+    "name": "Glommer's Flower",
+    "type": "consumable",
+    "rarity": "orange",
+    "tooltip": "Summons a Glommer",
+    "sources": [
+      "1% drop from Derplings",
+      "Don't Starve Together crossover"
+    ],
+    "wikiSlug": "Glommer%27s_Flower",
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5091,
+    "name": "Monster Meat",
+    "type": "consumable",
+    "rarity": "orange",
+    "tooltip": "Summons a small Pig Man",
+    "sources": [
+      "Dropped by Corruption and Crimson enemies at 1/1500, boosted to 1/500 in The Constant",
+      "Don't Starve Together crossover"
+    ],
+    "wikiSlug": "Monster_Meat",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5092,
+    "name": "Monster Lasagna",
+    "type": "consumable",
+    "rarity": "green",
+    "tooltip": "Medium improvements to all stats",
+    "sources": [
+      "Crafted from 8 Rotten Chunks or 8 Vertebra",
+      "Grants Plenty Satisfied for 8 minutes",
+      "Don't Starve Together crossover"
+    ],
+    "wikiSlug": "Monster_Lasagna",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5093,
+    "name": "Froggle Bunwich",
+    "type": "consumable",
+    "rarity": "green",
+    "tooltip": "Medium improvements to all stats",
+    "sources": [
+      "Crafted from 2 Frogs",
+      "Grants Plenty Satisfied for 6 minutes",
+      "Don't Starve Together crossover"
+    ],
+    "wikiSlug": "Froggle_Bunwich",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5094,
+    "name": "Tentacle Spike",
+    "type": "weapon",
+    "rarity": "green",
+    "tooltip": "Embeds damaging spikes in enemies",
+    "sources": [
+      "Dropped by Corruption and Crimson enemies at 1/525 (0.19%)",
+      "Don't Starve Together crossover"
+    ],
+    "wikiSlug": "Tentacle_Spike",
+    "damage": 20,
+    "knockback": 5.5,
+    "useTime": 21,
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5096,
+    "name": "Ham Bat",
+    "type": "weapon",
+    "rarity": "light-red",
+    "tooltip": "Grows more powerful the better fed you are",
+    "sources": [
+      "4% drop from Pigron, boosted to 10% in The Constant",
+      "Defeating enemies temporarily improves healing",
+      "Don't Starve Together crossover"
+    ],
+    "wikiSlug": "Ham_Bat",
+    "damage": 57,
+    "knockback": 6.5,
+    "useTime": 20,
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5097,
+    "name": "Bat Bat",
+    "type": "weapon",
+    "rarity": "green",
+    "tooltip": "Heals user slightly on hit",
+    "sources": [
+      "Dropped by bats at 1/300 (0.33%)",
+      "Don't Starve Together crossover"
+    ],
+    "wikiSlug": "Bat_Bat",
+    "damage": 36,
+    "knockback": 5.5,
+    "useTime": 40,
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5098,
+    "name": "Eye Bone",
+    "type": "consumable",
+    "rarity": "orange",
+    "tooltip": "Summons a living chest",
+    "sources": [
+      "33% drop from Deerclops",
+      "Provides portable item storage for the owner",
+      "Don't Starve Together crossover"
+    ],
+    "wikiSlug": "Eye_Bone",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5100,
+    "name": "Bone Helm",
+    "type": "accessory",
+    "rarity": "light-red",
+    "tooltip": "Summons shadow hands to attack your foes",
+    "sources": [
+      "Guaranteed from Deerclops Treasure Bag in Expert and Master Mode",
+      "Don't Starve Together crossover"
+    ],
+    "wikiSlug": "Bone_Helm",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5107,
+    "name": "Magiluminescence",
+    "type": "accessory",
+    "rarity": "blue",
+    "tooltip": "Increases movement speed and acceleration",
+    "sources": [
+      "Crafted from 12 Demonite Bars or 12 Crimtane Bars plus 5 Topaz",
+      "Provides light when worn",
+      "Don't Starve Together crossover"
+    ],
+    "wikiSlug": "Magiluminescence",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5108,
+    "name": "Deerclops Trophy",
+    "type": "furniture",
+    "rarity": "blue",
+    "tooltip": "A trophy from Deerclops",
+    "sources": [
+      "10% drop from Deerclops",
+      "Can be placed as wall furniture",
+      "Don't Starve Together crossover"
+    ],
+    "wikiSlug": "Deerclops_Trophy",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5109,
+    "name": "Deerclops Mask",
+    "type": "misc",
+    "rarity": "blue",
+    "tooltip": "Vanity mask themed after Deerclops",
+    "sources": [
+      "1/7 (14.29%) drop from Deerclops",
+      "Don't Starve Together crossover"
+    ],
+    "wikiSlug": "Deerclops_Mask",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5113,
+    "name": "Radio Thing",
+    "type": "furniture",
+    "rarity": "blue",
+    "tooltip": "Allows the user to see the world differently",
+    "sources": [
+      "1/3 (33.33%) drop from Deerclops",
+      "Placeable monolith-style furniture item",
+      "Don't Starve Together crossover"
+    ],
+    "wikiSlug": "Radio_Thing",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5114,
+    "name": "Abigail's Flower",
+    "type": "weapon",
+    "rarity": "orange",
+    "tooltip": "Summons a friendly ghost to fight for you",
+    "sources": [
+      "Found as a plant near tombstones on grass",
+      "Don't Starve Together crossover"
+    ],
+    "wikiSlug": "Abigail%27s_Flower",
+    "damage": 6,
+    "knockback": 2,
+    "useTime": 36,
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5117,
+    "name": "Pew-matic Horn",
+    "type": "weapon",
+    "rarity": "green",
+    "tooltip": "Converts bullets into random stuff",
+    "sources": [
+      "25% drop from Deerclops",
+      "Uses bullets as ammo",
+      "Don't Starve Together crossover"
+    ],
+    "wikiSlug": "Pew-matic_Horn",
+    "damage": 20,
+    "knockback": 1,
+    "useTime": 15,
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 4014,
+    "name": "Bunny Stew",
+    "type": "consumable",
+    "rarity": "blue",
+    "tooltip": "Minor improvements to all stats",
+    "sources": [
+      "Crafted from a Bunny at a Cooking Pot or Cauldron",
+      "Grants Well Fed for 10 minutes",
+      "Don't Starve Together crossover"
+    ],
+    "wikiSlug": "Bunny_Stew",
+    "progressionTier": "early-game"
+  },
+  {
+    "id": 4617,
+    "name": "Frozen Banana Daiquiri",
+    "type": "consumable",
+    "rarity": "blue",
+    "tooltip": "Minor improvements to all stats",
+    "sources": [
+      "Crafted from Banana, Bottle, and Snow Block at a Cooking Pot or Cauldron",
+      "Grants Well Fed for 15 minutes",
+      "Don't Starve Together crossover"
+    ],
+    "wikiSlug": "Frozen_Banana_Daiquiri",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5090,
+    "name": "Deerclops Eyeball",
+    "type": "consumable",
+    "rarity": "red",
+    "tooltip": "Summons a tiny Deerclops",
+    "sources": [
+      "25% drop from Deerclops in Master Mode",
+      "Don't Starve Together crossover"
+    ],
+    "wikiSlug": "Deerclops_Eyeball",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5099,
+    "name": "Garland",
+    "type": "misc",
+    "rarity": "blue",
+    "tooltip": "It smells like prettiness.",
+    "sources": [
+      "Crafted by hand from Daybloom, Moonglow, Blinkroot, Waterleaf, Deathweed, Shiverthorn, and Fireblossom",
+      "Vanity item for the social helmet slot",
+      "Don't Starve Together crossover"
+    ],
+    "wikiSlug": "Garland",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5102,
+    "name": "Gentleman's Vest",
+    "type": "misc",
+    "rarity": "blue",
+    "tooltip": "Vanity social shirt.",
+    "sources": [
+      "Crafted from 20 Silk at a Loom",
+      "Part of the Gentleman's vanity set",
+      "Don't Starve Together crossover"
+    ],
+    "wikiSlug": "Gentleman%27s_Vest",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5103,
+    "name": "Gentleman's Trousers",
+    "type": "misc",
+    "rarity": "blue",
+    "tooltip": "Vanity social pants.",
+    "sources": [
+      "Crafted from 20 Silk at a Loom",
+      "Part of the Gentleman's vanity set",
+      "Don't Starve Together crossover"
+    ],
+    "wikiSlug": "Gentleman%27s_Trousers",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5104,
+    "name": "Gentleman's Beard",
+    "type": "accessory",
+    "rarity": "blue",
+    "tooltip": "This is human facial hair.",
+    "sources": [
+      "Purchased from the Stylist for 5",
+      "Can grow into longer beard variants when worn in an accessory slot",
+      "Don't Starve Together crossover"
+    ],
+    "wikiSlug": "Gentleman%27s_Beard",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5105,
+    "name": "Gentleman's Long Beard",
+    "type": "accessory",
+    "rarity": "blue",
+    "tooltip": "This is human facial hair.",
+    "sources": [
+      "Produced when Gentleman's Beard grows while worn",
+      "Can be crafted back into shorter beard variants by hand",
+      "Don't Starve Together crossover"
+    ],
+    "wikiSlug": "Gentleman%27s_Long_Beard",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5106,
+    "name": "Gentleman's Magnificent Beard",
+    "type": "accessory",
+    "rarity": "blue",
+    "tooltip": "This is human facial hair.",
+    "sources": [
+      "Produced when Gentleman's Long Beard grows while worn",
+      "Can be crafted back into shorter beard variants by hand",
+      "Don't Starve Together crossover"
+    ],
+    "wikiSlug": "Gentleman%27s_Magnificent_Beard",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5115,
+    "name": "Firestarter's Sweater",
+    "type": "misc",
+    "rarity": "blue",
+    "tooltip": "Vanity social shirt.",
+    "sources": [
+      "Crafted from 20 Silk at a Loom",
+      "Part of the Firestarter's vanity set",
+      "Don't Starve Together crossover"
+    ],
+    "wikiSlug": "Firestarter%27s_Sweater",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5116,
+    "name": "Firestarter's Skirt",
+    "type": "misc",
+    "rarity": "blue",
+    "tooltip": "Vanity social pants.",
+    "sources": [
+      "Crafted from 20 Silk at a Loom",
+      "Part of the Firestarter's vanity set",
+      "Don't Starve Together crossover"
+    ],
+    "wikiSlug": "Firestarter%27s_Skirt",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5385,
+    "name": "Dizzy's Rare Gecko Chester",
+    "type": "misc",
+    "rarity": "blue",
+    "tooltip": "The Blue Traktor is coming.",
+    "sources": [
+      "1/14 (7.14%) drop from Deerclops",
+      "Vanity social helmet item",
+      "Don't Starve Together crossover"
+    ],
+    "wikiSlug": "Dizzy%27s_Rare_Gecko_Chester",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 3823,
+    "name": "Brand of the Inferno",
+    "type": "weapon",
+    "rarity": "pink",
+    "tooltip": "Right click to guard with a shield",
+    "sources": [
+      "10% drop from Ogre during Old One's Army Tier 2 and 5% during Tier 3",
+      "Expert Mode Tier 2 drop chance is 20%",
+      "Dungeon Defenders 2 crossover"
+    ],
+    "wikiSlug": "Brand_of_the_Inferno",
+    "damage": 95,
+    "knockback": 6.5,
+    "critChance": 4,
+    "useTime": 20,
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 3827,
+    "name": "Flying Dragon",
+    "type": "weapon",
+    "rarity": "yellow",
+    "tooltip": "Unleashes the heart's energy forward",
+    "sources": [
+      "25% drop from Betsy during Old One's Army Tier 3",
+      "Dungeon Defenders 2 crossover"
+    ],
+    "wikiSlug": "Flying_Dragon",
+    "damage": 180,
+    "knockback": 5.5,
+    "critChance": 4,
+    "useTime": 20,
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 3835,
+    "name": "Sleepy Octopod",
+    "type": "weapon",
+    "rarity": "pink",
+    "tooltip": "Charges power as it is swung to smash enemies",
+    "sources": [
+      "10% drop from Ogre during Old One's Army Tier 2 and 5% during Tier 3",
+      "Expert Mode Tier 2 drop chance is 20%",
+      "Dungeon Defenders 2 crossover"
+    ],
+    "wikiSlug": "Sleepy_Octopod",
+    "damage": 50,
+    "knockback": 7,
+    "critChance": 4,
+    "useTime": 30,
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 3836,
+    "name": "Ghastly Glaive",
+    "type": "weapon",
+    "rarity": "pink",
+    "tooltip": "Summons ghosts as it hits enemies",
+    "sources": [
+      "10% drop from Ogre during Old One's Army Tier 2 and 5% during Tier 3",
+      "Expert Mode Tier 2 drop chance is 20%",
+      "Dungeon Defenders 2 crossover"
+    ],
+    "wikiSlug": "Ghastly_Glaive",
+    "damage": 45,
+    "knockback": 7,
+    "critChance": 4,
+    "useTime": 27,
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 3852,
+    "name": "Tome of Infinite Wisdom",
+    "type": "weapon",
+    "rarity": "pink",
+    "tooltip": "Gotta wonder who stuck a tome of infinite wisdom on a stick... Right click to cast a powerful tornado",
+    "sources": [
+      "10% drop from Ogre during Old One's Army Tier 2 and 5% during Tier 3",
+      "Expert Mode Tier 2 drop chance is 20%",
+      "Dungeon Defenders 2 crossover"
+    ],
+    "wikiSlug": "Tome_of_Infinite_Wisdom",
+    "damage": 36,
+    "knockback": 9,
+    "critChance": 4,
+    "useTime": 25,
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 3854,
+    "name": "Phantom Phoenix",
+    "type": "weapon",
+    "rarity": "pink",
+    "tooltip": "Harnesses the power of undying flames",
+    "sources": [
+      "10% drop from Ogre during Old One's Army Tier 2 and 5% during Tier 3",
+      "Expert Mode Tier 2 drop chance is 20%",
+      "Dungeon Defenders 2 crossover"
+    ],
+    "wikiSlug": "Phantom_Phoenix",
+    "damage": 32,
+    "knockback": 2,
+    "critChance": 4,
+    "useTime": 18,
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 3858,
+    "name": "Sky Dragon's Fury",
+    "type": "weapon",
+    "rarity": "yellow",
+    "tooltip": "Right click while holding for an alternate attack!",
+    "sources": [
+      "25% drop from Betsy during Old One's Army Tier 3",
+      "Dungeon Defenders 2 crossover"
+    ],
+    "wikiSlug": "Sky_Dragon%27s_Fury",
+    "damage": 140,
+    "knockback": 5,
+    "critChance": 4,
+    "useTime": 30,
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 3870,
+    "name": "Betsy's Wrath",
+    "type": "weapon",
+    "rarity": "yellow",
+    "tooltip": "Splashes defense reducing miasma!",
+    "sources": [
+      "25% drop from Betsy during Old One's Army Tier 3",
+      "Inflicts Betsy's Curse for 10 seconds",
+      "Dungeon Defenders 2 crossover"
+    ],
+    "wikiSlug": "Betsy%27s_Wrath",
+    "damage": 100,
+    "knockback": 7,
+    "critChance": 4,
+    "useTime": 20,
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 1553,
+    "name": "S.D.M.G.",
+    "type": "weapon",
+    "rarity": "red",
+    "tooltip": "66% chance to save ammo 'It came from the edge of space'",
+    "sources": [
+      "20% drop from Moon Lord",
+      "Edge of Space crossover"
+    ],
+    "wikiSlug": "S.D.M.G.",
+    "damage": 85,
+    "knockback": 2.5,
+    "critChance": 14,
+    "useTime": 5,
+    "progressionTier": "endgame"
   }
 ]
