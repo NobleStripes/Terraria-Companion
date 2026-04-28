@@ -1,4 +1,14 @@
 [  {
+    "version": "1.1.1",
+    "date": "2026-04-28",
+    "highlights": [
+      "Prefix compatibility coverage was expanded across the data model so Item Lookup can more accurately represent which modifiers apply to each item category.",
+      "Prefix preview behavior was tightened around the shared prefix logic and hook flow, improving tooltip accuracy when browsing candidate modifiers.",
+      "The prefix compatibility test suite was strengthened to lock the new matching rules in place and reduce regressions in future data updates.",
+      "App release surfaces were bumped to 1.1.1 while keeping the Terraria data version fixed at 1.4.5.6."
+    ]
+  },
+  {
     "version": "1.1.0",
     "date": "2026-04-22",
     "highlights": [
