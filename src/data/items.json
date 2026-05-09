@@ -4984,9 +4984,9 @@
     "name": "Wood Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Wood Armor.",
+    "tooltip": "Wood Armor.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "defense": 1,
     "progressionTier": "early-game",
@@ -4997,9 +4997,9 @@
     "name": "Cactus Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Cactus Armor.",
+    "tooltip": "Cactus Armor.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "defense": 1,
     "progressionTier": "early-game",
@@ -5010,9 +5010,9 @@
     "name": "Copper Broadsword",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Copper Broadsword.",
+    "tooltip": "Copper Broadsword.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5026,9 +5026,9 @@
     "name": "Wooden Boomerang",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Wooden Boomerang.",
+    "tooltip": "Wooden Boomerang.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5042,9 +5042,9 @@
     "name": "Spiky Ball",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Spiky Ball.",
+    "tooltip": "Spiky Ball.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5058,9 +5058,9 @@
     "name": "Bow",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Bow.",
+    "tooltip": "Bow.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5074,9 +5074,9 @@
     "name": "Flintlock Pistol",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Flintlock Pistol.",
+    "tooltip": "Flintlock Pistol.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5090,9 +5090,9 @@
     "name": "Wand of Sparking",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Wand of Sparking.",
+    "tooltip": "Wand of Sparking.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5106,9 +5106,9 @@
     "name": "Gold Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Gold Armor.",
+    "tooltip": "Gold Armor.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "defense": 1,
     "progressionTier": "early-game",
@@ -5119,9 +5119,9 @@
     "name": "Platinum Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Platinum Armor.",
+    "tooltip": "Platinum Armor.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "defense": 1,
     "progressionTier": "early-game",
@@ -5132,9 +5132,9 @@
     "name": "Gold Bow",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Gold Bow.",
+    "tooltip": "Gold Bow.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5148,9 +5148,9 @@
     "name": "Vilethorn",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Vilethorn.",
+    "tooltip": "Vilethorn.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5164,9 +5164,9 @@
     "name": "Magic Cuffs",
     "type": "accessory",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Magic Cuffs.",
+    "tooltip": "Magic Cuffs.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "progressionTier": "early-game",
     "wikiSlug": "Magic_Cuffs"
@@ -5176,9 +5176,9 @@
     "name": "Shadow Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Shadow Armor.",
+    "tooltip": "Shadow Armor.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "defense": 1,
     "progressionTier": "early-game",
@@ -5189,9 +5189,9 @@
     "name": "Ball O' Hurt",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Ball O' Hurt.",
+    "tooltip": "Ball O' Hurt.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5205,9 +5205,9 @@
     "name": "Quiver",
     "type": "accessory",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Quiver.",
+    "tooltip": "Quiver.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "progressionTier": "early-game",
     "wikiSlug": "Quiver"
@@ -5217,9 +5217,9 @@
     "name": "Meteor Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Meteor Armor.",
+    "tooltip": "Meteor Armor.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "defense": 1,
     "progressionTier": "early-game",
@@ -5230,9 +5230,9 @@
     "name": "Crimson Rod",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Crimson Rod.",
+    "tooltip": "Crimson Rod.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5246,9 +5246,9 @@
     "name": "Jungle Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Jungle Armor.",
+    "tooltip": "Jungle Armor.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "defense": 1,
     "progressionTier": "early-game",
@@ -5259,9 +5259,9 @@
     "name": "Molten Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Molten Armor.",
+    "tooltip": "Molten Armor.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "defense": 1,
     "progressionTier": "early-game",
@@ -5272,9 +5272,9 @@
     "name": "Crimson Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Crimson Armor.",
+    "tooltip": "Crimson Armor.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "defense": 1,
     "progressionTier": "early-game",
@@ -5285,9 +5285,9 @@
     "name": "Fireblossom",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Fireblossom.",
+    "tooltip": "Fireblossom.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5301,9 +5301,9 @@
     "name": "Necro Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Necro Armor.",
+    "tooltip": "Necro Armor.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "defense": 1,
     "progressionTier": "early-game",
@@ -5314,9 +5314,9 @@
     "name": "Musket",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Musket.",
+    "tooltip": "Musket.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5330,9 +5330,9 @@
     "name": "Star Cannon",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Star Cannon.",
+    "tooltip": "Star Cannon.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5346,9 +5346,9 @@
     "name": "Volcano",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Volcano.",
+    "tooltip": "Volcano.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5362,9 +5362,9 @@
     "name": "Sunfury",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Sunfury.",
+    "tooltip": "Sunfury.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5378,9 +5378,9 @@
     "name": "Magma Stone",
     "type": "accessory",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Magma Stone.",
+    "tooltip": "Magma Stone.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "progressionTier": "early-game",
     "wikiSlug": "Magma_Stone"
@@ -5390,9 +5390,9 @@
     "name": "Lava Waders",
     "type": "accessory",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Lava Waders.",
+    "tooltip": "Lava Waders.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "progressionTier": "early-game",
     "wikiSlug": "Lava_Waders"
@@ -5402,9 +5402,9 @@
     "name": "Molten Fury",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Molten Fury.",
+    "tooltip": "Molten Fury.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5418,9 +5418,9 @@
     "name": "Magic Quiver",
     "type": "accessory",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Magic Quiver.",
+    "tooltip": "Magic Quiver.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "progressionTier": "early-game",
     "wikiSlug": "Magic_Quiver"
@@ -5430,9 +5430,9 @@
     "name": "Flower of Fire",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Flower of Fire.",
+    "tooltip": "Flower of Fire.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5446,9 +5446,9 @@
     "name": "Palladium Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Palladium Armor.",
+    "tooltip": "Palladium Armor.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "defense": 1,
     "progressionTier": "early-game",
@@ -5459,9 +5459,9 @@
     "name": "Cobalt Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Cobalt Armor.",
+    "tooltip": "Cobalt Armor.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "defense": 1,
     "progressionTier": "early-game",
@@ -5472,9 +5472,9 @@
     "name": "Dao of Pow",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Dao of Pow.",
+    "tooltip": "Dao of Pow.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5488,9 +5488,9 @@
     "name": "Cutlass",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Cutlass.",
+    "tooltip": "Cutlass.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5504,9 +5504,9 @@
     "name": "Amarok",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Amarok.",
+    "tooltip": "Amarok.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5520,9 +5520,9 @@
     "name": "Shield of Cthulhu",
     "type": "accessory",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Shield of Cthulhu.",
+    "tooltip": "Shield of Cthulhu.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "progressionTier": "early-game",
     "wikiSlug": "Shield_of_Cthulhu"
@@ -5532,9 +5532,9 @@
     "name": "Megashark prototype",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Megashark prototype.",
+    "tooltip": "Megashark prototype.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5548,9 +5548,9 @@
     "name": "Cursed Flames",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Cursed Flames.",
+    "tooltip": "Cursed Flames.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5564,9 +5564,9 @@
     "name": "Titanium Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Titanium Armor.",
+    "tooltip": "Titanium Armor.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "defense": 1,
     "progressionTier": "early-game",
@@ -5577,9 +5577,9 @@
     "name": "Aerial Bane",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Aerial Bane.",
+    "tooltip": "Aerial Bane.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5593,9 +5593,9 @@
     "name": "Adamantite Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Adamantite Armor.",
+    "tooltip": "Adamantite Armor.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "defense": 1,
     "progressionTier": "early-game",
@@ -5606,9 +5606,9 @@
     "name": "Spell Book",
     "type": "accessory",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Spell Book.",
+    "tooltip": "Spell Book.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "progressionTier": "early-game",
     "wikiSlug": "Spell_Book"
@@ -5618,9 +5618,9 @@
     "name": "Optic Staff",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Optic Staff.",
+    "tooltip": "Optic Staff.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5634,9 +5634,9 @@
     "name": "Frost Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Frost Armor.",
+    "tooltip": "Frost Armor.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "defense": 1,
     "progressionTier": "early-game",
@@ -5647,9 +5647,9 @@
     "name": "Frost Brand",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Frost Brand.",
+    "tooltip": "Frost Brand.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5663,9 +5663,9 @@
     "name": "Inferno Fork",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Inferno Fork.",
+    "tooltip": "Inferno Fork.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5679,9 +5679,9 @@
     "name": "Hallowed Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Hallowed Armor.",
+    "tooltip": "Hallowed Armor.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "defense": 1,
     "progressionTier": "early-hardmode",
@@ -5692,9 +5692,9 @@
     "name": "Flower Pow",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Flower Pow.",
+    "tooltip": "Flower Pow.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5708,9 +5708,9 @@
     "name": "Venus Magnum",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Venus Magnum.",
+    "tooltip": "Venus Magnum.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5724,9 +5724,9 @@
     "name": "Dart Rifle",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Dart Rifle.",
+    "tooltip": "Dart Rifle.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5740,9 +5740,9 @@
     "name": "Turtle Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Turtle Armor.",
+    "tooltip": "Turtle Armor.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "defense": 1,
     "progressionTier": "early-game",
@@ -5753,9 +5753,9 @@
     "name": "Flower of Frost",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Flower of Frost.",
+    "tooltip": "Flower of Frost.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5769,9 +5769,9 @@
     "name": "Mana Flower",
     "type": "accessory",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Mana Flower.",
+    "tooltip": "Mana Flower.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "progressionTier": "early-game",
     "wikiSlug": "Mana_Flower"
@@ -5781,9 +5781,9 @@
     "name": "Beetle Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Beetle Armor.",
+    "tooltip": "Beetle Armor.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "defense": 1,
     "progressionTier": "early-game",
@@ -5794,9 +5794,9 @@
     "name": "Possessed Hatchet",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Possessed Hatchet.",
+    "tooltip": "Possessed Hatchet.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5810,9 +5810,9 @@
     "name": "Shroomite Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Shroomite Armor.",
+    "tooltip": "Shroomite Armor.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "defense": 1,
     "progressionTier": "early-game",
@@ -5823,9 +5823,9 @@
     "name": "Uzi",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Uzi.",
+    "tooltip": "Uzi.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5839,9 +5839,9 @@
     "name": "Chlorophyte Shotbow",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Chlorophyte Shotbow.",
+    "tooltip": "Chlorophyte Shotbow.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5855,9 +5855,9 @@
     "name": "Spectre Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Spectre Armor.",
+    "tooltip": "Spectre Armor.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "defense": 1,
     "progressionTier": "early-game",
@@ -5868,9 +5868,9 @@
     "name": "Laser Machinegun",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Laser Machinegun.",
+    "tooltip": "Laser Machinegun.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5884,9 +5884,9 @@
     "name": "Xeno Staff",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Xeno Staff.",
+    "tooltip": "Xeno Staff.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5900,9 +5900,9 @@
     "name": "Stardust Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Stardust Armor.",
+    "tooltip": "Stardust Armor.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "defense": 1,
     "progressionTier": "early-game",
@@ -5913,9 +5913,9 @@
     "name": "Kaleidoscope",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Kaleidoscope.",
+    "tooltip": "Kaleidoscope.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5929,9 +5929,9 @@
     "name": "Eye of Cthulhu (yoyo)",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Eye of Cthulhu (yoyo).",
+    "tooltip": "Eye of Cthulhu (yoyo).",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5945,9 +5945,9 @@
     "name": "Solar Flare Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Solar Flare Armor.",
+    "tooltip": "Solar Flare Armor.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "defense": 1,
     "progressionTier": "early-game",
@@ -5958,9 +5958,9 @@
     "name": "Daybreak",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Daybreak.",
+    "tooltip": "Daybreak.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5974,9 +5974,9 @@
     "name": "Solar Eruption",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Solar Eruption.",
+    "tooltip": "Solar Eruption.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -5990,9 +5990,9 @@
     "name": "Vortex Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Vortex Armor.",
+    "tooltip": "Vortex Armor.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "defense": 1,
     "progressionTier": "early-game",
@@ -6003,9 +6003,9 @@
     "name": "Nebula Armor",
     "type": "armor",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Nebula Armor.",
+    "tooltip": "Nebula Armor.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "defense": 1,
     "progressionTier": "early-game",
@@ -6016,9 +6016,9 @@
     "name": "Lunar Flare",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Lunar Flare.",
+    "tooltip": "Lunar Flare.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -6032,9 +6032,9 @@
     "name": "Nebula Blaze",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Nebula Blaze.",
+    "tooltip": "Nebula Blaze.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,
@@ -6048,9 +6048,9 @@
     "name": "Stardust Cell Staff",
     "type": "weapon",
     "rarity": "blue",
-    "tooltip": "Curated progression recommendation for Stardust Cell Staff.",
+    "tooltip": "Stardust Cell Staff.",
     "sources": [
-      "Curated boss progression recommendation set"
+      "Item catalog"
     ],
     "damage": 1,
     "knockback": 1,

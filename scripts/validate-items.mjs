@@ -12,6 +12,8 @@ const prefixes = JSON.parse(fs.readFileSync(prefixesPath, 'utf8'))
 const errors = []
 const MIGRATION_PLACEHOLDER_TAG = 'Migration: Boss Gear Placeholder'
 const LEGACY_MIGRATION_TAG = 'Boss strategy recommendation'
+const CURATED_PLACEHOLDER_TAG = 'Curated boss progression recommendation set'
+const CURATED_PLACEHOLDER_TOOLTIP_PREFIX = 'Curated progression recommendation for '
 const progressionTiers = new Set(['early-game', 'pre-hardmode', 'early-hardmode', 'endgame'])
 
 const isFiniteNumber = (value) => typeof value === 'number' && Number.isFinite(value)
@@ -167,9 +169,16 @@ for (const item of items) {
   const sources = Array.isArray(item.sources) ? item.sources : []
   const hasMigrationTag = sources.includes(MIGRATION_PLACEHOLDER_TAG)
   const hasLegacyMigrationTag = sources.includes(LEGACY_MIGRATION_TAG)
+  const hasCuratedPlaceholderTag = sources.includes(CURATED_PLACEHOLDER_TAG)
+  const hasCuratedPlaceholderTooltip =
+    typeof item.tooltip === 'string' && item.tooltip.startsWith(CURATED_PLACEHOLDER_TOOLTIP_PREFIX)
 
   if (hasLegacyMigrationTag || hasMigrationTag) {
     errors.push(`[${item.id}] ${item.name}: legacy migration source tags are no longer allowed`)
+  }
+
+  if (hasCuratedPlaceholderTag || hasCuratedPlaceholderTooltip) {
+    errors.push(`[${item.id}] ${item.name}: curated boss-gear placeholder metadata is no longer allowed`)
   }
 
   if (!item.progressionTier || !progressionTiers.has(item.progressionTier)) {
