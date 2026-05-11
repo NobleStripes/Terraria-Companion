@@ -2,17 +2,18 @@
 
 A second-screen browser reference for Terraria players. Look up items, track bosses, build loadouts, review boss prep, browse recommended builds by stage, and explore NPC/biome guides — all in one place.
 
-**App version:** 1.1.1  
+**App version:** 1.2.0  
 **Data version:** 1.4.5.6 (Bigger & Boulder)
 
 ## Features
 
-- **Item Lookup** — Search 350+ items with fuzzy matching, view crafting recipes (crafts & used-in chains), inspect item stats, tool powers, and jump to the wiki
+- **Item Lookup** — Search 350+ items with fuzzy matching, view crafting recipes (crafts & used-in chains), inspect item stats/tool powers, and filter by tracked wishlist/acquired boss drops
 - **Prefix System** — Select prefixes in Item Lookup to preview effective stat changes live (base → prefixed values)
-- **Boss Tracker** — All ~16 bosses with gear recommendations and strategy notes; progress is saved to localStorage
-- **Prep Guide** — Review arena setup, summon requirements, danger windows, buff stacks, and execution notes in a filterable boss-prep workflow
+- **Boss Tracker** — All ~16 bosses with gear recommendations, strategy notes, readiness checklist state, and boss-drop wishlist/acquired tracking saved to localStorage
+- **Prep Guide** — Review arena setup, summon requirements, danger windows, buff stacks, execution notes, and per-boss readiness checklist controls in a filterable workflow
 - **Recommended Builds** — Stage-based progression builds (Early Game → Endgame) for melee, ranged, magic, and summoner classes
-- **Loadout Builder** — Save class-specific gear sets, import/export JSON snapshots, and jump into active loadouts from other pages
+- **Loadout Builder** — Save class-specific gear sets, import/export JSON snapshots, jump into active loadouts from other pages, and compare two loadouts side-by-side with metric deltas
+- **Saved Presets** — Save, rename, delete, and quickly reapply search/filter presets in Item Lookup, NPC Guide, and Biome Guide
 - **NPC Guide** — All ~25 NPCs with full happiness tables and biome filter chips
 - **Biome Guide** — All ~20 biomes with resources, enemies, and NPC affinities
 

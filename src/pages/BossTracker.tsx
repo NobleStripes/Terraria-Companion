@@ -5,7 +5,7 @@ import { ProgressBar } from '@/components/ui/ProgressBar'
 import { useBosses } from '@/hooks/useBosses'
 import { useViewport } from '@/hooks/useViewport'
 import { cn } from '@/lib/cn'
-import type { Boss, BossPrepChecklist, BuildClass, GamePhase, PrepChecklistKey } from '@/types/boss'
+import type { Boss, BossDropStatus, BossPrepChecklist, BuildClass, GamePhase, PrepChecklistKey } from '@/types/boss'
 import { itemsById } from '@/data/index'
 import type { StageName } from '@/types/build'
 
@@ -51,9 +51,39 @@ const prepChecklistLabels: Record<PrepChecklistKey, string> = {
 }
 
 const prepChecklistOrder: PrepChecklistKey[] = ['arena', 'buffs', 'summon', 'mobility']
+type DropFilter = 'all' | 'wished' | 'missing' | 'acquired'
+
+const dropFilters: DropFilter[] = ['all', 'wished', 'missing', 'acquired']
+
+const dropFilterLabels: Record<DropFilter, string> = {
+  all: 'All Drops',
+  wished: 'Wishlist',
+  missing: 'Missing',
+  acquired: 'Acquired',
+}
 
 function isBuildClass(value: string | null): value is BuildClass {
   return value === 'melee' || value === 'ranged' || value === 'magic' || value === 'summoner'
+}
+
+function isDropFilter(value: string | null): value is DropFilter {
+  return value === 'all' || value === 'wished' || value === 'missing' || value === 'acquired'
+}
+
+function shouldRenderDrop(status: BossDropStatus, dropFilter: DropFilter): boolean {
+  if (dropFilter === 'all') {
+    return true
+  }
+
+  if (dropFilter === 'wished') {
+    return status === 'wished'
+  }
+
+  if (dropFilter === 'missing') {
+    return status === 'wished'
+  }
+
+  return status === 'acquired'
 }
 
 function GearList({
@@ -223,8 +253,17 @@ function BossDrawer({
   gearClass,
   onGearClassChange,
   checklist,
+  prepCompleted,
+  prepTotal,
   onToggleChecklistItem,
+  onSetChecklistReady,
   onResetChecklist,
+  dropFilter,
+  onDropFilterChange,
+  getDropStatus,
+  onToggleDropWish,
+  onToggleDropAcquired,
+  onResetDrops,
   isMobile,
   isTablet,
 }: {
@@ -234,8 +273,17 @@ function BossDrawer({
   gearClass: BuildClass
   onGearClassChange: (value: BuildClass) => void
   checklist: BossPrepChecklist
+  prepCompleted: number
+  prepTotal: number
   onToggleChecklistItem: (key: PrepChecklistKey) => void
+  onSetChecklistReady: () => void
   onResetChecklist: () => void
+  dropFilter: DropFilter
+  onDropFilterChange: (value: DropFilter) => void
+  getDropStatus: (dropName: string) => BossDropStatus
+  onToggleDropWish: (dropName: string) => void
+  onToggleDropAcquired: (dropName: string) => void
+  onResetDrops: () => void
   isMobile: boolean
   isTablet: boolean
 }) {
@@ -290,13 +338,7 @@ function BossDrawer({
               <div className="rounded-lg border border-terra-border bg-terra-bg p-3">
                 <div className="mb-2 flex items-center justify-between">
                   <h3 className="text-terra-gold text-xs font-pixel">Readiness Checklist</h3>
-                  <button
-                    type="button"
-                    onClick={onResetChecklist}
-                    className="text-xs text-gray-400 hover:text-terra-red transition-colors"
-                  >
-                    Reset
-                  </button>
+                  <span className="text-xs text-gray-500">{prepCompleted}/{prepTotal}</span>
                 </div>
                 <div className="grid grid-cols-2 gap-2">
                   {prepChecklistOrder.map((itemKey) => (
@@ -316,6 +358,22 @@ function BossDrawer({
                     </button>
                   ))}
                 </div>
+                <div className="mt-2 flex items-center justify-end gap-3 text-xs">
+                  <button
+                    type="button"
+                    onClick={onSetChecklistReady}
+                    className="text-terra-green hover:text-green-300 transition-colors"
+                  >
+                    Mark Ready
+                  </button>
+                  <button
+                    type="button"
+                    onClick={onResetChecklist}
+                    className="text-gray-400 hover:text-terra-red transition-colors"
+                  >
+                    Clear
+                  </button>
+                </div>
               </div>
               {boss.strategySections ? (
                 <div className="space-y-3">
@@ -331,13 +389,74 @@ function BossDrawer({
               )}
               {boss.drops.length > 0 && (
                 <div>
-                  <h3 className="text-terra-gold text-xs font-pixel mb-2">Notable Drops</h3>
-                  <div className="flex flex-wrap gap-1.5">
-                    {boss.drops.map((d) => (
-                      <span key={d} className="bg-terra-bg border border-terra-border rounded px-2 py-1 text-xs text-gray-300">
-                        {d}
-                      </span>
+                  <div className="mb-2 flex items-center justify-between gap-2">
+                    <h3 className="text-terra-gold text-xs font-pixel">Notable Drops</h3>
+                    <button
+                      type="button"
+                      onClick={onResetDrops}
+                      className="text-xs text-gray-400 hover:text-terra-red transition-colors"
+                    >
+                      Clear Drops
+                    </button>
+                  </div>
+                  <div className="mb-2 flex flex-wrap gap-1">
+                    {dropFilters.map((filter) => (
+                      <button
+                        key={filter}
+                        type="button"
+                        onClick={() => onDropFilterChange(filter)}
+                        className={cn(
+                          'rounded border px-2 py-1 text-[11px] transition-colors',
+                          dropFilter === filter
+                            ? 'border-terra-gold bg-terra-panel text-terra-gold'
+                            : 'border-terra-border text-gray-400 hover:text-white hover:border-terra-gold'
+                        )}
+                      >
+                        {dropFilterLabels[filter]}
+                      </button>
                     ))}
+                  </div>
+                  <div className="space-y-1.5">
+                    {boss.drops
+                      .filter((dropName) => shouldRenderDrop(getDropStatus(dropName), dropFilter))
+                      .map((dropName) => {
+                        const status = getDropStatus(dropName)
+
+                        return (
+                          <div key={dropName} className="flex items-center justify-between gap-2 rounded border border-terra-border bg-terra-bg px-2 py-1.5">
+                            <span className={cn('text-xs', status === 'acquired' ? 'text-terra-green' : 'text-gray-300')}>{dropName}</span>
+                            <div className="flex items-center gap-1">
+                              <button
+                                type="button"
+                                onClick={() => onToggleDropWish(dropName)}
+                                className={cn(
+                                  'rounded border px-2 py-0.5 text-[11px] transition-colors',
+                                  status === 'wished'
+                                    ? 'border-terra-gold bg-terra-panel text-terra-gold'
+                                    : 'border-terra-border text-gray-400 hover:border-terra-gold hover:text-white'
+                                )}
+                              >
+                                Wish
+                              </button>
+                              <button
+                                type="button"
+                                onClick={() => onToggleDropAcquired(dropName)}
+                                className={cn(
+                                  'rounded border px-2 py-0.5 text-[11px] transition-colors',
+                                  status === 'acquired'
+                                    ? 'border-terra-green bg-terra-panel text-terra-green'
+                                    : 'border-terra-border text-gray-400 hover:border-terra-green hover:text-white'
+                                )}
+                              >
+                                Got It
+                              </button>
+                            </div>
+                          </div>
+                        )
+                      })}
+                    {boss.drops.filter((dropName) => shouldRenderDrop(getDropStatus(dropName), dropFilter)).length === 0 && (
+                      <p className="text-xs text-gray-500">No drops match this filter.</p>
+                    )}
                   </div>
                 </div>
               )}
@@ -362,12 +481,24 @@ function BossDrawer({
   )
 }
 
-function BossCard({ boss, isDefeated, prepCompleted, prepTotal, isPrepReady, onToggle, onOpen }: {
+function BossCard({
+  boss,
+  isDefeated,
+  prepCompleted,
+  prepTotal,
+  isPrepReady,
+  dropMissing,
+  dropAcquired,
+  onToggle,
+  onOpen,
+}: {
   boss: Boss
   isDefeated: boolean
   prepCompleted: number
   prepTotal: number
   isPrepReady: boolean
+  dropMissing: number
+  dropAcquired: number
   onToggle: () => void
   onOpen: () => void
 }) {
@@ -399,6 +530,9 @@ function BossCard({ boss, isDefeated, prepCompleted, prepTotal, isPrepReady, onT
           )}
           <p className={cn('text-xs mt-0.5', isPrepReady ? 'text-terra-green' : 'text-gray-500')}>
             Prep: {prepCompleted}/{prepTotal}
+          </p>
+          <p className={cn('text-xs mt-0.5', dropMissing > 0 ? 'text-terra-gold' : dropAcquired > 0 ? 'text-terra-green' : 'text-gray-500')}>
+            Farm: {dropMissing > 0 ? `${dropMissing} missing` : dropAcquired > 0 ? `${dropAcquired} acquired` : 'not tracked'}
           </p>
         </div>
 
@@ -449,15 +583,25 @@ export default function BossTracker() {
     resetAll,
     isDefeated,
     togglePrepItem,
+    setPrepAllForBoss,
     resetPrepForBoss,
     getPrepChecklist,
     getPrepCompletion,
     isPrepReady,
+    toggleDropWish,
+    toggleDropAcquired,
+    resetDropsForBoss,
+    getDropStatus,
+    getBossDropCounts,
   } = useBosses()
   const [confirmReset, setConfirmReset] = useState(false)
   const [gearClass, setGearClass] = useState<BuildClass>(() => {
     const fromUrl = searchParams.get('class')
     return isBuildClass(fromUrl) ? fromUrl : 'melee'
+  })
+  const [dropFilter, setDropFilter] = useState<DropFilter>(() => {
+    const fromUrl = searchParams.get('drops')
+    return isDropFilter(fromUrl) ? fromUrl : 'all'
   })
 
   const phases: GamePhase[] = ['pre-hardmode', 'hardmode', 'post-moonlord']
@@ -468,13 +612,21 @@ export default function BossTracker() {
 
   useEffect(() => {
     const next = new URLSearchParams(searchParams)
+
     if (gearClass === 'melee') {
       next.delete('class')
     } else {
       next.set('class', gearClass)
     }
+
+    if (dropFilter === 'all') {
+      next.delete('drops')
+    } else {
+      next.set('drops', dropFilter)
+    }
+
     setSearchParams(next, { replace: true })
-  }, [gearClass, searchParams, setSearchParams])
+  }, [dropFilter, gearClass, searchParams, setSearchParams])
 
   function openGuide(boss: Boss) {
     const query = searchParams.toString()
@@ -504,7 +656,26 @@ export default function BossTracker() {
       </div>
 
       <ProgressBar value={defeatedCount} max={totalCount} className="mb-8" />
-      <p className="text-xs text-gray-500 mb-6">Readiness complete: {readyCount}/{totalCount} bosses</p>
+      <div className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+        <p className="text-xs text-gray-500">Readiness complete: {readyCount}/{totalCount} bosses</p>
+        <div className="flex flex-wrap gap-1">
+          {dropFilters.map((filter) => (
+            <button
+              key={filter}
+              type="button"
+              onClick={() => setDropFilter(filter)}
+              className={cn(
+                'rounded border px-2 py-1 text-[11px] transition-colors',
+                dropFilter === filter
+                  ? 'border-terra-gold bg-terra-panel text-terra-gold'
+                  : 'border-terra-border text-gray-400 hover:text-white hover:border-terra-gold'
+              )}
+            >
+              {dropFilterLabels[filter]}
+            </button>
+          ))}
+        </div>
+      </div>
 
       <div className="space-y-8">
         {phases.map((phase) => {
@@ -522,6 +693,7 @@ export default function BossTracker() {
               <div className="space-y-2">
                 {phaseBosses.map((boss) => {
                   const prep = getPrepCompletion(boss.id)
+                  const dropCounts = getBossDropCounts(boss.id, boss.drops)
 
                   return (
                     <BossCard
@@ -531,6 +703,8 @@ export default function BossTracker() {
                       prepCompleted={prep.completed}
                       prepTotal={prep.total}
                       isPrepReady={isPrepReady(boss.id)}
+                      dropMissing={dropCounts.missing}
+                      dropAcquired={dropCounts.acquired}
                       onToggle={() => toggleBoss(boss.id)}
                       onOpen={() => openGuide(boss)}
                     />
@@ -550,8 +724,17 @@ export default function BossTracker() {
           gearClass={gearClass}
           onGearClassChange={setGearClass}
           checklist={getPrepChecklist(openBoss.id)}
+          prepCompleted={getPrepCompletion(openBoss.id).completed}
+          prepTotal={getPrepCompletion(openBoss.id).total}
           onToggleChecklistItem={(key) => togglePrepItem(openBoss.id, key)}
+          onSetChecklistReady={() => setPrepAllForBoss(openBoss.id)}
           onResetChecklist={() => resetPrepForBoss(openBoss.id)}
+          dropFilter={dropFilter}
+          onDropFilterChange={setDropFilter}
+          getDropStatus={(dropName) => getDropStatus(openBoss.id, dropName)}
+          onToggleDropWish={(dropName) => toggleDropWish(openBoss.id, dropName)}
+          onToggleDropAcquired={(dropName) => toggleDropAcquired(openBoss.id, dropName)}
+          onResetDrops={() => resetDropsForBoss(openBoss.id)}
           isMobile={isMobile}
           isTablet={isTablet}
         />
@@ -562,7 +745,7 @@ export default function BossTracker() {
           <div className="bg-terra-surface border border-terra-border rounded-xl p-6 max-w-sm w-full mx-4" role="dialog" aria-modal="true" aria-labelledby="boss-reset-title">
             <h3 id="boss-reset-title" className="font-pixel text-terra-red text-xs mb-4">Reset Progress?</h3>
             <p className="text-gray-300 text-sm mb-6">
-              This will clear all defeated progress and readiness checklist state. This cannot be undone.
+              This will clear defeated progress, readiness checklist state, and tracked boss drops. This cannot be undone.
             </p>
             <div className="flex gap-3">
               <button

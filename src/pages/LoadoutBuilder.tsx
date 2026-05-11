@@ -21,6 +21,9 @@ const itemIdByName = new Map(items.map((item) => [item.name.toLowerCase(), item.
 const headArmorPattern = /(helmet|mask|hood|hat|wig|cap|head|brow)/i
 const bodyArmorPattern = /(breastplate|chestplate|plate|mail|shirt|robe|jerkin|cuirass|dress|plating|tunic|vest)/i
 const legArmorPattern = /(greaves|leggings|pants|trousers|legguards|legging)/i
+const mobilityPattern = /(boot|wings|rocket|dash|sprint|run|speed|jump|flight|flying|shield of cthulhu|balloon|frog leg|grapple)/i
+const summonPattern = /(summon|minion|sentry|whip|staff|imp|spider|stardust|pygmy|raven|blade staff)/i
+const utilityPattern = /(regen|regeneration|immune|immunity|mana|magic|light|mining|pickaxe|fishing|luck|breath|water|lava|thorns|storage|coins)/i
 
 function sortByName(left: Item, right: Item) {
   return left.name.localeCompare(right.name)
@@ -99,6 +102,92 @@ function normalizeImportedLoadout(candidate: ImportedLoadoutCandidate): Loadout 
 
 function isCuratedArmorPlaceholder(item: Item | undefined) {
   return item?.type === 'armor' && item.tooltip.startsWith('Curated progression recommendation for ')
+}
+
+type LoadoutMetricKey = 'defense' | 'damage' | 'mobility' | 'summons' | 'utility'
+
+type LoadoutMetrics = {
+  defense: number
+  damage: number
+  mobility: number
+  summons: number
+  utility: number
+}
+
+type SlotComparisonRow = {
+  label: string
+  left?: Item
+  right?: Item
+  same: boolean
+}
+
+const loadoutMetricLabels: Record<LoadoutMetricKey, string> = {
+  defense: 'Defense',
+  damage: 'Damage',
+  mobility: 'Mobility',
+  summons: 'Summons',
+  utility: 'Utility',
+}
+
+function getLoadoutItems(loadout: Loadout | null): Item[] {
+  if (!loadout) {
+    return []
+  }
+
+  return [
+    loadout.slots.weapon,
+    ...loadout.slots.armor,
+    ...loadout.slots.accessories,
+  ]
+    .flatMap((itemId) => (itemId ? [itemsById.get(itemId)] : []))
+    .filter((item): item is Item => Boolean(item))
+}
+
+function scoreItemByPattern(item: Item, pattern: RegExp): number {
+  const sourceText = item.sources.join(' ')
+  const text = `${item.name} ${item.tooltip} ${sourceText}`
+  return pattern.test(text) ? 1 : 0
+}
+
+function computeLoadoutMetrics(loadout: Loadout | null): LoadoutMetrics {
+  const equipped = getLoadoutItems(loadout)
+
+  return {
+    defense: equipped.reduce((sum, item) => sum + (item.defense ?? 0), 0),
+    damage: equipped.reduce((sum, item) => sum + (item.damage ?? 0), 0),
+    mobility: equipped.reduce((sum, item) => sum + scoreItemByPattern(item, mobilityPattern), 0),
+    summons: equipped.reduce((sum, item) => sum + scoreItemByPattern(item, summonPattern), 0),
+    utility: equipped.reduce((sum, item) => sum + scoreItemByPattern(item, utilityPattern), 0),
+  }
+}
+
+function getSlotComparisonRows(left: Loadout | null, right: Loadout | null): SlotComparisonRow[] {
+  const leftSlots = left?.slots
+  const rightSlots = right?.slots
+
+  const labels = [
+    { label: 'Weapon', leftId: leftSlots?.weapon, rightId: rightSlots?.weapon },
+    { label: 'Head Armor', leftId: leftSlots?.armor[0], rightId: rightSlots?.armor[0] },
+    { label: 'Body Armor', leftId: leftSlots?.armor[1], rightId: rightSlots?.armor[1] },
+    { label: 'Leg Armor', leftId: leftSlots?.armor[2], rightId: rightSlots?.armor[2] },
+    { label: 'Accessory 1', leftId: leftSlots?.accessories[0], rightId: rightSlots?.accessories[0] },
+    { label: 'Accessory 2', leftId: leftSlots?.accessories[1], rightId: rightSlots?.accessories[1] },
+    { label: 'Accessory 3', leftId: leftSlots?.accessories[2], rightId: rightSlots?.accessories[2] },
+    { label: 'Accessory 4', leftId: leftSlots?.accessories[3], rightId: rightSlots?.accessories[3] },
+    { label: 'Accessory 5', leftId: leftSlots?.accessories[4], rightId: rightSlots?.accessories[4] },
+  ]
+
+  return labels.map((slot) => {
+    const leftItem = slot.leftId ? itemsById.get(slot.leftId) : undefined
+    const rightItem = slot.rightId ? itemsById.get(slot.rightId) : undefined
+
+    return {
+      label: slot.label,
+      left: leftItem,
+      right: rightItem,
+      same: (leftItem?.id ?? null) === (rightItem?.id ?? null),
+    }
+  })
 }
 
 function ItemPicker({
@@ -205,6 +294,8 @@ export default function LoadoutBuilder() {
     removeLoadout,
   } = useBuildStore()
   const [statusMessage, setStatusMessage] = useState('')
+  const [compareLeftId, setCompareLeftId] = useState('')
+  const [compareRightId, setCompareRightId] = useState('')
   const importRef = useRef<HTMLInputElement>(null)
   const activeLoadout = useMemo(
     () => loadouts.find((loadout) => loadout.id === activeLoadoutId) ?? null,
@@ -234,6 +325,57 @@ export default function LoadoutBuilder() {
     !activeLoadout.slots.armor[1] &&
     !activeLoadout.slots.armor[2]
   )
+  const requestedCompareLeftId = searchParams.get('compareA')
+  const requestedCompareRightId = searchParams.get('compareB')
+  const resolvedCompareLeftId = useMemo(() => {
+    if (loadouts.length < 2) {
+      return ''
+    }
+
+    if (compareLeftId && loadouts.some((loadout) => loadout.id === compareLeftId)) {
+      return compareLeftId
+    }
+
+    if (requestedCompareLeftId && loadouts.some((loadout) => loadout.id === requestedCompareLeftId)) {
+      return requestedCompareLeftId
+    }
+
+    return loadouts[0]?.id ?? ''
+  }, [compareLeftId, loadouts, requestedCompareLeftId])
+  const resolvedCompareRightId = useMemo(() => {
+    if (loadouts.length < 2) {
+      return ''
+    }
+
+    if (
+      compareRightId &&
+      compareRightId !== resolvedCompareLeftId &&
+      loadouts.some((loadout) => loadout.id === compareRightId)
+    ) {
+      return compareRightId
+    }
+
+    if (
+      requestedCompareRightId &&
+      requestedCompareRightId !== resolvedCompareLeftId &&
+      loadouts.some((loadout) => loadout.id === requestedCompareRightId)
+    ) {
+      return requestedCompareRightId
+    }
+
+    return loadouts.find((loadout) => loadout.id !== resolvedCompareLeftId)?.id ?? ''
+  }, [compareRightId, loadouts, requestedCompareRightId, resolvedCompareLeftId])
+  const leftLoadout = useMemo(
+    () => loadouts.find((loadout) => loadout.id === resolvedCompareLeftId) ?? null,
+    [loadouts, resolvedCompareLeftId]
+  )
+  const rightLoadout = useMemo(
+    () => loadouts.find((loadout) => loadout.id === resolvedCompareRightId) ?? null,
+    [loadouts, resolvedCompareRightId]
+  )
+  const leftMetrics = useMemo(() => computeLoadoutMetrics(leftLoadout), [leftLoadout])
+  const rightMetrics = useMemo(() => computeLoadoutMetrics(rightLoadout), [rightLoadout])
+  const slotComparisonRows = useMemo(() => getSlotComparisonRows(leftLoadout, rightLoadout), [leftLoadout, rightLoadout])
 
   useEffect(() => {
     if (!statusMessage) {
@@ -265,10 +407,22 @@ export default function LoadoutBuilder() {
       next.delete('loadout')
     }
 
+    if (resolvedCompareLeftId) {
+      next.set('compareA', resolvedCompareLeftId)
+    } else {
+      next.delete('compareA')
+    }
+
+    if (resolvedCompareRightId) {
+      next.set('compareB', resolvedCompareRightId)
+    } else {
+      next.delete('compareB')
+    }
+
     if (next.toString() !== searchParams.toString()) {
       setSearchParams(next, { replace: true })
     }
-  }, [activeLoadoutId, searchParams, setSearchParams])
+  }, [activeLoadoutId, resolvedCompareLeftId, resolvedCompareRightId, searchParams, setSearchParams])
 
   function handleCreate(buildClass: BuildClass) {
     createLoadout({
@@ -403,6 +557,113 @@ export default function LoadoutBuilder() {
           ) : null}
         </div>
         {statusMessage ? <p className="mt-2 text-xs text-terra-gold">{statusMessage}</p> : null}
+      </section>
+
+      <section className="rounded-2xl border border-terra-border bg-terra-surface p-5 sm:p-6">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-xs uppercase tracking-[0.2em] text-gray-500 mb-2">Compare Mode</p>
+            <h2 className="font-pixel text-terra-gold text-sm">Side-by-side loadout tradeoffs</h2>
+            <p className="mt-2 text-sm text-gray-400">
+              Compare totals for defense, damage, mobility, summons, and utility, then inspect slot-by-slot differences.
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={() => {
+              setCompareLeftId(resolvedCompareRightId)
+              setCompareRightId(resolvedCompareLeftId)
+            }}
+            disabled={!resolvedCompareLeftId || !resolvedCompareRightId}
+            className="inline-flex items-center gap-2 rounded-lg border border-terra-border px-3 py-2.5 text-sm text-gray-200 transition-colors hover:border-terra-gold hover:text-terra-gold disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            Swap Sides
+          </button>
+        </div>
+
+        {loadouts.length < 2 ? (
+          <div className="mt-4 rounded-xl border border-dashed border-terra-border bg-terra-bg px-4 py-4 text-sm text-gray-400">
+            Create at least two loadouts to compare them side by side.
+          </div>
+        ) : (
+          <div className="mt-4 space-y-4">
+            <div className="grid gap-3 md:grid-cols-2">
+              <label className="block space-y-2">
+                <span className="text-xs uppercase tracking-[0.16em] text-gray-500">Left Loadout</span>
+                <select
+                  value={resolvedCompareLeftId}
+                  onChange={(event) => setCompareLeftId(event.target.value)}
+                  className="w-full rounded-lg border border-terra-border bg-terra-bg px-3 py-2.5 text-sm text-white outline-none transition-colors focus:border-terra-gold"
+                >
+                  {loadouts.map((loadout) => (
+                    <option key={`left-${loadout.id}`} value={loadout.id}>{loadout.name}</option>
+                  ))}
+                </select>
+              </label>
+              <label className="block space-y-2">
+                <span className="text-xs uppercase tracking-[0.16em] text-gray-500">Right Loadout</span>
+                <select
+                  value={resolvedCompareRightId}
+                  onChange={(event) => setCompareRightId(event.target.value)}
+                  className="w-full rounded-lg border border-terra-border bg-terra-bg px-3 py-2.5 text-sm text-white outline-none transition-colors focus:border-terra-gold"
+                >
+                  {loadouts.map((loadout) => (
+                    <option key={`right-${loadout.id}`} value={loadout.id}>{loadout.name}</option>
+                  ))}
+                </select>
+              </label>
+            </div>
+
+            {leftLoadout && rightLoadout ? (
+              <>
+                <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
+                  {(Object.keys(loadoutMetricLabels) as LoadoutMetricKey[]).map((metricKey) => {
+                    const leftValue = leftMetrics[metricKey]
+                    const rightValue = rightMetrics[metricKey]
+                    const delta = leftValue - rightValue
+
+                    return (
+                      <div key={metricKey} className="rounded-lg border border-terra-border bg-terra-bg px-3 py-2.5">
+                        <p className="text-xs text-gray-500">{loadoutMetricLabels[metricKey]}</p>
+                        <p className="text-sm text-white font-semibold mt-1">{leftValue} vs {rightValue}</p>
+                        <p className={cn('text-xs mt-1', getDeltaClass(delta))}>
+                          Delta: {formatDelta(delta)}
+                        </p>
+                      </div>
+                    )
+                  })}
+                </div>
+
+                <div className="rounded-xl border border-terra-border bg-terra-bg p-4">
+                  <p className="text-xs uppercase tracking-[0.16em] text-gray-500 mb-3">Slot Differences</p>
+                  <div className="space-y-2">
+                    {slotComparisonRows.map((row) => (
+                      <div
+                        key={row.label}
+                        className={cn(
+                          'grid gap-2 rounded border px-3 py-2 text-xs md:grid-cols-[130px_minmax(0,1fr)_minmax(0,1fr)] md:items-center',
+                          row.same ? 'border-terra-border bg-terra-surface' : 'border-terra-gold/40 bg-terra-panel/30'
+                        )}
+                      >
+                        <p className="text-gray-500">{row.label}</p>
+                        <p className={cn('truncate', row.same ? 'text-gray-300' : 'text-white')}>
+                          {row.left?.name ?? 'Empty'}
+                        </p>
+                        <p className={cn('truncate', row.same ? 'text-gray-300' : 'text-white')}>
+                          {row.right?.name ?? 'Empty'}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </>
+            ) : (
+              <div className="rounded-xl border border-dashed border-terra-border bg-terra-bg px-4 py-4 text-sm text-gray-400">
+                Select two loadouts to view metric deltas and slot-level differences.
+              </div>
+            )}
+          </div>
+        )}
       </section>
 
       <div className="grid gap-6 xl:grid-cols-[320px_minmax(0,1fr)]">
@@ -620,4 +881,15 @@ export default function LoadoutBuilder() {
       </div>
     </div>
   )
+}
+
+function getDeltaClass(delta: number) {
+  if (delta > 0) return 'text-terra-green'
+  if (delta < 0) return 'text-terra-red'
+  return 'text-gray-400'
+}
+
+function formatDelta(delta: number) {
+  if (delta > 0) return `+${delta}`
+  return `${delta}`
 }

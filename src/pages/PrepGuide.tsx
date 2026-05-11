@@ -87,6 +87,7 @@ export default function PrepGuide() {
   const [searchParams, setSearchParams] = useSearchParams()
   const createLoadout = useBuildStore((state) => state.createLoadout)
   const togglePrepItem = useBossStore((state) => state.togglePrepItem)
+  const setPrepAllForBoss = useBossStore((state) => state.setPrepAllForBoss)
   const resetPrepForBoss = useBossStore((state) => state.resetPrepForBoss)
   const getPrepChecklist = useBossStore((state) => state.getPrepChecklist)
   const getPrepCompletion = useBossStore((state) => state.getPrepCompletion)
@@ -326,6 +327,13 @@ export default function PrepGuide() {
                   <p className="text-xs font-semibold text-gray-300">Readiness Checklist</p>
                   <div className="flex items-center gap-2">
                     <p className="text-xs text-gray-500">{checklistProgress.completed}/{checklistProgress.total}</p>
+                    <button
+                      type="button"
+                      onClick={() => setPrepAllForBoss(boss.id)}
+                      className="text-xs text-terra-green hover:text-green-300 transition-colors"
+                    >
+                      Mark Ready
+                    </button>
                     <button
                       type="button"
                       onClick={() => resetPrepForBoss(boss.id)}

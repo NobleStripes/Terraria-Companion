@@ -1,4 +1,17 @@
 [  {
+    "version": "1.2.0",
+    "date": "2026-05-11",
+    "highlights": [
+      "Boss Prep now includes a persisted Readiness Checklist per boss (Arena, Buffs, Summon, Mobility) with quick Mark Ready and clear actions in both Boss Tracker and Prep Guide.",
+      "Boss progression now extends into farming workflows with Drop Wishlist and Loot Tracking states (Wish/Got It), plus per-boss missing/acquired summaries and drop filter modes.",
+      "Item Lookup can now filter directly by tracked boss loot status, so wishlist and acquired drops are easy to review outside boss pages.",
+      "Loadout Builder now offers side-by-side comparison with URL-synced compare selections, metric deltas (Defense, Damage, Mobility, Summons, Utility), and slot-by-slot difference rows.",
+      "Saved search and filter presets now persist locally for Item Lookup, NPC Guide, and Biome Guide, including quick apply, rename, and delete controls.",
+      "Reset semantics and prep/drop UX were polished across tracker surfaces for faster repeated boss-attempt planning.",
+      "App release surfaces were bumped to 1.2.0 while keeping the Terraria data version fixed at 1.4.5.6."
+    ]
+  },
+  {
     "version": "1.1.1",
     "date": "2026-04-28",
     "highlights": [

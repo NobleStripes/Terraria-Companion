@@ -5,6 +5,7 @@ import { npcs } from '@/data/index'
 import type { Npc } from '@/types/npc'
 import { cn } from '@/lib/cn'
 import { useViewport } from '@/hooks/useViewport'
+import { useSearchPresets } from '@/hooks/useSearchPresets'
 
 const allBiomeNames = Array.from(
   new Set([
@@ -18,6 +19,11 @@ const allBiomeNames = Array.from(
 ).sort()
 
 type HappinessTier = 'loved' | 'liked' | 'disliked' | 'hated'
+type NpcPresetFilters = {
+  biome: string | null
+  plannerBiome: string
+  roommatesCsv: string
+}
 
 const tierConfig: Record<HappinessTier, { label: string; color: string; icon: React.ElementType }> = {
   loved: { label: 'Loved', color: 'text-terra-green', icon: Heart },
@@ -144,6 +150,7 @@ export default function NpcGuide() {
   const [copyState, setCopyState] = useState<'idle' | 'copied' | 'error'>('idle')
   const [showPlannerPanel, setShowPlannerPanel] = useState(false)
   const [showBiomePanel, setShowBiomePanel] = useState(false)
+  const { presets, savePreset, renamePreset, deletePreset } = useSearchPresets<NpcPresetFilters>('terraria-npc-presets')
 
   const biomeFilterParam = searchParams.get('biome')
   const plannerBiomeParam = searchParams.get('plannerBiome')
@@ -185,6 +192,41 @@ export default function NpcGuide() {
     }
 
     setSearchParams(nextParams)
+  }
+
+  function saveCurrentPreset() {
+    const suggested = biomeFilter ? `NPCs: ${biomeFilter}` : `NPC Planner: ${plannerBiome}`
+    const name = window.prompt('Preset name', suggested)
+    if (!name) {
+      return
+    }
+
+    savePreset(name, '', {
+      biome: biomeFilter,
+      plannerBiome,
+      roommatesCsv: plannerRoommates.join(','),
+    })
+  }
+
+  function applyPreset(presetId: string) {
+    const preset = presets.find((entry) => entry.id === presetId)
+    if (!preset) {
+      return
+    }
+
+    const nextRoommates = preset.filters.roommatesCsv
+      ? preset.filters.roommatesCsv
+          .split(',')
+          .map((value) => value.trim())
+          .filter((value) => value)
+          .slice(0, 4)
+      : []
+
+    updateParams({
+      biome: preset.filters.biome,
+      plannerBiome: preset.filters.plannerBiome,
+      roommates: nextRoommates,
+    })
   }
 
   async function copyCurrentViewLink() {
@@ -315,6 +357,46 @@ export default function NpcGuide() {
             </button>
           </div>
         )}
+
+        <div className="flex flex-wrap items-center gap-2">
+          <button
+            type="button"
+            onClick={saveCurrentPreset}
+            className="rounded border border-terra-border px-2.5 py-1.5 text-xs text-gray-300 hover:border-terra-gold hover:text-white transition-colors"
+          >
+            Save Preset
+          </button>
+          {presets.slice(0, 5).map((preset) => (
+            <div key={preset.id} className="inline-flex items-center rounded border border-terra-border bg-terra-surface">
+              <button
+                type="button"
+                onClick={() => applyPreset(preset.id)}
+                className="px-2 py-1.5 text-xs text-gray-300 hover:text-white transition-colors"
+              >
+                {preset.name}
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  const nextName = window.prompt('Rename preset', preset.name)
+                  if (nextName) renamePreset(preset.id, nextName)
+                }}
+                className="px-1.5 py-1.5 text-[11px] text-gray-500 hover:text-terra-gold transition-colors"
+                aria-label={`Rename ${preset.name}`}
+              >
+                R
+              </button>
+              <button
+                type="button"
+                onClick={() => deletePreset(preset.id)}
+                className="px-1.5 py-1.5 text-[11px] text-gray-500 hover:text-terra-red transition-colors"
+                aria-label={`Delete ${preset.name}`}
+              >
+                X
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
 
       <div>
