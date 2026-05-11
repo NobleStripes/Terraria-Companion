@@ -3,10 +3,11 @@ import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { Copy, Shield, Sword, Zap, Star } from 'lucide-react'
 import { bosses, itemsById } from '@/data/index'
 import { cn } from '@/lib/cn'
-import type { BuildClass, GamePhase } from '@/types/boss'
+import type { BuildClass, GamePhase, PrepChecklistKey } from '@/types/boss'
 import type { Boss } from '@/types/boss'
 import type { StageName } from '@/types/build'
 import { useBuildStore } from '@/store/buildStore'
+import { useBossStore } from '@/store/bossStore'
 
 const classOptions: BuildClass[] = ['melee', 'ranged', 'magic', 'summoner']
 const phaseOptions: Array<GamePhase | 'all'> = ['all', 'pre-hardmode', 'hardmode', 'post-moonlord']
@@ -23,6 +24,15 @@ const phaseLabels: Record<GamePhase | 'all', string> = {
   'pre-hardmode': 'Pre-Hardmode',
   hardmode: 'Hardmode',
   'post-moonlord': 'Post-Moon Lord',
+}
+
+const prepChecklistOrder: PrepChecklistKey[] = ['arena', 'buffs', 'summon', 'mobility']
+
+const prepChecklistLabels: Record<PrepChecklistKey, string> = {
+  arena: 'Arena',
+  buffs: 'Buffs',
+  summon: 'Summon',
+  mobility: 'Mobility',
 }
 
 function getRecommendedStageForBoss(targetBoss: Boss): StageName {
@@ -76,6 +86,10 @@ export default function PrepGuide() {
   const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
   const createLoadout = useBuildStore((state) => state.createLoadout)
+  const togglePrepItem = useBossStore((state) => state.togglePrepItem)
+  const resetPrepForBoss = useBossStore((state) => state.resetPrepForBoss)
+  const getPrepChecklist = useBossStore((state) => state.getPrepChecklist)
+  const getPrepCompletion = useBossStore((state) => state.getPrepCompletion)
   const [selectedClass, setSelectedClass] = useState<BuildClass>(() => {
     const fromQuery = searchParams.get('class')
     return isBuildClass(fromQuery) ? fromQuery : 'melee'
@@ -267,6 +281,8 @@ export default function PrepGuide() {
           const primaryWeapon = selectedGear?.weapons[0] ? itemsById.get(selectedGear.weapons[0]) : undefined
           const primaryArmor = selectedGear?.armor[0] ? itemsById.get(selectedGear.armor[0]) : undefined
           const recommendedStage = getRecommendedStageForBoss(boss)
+          const checklist = getPrepChecklist(boss.id)
+          const checklistProgress = getPrepCompletion(boss.id)
 
           return (
             <section key={boss.id} className="rounded-xl border border-terra-border bg-terra-surface p-4 sm:p-5">
@@ -302,6 +318,39 @@ export default function PrepGuide() {
                   >
                     Open Boss Guide
                   </Link>
+                </div>
+              </div>
+
+              <div className="mt-4 rounded-lg border border-terra-border bg-terra-bg p-3">
+                <div className="mb-2 flex items-center justify-between">
+                  <p className="text-xs font-semibold text-gray-300">Readiness Checklist</p>
+                  <div className="flex items-center gap-2">
+                    <p className="text-xs text-gray-500">{checklistProgress.completed}/{checklistProgress.total}</p>
+                    <button
+                      type="button"
+                      onClick={() => resetPrepForBoss(boss.id)}
+                      className="text-xs text-gray-500 hover:text-terra-red transition-colors"
+                    >
+                      Reset
+                    </button>
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+                  {prepChecklistOrder.map((key) => (
+                    <button
+                      key={key}
+                      type="button"
+                      onClick={() => togglePrepItem(boss.id, key)}
+                      className={cn(
+                        'rounded border px-2 py-1.5 text-xs font-semibold transition-colors',
+                        checklist[key]
+                          ? 'border-terra-green bg-terra-panel text-terra-green'
+                          : 'border-terra-border text-gray-300 hover:border-terra-gold hover:text-white'
+                      )}
+                    >
+                      {prepChecklistLabels[key]}
+                    </button>
+                  ))}
                 </div>
               </div>
 

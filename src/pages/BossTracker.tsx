@@ -5,7 +5,7 @@ import { ProgressBar } from '@/components/ui/ProgressBar'
 import { useBosses } from '@/hooks/useBosses'
 import { useViewport } from '@/hooks/useViewport'
 import { cn } from '@/lib/cn'
-import type { Boss, BuildClass, GamePhase } from '@/types/boss'
+import type { Boss, BossPrepChecklist, BuildClass, GamePhase, PrepChecklistKey } from '@/types/boss'
 import { itemsById } from '@/data/index'
 import type { StageName } from '@/types/build'
 
@@ -42,6 +42,15 @@ const strategySectionLabels = {
   dangerWindows: 'Danger Windows',
   execution: 'Execution',
 } as const
+
+const prepChecklistLabels: Record<PrepChecklistKey, string> = {
+  arena: 'Arena',
+  buffs: 'Buffs',
+  summon: 'Summon',
+  mobility: 'Mobility',
+}
+
+const prepChecklistOrder: PrepChecklistKey[] = ['arena', 'buffs', 'summon', 'mobility']
 
 function isBuildClass(value: string | null): value is BuildClass {
   return value === 'melee' || value === 'ranged' || value === 'magic' || value === 'summoner'
@@ -213,6 +222,9 @@ function BossDrawer({
   onItemClick,
   gearClass,
   onGearClassChange,
+  checklist,
+  onToggleChecklistItem,
+  onResetChecklist,
   isMobile,
   isTablet,
 }: {
@@ -221,6 +233,9 @@ function BossDrawer({
   onItemClick: (itemId: number) => void
   gearClass: BuildClass
   onGearClassChange: (value: BuildClass) => void
+  checklist: BossPrepChecklist
+  onToggleChecklistItem: (key: PrepChecklistKey) => void
+  onResetChecklist: () => void
   isMobile: boolean
   isTablet: boolean
 }) {
@@ -272,6 +287,36 @@ function BossDrawer({
         <div className={cn('flex-1', isMobile ? 'p-4' : 'p-5')}>
           {tab === 'overview' && (
             <div className="space-y-4">
+              <div className="rounded-lg border border-terra-border bg-terra-bg p-3">
+                <div className="mb-2 flex items-center justify-between">
+                  <h3 className="text-terra-gold text-xs font-pixel">Readiness Checklist</h3>
+                  <button
+                    type="button"
+                    onClick={onResetChecklist}
+                    className="text-xs text-gray-400 hover:text-terra-red transition-colors"
+                  >
+                    Reset
+                  </button>
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                  {prepChecklistOrder.map((itemKey) => (
+                    <button
+                      key={itemKey}
+                      type="button"
+                      onClick={() => onToggleChecklistItem(itemKey)}
+                      className={cn(
+                        'flex items-center justify-between rounded border px-2.5 py-2 text-xs transition-colors',
+                        checklist[itemKey]
+                          ? 'border-terra-green text-terra-green bg-terra-panel'
+                          : 'border-terra-border text-gray-300 hover:border-terra-gold'
+                      )}
+                    >
+                      <span>{prepChecklistLabels[itemKey]}</span>
+                      {checklist[itemKey] ? <CheckCircle className="h-3.5 w-3.5" /> : <Circle className="h-3.5 w-3.5" />}
+                    </button>
+                  ))}
+                </div>
+              </div>
               {boss.strategySections ? (
                 <div className="space-y-3">
                   {(Object.keys(strategySectionLabels) as Array<keyof typeof strategySectionLabels>).map((key) => (
@@ -317,9 +362,12 @@ function BossDrawer({
   )
 }
 
-function BossCard({ boss, isDefeated, onToggle, onOpen }: {
+function BossCard({ boss, isDefeated, prepCompleted, prepTotal, isPrepReady, onToggle, onOpen }: {
   boss: Boss
   isDefeated: boolean
+  prepCompleted: number
+  prepTotal: number
+  isPrepReady: boolean
   onToggle: () => void
   onOpen: () => void
 }) {
@@ -349,6 +397,9 @@ function BossCard({ boss, isDefeated, onToggle, onOpen }: {
           {boss.summonItem && (
             <p className="text-gray-500 text-xs truncate">Summon: {boss.summonItem}</p>
           )}
+          <p className={cn('text-xs mt-0.5', isPrepReady ? 'text-terra-green' : 'text-gray-500')}>
+            Prep: {prepCompleted}/{prepTotal}
+          </p>
         </div>
 
         <div className="flex items-center gap-2 shrink-0">
@@ -389,7 +440,20 @@ export default function BossTracker() {
   const { bossId } = useParams()
   const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
-  const { grouped, totalCount, defeatedCount, toggleBoss, resetAll, isDefeated } = useBosses()
+  const {
+    grouped,
+    totalCount,
+    defeatedCount,
+    readyCount,
+    toggleBoss,
+    resetAll,
+    isDefeated,
+    togglePrepItem,
+    resetPrepForBoss,
+    getPrepChecklist,
+    getPrepCompletion,
+    isPrepReady,
+  } = useBosses()
   const [confirmReset, setConfirmReset] = useState(false)
   const [gearClass, setGearClass] = useState<BuildClass>(() => {
     const fromUrl = searchParams.get('class')
@@ -440,6 +504,7 @@ export default function BossTracker() {
       </div>
 
       <ProgressBar value={defeatedCount} max={totalCount} className="mb-8" />
+      <p className="text-xs text-gray-500 mb-6">Readiness complete: {readyCount}/{totalCount} bosses</p>
 
       <div className="space-y-8">
         {phases.map((phase) => {
@@ -455,15 +520,22 @@ export default function BossTracker() {
                 <span className="text-gray-500 text-xs">{phaseDefeated}/{phaseBosses.length}</span>
               </div>
               <div className="space-y-2">
-                {phaseBosses.map((boss) => (
-                  <BossCard
-                    key={boss.id}
-                    boss={boss}
-                    isDefeated={isDefeated(boss.id)}
-                    onToggle={() => toggleBoss(boss.id)}
-                    onOpen={() => openGuide(boss)}
-                  />
-                ))}
+                {phaseBosses.map((boss) => {
+                  const prep = getPrepCompletion(boss.id)
+
+                  return (
+                    <BossCard
+                      key={boss.id}
+                      boss={boss}
+                      isDefeated={isDefeated(boss.id)}
+                      prepCompleted={prep.completed}
+                      prepTotal={prep.total}
+                      isPrepReady={isPrepReady(boss.id)}
+                      onToggle={() => toggleBoss(boss.id)}
+                      onOpen={() => openGuide(boss)}
+                    />
+                  )
+                })}
               </div>
             </section>
           )
@@ -477,6 +549,9 @@ export default function BossTracker() {
           onItemClick={openItem}
           gearClass={gearClass}
           onGearClassChange={setGearClass}
+          checklist={getPrepChecklist(openBoss.id)}
+          onToggleChecklistItem={(key) => togglePrepItem(openBoss.id, key)}
+          onResetChecklist={() => resetPrepForBoss(openBoss.id)}
           isMobile={isMobile}
           isTablet={isTablet}
         />
@@ -487,7 +562,7 @@ export default function BossTracker() {
           <div className="bg-terra-surface border border-terra-border rounded-xl p-6 max-w-sm w-full mx-4" role="dialog" aria-modal="true" aria-labelledby="boss-reset-title">
             <h3 id="boss-reset-title" className="font-pixel text-terra-red text-xs mb-4">Reset Progress?</h3>
             <p className="text-gray-300 text-sm mb-6">
-              This will clear all defeated boss progress. This cannot be undone.
+              This will clear all defeated progress and readiness checklist state. This cannot be undone.
             </p>
             <div className="flex gap-3">
               <button
