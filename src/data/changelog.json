@@ -1,4 +1,15 @@
 [  {
+    "version": "1.3.0",
+    "date": "2026-05-11",
+    "highlights": [
+      "Item Lookup now includes a Recipe Path Planner that traverses multi-step ingredient chains, aggregates base-material requirements, and summarizes station usage.",
+      "Recipe Path Planner now supports deterministic strategy selection for multi-recipe outputs: first-recipe fallback, fewest craft steps, or fewest unique stations.",
+      "A new Item Source Explorer route provides source-first discovery across crafted, drop, vendor, event, and exploration paths with URL-backed category/facet/query state.",
+      "Planner and source utility coverage gained focused automated tests for strategy selection and source normalization edge cases.",
+      "App release surfaces were bumped to 1.3.0 while keeping the Terraria data version fixed at 1.4.5.6."
+    ]
+  },
+  {
     "version": "1.2.0",
     "date": "2026-05-11",
     "highlights": [

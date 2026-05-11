@@ -12,7 +12,7 @@ import { usePrefixesForItem } from '@/hooks/usePrefixes'
 import { useRecipePlanner } from '@/hooks/useRecipePlanner'
 import { itemsById, items, prefixesById } from '@/data/index'
 import type { Item } from '@/types/item'
-import type { RecipePlanNode } from '@/lib/recipePlanner'
+import type { RecipePlanNode, RecipePlanStrategy } from '@/lib/recipePlanner'
 import { applyPrefixToItemStats } from '@/lib/prefixes'
 import { getItemSourceCategory } from '@/lib/itemSources'
 import { useBuildStore } from '@/store/buildStore'
@@ -188,7 +188,8 @@ function ItemDetailPanel({
   const availablePrefixes = usePrefixesForItem(item)
   const eligibleLoadoutTargets = useMemo(() => getEligibleLoadoutTargets(item), [item])
   const [plannerDepth, setPlannerDepth] = useState(5)
-  const recipePlan = useRecipePlanner(item.id, { maxDepth: plannerDepth })
+  const [plannerStrategy, setPlannerStrategy] = useState<RecipePlanStrategy>('first-recipe')
+  const recipePlan = useRecipePlanner(item.id, { maxDepth: plannerDepth, strategy: plannerStrategy })
   const [selectedLoadoutTarget, setSelectedLoadoutTarget] = useState<LoadoutSlotTarget | ''>(
     eligibleLoadoutTargets[0]?.value ?? ''
   )
@@ -390,22 +391,36 @@ function ItemDetailPanel({
 
       {recipePlan && crafts.length > 0 && (
         <div className="rounded-lg border border-terra-border bg-terra-bg p-3 space-y-3">
-          <div className="flex items-center justify-between gap-2">
+          <div className="flex flex-wrap items-center justify-between gap-2">
             <h3 className="text-terra-gold text-xs font-pixel">Recipe Path Planner</h3>
-            <label className="flex items-center gap-2 text-xs text-gray-400">
-              Depth
-              <select
-                value={plannerDepth}
-                onChange={(event) => setPlannerDepth(Number.parseInt(event.target.value, 10))}
-                className="bg-terra-surface border border-terra-border rounded px-2 py-1 text-xs text-white focus:border-terra-gold focus:outline-none"
-              >
-                {[2, 3, 4, 5, 6].map((depth) => (
-                  <option key={depth} value={depth}>
-                    {depth}
-                  </option>
-                ))}
-              </select>
-            </label>
+            <div className="flex items-center gap-2">
+              <label className="flex items-center gap-2 text-xs text-gray-400">
+                Strategy
+                <select
+                  value={plannerStrategy}
+                  onChange={(event) => setPlannerStrategy(event.target.value as RecipePlanStrategy)}
+                  className="bg-terra-surface border border-terra-border rounded px-2 py-1 text-xs text-white focus:border-terra-gold focus:outline-none"
+                >
+                  <option value="first-recipe">First recipe</option>
+                  <option value="fewest-steps">Fewest steps</option>
+                  <option value="fewest-stations">Fewest stations</option>
+                </select>
+              </label>
+              <label className="flex items-center gap-2 text-xs text-gray-400">
+                Depth
+                <select
+                  value={plannerDepth}
+                  onChange={(event) => setPlannerDepth(Number.parseInt(event.target.value, 10))}
+                  className="bg-terra-surface border border-terra-border rounded px-2 py-1 text-xs text-white focus:border-terra-gold focus:outline-none"
+                >
+                  {[2, 3, 4, 5, 6].map((depth) => (
+                    <option key={depth} value={depth}>
+                      {depth}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            </div>
           </div>
 
           <div className="text-xs text-gray-400">
