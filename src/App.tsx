@@ -11,6 +11,7 @@ const LoadoutBuilder = lazy(() => import('@/pages/LoadoutBuilder'))
 const PrepGuide = lazy(() => import('@/pages/PrepGuide'))
 const BiomeGuide = lazy(() => import('@/pages/BiomeGuide'))
 const NpcGuide = lazy(() => import('@/pages/NpcGuide'))
+const ItemSourceExplorer = lazy(() => import('@/pages/ItemSourceExplorer'))
 const NotFound = lazy(() => import('@/pages/NotFound'))
 
 function Layout() {
@@ -50,6 +51,7 @@ const router = createBrowserRouter([
       { path: 'bosses', element: <BossTracker /> },
       { path: 'bosses/:bossId', element: <BossTracker /> },
       { path: 'prep', element: <PrepGuide /> },
+      { path: 'sources', element: <ItemSourceExplorer /> },
       { path: 'build', element: <BuildStages /> },
       { path: 'loadouts', element: <LoadoutBuilder /> },
       { path: 'biomes', element: <BiomeGuide /> },

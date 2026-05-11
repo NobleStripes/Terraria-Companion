@@ -9,9 +9,12 @@ import { useItemSearch } from '@/hooks/useItemSearch'
 import { useViewport } from '@/hooks/useViewport'
 import { useRecipesForItem } from '@/hooks/useRecipes'
 import { usePrefixesForItem } from '@/hooks/usePrefixes'
+import { useRecipePlanner } from '@/hooks/useRecipePlanner'
 import { itemsById, items, prefixesById } from '@/data/index'
 import type { Item } from '@/types/item'
+import type { RecipePlanNode } from '@/lib/recipePlanner'
 import { applyPrefixToItemStats } from '@/lib/prefixes'
+import { getItemSourceCategory } from '@/lib/itemSources'
 import { useBuildStore } from '@/store/buildStore'
 import { useBossStore } from '@/store/bossStore'
 import { useSearchPresets } from '@/hooks/useSearchPresets'
@@ -108,20 +111,38 @@ function getItemClassBucket(item: Item): Exclude<ItemClassFilter, 'all'> {
   return 'melee'
 }
 
-function getSourceType(item: Item): Exclude<SourceFilter, 'all'> {
-  const sourceText = item.sources.join(' ').toLowerCase()
-
-  if (/(craft|anvil|work bench|station)/.test(sourceText)) return 'crafted'
-  if (/(merchant|npc|sold by|vendor|traveling)/.test(sourceText)) return 'vendor'
-  if (/(event|invasion|moon|pumpkin|frost)/.test(sourceText)) return 'event'
-  if (/(drop|boss|enemy|found in|obtained from)/.test(sourceText)) return 'drop'
-  return 'exploration'
-}
-
 function compareStat(a?: number, b?: number) {
   if (a === undefined || b === undefined) return ''
   if (a === b) return 'tie'
   return a > b ? 'win' : 'lose'
+}
+
+function renderRecipeNode(node: RecipePlanNode, depth: number): React.ReactNode {
+  const itemName = itemsById.get(node.itemId)?.name ?? `Item #${node.itemId}`
+  const reasonText =
+    node.reason === 'depth-limit'
+      ? 'depth limit reached'
+      : node.reason === 'cycle'
+        ? 'cycle detected'
+        : node.reason === 'no-recipe'
+          ? 'base source'
+          : null
+
+  return (
+    <li key={`${node.itemId}-${depth}-${node.quantityNeeded}`}>
+      <div className="text-xs text-gray-300">
+        <span className="text-white">{itemName}</span>
+        <span className="text-gray-500"> x{node.quantityNeeded}</span>
+        {node.recipe && <span className="text-gray-500"> at {node.recipe.station}</span>}
+        {reasonText && <span className="text-gray-500"> ({reasonText})</span>}
+      </div>
+      {node.ingredients.length > 0 && (
+        <ul className="mt-1 ml-4 space-y-1 border-l border-terra-border pl-2">
+          {node.ingredients.map((ingredient) => renderRecipeNode(ingredient, depth + 1))}
+        </ul>
+      )}
+    </li>
+  )
 }
 
 function isItemClassFilter(value: string | null): value is ItemClassFilter {
@@ -166,6 +187,8 @@ function ItemDetailPanel({
   const { crafts, usedIn } = useRecipesForItem(item.id)
   const availablePrefixes = usePrefixesForItem(item)
   const eligibleLoadoutTargets = useMemo(() => getEligibleLoadoutTargets(item), [item])
+  const [plannerDepth, setPlannerDepth] = useState(5)
+  const recipePlan = useRecipePlanner(item.id, { maxDepth: plannerDepth })
   const [selectedLoadoutTarget, setSelectedLoadoutTarget] = useState<LoadoutSlotTarget | ''>(
     eligibleLoadoutTargets[0]?.value ?? ''
   )
@@ -365,6 +388,68 @@ function ItemDetailPanel({
         </div>
       )}
 
+      {recipePlan && crafts.length > 0 && (
+        <div className="rounded-lg border border-terra-border bg-terra-bg p-3 space-y-3">
+          <div className="flex items-center justify-between gap-2">
+            <h3 className="text-terra-gold text-xs font-pixel">Recipe Path Planner</h3>
+            <label className="flex items-center gap-2 text-xs text-gray-400">
+              Depth
+              <select
+                value={plannerDepth}
+                onChange={(event) => setPlannerDepth(Number.parseInt(event.target.value, 10))}
+                className="bg-terra-surface border border-terra-border rounded px-2 py-1 text-xs text-white focus:border-terra-gold focus:outline-none"
+              >
+                {[2, 3, 4, 5, 6].map((depth) => (
+                  <option key={depth} value={depth}>
+                    {depth}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
+
+          <div className="text-xs text-gray-400">
+            <span className="mr-3">Craft Steps: <span className="text-white">{recipePlan.craftedSteps}</span></span>
+            <span>Unique Stations: <span className="text-white">{recipePlan.stations.length}</span></span>
+          </div>
+
+          {recipePlan.cycleDetected && (
+            <p className="text-xs text-amber-300">A recipe cycle was detected; cycle nodes are treated as leaf requirements.</p>
+          )}
+
+          <div>
+            <h4 className="text-xs text-terra-gold mb-1">Craft Tree</h4>
+            <ul className="space-y-1">{renderRecipeNode(recipePlan.root, 0)}</ul>
+          </div>
+
+          {recipePlan.leafTotals.length > 0 && (
+            <div>
+              <h4 className="text-xs text-terra-gold mb-1">Base Materials</h4>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1">
+                {recipePlan.leafTotals.map((leaf) => (
+                  <li key={`leaf-${leaf.itemId}`} className="text-xs text-gray-300">
+                    {itemsById.get(leaf.itemId)?.name ?? `Item #${leaf.itemId}`} x{leaf.quantity}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {recipePlan.stations.length > 0 && (
+            <div>
+              <h4 className="text-xs text-terra-gold mb-1">Stations</h4>
+              <ul className="space-y-1">
+                {recipePlan.stations.map((station) => (
+                  <li key={station.station} className="text-xs text-gray-300">
+                    {station.station} ({station.steps} step{station.steps > 1 ? 's' : ''})
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      )}
+
       {usedIn.length > 0 && (
         <div>
           <h3 className="text-terra-gold text-xs font-pixel mb-2">
@@ -541,7 +626,7 @@ export default function ItemLookup() {
         return false
       }
 
-      if (sourceFilter !== 'all' && getSourceType(item) !== sourceFilter) {
+      if (sourceFilter !== 'all' && getItemSourceCategory(item) !== sourceFilter) {
         return false
       }
 
