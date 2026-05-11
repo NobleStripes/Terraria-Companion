@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react'
-import { Link, useParams, useNavigate } from 'react-router-dom'
+import { Link, useParams, useNavigate, useSearchParams } from 'react-router-dom'
 import { ExternalLink, Filter, Package, Plus, Scale, X } from 'lucide-react'
 import { SearchBar } from '@/components/ui/SearchBar'
 import { ItemCard } from '@/components/ui/ItemCard'
@@ -13,6 +13,8 @@ import { itemsById, items, prefixesById } from '@/data/index'
 import type { Item } from '@/types/item'
 import { applyPrefixToItemStats } from '@/lib/prefixes'
 import { useBuildStore } from '@/store/buildStore'
+import { useBossStore } from '@/store/bossStore'
+import { useSearchPresets } from '@/hooks/useSearchPresets'
 
 const RECENT_COUNT = 20
 const MAX_COMPARE_ITEMS = 3
@@ -21,6 +23,14 @@ type ItemClassFilter = 'all' | 'melee' | 'ranged' | 'magic' | 'summoner' | 'util
 type DamageFilter = 'all' | 'has-damage' | 'non-damage'
 type SourceFilter = 'all' | 'crafted' | 'drop' | 'vendor' | 'event' | 'exploration'
 type TierFilter = 'all' | 'early-game' | 'pre-hardmode' | 'early-hardmode' | 'endgame'
+type LootTrackerFilter = 'all' | 'wishlist' | 'acquired'
+type ItemPresetFilters = {
+  classFilter: ItemClassFilter
+  damageFilter: DamageFilter
+  sourceFilter: SourceFilter
+  tierFilter: TierFilter
+  lootTrackerFilter: LootTrackerFilter
+}
 type LoadoutSlotTarget =
   | 'weapon'
   | 'armor-head'
@@ -112,6 +122,26 @@ function compareStat(a?: number, b?: number) {
   if (a === undefined || b === undefined) return ''
   if (a === b) return 'tie'
   return a > b ? 'win' : 'lose'
+}
+
+function isItemClassFilter(value: string | null): value is ItemClassFilter {
+  return value === 'all' || value === 'melee' || value === 'ranged' || value === 'magic' || value === 'summoner' || value === 'utility'
+}
+
+function isDamageFilter(value: string | null): value is DamageFilter {
+  return value === 'all' || value === 'has-damage' || value === 'non-damage'
+}
+
+function isSourceFilter(value: string | null): value is SourceFilter {
+  return value === 'all' || value === 'crafted' || value === 'drop' || value === 'vendor' || value === 'event' || value === 'exploration'
+}
+
+function isTierFilter(value: string | null): value is TierFilter {
+  return value === 'all' || value === 'early-game' || value === 'pre-hardmode' || value === 'early-hardmode' || value === 'endgame'
+}
+
+function isLootTrackerFilter(value: string | null): value is LootTrackerFilter {
+  return value === 'all' || value === 'wishlist' || value === 'acquired'
 }
 
 function ItemDetailPanel({
@@ -378,18 +408,35 @@ function ItemDetailPanel({
 export default function ItemLookup() {
   const { itemId } = useParams()
   const navigate = useNavigate()
+  const [searchParams, setSearchParams] = useSearchParams()
   const { isMobile, isTablet } = useViewport()
-  const [query, setQuery] = useState('')
+  const [query, setQuery] = useState(() => searchParams.get('q') ?? '')
   const selectedId = useMemo(() => {
     if (!itemId) return undefined
     const parsed = Number.parseInt(itemId, 10)
     return Number.isNaN(parsed) ? undefined : parsed
   }, [itemId])
   const [selectedPrefixId, setSelectedPrefixId] = useState('')
-  const [classFilter, setClassFilter] = useState<ItemClassFilter>('all')
-  const [damageFilter, setDamageFilter] = useState<DamageFilter>('all')
-  const [sourceFilter, setSourceFilter] = useState<SourceFilter>('all')
-  const [tierFilter, setTierFilter] = useState<TierFilter>('all')
+  const [classFilter, setClassFilter] = useState<ItemClassFilter>(() => {
+    const fromUrl = searchParams.get('class')
+    return isItemClassFilter(fromUrl) ? fromUrl : 'all'
+  })
+  const [damageFilter, setDamageFilter] = useState<DamageFilter>(() => {
+    const fromUrl = searchParams.get('damage')
+    return isDamageFilter(fromUrl) ? fromUrl : 'all'
+  })
+  const [sourceFilter, setSourceFilter] = useState<SourceFilter>(() => {
+    const fromUrl = searchParams.get('source')
+    return isSourceFilter(fromUrl) ? fromUrl : 'all'
+  })
+  const [tierFilter, setTierFilter] = useState<TierFilter>(() => {
+    const fromUrl = searchParams.get('tier')
+    return isTierFilter(fromUrl) ? fromUrl : 'all'
+  })
+  const [lootTrackerFilter, setLootTrackerFilter] = useState<LootTrackerFilter>(() => {
+    const fromUrl = searchParams.get('loot')
+    return isLootTrackerFilter(fromUrl) ? fromUrl : 'all'
+  })
   const [compareIds, setCompareIds] = useState<number[]>([])
   const [showFilters, setShowFilters] = useState(false)
   const listRef = useRef<HTMLDivElement>(null)
@@ -398,6 +445,82 @@ export default function ItemLookup() {
   const setWeapon = useBuildStore((state) => state.setWeapon)
   const setArmorSlot = useBuildStore((state) => state.setArmorSlot)
   const setAccessorySlot = useBuildStore((state) => state.setAccessorySlot)
+  const getTrackedDropNames = useBossStore((state) => state.getTrackedDropNames)
+  const { presets, savePreset, renamePreset, deletePreset } = useSearchPresets<ItemPresetFilters>('terraria-item-presets')
+
+  useEffect(() => {
+    const next = new URLSearchParams(searchParams)
+
+    if (query.trim()) {
+      next.set('q', query)
+    } else {
+      next.delete('q')
+    }
+
+    if (classFilter === 'all') next.delete('class')
+    else next.set('class', classFilter)
+
+    if (damageFilter === 'all') next.delete('damage')
+    else next.set('damage', damageFilter)
+
+    if (sourceFilter === 'all') next.delete('source')
+    else next.set('source', sourceFilter)
+
+    if (tierFilter === 'all') next.delete('tier')
+    else next.set('tier', tierFilter)
+
+    if (lootTrackerFilter === 'all') next.delete('loot')
+    else next.set('loot', lootTrackerFilter)
+
+    if (next.toString() !== searchParams.toString()) {
+      setSearchParams(next, { replace: true })
+    }
+  }, [classFilter, damageFilter, lootTrackerFilter, query, searchParams, setSearchParams, sourceFilter, tierFilter])
+
+  const itemIdsByLowerName = useMemo(() => {
+    const map = new Map<string, number[]>()
+
+    for (const item of items) {
+      const key = item.name.trim().toLowerCase()
+      if (!key) {
+        continue
+      }
+
+      const existing = map.get(key) ?? []
+      existing.push(item.id)
+      map.set(key, existing)
+    }
+
+    return map
+  }, [])
+
+  const trackedWishlistIds = useMemo(() => {
+    const names = getTrackedDropNames('wished')
+    const ids = new Set<number>()
+
+    for (const name of names) {
+      const matches = itemIdsByLowerName.get(name.trim().toLowerCase()) ?? []
+      for (const id of matches) {
+        ids.add(id)
+      }
+    }
+
+    return ids
+  }, [getTrackedDropNames, itemIdsByLowerName])
+
+  const trackedAcquiredIds = useMemo(() => {
+    const names = getTrackedDropNames('acquired')
+    const ids = new Set<number>()
+
+    for (const name of names) {
+      const matches = itemIdsByLowerName.get(name.trim().toLowerCase()) ?? []
+      for (const id of matches) {
+        ids.add(id)
+      }
+    }
+
+    return ids
+  }, [getTrackedDropNames, itemIdsByLowerName])
 
   const searchResults = useItemSearch(query)
   const queriedItems = query.trim().length >= 2
@@ -426,9 +549,17 @@ export default function ItemLookup() {
         return false
       }
 
+      if (lootTrackerFilter === 'wishlist' && !trackedWishlistIds.has(item.id)) {
+        return false
+      }
+
+      if (lootTrackerFilter === 'acquired' && !trackedAcquiredIds.has(item.id)) {
+        return false
+      }
+
       return true
     })
-  }, [queriedItems, classFilter, damageFilter, sourceFilter, tierFilter])
+  }, [queriedItems, classFilter, damageFilter, sourceFilter, tierFilter, lootTrackerFilter, trackedWishlistIds, trackedAcquiredIds])
 
   const selectedItem = selectedId !== undefined ? itemsById.get(selectedId) : undefined
   const comparedItems = useMemo(() => compareIds.map((id) => itemsById.get(id)).filter((item): item is Item => Boolean(item)), [compareIds])
@@ -460,6 +591,36 @@ export default function ItemLookup() {
 
       return [...prev, itemIdToToggle]
     })
+  }
+
+  function saveCurrentPreset() {
+    const suggested = query.trim() ? `Items: ${query.trim()}` : 'Item Filters'
+    const name = window.prompt('Preset name', suggested)
+    if (!name) {
+      return
+    }
+
+    savePreset(name, query, {
+      classFilter,
+      damageFilter,
+      sourceFilter,
+      tierFilter,
+      lootTrackerFilter,
+    })
+  }
+
+  function applyPreset(presetId: string) {
+    const preset = presets.find((entry) => entry.id === presetId)
+    if (!preset) {
+      return
+    }
+
+    setQuery(preset.query)
+    setClassFilter(preset.filters.classFilter)
+    setDamageFilter(preset.filters.damageFilter)
+    setSourceFilter(preset.filters.sourceFilter)
+    setTierFilter(preset.filters.tierFilter)
+    setLootTrackerFilter(preset.filters.lootTrackerFilter)
   }
 
   const assignItemToLoadout = useCallback(
@@ -547,7 +708,48 @@ export default function ItemLookup() {
           )}
 
           {filtersVisible && (
-            <div id="item-lookup-filters" className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div id="item-lookup-filters" className="space-y-2">
+              <div className="flex flex-wrap items-center gap-2">
+                <button
+                  type="button"
+                  onClick={saveCurrentPreset}
+                  className="rounded border border-terra-border px-2 py-1.5 text-xs text-gray-300 hover:border-terra-gold hover:text-white transition-colors"
+                >
+                  Save Preset
+                </button>
+                {presets.slice(0, 5).map((preset) => (
+                  <div key={preset.id} className="inline-flex items-center rounded border border-terra-border bg-terra-bg">
+                    <button
+                      type="button"
+                      onClick={() => applyPreset(preset.id)}
+                      className="px-2 py-1.5 text-xs text-gray-300 hover:text-white transition-colors"
+                    >
+                      {preset.name}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const nextName = window.prompt('Rename preset', preset.name)
+                        if (nextName) renamePreset(preset.id, nextName)
+                      }}
+                      className="px-1.5 py-1.5 text-[11px] text-gray-500 hover:text-terra-gold transition-colors"
+                      aria-label={`Rename ${preset.name}`}
+                    >
+                      R
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => deletePreset(preset.id)}
+                      className="px-1.5 py-1.5 text-[11px] text-gray-500 hover:text-terra-red transition-colors"
+                      aria-label={`Delete ${preset.name}`}
+                    >
+                      X
+                    </button>
+                  </div>
+                ))}
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               <select
                 value={classFilter}
                 onChange={(e) => setClassFilter(e.target.value as ItemClassFilter)}
@@ -596,6 +798,17 @@ export default function ItemLookup() {
                 <option value="early-hardmode">Early Hardmode</option>
                 <option value="endgame">Endgame</option>
               </select>
+              <select
+                value={lootTrackerFilter}
+                onChange={(e) => setLootTrackerFilter(e.target.value as LootTrackerFilter)}
+                className="bg-terra-bg border border-terra-border rounded px-2 py-2 text-xs text-white focus:border-terra-gold focus:outline-none"
+                aria-label="Filter by tracked boss loot"
+              >
+                <option value="all">All Loot Tracking</option>
+                <option value="wishlist">Wishlist Drops</option>
+                <option value="acquired">Acquired Drops</option>
+              </select>
+              </div>
             </div>
           )}
 

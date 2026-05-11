@@ -3,7 +3,28 @@ import { useBossStore } from '@/store/bossStore'
 import type { GamePhase } from '@/types/boss'
 
 export function useBosses() {
-  const { defeatedBosses, toggleBoss, resetAll, isDefeated } = useBossStore()
+  const {
+    defeatedBosses,
+    toggleBoss,
+    resetAll,
+    isDefeated,
+    togglePrepItem,
+    setPrepAllForBoss,
+    resetPrepForBoss,
+    resetPrepAll,
+    getPrepChecklist,
+    getPrepCompletion,
+    isPrepReady,
+    setDropStatus,
+    toggleDropWish,
+    toggleDropAcquired,
+    clearDropStatus,
+    resetDropsForBoss,
+    resetDropsAll,
+    getDropStatus,
+    getBossDropCounts,
+    getTrackedDropNames,
+  } = useBossStore()
 
   const grouped: Record<GamePhase, typeof bosses> = {
     'pre-hardmode': [],
@@ -19,13 +40,32 @@ export function useBosses() {
     grouped[phase].sort((a, b) => a.order - b.order)
   }
 
+  const readyCount = bosses.filter((boss) => isPrepReady(boss.id)).length
+
   return {
     grouped,
     allBosses: bosses,
     totalCount: bosses.length,
     defeatedCount: defeatedBosses.length,
+    readyCount,
     toggleBoss,
     resetAll,
     isDefeated,
+    togglePrepItem,
+    setPrepAllForBoss,
+    resetPrepForBoss,
+    resetPrepAll,
+    getPrepChecklist,
+    getPrepCompletion,
+    isPrepReady,
+    setDropStatus,
+    toggleDropWish,
+    toggleDropAcquired,
+    clearDropStatus,
+    resetDropsForBoss,
+    resetDropsAll,
+    getDropStatus,
+    getBossDropCounts,
+    getTrackedDropNames,
   }
 }

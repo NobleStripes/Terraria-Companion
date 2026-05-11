@@ -5,6 +5,7 @@ import { biomes, npcs } from '@/data/index'
 import type { Biome } from '@/types/biome'
 import { cn } from '@/lib/cn'
 import { useViewport } from '@/hooks/useViewport'
+import { useSearchPresets } from '@/hooks/useSearchPresets'
 
 const layerOrder: Record<Biome['layer'], number> = {
   sky: 0,
@@ -20,6 +21,11 @@ const layerLabels: Record<Biome['layer'], string> = {
   underground: 'Underground',
   cavern: 'Cavern',
   underworld: 'Underworld',
+}
+
+type BiomePresetFilters = {
+  layer: 'all' | Biome['layer']
+  hardmode: boolean
 }
 
 function BiomeCard({ biome, isMobile, isTablet }: { biome: Biome; isMobile: boolean; isTablet: boolean }) {
@@ -115,6 +121,7 @@ export default function BiomeGuide() {
   const [searchParams, setSearchParams] = useSearchParams()
   const [copyState, setCopyState] = useState<'idle' | 'copied' | 'error'>('idle')
   const [showFiltersPanel, setShowFiltersPanel] = useState(false)
+  const { presets, savePreset, renamePreset, deletePreset } = useSearchPresets<BiomePresetFilters>('terraria-biome-presets')
 
   const layerParam = searchParams.get('layer')
   const selectedLayer: 'all' | Biome['layer'] =
@@ -145,6 +152,31 @@ export default function BiomeGuide() {
     }
 
     setSearchParams(nextParams)
+  }
+
+  function saveCurrentPreset() {
+    const suggested = selectedLayer === 'all' ? 'All Layers' : layerLabels[selectedLayer]
+    const name = window.prompt('Preset name', hardmodeOnly ? `${suggested} Hardmode` : suggested)
+    if (!name) {
+      return
+    }
+
+    savePreset(name, '', {
+      layer: selectedLayer,
+      hardmode: hardmodeOnly,
+    })
+  }
+
+  function applyPreset(presetId: string) {
+    const preset = presets.find((entry) => entry.id === presetId)
+    if (!preset) {
+      return
+    }
+
+    updateFilters({
+      layer: preset.filters.layer,
+      hardmode: preset.filters.hardmode,
+    })
   }
 
   async function copyCurrentViewLink() {
@@ -263,6 +295,46 @@ export default function BiomeGuide() {
           </div>
           </div>
         )}
+
+        <div className="flex flex-wrap items-center gap-2">
+          <button
+            type="button"
+            onClick={saveCurrentPreset}
+            className="rounded border border-terra-border px-2.5 py-1.5 text-xs text-gray-300 hover:border-terra-gold hover:text-white transition-colors"
+          >
+            Save Preset
+          </button>
+          {presets.slice(0, 5).map((preset) => (
+            <div key={preset.id} className="inline-flex items-center rounded border border-terra-border bg-terra-surface">
+              <button
+                type="button"
+                onClick={() => applyPreset(preset.id)}
+                className="px-2 py-1.5 text-xs text-gray-300 hover:text-white transition-colors"
+              >
+                {preset.name}
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  const nextName = window.prompt('Rename preset', preset.name)
+                  if (nextName) renamePreset(preset.id, nextName)
+                }}
+                className="px-1.5 py-1.5 text-[11px] text-gray-500 hover:text-terra-gold transition-colors"
+                aria-label={`Rename ${preset.name}`}
+              >
+                R
+              </button>
+              <button
+                type="button"
+                onClick={() => deletePreset(preset.id)}
+                className="px-1.5 py-1.5 text-[11px] text-gray-500 hover:text-terra-red transition-colors"
+                aria-label={`Delete ${preset.name}`}
+              >
+                X
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="mb-4 flex items-center justify-between gap-3 text-xs text-gray-500">

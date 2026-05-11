@@ -1,5 +1,14 @@
 export type GamePhase = 'pre-hardmode' | 'hardmode' | 'post-moonlord'
 export type BuildClass = 'melee' | 'ranged' | 'magic' | 'summoner'
+export type PrepChecklistKey = 'arena' | 'buffs' | 'summon' | 'mobility'
+export type BossDropStatus = 'none' | 'wished' | 'acquired'
+
+export interface BossPrepChecklist {
+  arena: boolean
+  buffs: boolean
+  summon: boolean
+  mobility: boolean
+}
 
 export interface BossStrategySections {
   arena: string
