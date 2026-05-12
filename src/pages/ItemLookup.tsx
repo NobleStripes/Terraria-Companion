@@ -769,6 +769,10 @@ export default function ItemLookup() {
   // keyboard navigation
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
+      if (e.key === 'Escape' && isMobile) {
+        setShowFilters(false)
+      }
+
       if (e.key === '/' && document.activeElement?.tagName !== 'INPUT') {
         e.preventDefault()
         const input = document.querySelector<HTMLInputElement>('input[type="text"]')
@@ -786,7 +790,7 @@ export default function ItemLookup() {
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [displayItems, selectedId, selectItem])
+  }, [displayItems, isMobile, selectedId, selectItem])
 
   const filtersVisible = !isMobile || showFilters
 

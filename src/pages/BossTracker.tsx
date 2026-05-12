@@ -1,6 +1,7 @@
-import { useState, useEffect, useMemo } from 'react'
+import { memo, useState, useEffect, useMemo, useRef } from 'react'
 import { useParams, useNavigate, useSearchParams, Link } from 'react-router-dom'
 import { CheckCircle, Circle, ChevronDown, ChevronUp, RotateCcw, Shield, Sword, Zap, Star } from 'lucide-react'
+import { useVirtualizer } from '@tanstack/react-virtual'
 import { ProgressBar } from '@/components/ui/ProgressBar'
 import { useBosses } from '@/hooks/useBosses'
 import { useViewport } from '@/hooks/useViewport'
@@ -291,6 +292,17 @@ function BossDrawer({
   const tabs: DrawerTab[] = ['overview', 'gear', 'tips']
   const headingId = `boss-drawer-title-${boss.id}`
 
+  useEffect(() => {
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === 'Escape') {
+        onClose()
+      }
+    }
+
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [onClose])
+
   return (
     <div className="fixed inset-0 z-50 flex justify-end items-end md:items-stretch" role="dialog" aria-modal="true" aria-labelledby={headingId}>
       <button type="button" className="flex-1 bg-black/60 cursor-default" onClick={onClose} aria-label="Close boss guide" />
@@ -481,7 +493,7 @@ function BossDrawer({
   )
 }
 
-function BossCard({
+const BossCard = memo(function BossCard({
   boss,
   isDefeated,
   prepCompleted,
@@ -565,6 +577,105 @@ function BossCard({
           </div>
         </div>
       )}
+    </div>
+  )
+})
+
+function PhaseBossList({
+  phaseBosses,
+  isDefeated,
+  getPrepCompletion,
+  isPrepReady,
+  getBossDropCounts,
+  toggleBoss,
+  onOpenGuide,
+}: {
+  phaseBosses: Boss[]
+  isDefeated: (bossId: string) => boolean
+  getPrepCompletion: (bossId: string) => { completed: number; total: number }
+  isPrepReady: (bossId: string) => boolean
+  getBossDropCounts: (bossId: string, dropNames: string[]) => { wished: number; acquired: number; missing: number; total: number }
+  toggleBoss: (bossId: string) => void
+  onOpenGuide: (boss: Boss) => void
+}) {
+  const listRef = useRef<HTMLDivElement>(null)
+  const shouldVirtualize = phaseBosses.length > 6
+  // TanStack Virtual exposes callbacks that React Compiler currently marks as incompatible.
+  // eslint-disable-next-line react-hooks/incompatible-library
+  const listVirtualizer = useVirtualizer({
+    count: phaseBosses.length,
+    getScrollElement: () => listRef.current,
+    estimateSize: () => 96,
+    overscan: 6,
+  })
+
+  if (!shouldVirtualize) {
+    return (
+      <div className="space-y-2">
+        {phaseBosses.map((boss) => {
+          const prep = getPrepCompletion(boss.id)
+          const dropCounts = getBossDropCounts(boss.id, boss.drops)
+
+          return (
+            <BossCard
+              key={boss.id}
+              boss={boss}
+              isDefeated={isDefeated(boss.id)}
+              prepCompleted={prep.completed}
+              prepTotal={prep.total}
+              isPrepReady={isPrepReady(boss.id)}
+              dropMissing={dropCounts.missing}
+              dropAcquired={dropCounts.acquired}
+              onToggle={() => toggleBoss(boss.id)}
+              onOpen={() => onOpenGuide(boss)}
+            />
+          )
+        })}
+      </div>
+    )
+  }
+
+  return (
+    <div ref={listRef} className="max-h-[55vh] overflow-y-auto pr-1">
+      <div
+        style={{
+          height: `${listVirtualizer.getTotalSize()}px`,
+          position: 'relative',
+          width: '100%',
+        }}
+      >
+        {listVirtualizer.getVirtualItems().map((virtualRow) => {
+          const boss = phaseBosses[virtualRow.index]
+          const prep = getPrepCompletion(boss.id)
+          const dropCounts = getBossDropCounts(boss.id, boss.drops)
+
+          return (
+            <div
+              key={boss.id}
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                transform: `translateY(${virtualRow.start}px)`,
+                paddingBottom: '0.5rem',
+              }}
+            >
+              <BossCard
+                boss={boss}
+                isDefeated={isDefeated(boss.id)}
+                prepCompleted={prep.completed}
+                prepTotal={prep.total}
+                isPrepReady={isPrepReady(boss.id)}
+                dropMissing={dropCounts.missing}
+                dropAcquired={dropCounts.acquired}
+                onToggle={() => toggleBoss(boss.id)}
+                onOpen={() => onOpenGuide(boss)}
+              />
+            </div>
+          )
+        })}
+      </div>
     </div>
   )
 }
@@ -691,25 +802,15 @@ export default function BossTracker() {
                 <span className="text-gray-500 text-xs">{phaseDefeated}/{phaseBosses.length}</span>
               </div>
               <div className="space-y-2">
-                {phaseBosses.map((boss) => {
-                  const prep = getPrepCompletion(boss.id)
-                  const dropCounts = getBossDropCounts(boss.id, boss.drops)
-
-                  return (
-                    <BossCard
-                      key={boss.id}
-                      boss={boss}
-                      isDefeated={isDefeated(boss.id)}
-                      prepCompleted={prep.completed}
-                      prepTotal={prep.total}
-                      isPrepReady={isPrepReady(boss.id)}
-                      dropMissing={dropCounts.missing}
-                      dropAcquired={dropCounts.acquired}
-                      onToggle={() => toggleBoss(boss.id)}
-                      onOpen={() => openGuide(boss)}
-                    />
-                  )
-                })}
+                <PhaseBossList
+                  phaseBosses={phaseBosses}
+                  isDefeated={isDefeated}
+                  getPrepCompletion={getPrepCompletion}
+                  isPrepReady={isPrepReady}
+                  getBossDropCounts={getBossDropCounts}
+                  toggleBoss={toggleBoss}
+                  onOpenGuide={openGuide}
+                />
               </div>
             </section>
           )

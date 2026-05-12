@@ -1,6 +1,7 @@
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useEffect, useState } from 'react'
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
 import Navbar from '@/components/layout/Navbar'
+import { CommandPalette } from '@/components/ui/CommandPalette'
 import { APP_VERSION, DATA_VERSION } from '@/data/index'
 
 const Home = lazy(() => import('@/pages/Home'))
@@ -15,9 +16,31 @@ const ItemSourceExplorer = lazy(() => import('@/pages/ItemSourceExplorer'))
 const NotFound = lazy(() => import('@/pages/NotFound'))
 
 function Layout() {
+  const [paletteOpen, setPaletteOpen] = useState(false)
+
+  useEffect(() => {
+    function onKeyDown(event: KeyboardEvent) {
+      const isTyping =
+        event.target instanceof HTMLElement &&
+        (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA' || event.target.isContentEditable)
+
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
+        event.preventDefault()
+        setPaletteOpen(true)
+      }
+
+      if (event.key === 'Escape' && !isTyping) {
+        setPaletteOpen(false)
+      }
+    }
+
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [])
+
   return (
     <div className="min-h-full flex flex-col">
-      <Navbar />
+      <Navbar onOpenCommandPalette={() => setPaletteOpen(true)} />
       <main className="flex-1">
         <Suspense
           fallback={
@@ -36,6 +59,7 @@ function Layout() {
         </a>{' '}
         (CC BY-NC-SA 3.0)
       </footer>
+      <CommandPalette open={paletteOpen} onOpenChange={setPaletteOpen} />
     </div>
   )
 }

@@ -42,7 +42,7 @@ function NavItem({ to, label, onClick }: { to: string; label: string; onClick?: 
   )
 }
 
-export default function Navbar() {
+export default function Navbar({ onOpenCommandPalette }: { onOpenCommandPalette?: () => void }) {
   const { isDesktop } = useViewport()
   const [open, setOpen] = useState(false)
   const [backupStatus, setBackupStatus] = useState('')
@@ -62,6 +62,17 @@ export default function Navbar() {
     document.documentElement.dataset.reducedMotion = reducedMotion ? 'true' : 'false'
     window.localStorage.setItem('terra-reduced-motion', reducedMotion ? '1' : '0')
   }, [reducedMotion])
+
+  useEffect(() => {
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === 'Escape') {
+        setOpen(false)
+      }
+    }
+
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [])
 
   useEffect(() => {
     if (!backupStatus) {
@@ -133,6 +144,12 @@ export default function Navbar() {
 
         <div className="flex items-center gap-2 sm:gap-3">
           <div className="hidden lg:flex items-center gap-1">
+            <button
+              onClick={onOpenCommandPalette}
+              className="px-2.5 py-1.5 min-h-9 rounded text-[10px] border border-terra-border text-gray-400 hover:text-white hover:border-terra-gold transition-colors"
+            >
+              Cmd/Ctrl+K
+            </button>
             <button
               onClick={exportBackup}
               className="px-2.5 py-1.5 min-h-9 rounded text-[10px] border border-terra-border text-gray-400 hover:text-white hover:border-terra-gold transition-colors inline-flex items-center gap-1"
@@ -213,6 +230,12 @@ export default function Navbar() {
             <NavItem key={item.to} {...item} onClick={() => setOpen(false)} />
           ))}
           <div className="mt-2 pt-3 border-t border-terra-border grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <button
+              onClick={onOpenCommandPalette}
+              className="px-3 py-2.5 min-h-11 rounded border border-terra-border text-sm text-left text-gray-300 hover:text-white hover:border-terra-gold transition-colors"
+            >
+              Open Command Palette
+            </button>
             <button
               onClick={exportBackup}
               className="px-3 py-2.5 min-h-11 rounded border border-terra-border text-sm text-left text-gray-300 hover:text-white hover:border-terra-gold transition-colors inline-flex items-center gap-2"
