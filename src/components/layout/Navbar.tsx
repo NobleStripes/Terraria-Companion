@@ -1,10 +1,16 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { Menu, X, Sword } from 'lucide-react'
+import { Download, Menu, Upload, X, Sword } from 'lucide-react'
 import { cn } from '@/lib/cn'
 import { useBossStore } from '@/store/bossStore'
 import { bosses } from '@/data/index'
 import { useViewport } from '@/hooks/useViewport'
+import {
+  applyCompanionBackup,
+  createCompanionBackupPayload,
+  parseCompanionBackup,
+  serializeCompanionBackup,
+} from '@/lib/backupRestore'
 
 const navItems = [
   { to: '/items', label: 'Items' },
@@ -39,8 +45,10 @@ function NavItem({ to, label, onClick }: { to: string; label: string; onClick?: 
 export default function Navbar() {
   const { isDesktop } = useViewport()
   const [open, setOpen] = useState(false)
+  const [backupStatus, setBackupStatus] = useState('')
   const [highContrast, setHighContrast] = useState(() => window.localStorage.getItem('terra-high-contrast') === '1')
   const [reducedMotion, setReducedMotion] = useState(() => window.localStorage.getItem('terra-reduced-motion') === '1')
+  const backupInputRef = useRef<HTMLInputElement>(null)
   const defeatedBosses = useBossStore((s) => s.defeatedBosses)
   const total = bosses.length
   const defeated = defeatedBosses.length
@@ -54,6 +62,55 @@ export default function Navbar() {
     document.documentElement.dataset.reducedMotion = reducedMotion ? 'true' : 'false'
     window.localStorage.setItem('terra-reduced-motion', reducedMotion ? '1' : '0')
   }, [reducedMotion])
+
+  useEffect(() => {
+    if (!backupStatus) {
+      return
+    }
+
+    const timeout = window.setTimeout(() => setBackupStatus(''), 3500)
+    return () => window.clearTimeout(timeout)
+  }, [backupStatus])
+
+  function exportBackup() {
+    try {
+      const payload = createCompanionBackupPayload()
+      const blob = new Blob([serializeCompanionBackup(payload)], { type: 'application/json' })
+      const url = window.URL.createObjectURL(blob)
+      const anchor = document.createElement('a')
+      anchor.href = url
+      const dateStamp = payload.exportedAt.slice(0, 10)
+      anchor.download = `terraria-companion-backup-${dateStamp}.json`
+      anchor.click()
+      window.URL.revokeObjectURL(url)
+      setBackupStatus('Backup exported')
+    } catch {
+      setBackupStatus('Export failed')
+    }
+  }
+
+  async function importBackup(event: React.ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0]
+    event.target.value = ''
+
+    if (!file) {
+      return
+    }
+
+    try {
+      const text = await file.text()
+      const payload = parseCompanionBackup(text)
+      applyCompanionBackup(payload)
+      setBackupStatus('Backup restored. Reloading...')
+      window.setTimeout(() => window.location.reload(), 250)
+    } catch {
+      setBackupStatus('Invalid backup file')
+    }
+  }
+
+  function triggerBackupImport() {
+    backupInputRef.current?.click()
+  }
 
   return (
     <header className="sticky top-0 z-50 bg-terra-surface border-b border-terra-border">
@@ -76,6 +133,20 @@ export default function Navbar() {
 
         <div className="flex items-center gap-2 sm:gap-3">
           <div className="hidden lg:flex items-center gap-1">
+            <button
+              onClick={exportBackup}
+              className="px-2.5 py-1.5 min-h-9 rounded text-[10px] border border-terra-border text-gray-400 hover:text-white hover:border-terra-gold transition-colors inline-flex items-center gap-1"
+            >
+              <Download className="w-3 h-3" />
+              Backup
+            </button>
+            <button
+              onClick={triggerBackupImport}
+              className="px-2.5 py-1.5 min-h-9 rounded text-[10px] border border-terra-border text-gray-400 hover:text-white hover:border-terra-gold transition-colors inline-flex items-center gap-1"
+            >
+              <Upload className="w-3 h-3" />
+              Restore
+            </button>
             <button
               onClick={() => setHighContrast((v) => !v)}
               className={cn(
@@ -125,12 +196,38 @@ export default function Navbar() {
           </button>
         </div>
       </div>
+      <input
+        ref={backupInputRef}
+        type="file"
+        accept="application/json"
+        className="hidden"
+        onChange={importBackup}
+      />
+      {backupStatus ? (
+        <div className="max-w-7xl mx-auto px-4 pb-2 text-xs text-terra-gold">{backupStatus}</div>
+      ) : null}
 
       {open && !isDesktop && (
         <div id="mobile-navigation" className="md:hidden bg-terra-surface border-t border-terra-border px-4 py-3 flex flex-col gap-1">
           {navItems.map((item) => (
             <NavItem key={item.to} {...item} onClick={() => setOpen(false)} />
           ))}
+          <div className="mt-2 pt-3 border-t border-terra-border grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <button
+              onClick={exportBackup}
+              className="px-3 py-2.5 min-h-11 rounded border border-terra-border text-sm text-left text-gray-300 hover:text-white hover:border-terra-gold transition-colors inline-flex items-center gap-2"
+            >
+              <Download className="w-4 h-4" />
+              Export Backup
+            </button>
+            <button
+              onClick={triggerBackupImport}
+              className="px-3 py-2.5 min-h-11 rounded border border-terra-border text-sm text-left text-gray-300 hover:text-white hover:border-terra-gold transition-colors inline-flex items-center gap-2"
+            >
+              <Upload className="w-4 h-4" />
+              Restore Backup
+            </button>
+          </div>
           <div className="mt-2 pt-3 border-t border-terra-border grid grid-cols-1 sm:grid-cols-2 gap-2">
             <button
               onClick={() => setHighContrast((value) => !value)}

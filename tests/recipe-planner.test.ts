@@ -1,9 +1,10 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { buildRecipePlan } from '../src/lib/recipePlanner.ts'
+import type { Recipe } from '../src/types/recipe.ts'
 
-function makeRecipeMap(entries: Array<[number, any[]]>) {
-  return new Map<number, any[]>(entries)
+function makeRecipeMap(entries: Array<[number, Recipe[]]>) {
+  return new Map<number, Recipe[]>(entries)
 }
 
 test('planner strategy fewest-steps prefers shorter craft chains', () => {
