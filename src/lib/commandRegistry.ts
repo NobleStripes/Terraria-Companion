@@ -1,4 +1,5 @@
 import { items } from '@/data'
+import { setHighContrastPreference, setReducedMotionPreference } from '@/lib/accessibilityPreferences'
 
 export type CommandGroup = 'Navigate' | 'Actions' | 'Presets' | 'Items'
 
@@ -14,16 +15,6 @@ export interface PaletteCommand {
 interface CreateCommandRegistryOptions {
   navigate: (to: string) => void
   pathname: string
-}
-
-function setContrastMode(enabled: boolean) {
-  window.localStorage.setItem('terra-high-contrast', enabled ? '1' : '0')
-  document.documentElement.dataset.contrast = enabled ? 'high' : 'normal'
-}
-
-function setReducedMotionMode(enabled: boolean) {
-  window.localStorage.setItem('terra-reduced-motion', enabled ? '1' : '0')
-  document.documentElement.dataset.reducedMotion = enabled ? 'true' : 'false'
 }
 
 function getPriorityBoost(pathname: string, routePrefix: string): number {
@@ -58,7 +49,7 @@ export function createCommandRegistry({ navigate, pathname }: CreateCommandRegis
       keywords: 'contrast accessibility readability',
       group: 'Actions',
       priority: 60,
-      run: () => setContrastMode(true),
+      run: () => setHighContrastPreference(true),
     },
     {
       id: 'toggle-contrast-off',
@@ -66,7 +57,7 @@ export function createCommandRegistry({ navigate, pathname }: CreateCommandRegis
       keywords: 'contrast accessibility readability',
       group: 'Actions',
       priority: 55,
-      run: () => setContrastMode(false),
+      run: () => setHighContrastPreference(false),
     },
     {
       id: 'toggle-motion-on',
@@ -74,7 +65,7 @@ export function createCommandRegistry({ navigate, pathname }: CreateCommandRegis
       keywords: 'motion accessibility animation',
       group: 'Actions',
       priority: 60,
-      run: () => setReducedMotionMode(true),
+      run: () => setReducedMotionPreference(true),
     },
     {
       id: 'toggle-motion-off',
@@ -82,7 +73,7 @@ export function createCommandRegistry({ navigate, pathname }: CreateCommandRegis
       keywords: 'motion accessibility animation',
       group: 'Actions',
       priority: 55,
-      run: () => setReducedMotionMode(false),
+      run: () => setReducedMotionPreference(false),
     },
   ]
 

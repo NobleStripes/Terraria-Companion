@@ -11,6 +11,14 @@ import {
   parseCompanionBackup,
   serializeCompanionBackup,
 } from '@/lib/backupRestore'
+import {
+  ACCESSIBILITY_PREFERENCES_CHANGED,
+  readHighContrastPreference,
+  readReducedMotionPreference,
+  setHighContrastPreference,
+  setReducedMotionPreference,
+  syncAccessibilityPreferencesToDom,
+} from '@/lib/accessibilityPreferences'
 
 const navItems = [
   { to: '/items', label: 'Items' },
@@ -46,22 +54,29 @@ export default function Navbar({ onOpenCommandPalette }: { onOpenCommandPalette?
   const { isDesktop } = useViewport()
   const [open, setOpen] = useState(false)
   const [backupStatus, setBackupStatus] = useState('')
-  const [highContrast, setHighContrast] = useState(() => window.localStorage.getItem('terra-high-contrast') === '1')
-  const [reducedMotion, setReducedMotion] = useState(() => window.localStorage.getItem('terra-reduced-motion') === '1')
+  const [highContrast, setHighContrast] = useState(() => readHighContrastPreference())
+  const [reducedMotion, setReducedMotion] = useState(() => readReducedMotionPreference())
   const backupInputRef = useRef<HTMLInputElement>(null)
   const defeatedBosses = useBossStore((s) => s.defeatedBosses)
   const total = bosses.length
   const defeated = defeatedBosses.length
 
   useEffect(() => {
-    document.documentElement.dataset.contrast = highContrast ? 'high' : 'normal'
-    window.localStorage.setItem('terra-high-contrast', highContrast ? '1' : '0')
-  }, [highContrast])
+    syncAccessibilityPreferencesToDom()
 
-  useEffect(() => {
-    document.documentElement.dataset.reducedMotion = reducedMotion ? 'true' : 'false'
-    window.localStorage.setItem('terra-reduced-motion', reducedMotion ? '1' : '0')
-  }, [reducedMotion])
+    function syncFromPreferences() {
+      setHighContrast(readHighContrastPreference())
+      setReducedMotion(readReducedMotionPreference())
+    }
+
+    window.addEventListener(ACCESSIBILITY_PREFERENCES_CHANGED, syncFromPreferences)
+    window.addEventListener('storage', syncFromPreferences)
+
+    return () => {
+      window.removeEventListener(ACCESSIBILITY_PREFERENCES_CHANGED, syncFromPreferences)
+      window.removeEventListener('storage', syncFromPreferences)
+    }
+  }, [])
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
@@ -165,7 +180,11 @@ export default function Navbar({ onOpenCommandPalette }: { onOpenCommandPalette?
               Restore
             </button>
             <button
-              onClick={() => setHighContrast((v) => !v)}
+              onClick={() => {
+                const next = !highContrast
+                setHighContrast(next)
+                setHighContrastPreference(next)
+              }}
               className={cn(
                 'px-2.5 py-1.5 min-h-9 rounded text-[10px] border transition-colors',
                 highContrast
@@ -177,7 +196,11 @@ export default function Navbar({ onOpenCommandPalette }: { onOpenCommandPalette?
               Contrast
             </button>
             <button
-              onClick={() => setReducedMotion((v) => !v)}
+              onClick={() => {
+                const next = !reducedMotion
+                setReducedMotion(next)
+                setReducedMotionPreference(next)
+              }}
               className={cn(
                 'px-2.5 py-1.5 min-h-9 rounded text-[10px] border transition-colors',
                 reducedMotion
@@ -253,7 +276,11 @@ export default function Navbar({ onOpenCommandPalette }: { onOpenCommandPalette?
           </div>
           <div className="mt-2 pt-3 border-t border-terra-border grid grid-cols-1 sm:grid-cols-2 gap-2">
             <button
-              onClick={() => setHighContrast((value) => !value)}
+              onClick={() => {
+                const next = !highContrast
+                setHighContrast(next)
+                setHighContrastPreference(next)
+              }}
               className={cn(
                 'px-3 py-2.5 min-h-11 rounded border text-sm text-left transition-colors',
                 highContrast
@@ -265,7 +292,11 @@ export default function Navbar({ onOpenCommandPalette }: { onOpenCommandPalette?
               Contrast {highContrast ? 'On' : 'Off'}
             </button>
             <button
-              onClick={() => setReducedMotion((value) => !value)}
+              onClick={() => {
+                const next = !reducedMotion
+                setReducedMotion(next)
+                setReducedMotionPreference(next)
+              }}
               className={cn(
                 'px-3 py-2.5 min-h-11 rounded border text-sm text-left transition-colors',
                 reducedMotion
