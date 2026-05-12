@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react'
 import { Link, useParams, useNavigate, useSearchParams } from 'react-router-dom'
 import { ExternalLink, Filter, Package, Plus, Scale, X } from 'lucide-react'
+import { useVirtualizer } from '@tanstack/react-virtual'
 import { SearchBar } from '@/components/ui/SearchBar'
 import { ItemCard } from '@/components/ui/ItemCard'
 import { RecipeCard } from '@/components/ui/RecipeCard'
@@ -663,6 +664,14 @@ export default function ItemLookup() {
 
   const selectedItem = selectedId !== undefined ? itemsById.get(selectedId) : undefined
   const comparedItems = useMemo(() => compareIds.map((id) => itemsById.get(id)).filter((item): item is Item => Boolean(item)), [compareIds])
+  // TanStack Virtual relies on callback-returning APIs that React Compiler marks as incompatible.
+  // eslint-disable-next-line react-hooks/incompatible-library
+  const itemListVirtualizer = useVirtualizer({
+    count: displayItems.length,
+    getScrollElement: () => listRef.current,
+    estimateSize: () => 74,
+    overscan: 8,
+  })
   const activeLoadout = useMemo(
     () => loadouts.find((loadout) => loadout.id === activeLoadoutId) ?? null,
     [activeLoadoutId, loadouts]
@@ -920,15 +929,40 @@ export default function ItemLookup() {
             {displayItems.length === 0 && query.trim().length >= 2 && (
               <p className="text-gray-500 text-sm text-center py-8">No items found.</p>
             )}
-            {displayItems.map((item) => (
-              <ItemCard
-                key={item.id}
-                item={item}
-                selected={item.id === selectedId}
-                prefixLabel={item.id === selectedId && selectedPrefixId ? prefixesById.get(selectedPrefixId)?.name : undefined}
-                onClick={() => selectItem(item.id)}
-              />
-            ))}
+            {displayItems.length > 0 && (
+              <div
+                style={{
+                  height: `${itemListVirtualizer.getTotalSize()}px`,
+                  position: 'relative',
+                  width: '100%',
+                }}
+              >
+                {itemListVirtualizer.getVirtualItems().map((virtualRow) => {
+                  const item = displayItems[virtualRow.index]
+
+                  return (
+                    <div
+                      key={item.id}
+                      style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        transform: `translateY(${virtualRow.start}px)`,
+                        paddingBottom: '0.375rem',
+                      }}
+                    >
+                      <ItemCard
+                        item={item}
+                        selected={item.id === selectedId}
+                        prefixLabel={item.id === selectedId && selectedPrefixId ? prefixesById.get(selectedPrefixId)?.name : undefined}
+                        onClick={() => selectItem(item.id)}
+                      />
+                    </div>
+                  )
+                })}
+              </div>
+            )}
           </div>
 
           {!query && (

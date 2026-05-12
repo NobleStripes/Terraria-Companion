@@ -3,6 +3,7 @@ import { RarityBadge, TypeBadge } from './Badge'
 import { getRarityBorderClass } from './badgeStyles'
 import type { Item } from '@/types/item'
 import type { ReactNode } from 'react'
+import { memo } from 'react'
 
 interface ItemCardProps {
   item: Item
@@ -13,7 +14,7 @@ interface ItemCardProps {
   rightAction?: ReactNode
 }
 
-export function ItemCard({ item, selected, onClick, compact, prefixLabel, rightAction }: ItemCardProps) {
+export const ItemCard = memo(function ItemCard({ item, selected, onClick, compact, prefixLabel, rightAction }: ItemCardProps) {
   return (
     <button
       onClick={onClick}
@@ -49,4 +50,4 @@ export function ItemCard({ item, selected, onClick, compact, prefixLabel, rightA
       )}
     </button>
   )
-}
+})
