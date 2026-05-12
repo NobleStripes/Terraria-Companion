@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect, useState } from 'react'
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
 import Navbar from '@/components/layout/Navbar'
 import { CommandPalette } from '@/components/ui/CommandPalette'
+import { AppErrorBoundary } from '@/components/AppErrorBoundary'
 import { APP_VERSION, DATA_VERSION } from '@/data/index'
 
 const Home = lazy(() => import('@/pages/Home'))
@@ -14,6 +15,24 @@ const BiomeGuide = lazy(() => import('@/pages/BiomeGuide'))
 const NpcGuide = lazy(() => import('@/pages/NpcGuide'))
 const ItemSourceExplorer = lazy(() => import('@/pages/ItemSourceExplorer'))
 const NotFound = lazy(() => import('@/pages/NotFound'))
+
+function AppShellFallback() {
+  return (
+    <div className="mx-auto max-w-7xl px-4 py-6">
+      <div className="mb-4 h-4 w-48 animate-pulse rounded bg-terra-panel" />
+      <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+        {Array.from({ length: 6 }, (_, index) => (
+          <div key={`loading-card-${index}`} className="rounded-lg border border-terra-border bg-terra-surface p-4">
+            <div className="h-3 w-2/3 animate-pulse rounded bg-terra-panel" />
+            <div className="mt-2 h-3 w-full animate-pulse rounded bg-terra-panel" />
+            <div className="mt-2 h-3 w-4/5 animate-pulse rounded bg-terra-panel" />
+          </div>
+        ))}
+      </div>
+      <p className="mt-3 text-xs text-gray-500">Loading companion modules...</p>
+    </div>
+  )
+}
 
 function Layout() {
   const [paletteOpen, setPaletteOpen] = useState(false)
@@ -39,28 +58,24 @@ function Layout() {
   }, [])
 
   return (
-    <div className="min-h-full flex flex-col">
-      <Navbar onOpenCommandPalette={() => setPaletteOpen(true)} />
-      <main className="flex-1">
-        <Suspense
-          fallback={
-            <div className="flex items-center justify-center h-64 text-terra-gold font-pixel text-xs">
-              Loading…
-            </div>
-          }
-        >
-          <Outlet />
-        </Suspense>
-      </main>
-      <footer className="border-t border-terra-border py-3 px-4 text-center text-xs text-gray-600">
-        Terraria Companion · App v{APP_VERSION} · Data version {DATA_VERSION} · Data sourced from{' '}
-        <a href="https://terraria.wiki.gg" target="_blank" rel="noopener noreferrer" className="text-terra-sky hover:text-terra-gold transition-colors">
-          Terraria Wiki
-        </a>{' '}
-        (CC BY-NC-SA 3.0)
-      </footer>
-      <CommandPalette open={paletteOpen} onOpenChange={setPaletteOpen} />
-    </div>
+    <AppErrorBoundary>
+      <div className="min-h-full flex flex-col">
+        <Navbar onOpenCommandPalette={() => setPaletteOpen(true)} />
+        <main className="flex-1">
+          <Suspense fallback={<AppShellFallback />}>
+            <Outlet />
+          </Suspense>
+        </main>
+        <footer className="border-t border-terra-border py-3 px-4 text-center text-xs text-gray-600">
+          Terraria Companion · App v{APP_VERSION} · Data version {DATA_VERSION} · Data sourced from{' '}
+          <a href="https://terraria.wiki.gg" target="_blank" rel="noopener noreferrer" className="text-terra-sky hover:text-terra-gold transition-colors">
+            Terraria Wiki
+          </a>{' '}
+          (CC BY-NC-SA 3.0)
+        </footer>
+        <CommandPalette open={paletteOpen} onOpenChange={setPaletteOpen} />
+      </div>
+    </AppErrorBoundary>
   )
 }
 
