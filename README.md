@@ -7,13 +7,17 @@ A second-screen browser reference for Terraria players. Look up items, track bos
 
 ## Features
 
-- **Item Lookup** — Search 350+ items with fuzzy matching, view crafting recipes (crafts & used-in chains), inspect item stats/tool powers, filter by tracked wishlist/acquired boss drops, and plan recursive crafting paths with deterministic strategy modes
+- **Item Lookup** — Search 560+ items with fuzzy matching, view crafting recipes (crafts & used-in chains), inspect item stats/tool powers, filter by tracked wishlist/acquired boss drops, and plan recursive crafting paths with deterministic strategy modes
 - **Prefix System** — Select prefixes in Item Lookup to preview effective stat changes live (base → prefixed values)
 - **Boss Tracker** — All ~16 bosses with gear recommendations, strategy notes, readiness checklist state, and boss-drop wishlist/acquired tracking saved to localStorage
 - **Prep Guide** — Review arena setup, summon requirements, danger windows, buff stacks, execution notes, and per-boss readiness checklist controls in a filterable workflow
 - **Recommended Builds** — Stage-based progression builds (Early Game → Endgame) for melee, ranged, magic, and summoner classes
 - **Loadout Builder** — Save class-specific gear sets, import/export JSON snapshots, jump into active loadouts from other pages, and compare two loadouts side-by-side with metric deltas
-- **Saved Presets** — Save, rename, delete, and quickly reapply search/filter presets in Item Lookup, NPC Guide, and Biome Guide
+- **Saved Presets** — Save, rename, delete, and quickly reapply search/filter presets in Item Lookup, NPC Guide, Biome Guide, and Build Stages
+- **Command Palette** — Press `Ctrl+K` / `Cmd+K` to jump to routes, run quick actions, and apply common search presets from anywhere
+- **Backup & Restore** — Export and import full companion state snapshots (boss progress, loadouts, accessibility prefs, and saved presets)
+- **Progressive Web App (PWA)** — Install the app on desktop/mobile with offline-ready shell caching for faster repeat launches
+- **Error Resilience** — App-level error boundary with recovery actions keeps failures isolated instead of crashing the full UI
 - **NPC Guide** — All ~25 NPCs with full happiness tables and biome filter chips
 - **Biome Guide** — All ~20 biomes with resources, enemies, and NPC affinities
 - **Source Explorer** — Browse items by acquisition path first (crafted, drops, vendors, events, exploration) with shareable URL-backed filter state
@@ -24,9 +28,12 @@ A second-screen browser reference for Terraria players. Look up items, track bos
 |---|---|
 | Framework | React 19 + TypeScript |
 | Build | Vite |
+| PWA | vite-plugin-pwa |
 | Styling | Tailwind CSS v4 |
 | Routing | React Router v7 |
 | State / persistence | Zustand (persist) |
+| Virtualization | @tanstack/react-virtual |
+| Command palette | cmdk |
 | Fuzzy search | Fuse.js |
 | Icons | Lucide React |
 
@@ -76,6 +83,7 @@ The app is fully responsive and works on phones and tablets via a local network 
 | `npm run build` | Validate data, type-check, and build for production |
 | `npm run preview` | Preview production build locally |
 | `npm run lint` | Run ESLint |
+| `npm test` | Run unit/integration tests with Node test runner |
 | `npm run lib:build` | Generate declaration files for library output |
 
 

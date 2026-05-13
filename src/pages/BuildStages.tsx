@@ -553,6 +553,20 @@ export default function BuildStages() {
   }, [])
 
   useEffect(() => {
+    function onEscape(event: KeyboardEvent) {
+      if (event.key !== 'Escape' || !isMobile) {
+        return
+      }
+
+      setShowFiltersPanel(false)
+      setShowPresetsPanel(false)
+    }
+
+    window.addEventListener('keydown', onEscape)
+    return () => window.removeEventListener('keydown', onEscape)
+  }, [isMobile])
+
+  useEffect(() => {
     const next = new URLSearchParams()
 
     if (selectedClass !== 'melee') {

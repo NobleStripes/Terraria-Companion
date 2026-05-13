@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { Check, ChevronDown, ChevronUp, Copy, Filter, Heart, SlidersHorizontal, ThumbsDown, Minus, Trees, X } from 'lucide-react'
 import { npcs } from '@/data/index'
@@ -280,6 +280,20 @@ export default function NpcGuide() {
   const conflictRows = plannerRows.filter((row) => row.score < 0).slice(0, 4)
   const plannerPanelVisible = !isMobile || showPlannerPanel
   const biomePanelVisible = !isMobile || showBiomePanel
+
+  useEffect(() => {
+    function onEscape(event: KeyboardEvent) {
+      if (event.key !== 'Escape' || !isMobile) {
+        return
+      }
+
+      setShowPlannerPanel(false)
+      setShowBiomePanel(false)
+    }
+
+    window.addEventListener('keydown', onEscape)
+    return () => window.removeEventListener('keydown', onEscape)
+  }, [isMobile])
 
   function togglePlannerRoommate(id: string) {
     const nextRoommates = plannerRoommates.includes(id)

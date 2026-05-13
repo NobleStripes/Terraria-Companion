@@ -5,6 +5,9 @@
       "Item Lookup now includes a Recipe Path Planner that traverses multi-step ingredient chains, aggregates base-material requirements, and summarizes station usage.",
       "Recipe Path Planner now supports deterministic strategy selection for multi-recipe outputs: first-recipe fallback, fewest craft steps, or fewest unique stations.",
       "A new Item Source Explorer route provides source-first discovery across crafted, drop, vendor, event, and exploration paths with URL-backed category/facet/query state.",
+      "Global quality-of-life upgrades now include a command palette (Ctrl/Cmd+K), installable PWA support, and full companion backup/restore for persisted tracker, loadout, and preset state.",
+      "High-impact lists now use thresholded virtualization and memoized card rendering in Item Lookup and Boss Tracker for smoother scrolling on large datasets.",
+      "Resilience and delivery were hardened with an app-level error boundary, shared accessibility preference synchronization, Husky + lint-staged pre-commit gates, and a parallelized CI pipeline.",
       "Planner and source utility coverage gained focused automated tests for strategy selection and source normalization edge cases.",
       "App release surfaces were bumped to 1.3.0 while keeping the Terraria data version fixed at 1.4.5.6."
     ]

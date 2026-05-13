@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { Check, ChevronDown, ChevronUp, Copy, Filter, Mountain, Trees } from 'lucide-react'
 import { biomes, npcs } from '@/data/index'
@@ -215,6 +215,17 @@ export default function BiomeGuide() {
     })
 
   const filtersVisible = !isMobile || showFiltersPanel
+
+  useEffect(() => {
+    function onEscape(event: KeyboardEvent) {
+      if (event.key === 'Escape' && isMobile) {
+        setShowFiltersPanel(false)
+      }
+    }
+
+    window.addEventListener('keydown', onEscape)
+    return () => window.removeEventListener('keydown', onEscape)
+  }, [isMobile])
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-6">
