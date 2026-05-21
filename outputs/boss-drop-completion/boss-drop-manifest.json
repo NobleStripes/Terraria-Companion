@@ -46,11 +46,13 @@
         "Demonite Ore",
         "Eater of Worlds Relic",
         "Eater of Worlds Trophy",
-        "Shadow Scale"
+        "Rotten Chunks",
+        "Shadow Scale",
+        "Worm Scarf"
       ],
-      "reviewStatus": "todo",
+      "reviewStatus": "in-progress",
       "sourceUrl": "",
-      "notes": ""
+      "notes": "Seeded with known boss-linked drops found in existing item catalog; verify full table by mode."
     },
     {
       "id": "brain-of-cthulhu",
@@ -59,16 +61,18 @@
         "Brain of Cthulhu Relic",
         "Brain of Cthulhu Trophy",
         "Crimtane Ore",
-        "Tissue Sample"
+        "Tissue Sample",
+        "Vertebrae"
       ],
-      "reviewStatus": "todo",
+      "reviewStatus": "in-progress",
       "sourceUrl": "",
-      "notes": ""
+      "notes": "Seeded with known boss-linked drops found in existing item catalog; verify full table by mode."
     },
     {
       "id": "queen-bee",
       "name": "Queen Bee",
       "expectedDrops": [
+        "Bee Wax",
         "Bee Gun",
         "Bee Keeper",
         "Beehive",
@@ -78,9 +82,9 @@
         "Queen Bee Trophy",
         "Stinger"
       ],
-      "reviewStatus": "todo",
+      "reviewStatus": "in-progress",
       "sourceUrl": "",
-      "notes": ""
+      "notes": "Seeded with known boss-linked drops found in existing item catalog; verify full table by mode."
     },
     {
       "id": "skeletron",
@@ -175,6 +179,7 @@
       "name": "Plantera",
       "expectedDrops": [
         "Grenade Launcher",
+        "Greater Healing Potion",
         "Nightshade Petal",
         "Plantera Relic",
         "Plantera Trophy",
@@ -182,16 +187,18 @@
         "Seedler",
         "Temple Key",
         "Venus Magnum",
+        "Vulgar Display of Flower",
         "Wasp Gun"
       ],
-      "reviewStatus": "todo",
+      "reviewStatus": "in-progress",
       "sourceUrl": "",
-      "notes": ""
+      "notes": "Seeded with known boss-linked drops found in existing item catalog; verify full table by mode."
     },
     {
       "id": "golem",
       "name": "Golem",
       "expectedDrops": [
+        "Beetle Husk",
         "Eye of the Golem",
         "Golem Fist",
         "Golem Relic",
@@ -202,9 +209,9 @@
         "Staff of Earth",
         "Sun Stone"
       ],
-      "reviewStatus": "todo",
+      "reviewStatus": "in-progress",
       "sourceUrl": "",
-      "notes": ""
+      "notes": "Seeded with known boss-linked drops found in existing item catalog; verify full table by mode."
     },
     {
       "id": "duke-fishron",
@@ -216,11 +223,12 @@
         "Fishron Wings",
         "Flairon",
         "Razorblade Typhoon",
+        "Tsunami",
         "Tempest Staff"
       ],
-      "reviewStatus": "todo",
+      "reviewStatus": "in-progress",
       "sourceUrl": "",
-      "notes": ""
+      "notes": "Seeded with known boss-linked drops found in existing item catalog; verify full table by mode."
     },
     {
       "id": "empress-of-light",
@@ -255,8 +263,10 @@
       "name": "Moon Lord",
       "expectedDrops": [
         "Celeb II",
+        "Celestial Starboard",
         "Greater Healing Potion",
         "Last Prism",
+        "Luminite",
         "Lunar Flare",
         "Lunar Portal Staff",
         "Meowmere",
@@ -269,9 +279,9 @@
         "Star Wrath",
         "Terrarian"
       ],
-      "reviewStatus": "todo",
+      "reviewStatus": "in-progress",
       "sourceUrl": "",
-      "notes": ""
+      "notes": "Seeded with known boss-linked drops found in existing item catalog; verify full table by mode."
     }
   ]
 }
