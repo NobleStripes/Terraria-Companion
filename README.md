@@ -80,6 +80,7 @@ The app is fully responsive and works on phones and tablets via a local network 
 |---|---|
 | `npm run dev` | Start dev server |
 | `npm run validate:data` | Validate item data rules (stats, class rules, mana/crit consistency) |
+| `npm run boss-drops:prepare` | Generate boss/enemy drop completion workbook plus manifest templates in outputs/boss-drop-completion |
 | `npm run build` | Validate data, type-check, and build for production |
 | `npm run preview` | Preview production build locally |
 | `npm run lint` | Run ESLint |
