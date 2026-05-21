@@ -1,6 +1,6 @@
 # Boss And Enemy Drop Completion Workbook
 
-Generated: 2026-05-21T02:56:41.174Z
+Generated: 2026-05-21T03:01:10.360Z
 
 ## Goal
 Complete and verify tracked boss drops and enemy item drops from src/data/bosses.json and src/data/items.json.

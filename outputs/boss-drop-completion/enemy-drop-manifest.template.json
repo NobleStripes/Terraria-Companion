@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-21T02:56:41.172Z",
+  "generatedAt": "2026-05-21T03:01:10.358Z",
   "notes": [
     "Fill expectedDropItems for each enemy using authoritative Terraria references.",
     "The template starts from current item.enemyDrops mappings in src/data/items.json.",

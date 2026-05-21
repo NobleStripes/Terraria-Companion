@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-05-21T02:56:41.170Z",
+  "generatedAt": "2026-05-21T03:01:10.357Z",
   "notes": [
     "Fill expectedDrops for each boss using authoritative Terraria references.",
     "The template starts from current drops in src/data/bosses.json.",
