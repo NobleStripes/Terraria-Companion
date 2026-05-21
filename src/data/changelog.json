@@ -1,4 +1,14 @@
 [  {
+    "version": "1.3.1",
+    "date": "2026-05-21",
+    "highlights": [
+      "Boss drop coverage expanded with Master Mode Relics for all 17 tracked bosses, surfacing them in the Drop Wishlist, Loot Tracker, and Item Source Explorer.",
+      "Items catalog gained the corresponding 17 Relic furniture entries so wishlist filters and source cross-references resolve cleanly.",
+      "A new boss-drop validator was added to the data pipeline, asserting every entry in bosses.json resolves to a real item in items.json so future drop additions can't silently desync.",
+      "App release surfaces were bumped to 1.3.1 while keeping the Terraria data version fixed at 1.4.5.6."
+    ]
+  },
+  {
     "version": "1.3.0",
     "date": "2026-05-11",
     "highlights": [

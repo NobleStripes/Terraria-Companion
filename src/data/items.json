@@ -8085,5 +8085,1006 @@
     "critChance": 14,
     "useTime": 5,
     "progressionTier": "endgame"
+  },
+  {
+    "id": 5386,
+    "name": "King Slime Relic",
+    "type": "furniture",
+    "rarity": "red",
+    "tooltip": "A relic depicting King Slime",
+    "sources": [
+      "Always drops from King Slime in Master Mode",
+      "Can be placed as wall furniture"
+    ],
+    "wikiSlug": "King_Slime_Relic",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5387,
+    "name": "Eye of Cthulhu Relic",
+    "type": "furniture",
+    "rarity": "red",
+    "tooltip": "A relic depicting the Eye of Cthulhu",
+    "sources": [
+      "Always drops from Eye of Cthulhu in Master Mode",
+      "Can be placed as wall furniture"
+    ],
+    "wikiSlug": "Eye_of_Cthulhu_Relic",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5388,
+    "name": "Eater of Worlds Relic",
+    "type": "furniture",
+    "rarity": "red",
+    "tooltip": "A relic depicting the Eater of Worlds",
+    "sources": [
+      "Always drops from Eater of Worlds in Master Mode",
+      "Can be placed as wall furniture"
+    ],
+    "wikiSlug": "Eater_of_Worlds_Relic",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5389,
+    "name": "Brain of Cthulhu Relic",
+    "type": "furniture",
+    "rarity": "red",
+    "tooltip": "A relic depicting the Brain of Cthulhu",
+    "sources": [
+      "Always drops from Brain of Cthulhu in Master Mode",
+      "Can be placed as wall furniture"
+    ],
+    "wikiSlug": "Brain_of_Cthulhu_Relic",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5390,
+    "name": "Queen Bee Relic",
+    "type": "furniture",
+    "rarity": "red",
+    "tooltip": "A relic depicting Queen Bee",
+    "sources": [
+      "Always drops from Queen Bee in Master Mode",
+      "Can be placed as wall furniture"
+    ],
+    "wikiSlug": "Queen_Bee_Relic",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5391,
+    "name": "Skeletron Relic",
+    "type": "furniture",
+    "rarity": "red",
+    "tooltip": "A relic depicting Skeletron",
+    "sources": [
+      "Always drops from Skeletron in Master Mode",
+      "Can be placed as wall furniture"
+    ],
+    "wikiSlug": "Skeletron_Relic",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5392,
+    "name": "Wall of Flesh Relic",
+    "type": "furniture",
+    "rarity": "red",
+    "tooltip": "A relic depicting the Wall of Flesh",
+    "sources": [
+      "Always drops from Wall of Flesh in Master Mode",
+      "Can be placed as wall furniture"
+    ],
+    "wikiSlug": "Wall_of_Flesh_Relic",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5393,
+    "name": "Queen Slime Relic",
+    "type": "furniture",
+    "rarity": "red",
+    "tooltip": "A relic depicting Queen Slime",
+    "sources": [
+      "Always drops from Queen Slime in Master Mode",
+      "Can be placed as wall furniture"
+    ],
+    "wikiSlug": "Queen_Slime_Relic",
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5394,
+    "name": "The Twins Relic",
+    "type": "furniture",
+    "rarity": "red",
+    "tooltip": "A relic depicting The Twins",
+    "sources": [
+      "Always drops from The Twins in Master Mode",
+      "Can be placed as wall furniture"
+    ],
+    "wikiSlug": "Twins_Relic",
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5395,
+    "name": "Destroyer Relic",
+    "type": "furniture",
+    "rarity": "red",
+    "tooltip": "A relic depicting The Destroyer",
+    "sources": [
+      "Always drops from The Destroyer in Master Mode",
+      "Can be placed as wall furniture"
+    ],
+    "wikiSlug": "Destroyer_Relic",
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5396,
+    "name": "Skeletron Prime Relic",
+    "type": "furniture",
+    "rarity": "red",
+    "tooltip": "A relic depicting Skeletron Prime",
+    "sources": [
+      "Always drops from Skeletron Prime in Master Mode",
+      "Can be placed as wall furniture"
+    ],
+    "wikiSlug": "Skeletron_Prime_Relic",
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5397,
+    "name": "Plantera Relic",
+    "type": "furniture",
+    "rarity": "red",
+    "tooltip": "A relic depicting Plantera",
+    "sources": [
+      "Always drops from Plantera in Master Mode",
+      "Can be placed as wall furniture"
+    ],
+    "wikiSlug": "Plantera_Relic",
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5398,
+    "name": "Golem Relic",
+    "type": "furniture",
+    "rarity": "red",
+    "tooltip": "A relic depicting Golem",
+    "sources": [
+      "Always drops from Golem in Master Mode",
+      "Can be placed as wall furniture"
+    ],
+    "wikiSlug": "Golem_Relic",
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5399,
+    "name": "Duke Fishron Relic",
+    "type": "furniture",
+    "rarity": "red",
+    "tooltip": "A relic depicting Duke Fishron",
+    "sources": [
+      "Always drops from Duke Fishron in Master Mode",
+      "Can be placed as wall furniture"
+    ],
+    "wikiSlug": "Duke_Fishron_Relic",
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5400,
+    "name": "Empress of Light Relic",
+    "type": "furniture",
+    "rarity": "red",
+    "tooltip": "A relic depicting the Empress of Light",
+    "sources": [
+      "Always drops from Empress of Light in Master Mode",
+      "Can be placed as wall furniture"
+    ],
+    "wikiSlug": "Empress_of_Light_Relic",
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5401,
+    "name": "Lunatic Cultist Relic",
+    "type": "furniture",
+    "rarity": "red",
+    "tooltip": "A relic depicting the Lunatic Cultist",
+    "sources": [
+      "Always drops from Lunatic Cultist in Master Mode",
+      "Can be placed as wall furniture"
+    ],
+    "wikiSlug": "Lunatic_Cultist_Relic",
+    "progressionTier": "endgame"
+  },
+  {
+    "id": 5402,
+    "name": "Moon Lord Relic",
+    "type": "furniture",
+    "rarity": "red",
+    "tooltip": "A relic depicting the Moon Lord",
+    "sources": [
+      "Always drops from Moon Lord in Master Mode",
+      "Can be placed as wall furniture"
+    ],
+    "wikiSlug": "Moon_Lord_Relic",
+    "progressionTier": "endgame"
+  },
+  {
+    "id": 5403,
+    "name": "King Slime Trophy",
+    "type": "furniture",
+    "rarity": "blue",
+    "tooltip": "A trophy from King Slime",
+    "sources": [
+      "10% drop from King Slime",
+      "Can be placed as wall furniture"
+    ],
+    "wikiSlug": "King_Slime_Trophy",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5404,
+    "name": "Eye of Cthulhu Trophy",
+    "type": "furniture",
+    "rarity": "blue",
+    "tooltip": "A trophy from the Eye of Cthulhu",
+    "sources": [
+      "10% drop from Eye of Cthulhu",
+      "Can be placed as wall furniture"
+    ],
+    "wikiSlug": "Eye_of_Cthulhu_Trophy",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5405,
+    "name": "Eater of Worlds Trophy",
+    "type": "furniture",
+    "rarity": "blue",
+    "tooltip": "A trophy from the Eater of Worlds",
+    "sources": [
+      "10% drop from Eater of Worlds",
+      "Can be placed as wall furniture"
+    ],
+    "wikiSlug": "Eater_of_Worlds_Trophy",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5406,
+    "name": "Brain of Cthulhu Trophy",
+    "type": "furniture",
+    "rarity": "blue",
+    "tooltip": "A trophy from the Brain of Cthulhu",
+    "sources": [
+      "10% drop from Brain of Cthulhu",
+      "Can be placed as wall furniture"
+    ],
+    "wikiSlug": "Brain_of_Cthulhu_Trophy",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5407,
+    "name": "Queen Bee Trophy",
+    "type": "furniture",
+    "rarity": "blue",
+    "tooltip": "A trophy from Queen Bee",
+    "sources": [
+      "10% drop from Queen Bee",
+      "Can be placed as wall furniture"
+    ],
+    "wikiSlug": "Queen_Bee_Trophy",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5408,
+    "name": "Skeletron Trophy",
+    "type": "furniture",
+    "rarity": "blue",
+    "tooltip": "A trophy from Skeletron",
+    "sources": [
+      "10% drop from Skeletron",
+      "Can be placed as wall furniture"
+    ],
+    "wikiSlug": "Skeletron_Trophy",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5409,
+    "name": "Wall of Flesh Trophy",
+    "type": "furniture",
+    "rarity": "blue",
+    "tooltip": "A trophy from the Wall of Flesh",
+    "sources": [
+      "10% drop from Wall of Flesh",
+      "Can be placed as wall furniture"
+    ],
+    "wikiSlug": "Wall_of_Flesh_Trophy",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5410,
+    "name": "Queen Slime Trophy",
+    "type": "furniture",
+    "rarity": "blue",
+    "tooltip": "A trophy from Queen Slime",
+    "sources": [
+      "10% drop from Queen Slime",
+      "Can be placed as wall furniture"
+    ],
+    "wikiSlug": "Queen_Slime_Trophy",
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5411,
+    "name": "The Twins Trophy",
+    "type": "furniture",
+    "rarity": "blue",
+    "tooltip": "A trophy from The Twins",
+    "sources": [
+      "10% drop from each Twin (Retinazer or Spazmatism)",
+      "Can be placed as wall furniture"
+    ],
+    "wikiSlug": "Twins_Trophy",
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5412,
+    "name": "Destroyer Trophy",
+    "type": "furniture",
+    "rarity": "blue",
+    "tooltip": "A trophy from The Destroyer",
+    "sources": [
+      "10% drop from The Destroyer",
+      "Can be placed as wall furniture"
+    ],
+    "wikiSlug": "Destroyer_Trophy",
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5413,
+    "name": "Skeletron Prime Trophy",
+    "type": "furniture",
+    "rarity": "blue",
+    "tooltip": "A trophy from Skeletron Prime",
+    "sources": [
+      "10% drop from Skeletron Prime",
+      "Can be placed as wall furniture"
+    ],
+    "wikiSlug": "Skeletron_Prime_Trophy",
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5414,
+    "name": "Plantera Trophy",
+    "type": "furniture",
+    "rarity": "blue",
+    "tooltip": "A trophy from Plantera",
+    "sources": [
+      "10% drop from Plantera",
+      "Can be placed as wall furniture"
+    ],
+    "wikiSlug": "Plantera_Trophy",
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5415,
+    "name": "Golem Trophy",
+    "type": "furniture",
+    "rarity": "blue",
+    "tooltip": "A trophy from Golem",
+    "sources": [
+      "10% drop from Golem",
+      "Can be placed as wall furniture"
+    ],
+    "wikiSlug": "Golem_Trophy",
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5416,
+    "name": "Duke Fishron Trophy",
+    "type": "furniture",
+    "rarity": "blue",
+    "tooltip": "A trophy from Duke Fishron",
+    "sources": [
+      "10% drop from Duke Fishron",
+      "Can be placed as wall furniture"
+    ],
+    "wikiSlug": "Duke_Fishron_Trophy",
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5417,
+    "name": "Empress of Light Trophy",
+    "type": "furniture",
+    "rarity": "blue",
+    "tooltip": "A trophy from the Empress of Light",
+    "sources": [
+      "10% drop from Empress of Light",
+      "Can be placed as wall furniture"
+    ],
+    "wikiSlug": "Empress_of_Light_Trophy",
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5418,
+    "name": "Lunatic Cultist Trophy",
+    "type": "furniture",
+    "rarity": "blue",
+    "tooltip": "A trophy from the Lunatic Cultist",
+    "sources": [
+      "10% drop from Lunatic Cultist",
+      "Can be placed as wall furniture"
+    ],
+    "wikiSlug": "Lunatic_Cultist_Trophy",
+    "progressionTier": "endgame"
+  },
+  {
+    "id": 5419,
+    "name": "Moon Lord Trophy",
+    "type": "furniture",
+    "rarity": "blue",
+    "tooltip": "A trophy from the Moon Lord",
+    "sources": [
+      "10% drop from Moon Lord",
+      "Can be placed as wall furniture"
+    ],
+    "wikiSlug": "Moon_Lord_Trophy",
+    "progressionTier": "endgame"
+  },
+  {
+    "id": 5420,
+    "name": "Slime Hook",
+    "type": "tool",
+    "rarity": "blue",
+    "tooltip": "Grapples surfaces with a slimy hook chain.",
+    "sources": [
+      "25% drop from King Slime"
+    ],
+    "wikiSlug": "Slime_Hook",
+    "damage": 0,
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5421,
+    "name": "Ninja Hood",
+    "type": "misc",
+    "rarity": "white",
+    "tooltip": "Vanity hood from the Ninja set.",
+    "sources": [
+      "1/7 vanity drop from King Slime"
+    ],
+    "wikiSlug": "Ninja_Hood",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5422,
+    "name": "Ninja Shirt",
+    "type": "misc",
+    "rarity": "white",
+    "tooltip": "Vanity shirt from the Ninja set.",
+    "sources": [
+      "1/7 vanity drop from King Slime"
+    ],
+    "wikiSlug": "Ninja_Shirt",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5423,
+    "name": "Ninja Pants",
+    "type": "misc",
+    "rarity": "white",
+    "tooltip": "Vanity pants from the Ninja set.",
+    "sources": [
+      "1/7 vanity drop from King Slime"
+    ],
+    "wikiSlug": "Ninja_Pants",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5424,
+    "name": "Royal Gel",
+    "type": "accessory",
+    "rarity": "green",
+    "tooltip": "Slimes become friendly.",
+    "sources": [
+      "Always drops from King Slime in Expert Mode (Treasure Bag)"
+    ],
+    "wikiSlug": "Royal_Gel",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5425,
+    "name": "Binoculars",
+    "type": "accessory",
+    "rarity": "white",
+    "tooltip": "Right-click to look further from your character.",
+    "sources": [
+      "33% drop from Eye of Cthulhu"
+    ],
+    "wikiSlug": "Binoculars",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5426,
+    "name": "Bee Gun",
+    "type": "weapon",
+    "rarity": "green",
+    "tooltip": "Shoots a swarm of homing bees.",
+    "sources": [
+      "Queen Bee (drop)"
+    ],
+    "wikiSlug": "Bee_Gun",
+    "damage": 9,
+    "knockback": 0,
+    "critChance": 4,
+    "useTime": 24,
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5427,
+    "name": "Bee Keeper",
+    "type": "weapon",
+    "rarity": "green",
+    "tooltip": "Releases bees on hit.",
+    "sources": [
+      "Queen Bee (drop)"
+    ],
+    "wikiSlug": "Bee_Keeper",
+    "damage": 24,
+    "knockback": 4,
+    "critChance": 4,
+    "useTime": 25,
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5428,
+    "name": "Beehive",
+    "type": "misc",
+    "rarity": "white",
+    "tooltip": "Summoning item used to spawn Queen Bee.",
+    "sources": [
+      "Found inside Larva in Bee Hives",
+      "Also dropped from Queen Bee"
+    ],
+    "wikiSlug": "Abeemination",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5429,
+    "name": "Nectar",
+    "type": "consumable",
+    "rarity": "white",
+    "tooltip": "Honey-based consumable from Queen Bee.",
+    "sources": [
+      "Queen Bee (drop)"
+    ],
+    "wikiSlug": "Nectar",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5430,
+    "name": "Honey Comb",
+    "type": "accessory",
+    "rarity": "green",
+    "tooltip": "Spawns bees when the wearer is damaged.",
+    "sources": [
+      "Queen Bee (drop)"
+    ],
+    "wikiSlug": "Honey_Comb",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5431,
+    "name": "Skeletron Hand",
+    "type": "misc",
+    "rarity": "green",
+    "tooltip": "Hand vanity from Skeletron.",
+    "sources": [
+      "Skeletron (drop)"
+    ],
+    "wikiSlug": "Skeletron_Hand",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5432,
+    "name": "Book of Skulls",
+    "type": "weapon",
+    "rarity": "green",
+    "tooltip": "Fires a flaming skull projectile.",
+    "sources": [
+      "Skeletron (drop)"
+    ],
+    "wikiSlug": "Book_of_Skulls",
+    "damage": 16,
+    "knockback": 6,
+    "critChance": 4,
+    "useTime": 28,
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5433,
+    "name": "Golden Key",
+    "type": "consumable",
+    "rarity": "white",
+    "tooltip": "Opens Gold Chests inside the Dungeon.",
+    "sources": [
+      "Dungeon enemies",
+      "Skeletron (drop)"
+    ],
+    "wikiSlug": "Golden_Key",
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5434,
+    "name": "Breaker Blade",
+    "type": "weapon",
+    "rarity": "orange",
+    "tooltip": "Heavy hardmode-tier sword from the Wall of Flesh.",
+    "sources": [
+      "Wall of Flesh (drop)"
+    ],
+    "wikiSlug": "Breaker_Blade",
+    "damage": 39,
+    "knockback": 7,
+    "critChance": 4,
+    "useTime": 45,
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5435,
+    "name": "Clockwork Assault Rifle",
+    "type": "weapon",
+    "rarity": "orange",
+    "tooltip": "Fires 3-round bursts of bullets.",
+    "sources": [
+      "Wall of Flesh (drop)"
+    ],
+    "wikiSlug": "Clockwork_Assault_Rifle",
+    "damage": 21,
+    "knockback": 4,
+    "critChance": 4,
+    "useTime": 18,
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5436,
+    "name": "Laser Rifle",
+    "type": "weapon",
+    "rarity": "orange",
+    "tooltip": "Rapidly fires laser bolts.",
+    "sources": [
+      "Wall of Flesh (drop)"
+    ],
+    "wikiSlug": "Laser_Rifle",
+    "damage": 38,
+    "knockback": 1,
+    "critChance": 4,
+    "useTime": 11,
+    "progressionTier": "pre-hardmode"
+  },
+  {
+    "id": 5437,
+    "name": "Volatile Gelatin",
+    "type": "accessory",
+    "rarity": "lightRed",
+    "tooltip": "Periodically releases bouncing pink slimes.",
+    "sources": [
+      "Always drops from Queen Slime in Expert Mode (Treasure Bag)"
+    ],
+    "wikiSlug": "Volatile_Gelatin",
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5438,
+    "name": "Gelatinous Pillion",
+    "type": "misc",
+    "rarity": "lightRed",
+    "tooltip": "Summons a Winged Slime mount.",
+    "sources": [
+      "Queen Slime (drop)"
+    ],
+    "wikiSlug": "Gelatinous_Pillion",
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5439,
+    "name": "Crystal Assassin Armor",
+    "type": "armor",
+    "rarity": "lightRed",
+    "tooltip": "Three-piece vanity-styled armor set dropped by Queen Slime.",
+    "sources": [
+      "Queen Slime (drop)"
+    ],
+    "wikiSlug": "Crystal_Assassin_armor",
+    "defense": 23,
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5440,
+    "name": "Temple Key",
+    "type": "consumable",
+    "rarity": "lightRed",
+    "tooltip": "Opens the Lihzahrd Temple door.",
+    "sources": [
+      "Always drops from Plantera"
+    ],
+    "wikiSlug": "Temple_Key",
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5441,
+    "name": "Grenade Launcher",
+    "type": "weapon",
+    "rarity": "lightRed",
+    "tooltip": "Fires rockets that explode on impact.",
+    "sources": [
+      "Plantera (drop)"
+    ],
+    "wikiSlug": "Grenade_Launcher",
+    "damage": 50,
+    "knockback": 5,
+    "critChance": 4,
+    "useTime": 45,
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5442,
+    "name": "Nightshade Petal",
+    "type": "misc",
+    "rarity": "lightRed",
+    "tooltip": "Plantera-themed crafting petal.",
+    "sources": [
+      "Plantera (drop)"
+    ],
+    "wikiSlug": "Nightshade_Petal",
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5443,
+    "name": "Wasp Gun",
+    "type": "weapon",
+    "rarity": "lightRed",
+    "tooltip": "Shoots a swarm of wasps that home in on enemies.",
+    "sources": [
+      "Plantera (drop)"
+    ],
+    "wikiSlug": "Wasp_Gun",
+    "damage": 32,
+    "knockback": 0.5,
+    "critChance": 4,
+    "useTime": 12,
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5444,
+    "name": "Seedler",
+    "type": "weapon",
+    "rarity": "lightRed",
+    "tooltip": "Sword that releases homing seed pods that burst into seeds.",
+    "sources": [
+      "Plantera (drop)"
+    ],
+    "wikiSlug": "Seedler",
+    "damage": 75,
+    "knockback": 6.75,
+    "critChance": 4,
+    "useTime": 30,
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5445,
+    "name": "Heat Ray",
+    "type": "weapon",
+    "rarity": "lightRed",
+    "tooltip": "Fires a continuous beam of heat that pierces enemies.",
+    "sources": [
+      "Golem (drop)"
+    ],
+    "wikiSlug": "Heat_Ray",
+    "damage": 50,
+    "knockback": 4,
+    "critChance": 4,
+    "useTime": 13,
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5446,
+    "name": "Staff of Earth",
+    "type": "weapon",
+    "rarity": "lightRed",
+    "tooltip": "Casts massive bouncing boulders.",
+    "sources": [
+      "Golem (drop)"
+    ],
+    "wikiSlug": "Staff_of_Earth",
+    "damage": 90,
+    "knockback": 6.5,
+    "critChance": 4,
+    "useTime": 35,
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5447,
+    "name": "Sun Stone",
+    "type": "accessory",
+    "rarity": "yellow",
+    "tooltip": "Boosts stats during the day. Combines with Moon Stone into Celestial Stone.",
+    "sources": [
+      "Golem (drop)"
+    ],
+    "wikiSlug": "Sun_Stone",
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5448,
+    "name": "Eye of the Golem",
+    "type": "accessory",
+    "rarity": "yellow",
+    "tooltip": "+10% critical strike chance.",
+    "sources": [
+      "Golem (drop)"
+    ],
+    "wikiSlug": "Eye_of_the_Golem",
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5449,
+    "name": "Golem Fist",
+    "type": "weapon",
+    "rarity": "lightRed",
+    "tooltip": "Punches enemies with extended fist range.",
+    "sources": [
+      "Golem (drop)"
+    ],
+    "wikiSlug": "Golem_Fist",
+    "damage": 90,
+    "knockback": 9,
+    "critChance": 4,
+    "useTime": 13,
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5450,
+    "name": "Terraprisma",
+    "type": "weapon",
+    "rarity": "purple",
+    "tooltip": "Summons four prismatic blades that strike enemies. Daytime Empress kill only.",
+    "sources": [
+      "Always drops from Empress of Light when killed during the day"
+    ],
+    "wikiSlug": "Terraprisma",
+    "damage": 80,
+    "knockback": 1,
+    "critChance": 4,
+    "useTime": 8,
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5451,
+    "name": "Nightglow",
+    "type": "weapon",
+    "rarity": "yellow",
+    "tooltip": "Casts a homing fairy that explodes in a starburst.",
+    "sources": [
+      "Empress of Light (drop)"
+    ],
+    "wikiSlug": "Nightglow",
+    "damage": 95,
+    "knockback": 5,
+    "critChance": 4,
+    "useTime": 25,
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5452,
+    "name": "Starlight",
+    "type": "weapon",
+    "rarity": "yellow",
+    "tooltip": "Conjures beams of starlight on enemies.",
+    "sources": [
+      "Empress of Light (drop)"
+    ],
+    "wikiSlug": "Starlight",
+    "damage": 80,
+    "knockback": 4,
+    "critChance": 4,
+    "useTime": 7,
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5453,
+    "name": "Empress Wings",
+    "type": "accessory",
+    "rarity": "yellow",
+    "tooltip": "Wings styled after the Empress of Light.",
+    "sources": [
+      "Empress of Light (drop)"
+    ],
+    "wikiSlug": "Empress_Wings",
+    "progressionTier": "early-hardmode"
+  },
+  {
+    "id": 5454,
+    "name": "Ancient Manipulator",
+    "type": "furniture",
+    "rarity": "lightRed",
+    "tooltip": "Crafting station used for Lunar and Solar tier recipes.",
+    "sources": [
+      "Always drops from Lunatic Cultist"
+    ],
+    "wikiSlug": "Ancient_Manipulator",
+    "progressionTier": "endgame"
+  },
+  {
+    "id": 5455,
+    "name": "Celeb II",
+    "type": "weapon",
+    "rarity": "red",
+    "tooltip": "Fires high-damage rockets with bouncing shrapnel.",
+    "sources": [
+      "Moon Lord (drop)"
+    ],
+    "wikiSlug": "Celeb_II",
+    "damage": 220,
+    "knockback": 6,
+    "critChance": 4,
+    "useTime": 45,
+    "progressionTier": "endgame"
+  },
+  {
+    "id": 5456,
+    "name": "Rainbow Crystal Staff",
+    "type": "weapon",
+    "rarity": "red",
+    "tooltip": "Summons a stationary rainbow crystal sentry.",
+    "sources": [
+      "Moon Lord (drop)"
+    ],
+    "wikiSlug": "Rainbow_Crystal_Staff",
+    "damage": 100,
+    "knockback": 7,
+    "critChance": 4,
+    "useTime": 35,
+    "progressionTier": "endgame"
+  },
+  {
+    "id": 5457,
+    "name": "Lunar Portal Staff",
+    "type": "weapon",
+    "rarity": "red",
+    "tooltip": "Summons a stationary portal sentry that fires Phantasmal Bolts.",
+    "sources": [
+      "Moon Lord (drop)"
+    ],
+    "wikiSlug": "Lunar_Portal_Staff",
+    "damage": 95,
+    "knockback": 6,
+    "critChance": 4,
+    "useTime": 35,
+    "progressionTier": "endgame"
+  },
+  {
+    "id": 5458,
+    "name": "Portal Gun",
+    "type": "tool",
+    "rarity": "yellow",
+    "tooltip": "Fires portals you can travel through.",
+    "sources": [
+      "Moon Lord (drop)"
+    ],
+    "wikiSlug": "Portal_Gun",
+    "damage": 0,
+    "progressionTier": "endgame"
+  },
+  {
+    "id": 5459,
+    "name": "Greater Healing Potion",
+    "type": "consumable",
+    "rarity": "blue",
+    "tooltip": "Restores 150 health. 60-second cooldown.",
+    "sources": [
+      "Crafted",
+      "Hardmode and post-Plantera chests",
+      "Moon Lord (drop)"
+    ],
+    "wikiSlug": "Greater_Healing_Potion",
+    "progressionTier": "endgame"
   }
 ]

@@ -12,7 +12,8 @@
       "Ninja Shirt",
       "Ninja Pants",
       "Royal Gel",
-      "King Slime Trophy"
+      "King Slime Trophy",
+      "King Slime Relic"
     ],
     "recommendedGear": [
       {
@@ -101,7 +102,8 @@
       "Corrupt Seeds",
       "Crimson Seeds",
       "Binoculars",
-      "Eye of Cthulhu Trophy"
+      "Eye of Cthulhu Trophy",
+      "Eye of Cthulhu Relic"
     ],
     "recommendedGear": [
       {
@@ -195,7 +197,8 @@
     "drops": [
       "Demonite Ore",
       "Shadow Scale",
-      "Eater of Worlds Trophy"
+      "Eater of Worlds Trophy",
+      "Eater of Worlds Relic"
     ],
     "recommendedGear": [
       {
@@ -286,7 +289,8 @@
     "drops": [
       "Crimtane Ore",
       "Tissue Sample",
-      "Brain of Cthulhu Trophy"
+      "Brain of Cthulhu Trophy",
+      "Brain of Cthulhu Relic"
     ],
     "recommendedGear": [
       {
@@ -376,7 +380,8 @@
       "Nectar",
       "Stinger",
       "Honey Comb",
-      "Queen Bee Trophy"
+      "Queen Bee Trophy",
+      "Queen Bee Relic"
     ],
     "recommendedGear": [
       {
@@ -468,7 +473,8 @@
       "Skeletron Hand",
       "Book of Skulls",
       "Golden Key",
-      "Skeletron Trophy"
+      "Skeletron Trophy",
+      "Skeletron Relic"
     ],
     "recommendedGear": [
       {
@@ -565,7 +571,8 @@
       "Sorcerer Emblem",
       "Ranger Emblem",
       "Summoner Emblem",
-      "Wall of Flesh Trophy"
+      "Wall of Flesh Trophy",
+      "Wall of Flesh Relic"
     ],
     "recommendedGear": [
       {
@@ -661,7 +668,8 @@
       "Volatile Gelatin",
       "Gelatinous Pillion",
       "Crystal Assassin Armor",
-      "Queen Slime Trophy"
+      "Queen Slime Trophy",
+      "Queen Slime Relic"
     ],
     "recommendedGear": [
       {
@@ -753,9 +761,10 @@
     "summonCondition": "Spawns randomly at night in Hardmode, or summon with Mechanical Eye",
     "drops": [
       "Hallowed Bars",
-      "Souls of Sight",
+      "Soul of Sight",
       "Optic Staff",
-      "The Twins Trophy"
+      "The Twins Trophy",
+      "The Twins Relic"
     ],
     "recommendedGear": [
       {
@@ -850,8 +859,9 @@
     "summonCondition": "Spawns randomly at night in Hardmode, or summon with Mechanical Worm",
     "drops": [
       "Hallowed Bars",
-      "Souls of Might",
-      "Destroyer Trophy"
+      "Soul of Might",
+      "Destroyer Trophy",
+      "Destroyer Relic"
     ],
     "recommendedGear": [
       {
@@ -938,8 +948,9 @@
     "summonCondition": "Spawns randomly at night in Hardmode, or summon with Mechanical Skull",
     "drops": [
       "Hallowed Bars",
-      "Souls of Fright",
-      "Skeletron Prime Trophy"
+      "Soul of Fright",
+      "Skeletron Prime Trophy",
+      "Skeletron Prime Relic"
     ],
     "recommendedGear": [
       {
@@ -1034,7 +1045,8 @@
       "Pygmy Staff",
       "Wasp Gun",
       "Seedler",
-      "Plantera Trophy"
+      "Plantera Trophy",
+      "Plantera Relic"
     ],
     "recommendedGear": [
       {
@@ -1135,7 +1147,8 @@
       "Sun Stone",
       "Eye of the Golem",
       "Golem Fist",
-      "Golem Trophy"
+      "Golem Trophy",
+      "Golem Relic"
     ],
     "recommendedGear": [
       {
@@ -1232,7 +1245,8 @@
       "Razorblade Typhoon",
       "Tempest Staff",
       "Bubble Gun",
-      "Duke Fishron Trophy"
+      "Duke Fishron Trophy",
+      "Duke Fishron Relic"
     ],
     "recommendedGear": [
       {
@@ -1319,12 +1333,13 @@
     "summonItem": "Prismatic Lacewing",
     "summonCondition": "Kill a Prismatic Lacewing butterfly in the Hallow at night. Killing her during the day makes all her attacks one-shot you.",
     "drops": [
-      "Terraprisma (daytime kill only)",
+      "Terraprisma",
       "Kaleidoscope",
       "Nightglow",
       "Starlight",
       "Empress Wings",
-      "Empress of Light Trophy"
+      "Empress of Light Trophy",
+      "Empress of Light Relic"
     ],
     "recommendedGear": [
       {
@@ -1412,6 +1427,7 @@
     "summonCondition": "Kill the four Cultists at the Dungeon entrance after defeating Golem",
     "drops": [
       "Lunatic Cultist Trophy",
+      "Lunatic Cultist Relic",
       "Ancient Manipulator"
     ],
     "recommendedGear": [
@@ -1513,7 +1529,8 @@
       "Lunar Portal Staff",
       "Portal Gun",
       "Greater Healing Potion",
-      "Moon Lord Trophy"
+      "Moon Lord Trophy",
+      "Moon Lord Relic"
     ],
     "recommendedGear": [
       {
