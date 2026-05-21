@@ -1,17 +1,10 @@
 {
-  "generatedAt": "2026-05-21T03:13:27.301Z",
+  "generatedAt": "2026-05-21T03:18:39.438Z",
   "writeMode": true,
   "summary": {
     "bossesChanged": 0,
-    "itemsEnemyDropsChanged": 1
+    "itemsEnemyDropsChanged": 0
   },
   "bossChanges": [],
-  "enemyChanges": [
-    {
-      "itemId": 467,
-      "itemName": "Pirate Staff",
-      "beforeCount": 2,
-      "afterCount": 3
-    }
-  ]
+  "enemyChanges": []
 }

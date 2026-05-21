@@ -46,6 +46,16 @@
       "notes": ""
     },
     {
+      "name": "Brain of Cthulhu",
+      "expectedDropItems": [
+        "Brain of Cthulhu Relic",
+        "Brain of Cthulhu Trophy"
+      ],
+      "reviewStatus": "in-progress",
+      "sourceUrl": "",
+      "notes": "Pass 4b specific-enemy mapping from explicit relic/trophy source text; verify mode constraints."
+    },
+    {
       "name": "Crawdad",
       "expectedDropItems": [
         "Rally"
@@ -118,6 +128,16 @@
       "notes": ""
     },
     {
+      "name": "Duke Fishron",
+      "expectedDropItems": [
+        "Duke Fishron Relic",
+        "Duke Fishron Trophy"
+      ],
+      "reviewStatus": "in-progress",
+      "sourceUrl": "",
+      "notes": "Pass 4b specific-enemy mapping from explicit relic/trophy source text; verify mode constraints."
+    },
+    {
       "name": "Dungeon Spirit",
       "expectedDropItems": [
         "Ectoplasm"
@@ -127,6 +147,16 @@
       "notes": ""
     },
     {
+      "name": "Eater of Worlds",
+      "expectedDropItems": [
+        "Eater of Worlds Relic",
+        "Eater of Worlds Trophy"
+      ],
+      "reviewStatus": "in-progress",
+      "sourceUrl": "",
+      "notes": "Pass 4b specific-enemy mapping from explicit relic/trophy source text; verify mode constraints."
+    },
+    {
       "name": "Eater of Worlds (Treasure Bag, Expert/Master)",
       "expectedDropItems": [
         "Worm Scarf"
@@ -134,6 +164,28 @@
       "reviewStatus": "todo",
       "sourceUrl": "",
       "notes": ""
+    },
+    {
+      "name": "Empress of Light",
+      "expectedDropItems": [
+        "Empress of Light Relic",
+        "Empress of Light Trophy",
+        "Terraprisma"
+      ],
+      "reviewStatus": "in-progress",
+      "sourceUrl": "",
+      "notes": "Pass 4 specific-enemy mapping from explicit source text; verify mode/daytime constraints where applicable."
+    },
+    {
+      "name": "Eye of Cthulhu",
+      "expectedDropItems": [
+        "Binoculars",
+        "Eye of Cthulhu Relic",
+        "Eye of Cthulhu Trophy"
+      ],
+      "reviewStatus": "in-progress",
+      "sourceUrl": "",
+      "notes": "Pass 4 specific-enemy mapping from explicit source text; verify mode/daytime constraints where applicable."
     },
     {
       "name": "Flying Dutchman",
@@ -191,6 +243,16 @@
       "notes": ""
     },
     {
+      "name": "Golem",
+      "expectedDropItems": [
+        "Golem Relic",
+        "Golem Trophy"
+      ],
+      "reviewStatus": "in-progress",
+      "sourceUrl": "",
+      "notes": "Pass 4b specific-enemy mapping from explicit relic/trophy source text; verify mode constraints."
+    },
+    {
       "name": "Green Slime",
       "expectedDropItems": [
         "Gel"
@@ -216,6 +278,42 @@
       "reviewStatus": "in-progress",
       "sourceUrl": "",
       "notes": "Pass 3 broad-category mapping from item source text; verify biome/event constraints."
+    },
+    {
+      "name": "King Slime",
+      "expectedDropItems": [
+        "King Slime Relic",
+        "King Slime Trophy",
+        "Ninja Hood",
+        "Ninja Pants",
+        "Ninja Shirt",
+        "Slime Hook"
+      ],
+      "reviewStatus": "in-progress",
+      "sourceUrl": "",
+      "notes": "Pass 4 specific-enemy mapping from explicit source text; verify mode/daytime constraints where applicable."
+    },
+    {
+      "name": "Lunatic Cultist",
+      "expectedDropItems": [
+        "Ancient Manipulator",
+        "Lunatic Cultist Relic",
+        "Lunatic Cultist Trophy"
+      ],
+      "reviewStatus": "in-progress",
+      "sourceUrl": "",
+      "notes": "Pass 4 specific-enemy mapping from explicit source text; verify mode/daytime constraints where applicable."
+    },
+    {
+      "name": "Moon Lord",
+      "expectedDropItems": [
+        "Moon Lord Relic",
+        "Moon Lord Trophy",
+        "S.D.M.G."
+      ],
+      "reviewStatus": "in-progress",
+      "sourceUrl": "",
+      "notes": "Pass 4 specific-enemy mapping from explicit source text; verify mode/daytime constraints where applicable."
     },
     {
       "name": "Ogre",
@@ -279,6 +377,37 @@
       "notes": "Pass 3 broad-category mapping from item source text; verify biome/event constraints."
     },
     {
+      "name": "Plantera",
+      "expectedDropItems": [
+        "Plantera Relic",
+        "Plantera Trophy",
+        "Temple Key"
+      ],
+      "reviewStatus": "in-progress",
+      "sourceUrl": "",
+      "notes": "Pass 4 specific-enemy mapping from explicit source text; verify mode/daytime constraints where applicable."
+    },
+    {
+      "name": "Queen Bee",
+      "expectedDropItems": [
+        "Queen Bee Relic",
+        "Queen Bee Trophy"
+      ],
+      "reviewStatus": "in-progress",
+      "sourceUrl": "",
+      "notes": "Pass 4b specific-enemy mapping from explicit relic/trophy source text; verify mode constraints."
+    },
+    {
+      "name": "Queen Slime",
+      "expectedDropItems": [
+        "Queen Slime Relic",
+        "Queen Slime Trophy"
+      ],
+      "reviewStatus": "in-progress",
+      "sourceUrl": "",
+      "notes": "Pass 4b specific-enemy mapping from explicit relic/trophy source text; verify mode constraints."
+    },
+    {
       "name": "Raincoat Zombie",
       "expectedDropItems": [
         "Shackle",
@@ -296,6 +425,26 @@
       "reviewStatus": "in-progress",
       "sourceUrl": "",
       "notes": "Seeded from explicit drop-source text in items.json; verify rates and modes."
+    },
+    {
+      "name": "Skeletron",
+      "expectedDropItems": [
+        "Skeletron Relic",
+        "Skeletron Trophy"
+      ],
+      "reviewStatus": "in-progress",
+      "sourceUrl": "",
+      "notes": "Pass 4b specific-enemy mapping from explicit relic/trophy source text; verify mode constraints."
+    },
+    {
+      "name": "Skeletron Prime",
+      "expectedDropItems": [
+        "Skeletron Prime Relic",
+        "Skeletron Prime Trophy"
+      ],
+      "reviewStatus": "in-progress",
+      "sourceUrl": "",
+      "notes": "Pass 4b specific-enemy mapping from explicit relic/trophy source text; verify mode constraints."
     },
     {
       "name": "Snow Flinx",
@@ -323,6 +472,26 @@
       "reviewStatus": "todo",
       "sourceUrl": "",
       "notes": ""
+    },
+    {
+      "name": "The Destroyer",
+      "expectedDropItems": [
+        "Destroyer Relic",
+        "Destroyer Trophy"
+      ],
+      "reviewStatus": "in-progress",
+      "sourceUrl": "",
+      "notes": "Pass 4b specific-enemy mapping from explicit relic/trophy source text; verify mode constraints."
+    },
+    {
+      "name": "The Twins",
+      "expectedDropItems": [
+        "The Twins Relic",
+        "The Twins Trophy"
+      ],
+      "reviewStatus": "in-progress",
+      "sourceUrl": "",
+      "notes": "Pass 4b specific-enemy mapping from explicit relic/trophy source text; verify mode constraints."
     },
     {
       "name": "Underground Corruption/Crimson enemies",
@@ -361,6 +530,16 @@
       "reviewStatus": "todo",
       "sourceUrl": "",
       "notes": ""
+    },
+    {
+      "name": "Wall of Flesh",
+      "expectedDropItems": [
+        "Wall of Flesh Relic",
+        "Wall of Flesh Trophy"
+      ],
+      "reviewStatus": "in-progress",
+      "sourceUrl": "",
+      "notes": "Pass 4b specific-enemy mapping from explicit relic/trophy source text; verify mode constraints."
     },
     {
       "name": "Wandering Eye",

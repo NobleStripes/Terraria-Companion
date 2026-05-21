@@ -40,6 +40,10 @@ const ENEMY_CANONICAL_BY_NORMALIZED = new Map([
   ['salamanders', 'Salamander'],
   ['old ones army enemies', "Old One's Army enemies"],
   ["old one's army enemies", "Old One's Army enemies"],
+  ["old one's army enemies during the event", "Old One's Army enemies"],
+  ['corruption and crimson enemies', 'Underground Corruption/Crimson enemies'],
+  ['enemies in or near the underworld', 'Underworld enemies'],
+  ['enemies in the jungle and underground jungle', 'Jungle and Underground Jungle enemies'],
   ['underground corruption and crimson enemies', 'Underground Corruption/Crimson enemies'],
   ['underground hallow enemies', 'Underground Hallow enemies'],
 ])

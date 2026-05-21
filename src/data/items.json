@@ -8189,7 +8189,10 @@
     "knockback": 2.5,
     "critChance": 14,
     "useTime": 5,
-    "progressionTier": "endgame"
+    "progressionTier": "endgame",
+    "enemyDrops": [
+      "Moon Lord"
+    ]
   },
   {
     "id": 5386,
@@ -8202,7 +8205,10 @@
       "Can be placed as wall furniture"
     ],
     "wikiSlug": "King_Slime_Relic",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "King Slime"
+    ]
   },
   {
     "id": 5387,
@@ -8215,7 +8221,10 @@
       "Can be placed as wall furniture"
     ],
     "wikiSlug": "Eye_of_Cthulhu_Relic",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Eye of Cthulhu"
+    ]
   },
   {
     "id": 5388,
@@ -8228,7 +8237,10 @@
       "Can be placed as wall furniture"
     ],
     "wikiSlug": "Eater_of_Worlds_Relic",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Eater of Worlds"
+    ]
   },
   {
     "id": 5389,
@@ -8241,7 +8253,10 @@
       "Can be placed as wall furniture"
     ],
     "wikiSlug": "Brain_of_Cthulhu_Relic",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Brain of Cthulhu"
+    ]
   },
   {
     "id": 5390,
@@ -8254,7 +8269,10 @@
       "Can be placed as wall furniture"
     ],
     "wikiSlug": "Queen_Bee_Relic",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Queen Bee"
+    ]
   },
   {
     "id": 5391,
@@ -8267,7 +8285,10 @@
       "Can be placed as wall furniture"
     ],
     "wikiSlug": "Skeletron_Relic",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Skeletron"
+    ]
   },
   {
     "id": 5392,
@@ -8280,7 +8301,10 @@
       "Can be placed as wall furniture"
     ],
     "wikiSlug": "Wall_of_Flesh_Relic",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Wall of Flesh"
+    ]
   },
   {
     "id": 5393,
@@ -8293,7 +8317,10 @@
       "Can be placed as wall furniture"
     ],
     "wikiSlug": "Queen_Slime_Relic",
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "Queen Slime"
+    ]
   },
   {
     "id": 5394,
@@ -8306,7 +8333,10 @@
       "Can be placed as wall furniture"
     ],
     "wikiSlug": "Twins_Relic",
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "The Twins"
+    ]
   },
   {
     "id": 5395,
@@ -8319,7 +8349,10 @@
       "Can be placed as wall furniture"
     ],
     "wikiSlug": "Destroyer_Relic",
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "The Destroyer"
+    ]
   },
   {
     "id": 5396,
@@ -8332,7 +8365,10 @@
       "Can be placed as wall furniture"
     ],
     "wikiSlug": "Skeletron_Prime_Relic",
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "Skeletron Prime"
+    ]
   },
   {
     "id": 5397,
@@ -8345,7 +8381,10 @@
       "Can be placed as wall furniture"
     ],
     "wikiSlug": "Plantera_Relic",
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "Plantera"
+    ]
   },
   {
     "id": 5398,
@@ -8358,7 +8397,10 @@
       "Can be placed as wall furniture"
     ],
     "wikiSlug": "Golem_Relic",
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "Golem"
+    ]
   },
   {
     "id": 5399,
@@ -8371,7 +8413,10 @@
       "Can be placed as wall furniture"
     ],
     "wikiSlug": "Duke_Fishron_Relic",
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "Duke Fishron"
+    ]
   },
   {
     "id": 5400,
@@ -8384,7 +8429,10 @@
       "Can be placed as wall furniture"
     ],
     "wikiSlug": "Empress_of_Light_Relic",
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "Empress of Light"
+    ]
   },
   {
     "id": 5401,
@@ -8397,7 +8445,10 @@
       "Can be placed as wall furniture"
     ],
     "wikiSlug": "Lunatic_Cultist_Relic",
-    "progressionTier": "endgame"
+    "progressionTier": "endgame",
+    "enemyDrops": [
+      "Lunatic Cultist"
+    ]
   },
   {
     "id": 5402,
@@ -8410,7 +8461,10 @@
       "Can be placed as wall furniture"
     ],
     "wikiSlug": "Moon_Lord_Relic",
-    "progressionTier": "endgame"
+    "progressionTier": "endgame",
+    "enemyDrops": [
+      "Moon Lord"
+    ]
   },
   {
     "id": 5403,
@@ -8423,7 +8477,10 @@
       "Can be placed as wall furniture"
     ],
     "wikiSlug": "King_Slime_Trophy",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "King Slime"
+    ]
   },
   {
     "id": 5404,
@@ -8436,7 +8493,10 @@
       "Can be placed as wall furniture"
     ],
     "wikiSlug": "Eye_of_Cthulhu_Trophy",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Eye of Cthulhu"
+    ]
   },
   {
     "id": 5405,
@@ -8449,7 +8509,10 @@
       "Can be placed as wall furniture"
     ],
     "wikiSlug": "Eater_of_Worlds_Trophy",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Eater of Worlds"
+    ]
   },
   {
     "id": 5406,
@@ -8462,7 +8525,10 @@
       "Can be placed as wall furniture"
     ],
     "wikiSlug": "Brain_of_Cthulhu_Trophy",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Brain of Cthulhu"
+    ]
   },
   {
     "id": 5407,
@@ -8475,7 +8541,10 @@
       "Can be placed as wall furniture"
     ],
     "wikiSlug": "Queen_Bee_Trophy",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Queen Bee"
+    ]
   },
   {
     "id": 5408,
@@ -8488,7 +8557,10 @@
       "Can be placed as wall furniture"
     ],
     "wikiSlug": "Skeletron_Trophy",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Skeletron"
+    ]
   },
   {
     "id": 5409,
@@ -8501,7 +8573,10 @@
       "Can be placed as wall furniture"
     ],
     "wikiSlug": "Wall_of_Flesh_Trophy",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Wall of Flesh"
+    ]
   },
   {
     "id": 5410,
@@ -8514,7 +8589,10 @@
       "Can be placed as wall furniture"
     ],
     "wikiSlug": "Queen_Slime_Trophy",
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "Queen Slime"
+    ]
   },
   {
     "id": 5411,
@@ -8527,7 +8605,10 @@
       "Can be placed as wall furniture"
     ],
     "wikiSlug": "Twins_Trophy",
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "The Twins"
+    ]
   },
   {
     "id": 5412,
@@ -8540,7 +8621,10 @@
       "Can be placed as wall furniture"
     ],
     "wikiSlug": "Destroyer_Trophy",
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "The Destroyer"
+    ]
   },
   {
     "id": 5413,
@@ -8553,7 +8637,10 @@
       "Can be placed as wall furniture"
     ],
     "wikiSlug": "Skeletron_Prime_Trophy",
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "Skeletron Prime"
+    ]
   },
   {
     "id": 5414,
@@ -8566,7 +8653,10 @@
       "Can be placed as wall furniture"
     ],
     "wikiSlug": "Plantera_Trophy",
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "Plantera"
+    ]
   },
   {
     "id": 5415,
@@ -8579,7 +8669,10 @@
       "Can be placed as wall furniture"
     ],
     "wikiSlug": "Golem_Trophy",
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "Golem"
+    ]
   },
   {
     "id": 5416,
@@ -8592,7 +8685,10 @@
       "Can be placed as wall furniture"
     ],
     "wikiSlug": "Duke_Fishron_Trophy",
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "Duke Fishron"
+    ]
   },
   {
     "id": 5417,
@@ -8605,7 +8701,10 @@
       "Can be placed as wall furniture"
     ],
     "wikiSlug": "Empress_of_Light_Trophy",
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "Empress of Light"
+    ]
   },
   {
     "id": 5418,
@@ -8618,7 +8717,10 @@
       "Can be placed as wall furniture"
     ],
     "wikiSlug": "Lunatic_Cultist_Trophy",
-    "progressionTier": "endgame"
+    "progressionTier": "endgame",
+    "enemyDrops": [
+      "Lunatic Cultist"
+    ]
   },
   {
     "id": 5419,
@@ -8631,7 +8733,10 @@
       "Can be placed as wall furniture"
     ],
     "wikiSlug": "Moon_Lord_Trophy",
-    "progressionTier": "endgame"
+    "progressionTier": "endgame",
+    "enemyDrops": [
+      "Moon Lord"
+    ]
   },
   {
     "id": 5420,
@@ -8644,7 +8749,10 @@
     ],
     "wikiSlug": "Slime_Hook",
     "damage": 0,
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "King Slime"
+    ]
   },
   {
     "id": 5421,
@@ -8656,7 +8764,10 @@
       "1/7 vanity drop from King Slime"
     ],
     "wikiSlug": "Ninja_Hood",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "King Slime"
+    ]
   },
   {
     "id": 5422,
@@ -8668,7 +8779,10 @@
       "1/7 vanity drop from King Slime"
     ],
     "wikiSlug": "Ninja_Shirt",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "King Slime"
+    ]
   },
   {
     "id": 5423,
@@ -8680,7 +8794,10 @@
       "1/7 vanity drop from King Slime"
     ],
     "wikiSlug": "Ninja_Pants",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "King Slime"
+    ]
   },
   {
     "id": 5424,
@@ -8704,7 +8821,10 @@
       "33% drop from Eye of Cthulhu"
     ],
     "wikiSlug": "Binoculars",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Eye of Cthulhu"
+    ]
   },
   {
     "id": 5426,
@@ -8911,7 +9031,10 @@
       "Always drops from Plantera"
     ],
     "wikiSlug": "Temple_Key",
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "Plantera"
+    ]
   },
   {
     "id": 5441,
@@ -9059,7 +9182,10 @@
     "knockback": 1,
     "critChance": 4,
     "useTime": 8,
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "Empress of Light"
+    ]
   },
   {
     "id": 5451,
@@ -9115,7 +9241,10 @@
       "Always drops from Lunatic Cultist"
     ],
     "wikiSlug": "Ancient_Manipulator",
-    "progressionTier": "endgame"
+    "progressionTier": "endgame",
+    "enemyDrops": [
+      "Lunatic Cultist"
+    ]
   },
   {
     "id": 5455,
