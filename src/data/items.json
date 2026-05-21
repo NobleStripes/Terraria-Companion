@@ -6429,7 +6429,12 @@
       "Project Zomboid crossover"
     ],
     "wikiSlug": "Spiffo_Plush",
-    "progressionTier": "early-game"
+    "progressionTier": "early-game",
+    "enemyDrops": [
+      "Frozen Zombie",
+      "Raincoat Zombie",
+      "Zombie"
+    ]
   },
   {
     "id": 459,
@@ -6562,7 +6567,12 @@
     "damage": 40,
     "knockback": 6,
     "useTime": 36,
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "Flying Dutchman",
+      "Pirate Captain",
+      "Pirate Invasion enemies"
+    ]
   },
   {
     "id": 468,
@@ -6650,7 +6660,12 @@
     "knockback": 3.5,
     "critChance": 4,
     "useTime": 25,
-    "progressionTier": "early-game"
+    "progressionTier": "early-game",
+    "enemyDrops": [
+      "Crawdad",
+      "Giant Shelly",
+      "Salamander"
+    ]
   },
   {
     "id": 474,
@@ -6703,7 +6718,10 @@
     "knockback": 4.3,
     "critChance": 4,
     "useTime": 25,
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Underworld enemies"
+    ]
   },
   {
     "id": 477,
@@ -6772,7 +6790,10 @@
     "knockback": 3.1,
     "critChance": 4,
     "useTime": 25,
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "Jungle and Underground Jungle enemies"
+    ]
   },
   {
     "id": 481,
@@ -6847,7 +6868,10 @@
       "Dungeon Defenders 2 crossover"
     ],
     "wikiSlug": "Apprentice%27s_Scarf",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Dark Mage"
+    ]
   },
   {
     "id": 486,
@@ -6861,7 +6885,10 @@
       "Dungeon Defenders 2 crossover"
     ],
     "wikiSlug": "Squire%27s_Shield",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Dark Mage"
+    ]
   },
   {
     "id": 487,
@@ -6875,7 +6902,10 @@
       "Dungeon Defenders 2 crossover"
     ],
     "wikiSlug": "Huntress%27s_Buckler",
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "Ogre"
+    ]
   },
   {
     "id": 488,
@@ -6889,7 +6919,10 @@
       "Dungeon Defenders 2 crossover"
     ],
     "wikiSlug": "Monk%27s_Belt",
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "Ogre"
+    ]
   },
   {
     "id": 489,
@@ -7485,7 +7518,10 @@
       "Dungeon Defenders 2 crossover"
     ],
     "wikiSlug": "Etherian_Mana",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Old One's Army enemies"
+    ]
   },
   {
     "id": 527,
@@ -7499,7 +7535,10 @@
       "Dungeon Defenders 2 crossover"
     ],
     "wikiSlug": "Gato_Egg",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Dark Mage"
+    ]
   },
   {
     "id": 528,
@@ -7513,7 +7552,10 @@
       "Dungeon Defenders 2 crossover"
     ],
     "wikiSlug": "Dragon_Egg",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Dark Mage"
+    ]
   },
   {
     "id": 529,
@@ -7527,7 +7569,10 @@
       "Dungeon Defenders 2 crossover"
     ],
     "wikiSlug": "Creeper_Egg",
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "Ogre"
+    ]
   },
   {
     "id": 5088,
@@ -7553,7 +7598,10 @@
       "Don't Starve Together crossover"
     ],
     "wikiSlug": "Glommer%27s_Flower",
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "Derpling"
+    ]
   },
   {
     "id": 5091,
@@ -7566,7 +7614,10 @@
       "Don't Starve Together crossover"
     ],
     "wikiSlug": "Monster_Meat",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Underground Corruption/Crimson enemies"
+    ]
   },
   {
     "id": 5092,
@@ -7610,7 +7661,10 @@
     "damage": 20,
     "knockback": 5.5,
     "useTime": 21,
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Underground Corruption/Crimson enemies"
+    ]
   },
   {
     "id": 5096,
@@ -7627,7 +7681,10 @@
     "damage": 57,
     "knockback": 6.5,
     "useTime": 20,
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "Pigron"
+    ]
   },
   {
     "id": 5097,
@@ -7643,7 +7700,10 @@
     "damage": 36,
     "knockback": 5.5,
     "useTime": 40,
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Bats"
+    ]
   },
   {
     "id": 5098,
@@ -7657,7 +7717,10 @@
       "Don't Starve Together crossover"
     ],
     "wikiSlug": "Eye_Bone",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Deerclops"
+    ]
   },
   {
     "id": 5100,
@@ -7698,7 +7761,10 @@
       "Don't Starve Together crossover"
     ],
     "wikiSlug": "Deerclops_Trophy",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Deerclops"
+    ]
   },
   {
     "id": 5109,
@@ -7711,7 +7777,10 @@
       "Don't Starve Together crossover"
     ],
     "wikiSlug": "Deerclops_Mask",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Deerclops"
+    ]
   },
   {
     "id": 5113,
@@ -7725,7 +7794,10 @@
       "Don't Starve Together crossover"
     ],
     "wikiSlug": "Radio_Thing",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Deerclops"
+    ]
   },
   {
     "id": 5114,
@@ -7758,7 +7830,10 @@
     "damage": 20,
     "knockback": 1,
     "useTime": 15,
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Deerclops"
+    ]
   },
   {
     "id": 4014,
@@ -7799,7 +7874,10 @@
       "Don't Starve Together crossover"
     ],
     "wikiSlug": "Deerclops_Eyeball",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Deerclops"
+    ]
   },
   {
     "id": 5099,
@@ -7925,7 +8003,10 @@
       "Don't Starve Together crossover"
     ],
     "wikiSlug": "Dizzy%27s_Rare_Gecko_Chester",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "enemyDrops": [
+      "Deerclops"
+    ]
   },
   {
     "id": 3823,
@@ -7943,7 +8024,10 @@
     "knockback": 6.5,
     "critChance": 4,
     "useTime": 20,
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "Ogre"
+    ]
   },
   {
     "id": 3827,
@@ -7960,7 +8044,10 @@
     "knockback": 5.5,
     "critChance": 4,
     "useTime": 20,
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "Betsy"
+    ]
   },
   {
     "id": 3835,
@@ -7978,7 +8065,10 @@
     "knockback": 7,
     "critChance": 4,
     "useTime": 30,
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "Ogre"
+    ]
   },
   {
     "id": 3836,
@@ -7996,7 +8086,10 @@
     "knockback": 7,
     "critChance": 4,
     "useTime": 27,
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "Ogre"
+    ]
   },
   {
     "id": 3852,
@@ -8014,7 +8107,10 @@
     "knockback": 9,
     "critChance": 4,
     "useTime": 25,
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "Ogre"
+    ]
   },
   {
     "id": 3854,
@@ -8032,7 +8128,10 @@
     "knockback": 2,
     "critChance": 4,
     "useTime": 18,
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "Ogre"
+    ]
   },
   {
     "id": 3858,
@@ -8049,7 +8148,10 @@
     "knockback": 5,
     "critChance": 4,
     "useTime": 30,
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "Betsy"
+    ]
   },
   {
     "id": 3870,
@@ -8067,7 +8169,10 @@
     "knockback": 7,
     "critChance": 4,
     "useTime": 20,
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "enemyDrops": [
+      "Betsy"
+    ]
   },
   {
     "id": 1553,

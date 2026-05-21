@@ -15,6 +15,43 @@ const workbookPath = path.join(outputDir, 'boss-drop-completion-workbook.md')
 const normalize = (value) => String(value ?? '').trim().toLowerCase()
 const stopWords = new Set(['of', 'the', 'and'])
 
+function normalizeEnemyKey(value) {
+  return normalize(value).replace(/[_-]+/g, ' ').replace(/\s+/g, ' ')
+}
+
+const ENEMY_CANONICAL_BY_NORMALIZED = new Map([
+  ['bat', 'Bats'],
+  ['bats', 'Bats'],
+  ['cave bat', 'Bats'],
+  ['giant bat', 'Bats'],
+  ['hellbat', 'Bats'],
+  ['ice bat', 'Bats'],
+  ['illuminant bat', 'Bats'],
+  ['jungle bat', 'Bats'],
+  ['lavabat', 'Bats'],
+  ['vampire bat', 'Bats'],
+  ['crawdads', 'Crawdad'],
+  ['giant shellies', 'Giant Shelly'],
+  ['pirate captains', 'Pirate Captain'],
+  ['pirate invasion enemies', 'Pirate Invasion enemies'],
+  ['regular pirates', 'Pirate Invasion enemies'],
+  ['salamanders', 'Salamander'],
+  ['old ones army enemies', "Old One's Army enemies"],
+  ["old one's army enemies", "Old One's Army enemies"],
+  ['underground corruption and crimson enemies', 'Underground Corruption/Crimson enemies'],
+  ['underground hallow enemies', 'Underground Hallow enemies'],
+])
+
+function canonicalizeEnemyName(value) {
+  const trimmed = String(value ?? '').trim()
+  if (!trimmed) {
+    return ''
+  }
+
+  const canonical = ENEMY_CANONICAL_BY_NORMALIZED.get(normalizeEnemyKey(trimmed))
+  return canonical ?? trimmed
+}
+
 function escapeRegex(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 }
@@ -145,7 +182,7 @@ function buildEnemyManifestLookup(manifestData) {
     }
 
     const expectedDropItems = Array.isArray(enemy.expectedDropItems) ? uniqueSorted(enemy.expectedDropItems) : []
-    map.set(enemy.name, expectedDropItems)
+    map.set(canonicalizeEnemyName(enemy.name), expectedDropItems)
   }
 
   return map
@@ -161,7 +198,7 @@ function buildEnemyEntries(items, bossNameSet) {
     }
 
     for (const enemyEntry of item.enemyDrops) {
-      const enemyName = String(enemyEntry ?? '').trim()
+      const enemyName = canonicalizeEnemyName(enemyEntry)
       if (!enemyName) {
         continue
       }

@@ -8,6 +8,26 @@
   ],
   "enemies": [
     {
+      "name": "Bats",
+      "expectedDropItems": [
+        "Bat Bat"
+      ],
+      "reviewStatus": "in-progress",
+      "sourceUrl": "",
+      "notes": "Seeded from explicit drop-source text in items.json; verify rates and modes."
+    },
+    {
+      "name": "Betsy",
+      "expectedDropItems": [
+        "Betsy's Wrath",
+        "Flying Dragon",
+        "Sky Dragon's Fury"
+      ],
+      "reviewStatus": "in-progress",
+      "sourceUrl": "",
+      "notes": "Seeded from explicit drop-source text in items.json; verify rates and modes."
+    },
+    {
       "name": "Blood Zombie",
       "expectedDropItems": [
         "Shark Tooth Necklace"
@@ -26,6 +46,42 @@
       "notes": ""
     },
     {
+      "name": "Crawdad",
+      "expectedDropItems": [
+        "Rally"
+      ],
+      "reviewStatus": "in-progress",
+      "sourceUrl": "",
+      "notes": "Seeded from explicit drop-source text in items.json; verify rates and modes."
+    },
+    {
+      "name": "Dark Mage",
+      "expectedDropItems": [
+        "Apprentice's Scarf",
+        "Dragon Egg",
+        "Gato Egg",
+        "Squire's Shield"
+      ],
+      "reviewStatus": "in-progress",
+      "sourceUrl": "",
+      "notes": "Seeded from explicit drop-source text in items.json; verify rates and modes."
+    },
+    {
+      "name": "Deerclops",
+      "expectedDropItems": [
+        "Deerclops Eyeball",
+        "Deerclops Mask",
+        "Deerclops Trophy",
+        "Dizzy's Rare Gecko Chester",
+        "Eye Bone",
+        "Pew-matic Horn",
+        "Radio Thing"
+      ],
+      "reviewStatus": "in-progress",
+      "sourceUrl": "",
+      "notes": "Seeded from explicit drop-source text in items.json; verify rates and modes."
+    },
+    {
       "name": "Demon Eye",
       "expectedDropItems": [
         "Lenses"
@@ -33,6 +89,15 @@
       "reviewStatus": "todo",
       "sourceUrl": "",
       "notes": ""
+    },
+    {
+      "name": "Derpling",
+      "expectedDropItems": [
+        "Glommer's Flower"
+      ],
+      "reviewStatus": "in-progress",
+      "sourceUrl": "",
+      "notes": "Seeded from explicit drop-source text in items.json; verify rates and modes."
     },
     {
       "name": "Dreamer Ghoul",
@@ -71,13 +136,23 @@
       "notes": ""
     },
     {
+      "name": "Flying Dutchman",
+      "expectedDropItems": [
+        "Pirate Staff"
+      ],
+      "reviewStatus": "in-progress",
+      "sourceUrl": "",
+      "notes": "Seeded from explicit drop-source text in items.json; verify rates and modes."
+    },
+    {
       "name": "Frozen Zombie",
       "expectedDropItems": [
-        "Shackle"
+        "Shackle",
+        "Spiffo Plush"
       ],
-      "reviewStatus": "todo",
+      "reviewStatus": "in-progress",
       "sourceUrl": "",
-      "notes": ""
+      "notes": "Seeded from explicit drop-source text in items.json; verify rates and modes."
     },
     {
       "name": "Ghoul",
@@ -87,6 +162,15 @@
       "reviewStatus": "todo",
       "sourceUrl": "",
       "notes": ""
+    },
+    {
+      "name": "Giant Shelly",
+      "expectedDropItems": [
+        "Rally"
+      ],
+      "reviewStatus": "in-progress",
+      "sourceUrl": "",
+      "notes": "Seeded from explicit drop-source text in items.json; verify rates and modes."
     },
     {
       "name": "Giant Tortoise",
@@ -125,6 +209,49 @@
       "notes": ""
     },
     {
+      "name": "Jungle and Underground Jungle enemies",
+      "expectedDropItems": [
+        "Yelets"
+      ],
+      "reviewStatus": "in-progress",
+      "sourceUrl": "",
+      "notes": "Pass 3 broad-category mapping from item source text; verify biome/event constraints."
+    },
+    {
+      "name": "Ogre",
+      "expectedDropItems": [
+        "Brand of the Inferno",
+        "Creeper Egg",
+        "Ghastly Glaive",
+        "Huntress's Buckler",
+        "Monk's Belt",
+        "Phantom Phoenix",
+        "Sleepy Octopod",
+        "Tome of Infinite Wisdom"
+      ],
+      "reviewStatus": "in-progress",
+      "sourceUrl": "",
+      "notes": "Seeded from explicit drop-source text in items.json; verify rates and modes."
+    },
+    {
+      "name": "Old One's Army enemies",
+      "expectedDropItems": [
+        "Etherian Mana"
+      ],
+      "reviewStatus": "in-progress",
+      "sourceUrl": "",
+      "notes": "Pass 3 broad-category mapping from item source text; verify biome/event constraints."
+    },
+    {
+      "name": "Pigron",
+      "expectedDropItems": [
+        "Ham Bat"
+      ],
+      "reviewStatus": "in-progress",
+      "sourceUrl": "",
+      "notes": "Seeded from explicit drop-source text in items.json; verify rates and modes."
+    },
+    {
       "name": "Pinky (higher quantity)",
       "expectedDropItems": [
         "Gel"
@@ -134,13 +261,41 @@
       "notes": ""
     },
     {
+      "name": "Pirate Captain",
+      "expectedDropItems": [
+        "Pirate Staff"
+      ],
+      "reviewStatus": "in-progress",
+      "sourceUrl": "",
+      "notes": "Seeded from explicit drop-source text in items.json; verify rates and modes."
+    },
+    {
+      "name": "Pirate Invasion enemies",
+      "expectedDropItems": [
+        "Pirate Staff"
+      ],
+      "reviewStatus": "in-progress",
+      "sourceUrl": "",
+      "notes": "Pass 3 broad-category mapping from item source text; verify biome/event constraints."
+    },
+    {
       "name": "Raincoat Zombie",
       "expectedDropItems": [
-        "Shackle"
+        "Shackle",
+        "Spiffo Plush"
       ],
-      "reviewStatus": "todo",
+      "reviewStatus": "in-progress",
       "sourceUrl": "",
-      "notes": ""
+      "notes": "Seeded from explicit drop-source text in items.json; verify rates and modes."
+    },
+    {
+      "name": "Salamander",
+      "expectedDropItems": [
+        "Rally"
+      ],
+      "reviewStatus": "in-progress",
+      "sourceUrl": "",
+      "notes": "Seeded from explicit drop-source text in items.json; verify rates and modes."
     },
     {
       "name": "Snow Flinx",
@@ -172,11 +327,13 @@
     {
       "name": "Underground Corruption/Crimson enemies",
       "expectedDropItems": [
-        "Soul of Night"
+        "Monster Meat",
+        "Soul of Night",
+        "Tentacle Spike"
       ],
-      "reviewStatus": "todo",
+      "reviewStatus": "in-progress",
       "sourceUrl": "",
-      "notes": ""
+      "notes": "Seeded from explicit drop-source text in items.json; verify rates and modes."
     },
     {
       "name": "Underground Hallow enemies",
@@ -186,6 +343,15 @@
       "reviewStatus": "todo",
       "sourceUrl": "",
       "notes": ""
+    },
+    {
+      "name": "Underworld enemies",
+      "expectedDropItems": [
+        "Cascade"
+      ],
+      "reviewStatus": "in-progress",
+      "sourceUrl": "",
+      "notes": "Pass 3 broad-category mapping from item source text; verify biome/event constraints."
     },
     {
       "name": "Vile Ghoul",
@@ -208,11 +374,12 @@
     {
       "name": "Zombie",
       "expectedDropItems": [
-        "Shackle"
+        "Shackle",
+        "Spiffo Plush"
       ],
-      "reviewStatus": "todo",
+      "reviewStatus": "in-progress",
       "sourceUrl": "",
-      "notes": ""
+      "notes": "Seeded from explicit drop-source text in items.json; verify rates and modes."
     }
   ]
 }

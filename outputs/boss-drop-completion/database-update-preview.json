@@ -1,53 +1,17 @@
 {
-  "generatedAt": "2026-05-21T03:07:24.384Z",
+  "generatedAt": "2026-05-21T03:13:27.301Z",
   "writeMode": true,
   "summary": {
-    "bossesChanged": 7,
-    "itemsEnemyDropsChanged": 0
+    "bossesChanged": 0,
+    "itemsEnemyDropsChanged": 1
   },
-  "bossChanges": [
+  "bossChanges": [],
+  "enemyChanges": [
     {
-      "id": "eater-of-worlds",
-      "name": "Eater of Worlds",
-      "beforeCount": 4,
-      "afterCount": 6
-    },
-    {
-      "id": "brain-of-cthulhu",
-      "name": "Brain of Cthulhu",
-      "beforeCount": 4,
-      "afterCount": 5
-    },
-    {
-      "id": "queen-bee",
-      "name": "Queen Bee",
-      "beforeCount": 8,
-      "afterCount": 9
-    },
-    {
-      "id": "plantera",
-      "name": "Plantera",
-      "beforeCount": 9,
-      "afterCount": 11
-    },
-    {
-      "id": "golem",
-      "name": "Golem",
-      "beforeCount": 9,
-      "afterCount": 10
-    },
-    {
-      "id": "duke-fishron",
-      "name": "Duke Fishron",
-      "beforeCount": 7,
-      "afterCount": 8
-    },
-    {
-      "id": "moon-lord",
-      "name": "Moon Lord",
-      "beforeCount": 14,
-      "afterCount": 16
+      "itemId": 467,
+      "itemName": "Pirate Staff",
+      "beforeCount": 2,
+      "afterCount": 3
     }
-  ],
-  "enemyChanges": []
+  ]
 }

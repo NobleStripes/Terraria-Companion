@@ -17,6 +17,43 @@ function normalize(value) {
   return String(value ?? '').trim().toLowerCase()
 }
 
+function normalizeEnemyKey(value) {
+  return normalize(value).replace(/[_-]+/g, ' ').replace(/\s+/g, ' ')
+}
+
+const ENEMY_CANONICAL_BY_NORMALIZED = new Map([
+  ['bat', 'Bats'],
+  ['bats', 'Bats'],
+  ['cave bat', 'Bats'],
+  ['giant bat', 'Bats'],
+  ['hellbat', 'Bats'],
+  ['ice bat', 'Bats'],
+  ['illuminant bat', 'Bats'],
+  ['jungle bat', 'Bats'],
+  ['lavabat', 'Bats'],
+  ['vampire bat', 'Bats'],
+  ['crawdads', 'Crawdad'],
+  ['giant shellies', 'Giant Shelly'],
+  ['pirate captains', 'Pirate Captain'],
+  ['pirate invasion enemies', 'Pirate Invasion enemies'],
+  ['regular pirates', 'Pirate Invasion enemies'],
+  ['salamanders', 'Salamander'],
+  ['old ones army enemies', "Old One's Army enemies"],
+  ["old one's army enemies", "Old One's Army enemies"],
+  ['underground corruption and crimson enemies', 'Underground Corruption/Crimson enemies'],
+  ['underground hallow enemies', 'Underground Hallow enemies'],
+])
+
+function canonicalizeEnemyName(value) {
+  const trimmed = String(value ?? '').trim()
+  if (!trimmed) {
+    return ''
+  }
+
+  const canonical = ENEMY_CANONICAL_BY_NORMALIZED.get(normalizeEnemyKey(trimmed))
+  return canonical ?? trimmed
+}
+
 function uniquePreserveOrder(list) {
   const seen = new Set()
   const out = []
@@ -37,6 +74,14 @@ function uniquePreserveOrder(list) {
   }
 
   return out
+}
+
+function uniqueEnemyNames(list) {
+  return uniquePreserveOrder(
+    list
+      .map((value) => canonicalizeEnemyName(value))
+      .filter(Boolean),
+  )
 }
 
 function equalsStringArray(a, b) {
@@ -145,7 +190,7 @@ async function main() {
 
   const expectedEnemiesByItemName = new Map()
   for (const entry of enemyManifest.enemies) {
-    const enemyName = String(entry?.name ?? '').trim()
+    const enemyName = canonicalizeEnemyName(entry?.name)
     if (!enemyName) {
       errors.push('Enemy manifest entry missing name')
       continue
@@ -208,7 +253,7 @@ async function main() {
       continue
     }
 
-    const currentEnemies = uniquePreserveOrder(Array.isArray(item.enemyDrops) ? item.enemyDrops : [])
+    const currentEnemies = uniqueEnemyNames(Array.isArray(item.enemyDrops) ? item.enemyDrops : [])
     const manifestEnemies = Array.from(expectedEnemiesByItemName.get(itemName)).sort((a, b) => a.localeCompare(b))
     const nextEnemies = equalsNormalizedSet(currentEnemies, manifestEnemies) ? currentEnemies : manifestEnemies
 
