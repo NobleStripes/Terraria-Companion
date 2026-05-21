@@ -1,10 +1,53 @@
 {
-  "generatedAt": "2026-05-21T02:53:59.985Z",
+  "generatedAt": "2026-05-21T02:56:41.596Z",
   "writeMode": false,
   "summary": {
-    "bossesChanged": 0,
+    "bossesChanged": 7,
     "itemsEnemyDropsChanged": 0
   },
-  "bossChanges": [],
+  "bossChanges": [
+    {
+      "id": "eater-of-worlds",
+      "name": "Eater of Worlds",
+      "beforeCount": 4,
+      "afterCount": 6
+    },
+    {
+      "id": "brain-of-cthulhu",
+      "name": "Brain of Cthulhu",
+      "beforeCount": 4,
+      "afterCount": 5
+    },
+    {
+      "id": "queen-bee",
+      "name": "Queen Bee",
+      "beforeCount": 8,
+      "afterCount": 9
+    },
+    {
+      "id": "plantera",
+      "name": "Plantera",
+      "beforeCount": 9,
+      "afterCount": 11
+    },
+    {
+      "id": "golem",
+      "name": "Golem",
+      "beforeCount": 9,
+      "afterCount": 10
+    },
+    {
+      "id": "duke-fishron",
+      "name": "Duke Fishron",
+      "beforeCount": 7,
+      "afterCount": 8
+    },
+    {
+      "id": "moon-lord",
+      "name": "Moon Lord",
+      "beforeCount": 14,
+      "afterCount": 16
+    }
+  ],
   "enemyChanges": []
 }

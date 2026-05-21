@@ -1,12 +1,12 @@
 # Boss And Enemy Drop Completion Workbook
 
-Generated: 2026-05-21T02:51:52.322Z
+Generated: 2026-05-21T02:56:41.174Z
 
 ## Goal
 Complete and verify tracked boss drops and enemy item drops from src/data/bosses.json and src/data/items.json.
 
-Boss manifest status: not found. Fill outputs/boss-drop-completion/boss-drop-manifest.template.json and save it as boss-drop-manifest.json to enable strict gap checks.
-Enemy manifest status: not found. Fill outputs/boss-drop-completion/enemy-drop-manifest.template.json and save it as enemy-drop-manifest.json to enable strict gap checks.
+Boss manifest status: using outputs/boss-drop-completion/boss-drop-manifest.json for gap checks.
+Enemy manifest status: using outputs/boss-drop-completion/enemy-drop-manifest.json for gap checks.
 
 ## Boss Progress Summary
 
@@ -14,21 +14,21 @@ Enemy manifest status: not found. Fill outputs/boss-drop-completion/enemy-drop-m
 |---|---:|---:|---:|---:|
 | King Slime | 7 | 7 | 0 | 0 |
 | Eye of Cthulhu | 7 | 7 | 0 | 0 |
-| Eater of Worlds | 4 | 4 | 0 | 0 |
-| Brain of Cthulhu | 4 | 4 | 0 | 0 |
-| Queen Bee | 8 | 8 | 0 | 0 |
+| Eater of Worlds | 4 | 6 | 2 | 0 |
+| Brain of Cthulhu | 4 | 5 | 1 | 0 |
+| Queen Bee | 8 | 9 | 1 | 0 |
 | Skeletron | 5 | 5 | 0 | 0 |
 | Wall of Flesh | 10 | 10 | 0 | 0 |
 | Queen Slime | 6 | 6 | 0 | 0 |
 | The Twins | 5 | 5 | 0 | 0 |
 | The Destroyer | 4 | 4 | 0 | 0 |
 | Skeletron Prime | 4 | 4 | 0 | 0 |
-| Plantera | 9 | 9 | 0 | 0 |
-| Golem | 9 | 9 | 0 | 0 |
-| Duke Fishron | 7 | 7 | 0 | 0 |
+| Plantera | 9 | 11 | 2 | 0 |
+| Golem | 9 | 10 | 1 | 0 |
+| Duke Fishron | 7 | 8 | 1 | 0 |
 | Empress of Light | 7 | 7 | 0 | 0 |
 | Lunatic Cultist | 3 | 3 | 0 | 0 |
-| Moon Lord | 14 | 14 | 0 | 0 |
+| Moon Lord | 14 | 16 | 2 | 0 |
 
 ## Enemy Progress Summary
 
@@ -118,8 +118,9 @@ Current drops (4):
 - [ ] Eater of Worlds Trophy (present)
 - [ ] Shadow Scale (present)
 
-Expected missing (0):
-- none
+Expected missing (2):
+- [ ] Rotten Chunks
+- [ ] Worm Scarf
 
 Possible extras to review (0):
 - none
@@ -140,8 +141,8 @@ Current drops (4):
 - [ ] Crimtane Ore (present)
 - [ ] Tissue Sample (present)
 
-Expected missing (0):
-- none
+Expected missing (1):
+- [ ] Vertebrae
 
 Possible extras to review (0):
 - none
@@ -166,8 +167,8 @@ Current drops (8):
 - [ ] Queen Bee Trophy (present)
 - [ ] Stinger (present)
 
-Expected missing (0):
-- none
+Expected missing (1):
+- [ ] Bee Wax
 
 Possible extras to review (0):
 - none
@@ -336,8 +337,9 @@ Current drops (9):
 - [ ] Venus Magnum (present)
 - [ ] Wasp Gun (present)
 
-Expected missing (0):
-- none
+Expected missing (2):
+- [ ] Greater Healing Potion
+- [ ] Vulgar Display of Flower
 
 Possible extras to review (0):
 - none
@@ -363,8 +365,8 @@ Current drops (9):
 - [ ] Staff of Earth (present)
 - [ ] Sun Stone (present)
 
-Expected missing (0):
-- none
+Expected missing (1):
+- [ ] Beetle Husk
 
 Possible extras to review (0):
 - none
@@ -388,8 +390,8 @@ Current drops (7):
 - [ ] Razorblade Typhoon (present)
 - [ ] Tempest Staff (present)
 
-Expected missing (0):
-- none
+Expected missing (1):
+- [ ] Tsunami
 
 Possible extras to review (0):
 - none
@@ -466,8 +468,9 @@ Current drops (14):
 - [ ] Star Wrath (present)
 - [ ] Terrarian (present)
 
-Expected missing (0):
-- none
+Expected missing (2):
+- [ ] Celestial Starboard
+- [ ] Luminite
 
 Possible extras to review (0):
 - none
