@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import type { BossDropStatus, BossPrepChecklist, PrepChecklistKey } from '@/types/boss'
+import { createSafeJsonStorage } from '@/lib/persistStorage'
 
 type PersistedBossState = {
   defeatedBosses?: unknown
@@ -232,6 +233,7 @@ export const useBossStore = create<BossState>()(
     {
       name: STORAGE_NAME,
       version: STORAGE_VERSION,
+      storage: createSafeJsonStorage(),
       partialize: (state) => ({
         defeatedBosses: state.defeatedBosses,
         prepChecklistByBoss: state.prepChecklistByBoss,
