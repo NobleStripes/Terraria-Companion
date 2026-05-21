@@ -26,6 +26,7 @@ const navItems = [
   { to: '/bosses', label: 'Bosses' },
   { to: '/prep', label: 'Prep' },
   { to: '/build', label: 'Builds' },
+  { to: '/session', label: 'Session' },
   { to: '/loadouts', label: 'Loadouts' },
   { to: '/biomes', label: 'Biomes' },
   { to: '/npcs', label: 'NPCs' },

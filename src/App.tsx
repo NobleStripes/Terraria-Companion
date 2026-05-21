@@ -9,6 +9,7 @@ const Home = lazy(() => import('@/pages/Home'))
 const ItemLookup = lazy(() => import('@/pages/ItemLookup'))
 const BossTracker = lazy(() => import('@/pages/BossTracker'))
 const BuildStages = lazy(() => import('@/pages/BuildStages'))
+const SessionPlanner = lazy(() => import('@/pages/SessionPlanner'))
 const LoadoutBuilder = lazy(() => import('@/pages/LoadoutBuilder'))
 const PrepGuide = lazy(() => import('@/pages/PrepGuide'))
 const BiomeGuide = lazy(() => import('@/pages/BiomeGuide'))
@@ -92,6 +93,7 @@ const router = createBrowserRouter([
       { path: 'prep', element: <PrepGuide /> },
       { path: 'sources', element: <ItemSourceExplorer /> },
       { path: 'build', element: <BuildStages /> },
+      { path: 'session', element: <SessionPlanner /> },
       { path: 'loadouts', element: <LoadoutBuilder /> },
       { path: 'biomes', element: <BiomeGuide /> },
       { path: 'npcs', element: <NpcGuide /> },
