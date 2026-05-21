@@ -1,13 +1,13 @@
 {
   "name": "terraria-companion",
   "private": true,
-  "version": "1.3.0",
+  "version": "1.3.1",
   "type": "module",
   "author": "NobleStripes",
   "homepage": "./",
   "scripts": {
     "dev": "vite",
-    "validate:data": "node scripts/validate-items.mjs && node scripts/validate-build-recommendations.mjs",
+    "validate:data": "node scripts/validate-items.mjs && node scripts/validate-build-recommendations.mjs && node scripts/validate-bosses.mjs",
     "clean": "rimraf dist",
     "build": "npm run validate:data && npm run clean && tsc -b && vite build",
     "test": "node --import ./tests/loader.mjs --experimental-strip-types --test tests/*.test.mjs tests/*.test.ts",

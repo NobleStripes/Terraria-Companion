@@ -25,6 +25,8 @@ const explicitStatExemptIds = new Set([
   167, // Grappling Hook
   168, // Magic Mirror
   169, // Ice Mirror
+  5420, // Slime Hook
+  5458, // Portal Gun
 ])
 
 const summonOrWhipIds = new Set([
