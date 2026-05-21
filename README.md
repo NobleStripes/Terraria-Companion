@@ -80,6 +80,9 @@ The app is fully responsive and works on phones and tablets via a local network 
 |---|---|
 | `npm run dev` | Start dev server |
 | `npm run validate:data` | Validate item data rules (stats, class rules, mana/crit consistency) |
+| `npm run boss-drops:prepare` | Generate boss/enemy drop completion workbook plus manifest templates in outputs/boss-drop-completion |
+| `npm run boss-drops:stage` | Validate curated boss/enemy manifests and generate a database update preview (dry-run) |
+| `npm run boss-drops:apply` | Apply curated boss/enemy manifests into src/data/bosses.json and src/data/items.json |
 | `npm run build` | Validate data, type-check, and build for production |
 | `npm run preview` | Preview production build locally |
 | `npm run lint` | Run ESLint |

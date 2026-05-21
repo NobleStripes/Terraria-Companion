@@ -2,6 +2,7 @@ import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import type { BuildClass } from '@/types/boss'
 import { itemsById, items } from '@/data/index'
+import { createSafeJsonStorage } from '@/lib/persistStorage'
 
 export interface LoadoutSlots {
   armor: [number?, number?, number?]
@@ -276,6 +277,7 @@ export const useBuildStore = create<BuildState>()(
     {
       name: STORAGE_NAME,
       version: STORAGE_VERSION,
+      storage: createSafeJsonStorage(),
       partialize: (state) => ({
         loadouts: state.loadouts,
         activeLoadoutId: state.activeLoadoutId,

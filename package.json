@@ -8,6 +8,9 @@
   "scripts": {
     "dev": "vite",
     "validate:data": "node scripts/validate-items.mjs && node scripts/validate-build-recommendations.mjs && node scripts/validate-bosses.mjs",
+    "boss-drops:prepare": "node scripts/prepare-boss-drop-completion.mjs",
+    "boss-drops:stage": "node scripts/apply-drop-manifests.mjs",
+    "boss-drops:apply": "node scripts/apply-drop-manifests.mjs --write",
     "clean": "rimraf dist",
     "build": "npm run validate:data && npm run clean && tsc -b && vite build",
     "test": "node --import ./tests/loader.mjs --experimental-strip-types --test tests/*.test.mjs tests/*.test.ts",
