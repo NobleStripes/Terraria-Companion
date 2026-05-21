@@ -196,9 +196,11 @@
     "summonCondition": "Summoned in the Corruption with Worm Food, or by breaking 3 Shadow Orbs",
     "drops": [
       "Demonite Ore",
-      "Shadow Scale",
+      "Eater of Worlds Relic",
       "Eater of Worlds Trophy",
-      "Eater of Worlds Relic"
+      "Rotten Chunks",
+      "Shadow Scale",
+      "Worm Scarf"
     ],
     "recommendedGear": [
       {
@@ -287,10 +289,11 @@
     "summonItem": "Bloody Spine",
     "summonCondition": "Summoned in the Crimson with Bloody Spine, or by breaking 3 Crimson Hearts",
     "drops": [
+      "Brain of Cthulhu Relic",
+      "Brain of Cthulhu Trophy",
       "Crimtane Ore",
       "Tissue Sample",
-      "Brain of Cthulhu Trophy",
-      "Brain of Cthulhu Relic"
+      "Vertebrae"
     ],
     "recommendedGear": [
       {
@@ -374,14 +377,15 @@
     "summonItem": "Abeemination",
     "summonCondition": "Summoned in the Jungle with Abeemination, or by breaking a Larva in an Underground Hive",
     "drops": [
+      "Bee Wax",
       "Bee Gun",
       "Bee Keeper",
       "Beehive",
-      "Nectar",
-      "Stinger",
       "Honey Comb",
+      "Nectar",
+      "Queen Bee Relic",
       "Queen Bee Trophy",
-      "Queen Bee Relic"
+      "Stinger"
     ],
     "recommendedGear": [
       {
@@ -1038,15 +1042,17 @@
     "summonItem": "Plantera's Bulb",
     "summonCondition": "Break a Plantera's Bulb that spawns in the Underground Jungle after all 3 Mechanical Bosses are defeated",
     "drops": [
-      "Temple Key",
       "Grenade Launcher",
-      "Venus Magnum",
+      "Greater Healing Potion",
       "Nightshade Petal",
-      "Pygmy Staff",
-      "Wasp Gun",
-      "Seedler",
+      "Plantera Relic",
       "Plantera Trophy",
-      "Plantera Relic"
+      "Pygmy Staff",
+      "Seedler",
+      "Temple Key",
+      "Venus Magnum",
+      "Vulgar Display of Flower",
+      "Wasp Gun"
     ],
     "recommendedGear": [
       {
@@ -1140,15 +1146,16 @@
     "summonItem": "Lihzahrd Power Cell",
     "summonCondition": "Use a Lihzahrd Power Cell on the Lihzahrd Altar inside the Jungle Temple",
     "drops": [
-      "Picksaw",
-      "Heat Ray",
-      "Staff of Earth",
-      "Possessed Hatchet",
-      "Sun Stone",
+      "Beetle Husk",
       "Eye of the Golem",
       "Golem Fist",
+      "Golem Relic",
       "Golem Trophy",
-      "Golem Relic"
+      "Heat Ray",
+      "Picksaw",
+      "Possessed Hatchet",
+      "Staff of Earth",
+      "Sun Stone"
     ],
     "recommendedGear": [
       {
@@ -1240,13 +1247,14 @@
     "summonItem": "Truffle Worm",
     "summonCondition": "Fish with a Truffle Worm as bait in the Ocean",
     "drops": [
+      "Bubble Gun",
+      "Duke Fishron Relic",
+      "Duke Fishron Trophy",
       "Fishron Wings",
       "Flairon",
       "Razorblade Typhoon",
-      "Tempest Staff",
-      "Bubble Gun",
-      "Duke Fishron Trophy",
-      "Duke Fishron Relic"
+      "Tsunami",
+      "Tempest Staff"
     ],
     "recommendedGear": [
       {
@@ -1517,20 +1525,22 @@
     "summonItem": "Celestial Sigil",
     "summonCondition": "Defeat all four Celestial Pillars (Solar, Vortex, Nebula, Stardust), or use a Celestial Sigil",
     "drops": [
-      "Meowmere",
-      "Star Wrath",
-      "Terrarian",
-      "Last Prism",
-      "Lunar Flare",
-      "S.D.M.G.",
       "Celeb II",
-      "Phantasm",
-      "Rainbow Crystal Staff",
-      "Lunar Portal Staff",
-      "Portal Gun",
+      "Celestial Starboard",
       "Greater Healing Potion",
+      "Last Prism",
+      "Luminite",
+      "Lunar Flare",
+      "Lunar Portal Staff",
+      "Meowmere",
+      "Moon Lord Relic",
       "Moon Lord Trophy",
-      "Moon Lord Relic"
+      "Phantasm",
+      "Portal Gun",
+      "Rainbow Crystal Staff",
+      "S.D.M.G.",
+      "Star Wrath",
+      "Terrarian"
     ],
     "recommendedGear": [
       {
