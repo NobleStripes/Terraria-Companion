@@ -6487,7 +6487,10 @@
       "Stardew Valley crossover"
     ],
     "wikiSlug": "Blue_Chicken_Egg",
-    "progressionTier": "early-game"
+    "progressionTier": "early-game",
+    "npcDrops": [
+      "Traveling Merchant"
+    ]
   },
   {
     "id": 463,
@@ -6502,7 +6505,10 @@
     ],
     "wikiSlug": "Creeper_Mask",
     "defense": 0,
-    "progressionTier": "early-game"
+    "progressionTier": "early-game",
+    "containerDrops": [
+      "Goodie Bag"
+    ]
   },
   {
     "id": 464,
@@ -6517,7 +6523,10 @@
     ],
     "wikiSlug": "Creeper_Shirt",
     "defense": 0,
-    "progressionTier": "early-game"
+    "progressionTier": "early-game",
+    "containerDrops": [
+      "Goodie Bag"
+    ]
   },
   {
     "id": 465,
@@ -6532,7 +6541,10 @@
     ],
     "wikiSlug": "Creeper_Pants",
     "defense": 0,
-    "progressionTier": "early-game"
+    "progressionTier": "early-game",
+    "containerDrops": [
+      "Goodie Bag"
+    ]
   },
   {
     "id": 466,
@@ -6550,7 +6562,11 @@
     "knockback": 6,
     "critChance": 4,
     "useTime": 20,
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "containerDrops": [
+      "Iron Crate",
+      "Mythril Crate"
+    ]
   },
   {
     "id": 467,
@@ -6586,7 +6602,11 @@
       "Pixel Piracy crossover"
     ],
     "wikiSlug": "Ginger_Beard",
-    "progressionTier": "early-game"
+    "progressionTier": "early-game",
+    "containerDrops": [
+      "Iron Crate",
+      "Mythril Crate"
+    ]
   },
   {
     "id": 469,
@@ -6614,7 +6634,10 @@
       "Pixel Piracy crossover"
     ],
     "wikiSlug": "Sail",
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "npcDrops": [
+      "Pirate"
+    ]
   },
   {
     "id": 471,
@@ -6643,7 +6666,10 @@
       "50% chance from Divine Crates in stacks of 4 to 10"
     ],
     "wikiSlug": "Crystal_Shard",
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "containerDrops": [
+      "Divine Crate"
+    ]
   },
   {
     "id": 473,
@@ -6682,7 +6708,10 @@
     "knockback": 3.25,
     "critChance": 4,
     "useTime": 25,
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "npcDrops": [
+      "Traveling Merchant"
+    ]
   },
   {
     "id": 475,
@@ -6700,7 +6729,11 @@
     "knockback": 3.85,
     "critChance": 4,
     "useTime": 25,
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "containerDrops": [
+      "Golden Lock Box",
+      "Locked Gold Chest"
+    ]
   },
   {
     "id": 476,
@@ -6738,7 +6771,10 @@
     "knockback": 3.25,
     "critChance": 4,
     "useTime": 25,
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "npcDrops": [
+      "Skeleton Merchant"
+    ]
   },
   {
     "id": 478,
@@ -6755,7 +6791,10 @@
     "knockback": 3.8,
     "critChance": 4,
     "useTime": 25,
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "npcDrops": [
+      "Skeleton Merchant"
+    ]
   },
   {
     "id": 479,
@@ -6822,7 +6861,10 @@
       "Dungeon Defenders 2 crossover"
     ],
     "wikiSlug": "Eternia_Crystal",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 483,
@@ -6836,7 +6878,10 @@
       "Dungeon Defenders 2 crossover"
     ],
     "wikiSlug": "Eternia_Crystal_Stand",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 484,
@@ -6854,7 +6899,10 @@
     "knockback": 4,
     "critChance": 4,
     "useTime": 32,
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 485,
@@ -6939,7 +6987,10 @@
     "damage": 17,
     "knockback": 3,
     "useTime": 30,
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 490,
@@ -6956,7 +7007,10 @@
     "damage": 42,
     "knockback": 3,
     "useTime": 30,
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 491,
@@ -6973,7 +7027,10 @@
     "damage": 88,
     "knockback": 3,
     "useTime": 30,
-    "progressionTier": "endgame"
+    "progressionTier": "endgame",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 492,
@@ -6990,7 +7047,10 @@
     "damage": 4,
     "knockback": 0.25,
     "useTime": 30,
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 493,
@@ -7007,7 +7067,10 @@
     "damage": 11,
     "knockback": 0.25,
     "useTime": 30,
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 494,
@@ -7024,7 +7087,10 @@
     "damage": 34,
     "knockback": 0.25,
     "useTime": 30,
-    "progressionTier": "endgame"
+    "progressionTier": "endgame",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 495,
@@ -7041,7 +7107,10 @@
     "damage": 24,
     "knockback": 0.5,
     "useTime": 30,
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 496,
@@ -7058,7 +7127,10 @@
     "damage": 59,
     "knockback": 0.5,
     "useTime": 30,
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 497,
@@ -7075,7 +7147,10 @@
     "damage": 126,
     "knockback": 0.5,
     "useTime": 30,
-    "progressionTier": "endgame"
+    "progressionTier": "endgame",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 498,
@@ -7092,7 +7167,10 @@
     "damage": 30,
     "knockback": 4.7,
     "useTime": 30,
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 499,
@@ -7109,7 +7187,10 @@
     "damage": 74,
     "knockback": 4.7,
     "useTime": 30,
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 500,
@@ -7126,7 +7207,10 @@
     "damage": 156,
     "knockback": 4.7,
     "useTime": 30,
-    "progressionTier": "endgame"
+    "progressionTier": "endgame",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 501,
@@ -7141,7 +7225,10 @@
     ],
     "wikiSlug": "Apprentice%27s_Hat",
     "defense": 7,
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 502,
@@ -7156,7 +7243,10 @@
     ],
     "wikiSlug": "Apprentice%27s_Robe",
     "defense": 15,
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 503,
@@ -7171,7 +7261,10 @@
     ],
     "wikiSlug": "Apprentice%27s_Trousers",
     "defense": 10,
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 504,
@@ -7186,7 +7279,10 @@
     ],
     "wikiSlug": "Dark_Artist%27s_Hat",
     "defense": 7,
-    "progressionTier": "endgame"
+    "progressionTier": "endgame",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 505,
@@ -7201,7 +7297,10 @@
     ],
     "wikiSlug": "Dark_Artist%27s_Robes",
     "defense": 21,
-    "progressionTier": "endgame"
+    "progressionTier": "endgame",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 506,
@@ -7216,7 +7315,10 @@
     ],
     "wikiSlug": "Dark_Artist%27s_Leggings",
     "defense": 14,
-    "progressionTier": "endgame"
+    "progressionTier": "endgame",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 507,
@@ -7231,7 +7333,10 @@
     ],
     "wikiSlug": "Huntress%27s_Wig",
     "defense": 7,
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 508,
@@ -7246,7 +7351,10 @@
     ],
     "wikiSlug": "Huntress%27s_Jerkin",
     "defense": 17,
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 509,
@@ -7261,7 +7369,10 @@
     ],
     "wikiSlug": "Huntress%27s_Pants",
     "defense": 12,
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 510,
@@ -7276,7 +7387,10 @@
     ],
     "wikiSlug": "Red_Riding_Hood",
     "defense": 8,
-    "progressionTier": "endgame"
+    "progressionTier": "endgame",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 511,
@@ -7291,7 +7405,10 @@
     ],
     "wikiSlug": "Red_Riding_Dress",
     "defense": 24,
-    "progressionTier": "endgame"
+    "progressionTier": "endgame",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 512,
@@ -7306,7 +7423,10 @@
     ],
     "wikiSlug": "Red_Riding_Leggings",
     "defense": 16,
-    "progressionTier": "endgame"
+    "progressionTier": "endgame",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 513,
@@ -7321,7 +7441,10 @@
     ],
     "wikiSlug": "Monk%27s_Bushy_Brow_Bald_Cap",
     "defense": 8,
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 514,
@@ -7336,7 +7459,10 @@
     ],
     "wikiSlug": "Monk%27s_Shirt",
     "defense": 22,
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 515,
@@ -7351,7 +7477,10 @@
     ],
     "wikiSlug": "Monk%27s_Pants",
     "defense": 16,
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 516,
@@ -7366,7 +7495,10 @@
     ],
     "wikiSlug": "Shinobi_Infiltrator%27s_Helmet",
     "defense": 10,
-    "progressionTier": "endgame"
+    "progressionTier": "endgame",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 517,
@@ -7381,7 +7513,10 @@
     ],
     "wikiSlug": "Shinobi_Infiltrator%27s_Torso",
     "defense": 26,
-    "progressionTier": "endgame"
+    "progressionTier": "endgame",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 518,
@@ -7396,7 +7531,10 @@
     ],
     "wikiSlug": "Shinobi_Infiltrator%27s_Pants",
     "defense": 18,
-    "progressionTier": "endgame"
+    "progressionTier": "endgame",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 519,
@@ -7411,7 +7549,10 @@
     ],
     "wikiSlug": "Squire%27s_Great_Helm",
     "defense": 13,
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 520,
@@ -7426,7 +7567,10 @@
     ],
     "wikiSlug": "Squire%27s_Plating",
     "defense": 27,
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 521,
@@ -7441,7 +7585,10 @@
     ],
     "wikiSlug": "Squire%27s_Greaves",
     "defense": 18,
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 522,
@@ -7456,7 +7603,10 @@
     ],
     "wikiSlug": "Valhalla_Knight%27s_Helm",
     "defense": 20,
-    "progressionTier": "endgame"
+    "progressionTier": "endgame",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 523,
@@ -7471,7 +7621,10 @@
     ],
     "wikiSlug": "Valhalla_Knight%27s_Breastplate",
     "defense": 24,
-    "progressionTier": "endgame"
+    "progressionTier": "endgame",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 524,
@@ -7486,7 +7639,10 @@
     ],
     "wikiSlug": "Valhalla_Knight%27s_Greaves",
     "defense": 24,
-    "progressionTier": "endgame"
+    "progressionTier": "endgame",
+    "npcDrops": [
+      "Tavernkeep"
+    ]
   },
   {
     "id": 525,
@@ -7503,7 +7659,10 @@
     "knockback": 3.8,
     "critChance": 4,
     "useTime": 25,
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "npcDrops": [
+      "Traveling Merchant"
+    ]
   },
   {
     "id": 526,
@@ -7585,7 +7744,10 @@
       "Don't Starve Together crossover"
     ],
     "wikiSlug": "Bernie%27s_Button",
-    "progressionTier": "early-hardmode"
+    "progressionTier": "early-hardmode",
+    "npcDrops": [
+      "Princess"
+    ]
   },
   {
     "id": 5089,
@@ -7733,7 +7895,10 @@
       "Don't Starve Together crossover"
     ],
     "wikiSlug": "Bone_Helm",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "containerDrops": [
+      "Deerclops Treasure Bag"
+    ]
   },
   {
     "id": 5107,
@@ -7933,7 +8098,10 @@
       "Don't Starve Together crossover"
     ],
     "wikiSlug": "Gentleman%27s_Beard",
-    "progressionTier": "pre-hardmode"
+    "progressionTier": "pre-hardmode",
+    "npcDrops": [
+      "Stylist"
+    ]
   },
   {
     "id": 5105,

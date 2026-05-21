@@ -168,6 +168,32 @@ for (const item of items) {
     }
   }
 
+  if (item.npcDrops !== undefined) {
+    if (!Array.isArray(item.npcDrops)) {
+      errors.push(`[${item.id}] ${item.name}: npcDrops must be an array when provided`)
+    } else {
+      for (const drop of item.npcDrops) {
+        if (typeof drop !== 'string' || drop.trim().length === 0) {
+          errors.push(`[${item.id}] ${item.name}: npcDrops entries must be non-empty strings`)
+          break
+        }
+      }
+    }
+  }
+
+  if (item.containerDrops !== undefined) {
+    if (!Array.isArray(item.containerDrops)) {
+      errors.push(`[${item.id}] ${item.name}: containerDrops must be an array when provided`)
+    } else {
+      for (const drop of item.containerDrops) {
+        if (typeof drop !== 'string' || drop.trim().length === 0) {
+          errors.push(`[${item.id}] ${item.name}: containerDrops entries must be non-empty strings`)
+          break
+        }
+      }
+    }
+  }
+
   const sources = Array.isArray(item.sources) ? item.sources : []
   const hasMigrationTag = sources.includes(MIGRATION_PLACEHOLDER_TAG)
   const hasLegacyMigrationTag = sources.includes(LEGACY_MIGRATION_TAG)

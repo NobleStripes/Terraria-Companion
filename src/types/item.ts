@@ -37,6 +37,8 @@ export interface Item {
   tooltip: string
   sources: string[]
   enemyDrops?: string[]
+  npcDrops?: string[]
+  containerDrops?: string[]
   wikiSlug?: string
   // Stats (optional, depending on item type)
   damage?: number
