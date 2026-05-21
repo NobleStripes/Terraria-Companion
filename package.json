@@ -10,7 +10,7 @@
     "validate:data": "node scripts/validate-items.mjs && node scripts/validate-build-recommendations.mjs",
     "clean": "rimraf dist",
     "build": "npm run validate:data && npm run clean && tsc -b && vite build",
-    "test": "node --experimental-strip-types --test tests/*.test.mjs tests/*.test.ts",
+    "test": "node --import ./tests/loader.mjs --experimental-strip-types --test tests/*.test.mjs tests/*.test.ts",
     "lint": "eslint .",
     "lint-staged": "lint-staged",
     "prepare": "husky",
