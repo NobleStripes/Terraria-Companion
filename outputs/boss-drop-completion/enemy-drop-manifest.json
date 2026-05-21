@@ -1,0 +1,218 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-05-21T02:51:52.321Z",
+  "notes": [
+    "Fill expectedDropItems for each enemy using authoritative Terraria references.",
+    "The template starts from current item.enemyDrops mappings in src/data/items.json.",
+    "Save your curated file as outputs/boss-drop-completion/enemy-drop-manifest.json."
+  ],
+  "enemies": [
+    {
+      "name": "Blood Zombie",
+      "expectedDropItems": [
+        "Shark Tooth Necklace"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "name": "Blue Slime",
+      "expectedDropItems": [
+        "Gel"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "name": "Demon Eye",
+      "expectedDropItems": [
+        "Lenses"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "name": "Dreamer Ghoul",
+      "expectedDropItems": [
+        "Ancient Cloth"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "name": "Drippler",
+      "expectedDropItems": [
+        "Shark Tooth Necklace"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "name": "Dungeon Spirit",
+      "expectedDropItems": [
+        "Ectoplasm"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "name": "Eater of Worlds (Treasure Bag, Expert/Master)",
+      "expectedDropItems": [
+        "Worm Scarf"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "name": "Frozen Zombie",
+      "expectedDropItems": [
+        "Shackle"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "name": "Ghoul",
+      "expectedDropItems": [
+        "Ancient Cloth"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "name": "Giant Tortoise",
+      "expectedDropItems": [
+        "Turtle Shell"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "name": "Goblin Scout",
+      "expectedDropItems": [
+        "Tattered Cloth"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "name": "Green Slime",
+      "expectedDropItems": [
+        "Gel"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "name": "Hornet",
+      "expectedDropItems": [
+        "Stinger"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "name": "Pinky (higher quantity)",
+      "expectedDropItems": [
+        "Gel"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "name": "Raincoat Zombie",
+      "expectedDropItems": [
+        "Shackle"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "name": "Snow Flinx",
+      "expectedDropItems": [
+        "Flinx Fur"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "name": "Spiked Jungle Slime",
+      "expectedDropItems": [
+        "Stinger"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "name": "Tainted Ghoul",
+      "expectedDropItems": [
+        "Ancient Cloth"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "name": "Underground Corruption/Crimson enemies",
+      "expectedDropItems": [
+        "Soul of Night"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "name": "Underground Hallow enemies",
+      "expectedDropItems": [
+        "Soul of Light"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "name": "Vile Ghoul",
+      "expectedDropItems": [
+        "Ancient Cloth"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "name": "Wandering Eye",
+      "expectedDropItems": [
+        "Lenses"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "name": "Zombie",
+      "expectedDropItems": [
+        "Shackle"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    }
+  ]
+}

@@ -1,0 +1,277 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-05-21T02:51:52.319Z",
+  "notes": [
+    "Fill expectedDrops for each boss using authoritative Terraria references.",
+    "The template starts from current drops in src/data/bosses.json.",
+    "Save your curated file as outputs/boss-drop-completion/boss-drop-manifest.json."
+  ],
+  "bosses": [
+    {
+      "id": "king-slime",
+      "name": "King Slime",
+      "expectedDrops": [
+        "King Slime Relic",
+        "King Slime Trophy",
+        "Ninja Hood",
+        "Ninja Pants",
+        "Ninja Shirt",
+        "Royal Gel",
+        "Slime Hook"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "id": "eye-of-cthulhu",
+      "name": "Eye of Cthulhu",
+      "expectedDrops": [
+        "Binoculars",
+        "Corrupt Seeds",
+        "Crimson Seeds",
+        "Crimtane Ore",
+        "Demonite Ore",
+        "Eye of Cthulhu Relic",
+        "Eye of Cthulhu Trophy"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "id": "eater-of-worlds",
+      "name": "Eater of Worlds",
+      "expectedDrops": [
+        "Demonite Ore",
+        "Eater of Worlds Relic",
+        "Eater of Worlds Trophy",
+        "Shadow Scale"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "id": "brain-of-cthulhu",
+      "name": "Brain of Cthulhu",
+      "expectedDrops": [
+        "Brain of Cthulhu Relic",
+        "Brain of Cthulhu Trophy",
+        "Crimtane Ore",
+        "Tissue Sample"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "id": "queen-bee",
+      "name": "Queen Bee",
+      "expectedDrops": [
+        "Bee Gun",
+        "Bee Keeper",
+        "Beehive",
+        "Honey Comb",
+        "Nectar",
+        "Queen Bee Relic",
+        "Queen Bee Trophy",
+        "Stinger"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "id": "skeletron",
+      "name": "Skeletron",
+      "expectedDrops": [
+        "Book of Skulls",
+        "Golden Key",
+        "Skeletron Hand",
+        "Skeletron Relic",
+        "Skeletron Trophy"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "id": "wall-of-flesh",
+      "name": "Wall of Flesh",
+      "expectedDrops": [
+        "Breaker Blade",
+        "Clockwork Assault Rifle",
+        "Laser Rifle",
+        "Pwnhammer",
+        "Ranger Emblem",
+        "Sorcerer Emblem",
+        "Summoner Emblem",
+        "Wall of Flesh Relic",
+        "Wall of Flesh Trophy",
+        "Warrior Emblem"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "id": "queen-slime",
+      "name": "Queen Slime",
+      "expectedDrops": [
+        "Blade Staff",
+        "Crystal Assassin Armor",
+        "Gelatinous Pillion",
+        "Queen Slime Relic",
+        "Queen Slime Trophy",
+        "Volatile Gelatin"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "id": "the-twins",
+      "name": "The Twins",
+      "expectedDrops": [
+        "Hallowed Bars",
+        "Optic Staff",
+        "Soul of Sight",
+        "The Twins Relic",
+        "The Twins Trophy"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "id": "the-destroyer",
+      "name": "The Destroyer",
+      "expectedDrops": [
+        "Destroyer Relic",
+        "Destroyer Trophy",
+        "Hallowed Bars",
+        "Soul of Might"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "id": "skeletron-prime",
+      "name": "Skeletron Prime",
+      "expectedDrops": [
+        "Hallowed Bars",
+        "Skeletron Prime Relic",
+        "Skeletron Prime Trophy",
+        "Soul of Fright"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "id": "plantera",
+      "name": "Plantera",
+      "expectedDrops": [
+        "Grenade Launcher",
+        "Nightshade Petal",
+        "Plantera Relic",
+        "Plantera Trophy",
+        "Pygmy Staff",
+        "Seedler",
+        "Temple Key",
+        "Venus Magnum",
+        "Wasp Gun"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "id": "golem",
+      "name": "Golem",
+      "expectedDrops": [
+        "Eye of the Golem",
+        "Golem Fist",
+        "Golem Relic",
+        "Golem Trophy",
+        "Heat Ray",
+        "Picksaw",
+        "Possessed Hatchet",
+        "Staff of Earth",
+        "Sun Stone"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "id": "duke-fishron",
+      "name": "Duke Fishron",
+      "expectedDrops": [
+        "Bubble Gun",
+        "Duke Fishron Relic",
+        "Duke Fishron Trophy",
+        "Fishron Wings",
+        "Flairon",
+        "Razorblade Typhoon",
+        "Tempest Staff"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "id": "empress-of-light",
+      "name": "Empress of Light",
+      "expectedDrops": [
+        "Empress of Light Relic",
+        "Empress of Light Trophy",
+        "Empress Wings",
+        "Kaleidoscope",
+        "Nightglow",
+        "Starlight",
+        "Terraprisma"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "id": "lunatic-cultist",
+      "name": "Lunatic Cultist",
+      "expectedDrops": [
+        "Ancient Manipulator",
+        "Lunatic Cultist Relic",
+        "Lunatic Cultist Trophy"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    },
+    {
+      "id": "moon-lord",
+      "name": "Moon Lord",
+      "expectedDrops": [
+        "Celeb II",
+        "Greater Healing Potion",
+        "Last Prism",
+        "Lunar Flare",
+        "Lunar Portal Staff",
+        "Meowmere",
+        "Moon Lord Relic",
+        "Moon Lord Trophy",
+        "Phantasm",
+        "Portal Gun",
+        "Rainbow Crystal Staff",
+        "S.D.M.G.",
+        "Star Wrath",
+        "Terrarian"
+      ],
+      "reviewStatus": "todo",
+      "sourceUrl": "",
+      "notes": ""
+    }
+  ]
+}
