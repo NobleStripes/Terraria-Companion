@@ -53,6 +53,7 @@ const prepChecklistLabels: Record<PrepChecklistKey, string> = {
 
 const prepChecklistOrder: PrepChecklistKey[] = ['arena', 'buffs', 'summon', 'mobility']
 type DropFilter = 'all' | 'wished' | 'missing' | 'acquired'
+type PrepFilter = 'all' | 'ready' | 'needs'
 
 const dropFilters: DropFilter[] = ['all', 'wished', 'missing', 'acquired']
 
@@ -63,12 +64,24 @@ const dropFilterLabels: Record<DropFilter, string> = {
   acquired: 'Acquired',
 }
 
+const prepFilters: PrepFilter[] = ['all', 'ready', 'needs']
+
+const prepFilterLabels: Record<PrepFilter, string> = {
+  all: 'All Prep',
+  ready: 'Ready',
+  needs: 'Needs Prep',
+}
+
 function isBuildClass(value: string | null): value is BuildClass {
   return value === 'melee' || value === 'ranged' || value === 'magic' || value === 'summoner'
 }
 
 function isDropFilter(value: string | null): value is DropFilter {
   return value === 'all' || value === 'wished' || value === 'missing' || value === 'acquired'
+}
+
+function isPrepFilter(value: string | null): value is PrepFilter {
+  return value === 'all' || value === 'ready' || value === 'needs'
 }
 
 function shouldRenderDrop(status: BossDropStatus, dropFilter: DropFilter): boolean {
@@ -85,6 +98,34 @@ function shouldRenderDrop(status: BossDropStatus, dropFilter: DropFilter): boole
   }
 
   return status === 'acquired'
+}
+
+function matchesDropFilter(dropCounts: { wished: number; acquired: number; missing: number; total: number }, dropFilter: DropFilter): boolean {
+  if (dropFilter === 'all') {
+    return true
+  }
+
+  if (dropFilter === 'wished') {
+    return dropCounts.wished > 0
+  }
+
+  if (dropFilter === 'missing') {
+    return dropCounts.missing > 0
+  }
+
+  return dropCounts.acquired > 0
+}
+
+function matchesPrepFilter(isReady: boolean, prepFilter: PrepFilter): boolean {
+  if (prepFilter === 'all') {
+    return true
+  }
+
+  if (prepFilter === 'ready') {
+    return isReady
+  }
+
+  return !isReady
 }
 
 function GearList({
@@ -264,6 +305,9 @@ function BossDrawer({
   getDropStatus,
   onToggleDropWish,
   onToggleDropAcquired,
+  onClearDrop,
+  onWishAllDrops,
+  onClearWishes,
   onResetDrops,
   isMobile,
   isTablet,
@@ -284,6 +328,9 @@ function BossDrawer({
   getDropStatus: (dropName: string) => BossDropStatus
   onToggleDropWish: (dropName: string) => void
   onToggleDropAcquired: (dropName: string) => void
+  onClearDrop: (dropName: string) => void
+  onWishAllDrops: () => void
+  onClearWishes: () => void
   onResetDrops: () => void
   isMobile: boolean
   isTablet: boolean
@@ -291,6 +338,17 @@ function BossDrawer({
   const [tab, setTab] = useState<DrawerTab>('overview')
   const tabs: DrawerTab[] = ['overview', 'gear', 'tips']
   const headingId = `boss-drawer-title-${boss.id}`
+  const dropCounts = useMemo(() => {
+    const wished = boss.drops.filter((dropName) => getDropStatus(dropName) === 'wished').length
+    const acquired = boss.drops.filter((dropName) => getDropStatus(dropName) === 'acquired').length
+
+    return {
+      wished,
+      acquired,
+      missing: Math.max(wished - acquired, 0),
+      total: boss.drops.length,
+    }
+  }, [boss.drops, getDropStatus])
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
@@ -403,10 +461,30 @@ function BossDrawer({
                 <div>
                   <div className="mb-2 flex items-center justify-between gap-2">
                     <h3 className="text-terra-gold text-xs font-pixel">Notable Drops</h3>
+                    <div className="flex items-center gap-3 text-xs">
+                      <span className="text-gray-500">{dropCounts.wished} wished</span>
+                      <span className="text-terra-green">{dropCounts.acquired} acquired</span>
+                    </div>
+                  </div>
+                  <div className="mb-2 flex flex-wrap items-center gap-1">
+                    <button
+                      type="button"
+                      onClick={onWishAllDrops}
+                      className="rounded border border-terra-border px-2 py-1 text-[11px] text-gray-400 hover:text-terra-gold hover:border-terra-gold transition-colors"
+                    >
+                      Wish All
+                    </button>
+                    <button
+                      type="button"
+                      onClick={onClearWishes}
+                      className="rounded border border-terra-border px-2 py-1 text-[11px] text-gray-400 hover:text-white hover:border-terra-gold transition-colors"
+                    >
+                      Clear Wishes
+                    </button>
                     <button
                       type="button"
                       onClick={onResetDrops}
-                      className="text-xs text-gray-400 hover:text-terra-red transition-colors"
+                      className="rounded border border-terra-border px-2 py-1 text-[11px] text-gray-400 hover:text-terra-red hover:border-terra-red transition-colors"
                     >
                       Clear Drops
                     </button>
@@ -441,6 +519,7 @@ function BossDrawer({
                               <button
                                 type="button"
                                 onClick={() => onToggleDropWish(dropName)}
+                                aria-pressed={status === 'wished'}
                                 className={cn(
                                   'rounded border px-2 py-0.5 text-[11px] transition-colors',
                                   status === 'wished'
@@ -453,6 +532,7 @@ function BossDrawer({
                               <button
                                 type="button"
                                 onClick={() => onToggleDropAcquired(dropName)}
+                                aria-pressed={status === 'acquired'}
                                 className={cn(
                                   'rounded border px-2 py-0.5 text-[11px] transition-colors',
                                   status === 'acquired'
@@ -462,6 +542,15 @@ function BossDrawer({
                               >
                                 Got It
                               </button>
+                              {status !== 'none' && (
+                                <button
+                                  type="button"
+                                  onClick={() => onClearDrop(dropName)}
+                                  className="rounded border border-terra-border px-2 py-0.5 text-[11px] text-gray-400 hover:text-terra-red hover:border-terra-red transition-colors"
+                                >
+                                  Clear
+                                </button>
+                              )}
                             </div>
                           </div>
                         )
@@ -714,6 +803,10 @@ export default function BossTracker() {
     const fromUrl = searchParams.get('drops')
     return isDropFilter(fromUrl) ? fromUrl : 'all'
   })
+  const [prepFilter, setPrepFilter] = useState<PrepFilter>(() => {
+    const fromUrl = searchParams.get('prep')
+    return isPrepFilter(fromUrl) ? fromUrl : 'all'
+  })
 
   const phases: GamePhase[] = ['pre-hardmode', 'hardmode', 'post-moonlord']
   const openBoss = useMemo(() => {
@@ -736,8 +829,34 @@ export default function BossTracker() {
       next.set('drops', dropFilter)
     }
 
+    if (prepFilter === 'all') {
+      next.delete('prep')
+    } else {
+      next.set('prep', prepFilter)
+    }
+
     setSearchParams(next, { replace: true })
-  }, [dropFilter, gearClass, searchParams, setSearchParams])
+  }, [dropFilter, gearClass, prepFilter, searchParams, setSearchParams])
+
+  const bossSummary = useMemo(() => {
+    const allBosses = Object.values(grouped).flat()
+    let wished = 0
+    let acquired = 0
+    let missing = 0
+
+    for (const boss of allBosses) {
+      const counts = getBossDropCounts(boss.id, boss.drops)
+      wished += counts.wished
+      acquired += counts.acquired
+      missing += counts.missing
+    }
+
+    return {
+      wished,
+      acquired,
+      missing,
+    }
+  }, [getBossDropCounts, grouped])
 
   function openGuide(boss: Boss) {
     const query = searchParams.toString()
@@ -769,7 +888,34 @@ export default function BossTracker() {
       <ProgressBar value={defeatedCount} max={totalCount} className="mb-8" />
       <div className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-xs text-gray-500">Readiness complete: {readyCount}/{totalCount} bosses</p>
-        <div className="flex flex-wrap gap-1">
+        <div className="flex flex-wrap items-center gap-2 text-[11px]">
+          <span className="rounded border border-terra-border bg-terra-bg px-2 py-1 text-gray-400">{bossSummary.wished} wished</span>
+          <span className="rounded border border-terra-border bg-terra-bg px-2 py-1 text-terra-green">{bossSummary.acquired} acquired</span>
+          <span className="rounded border border-terra-border bg-terra-bg px-2 py-1 text-terra-gold">{bossSummary.missing} missing</span>
+        </div>
+      </div>
+
+      <div className="mb-6 space-y-2">
+        <div className="flex flex-wrap items-center gap-1">
+          <span className="text-[11px] text-gray-500 mr-1">Prep filter:</span>
+          {prepFilters.map((filter) => (
+            <button
+              key={filter}
+              type="button"
+              onClick={() => setPrepFilter(filter)}
+              className={cn(
+                'rounded border px-2 py-1 text-[11px] transition-colors',
+                prepFilter === filter
+                  ? 'border-terra-gold bg-terra-panel text-terra-gold'
+                  : 'border-terra-border text-gray-400 hover:text-white hover:border-terra-gold'
+              )}
+            >
+              {prepFilterLabels[filter]}
+            </button>
+          ))}
+        </div>
+        <div className="flex flex-wrap items-center gap-1">
+          <span className="text-[11px] text-gray-500 mr-1">Drop filter:</span>
           {dropFilters.map((filter) => (
             <button
               key={filter}
@@ -790,16 +936,20 @@ export default function BossTracker() {
 
       <div className="space-y-8">
         {phases.map((phase) => {
-          const phaseBosses = grouped[phase]
+          const phaseBosses = grouped[phase].filter((boss) => {
+            const counts = getBossDropCounts(boss.id, boss.drops)
+            return matchesPrepFilter(isPrepReady(boss.id), prepFilter) && matchesDropFilter(counts, dropFilter)
+          })
           if (!phaseBosses.length) return null
           const phaseDefeated = phaseBosses.filter((b) => isDefeated(b.id)).length
+          const phaseTotal = grouped[phase].length
           return (
             <section key={phase}>
               <div className="flex items-center justify-between mb-3">
                 <h2 className={cn('font-pixel text-xs', phaseColors[phase])}>
                   {phaseLabels[phase]}
                 </h2>
-                <span className="text-gray-500 text-xs">{phaseDefeated}/{phaseBosses.length}</span>
+                <span className="text-gray-500 text-xs">{phaseDefeated}/{phaseBosses.length}{phaseBosses.length !== phaseTotal ? ` shown (${phaseTotal} total)` : ''}</span>
               </div>
               <div className="space-y-2">
                 <PhaseBossList
@@ -835,6 +985,19 @@ export default function BossTracker() {
           getDropStatus={(dropName) => getDropStatus(openBoss.id, dropName)}
           onToggleDropWish={(dropName) => toggleDropWish(openBoss.id, dropName)}
           onToggleDropAcquired={(dropName) => toggleDropAcquired(openBoss.id, dropName)}
+          onClearDrop={(dropName) => setDropStatus(openBoss.id, dropName, 'none')}
+          onWishAllDrops={() => {
+            for (const dropName of openBoss.drops) {
+              setDropStatus(openBoss.id, dropName, 'wished')
+            }
+          }}
+          onClearWishes={() => {
+            for (const dropName of openBoss.drops) {
+              if (getDropStatus(openBoss.id, dropName) === 'wished') {
+                setDropStatus(openBoss.id, dropName, 'none')
+              }
+            }
+          }}
           onResetDrops={() => resetDropsForBoss(openBoss.id)}
           isMobile={isMobile}
           isTablet={isTablet}

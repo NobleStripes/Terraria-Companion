@@ -51,7 +51,7 @@ type LegacyLoadout = {
 }
 
 const STORAGE_NAME = 'terraria-build-planner'
-const STORAGE_VERSION = 1
+const STORAGE_VERSION = 2
 const ACCESSORY_SLOT_COUNT = 5
 const itemIdByName = new Map(items.map((item) => [item.name.toLowerCase(), item.id]))
 
@@ -143,6 +143,24 @@ function setLoadoutSlots(loadout: Loadout, recipe: (slots: LoadoutSlots) => void
   return {
     ...loadout,
     slots: nextSlots,
+  }
+}
+
+export function normalizeBuildStorePersistedState(persistedState: unknown) {
+  const candidate = (persistedState ?? {}) as PersistedBuildState
+  const nextLoadouts = Array.isArray(candidate.loadouts)
+    ? candidate.loadouts
+        .map((loadout) => normalizeLegacyLoadout(loadout as LegacyLoadout))
+        .filter((loadout): loadout is Loadout => loadout !== null)
+    : []
+  const activeLoadoutId =
+    typeof candidate.activeLoadoutId === 'string' && nextLoadouts.some((loadout) => loadout.id === candidate.activeLoadoutId)
+      ? candidate.activeLoadoutId
+      : nextLoadouts[0]?.id ?? null
+
+  return {
+    loadouts: nextLoadouts,
+    activeLoadoutId,
   }
 }
 
@@ -282,23 +300,7 @@ export const useBuildStore = create<BuildState>()(
         loadouts: state.loadouts,
         activeLoadoutId: state.activeLoadoutId,
       }),
-      migrate: (persistedState) => {
-        const candidate = persistedState as PersistedBuildState
-        const nextLoadouts = Array.isArray(candidate.loadouts)
-          ? candidate.loadouts
-              .map((loadout) => normalizeLegacyLoadout(loadout as LegacyLoadout))
-              .filter((loadout): loadout is Loadout => loadout !== null)
-          : []
-        const activeLoadoutId =
-          typeof candidate.activeLoadoutId === 'string' && nextLoadouts.some((loadout) => loadout.id === candidate.activeLoadoutId)
-            ? candidate.activeLoadoutId
-            : nextLoadouts[0]?.id ?? null
-
-        return {
-          loadouts: nextLoadouts,
-          activeLoadoutId,
-        }
-      },
+      migrate: (persistedState) => normalizeBuildStorePersistedState(persistedState),
     }
   )
 )

@@ -36,10 +36,11 @@ function makeStorage(initial: Record<string, string> = {}): Storage {
 function makeValidPayload(overrides: Partial<CompanionBackupPayload> = {}): CompanionBackupPayload {
   const data = Object.fromEntries(BACKUP_KEYS.map((k) => [k, null])) as CompanionBackupPayload['data']
   return {
-    schemaVersion: 1,
+    schemaVersion: 2,
     exportedAt: '2024-01-01T00:00:00.000Z',
     appVersion: '1.3.0',
     data,
+    profileScopedData: {},
     ...overrides,
   }
 }
@@ -50,11 +51,25 @@ test('createCompanionBackupPayload: captures all tracked keys from storage', () 
   const storage = makeStorage({ 'terraria-boss-tracker': '{"defeatedBosses":[]}', 'terra-high-contrast': '1' })
   const payload = createCompanionBackupPayload(storage)
 
-  assert.equal(payload.schemaVersion, 1)
+  assert.equal(payload.schemaVersion, 2)
   assert.ok(typeof payload.exportedAt === 'string')
   assert.ok(typeof payload.appVersion === 'string')
   assert.equal(payload.data['terraria-boss-tracker'], '{"defeatedBosses":[]}')
   assert.equal(payload.data['terra-high-contrast'], '1')
+})
+
+test('createCompanionBackupPayload: includes profile-scoped storage entries', () => {
+  const storage = makeStorage({
+    'terraria-boss-tracker::profile::world-a': '{"defeatedBosses":["eye-of-cthulhu"]}',
+    'terraria-build-planner::profile::world-a': '{"loadouts":[]}',
+    'unrelated::profile::x': 'ignored',
+  })
+  const payload = createCompanionBackupPayload(storage)
+
+  assert.deepEqual(payload.profileScopedData, {
+    'terraria-boss-tracker::profile::world-a': '{"defeatedBosses":["eye-of-cthulhu"]}',
+    'terraria-build-planner::profile::world-a': '{"loadouts":[]}',
+  })
 })
 
 test('createCompanionBackupPayload: missing keys are null in the payload', () => {
@@ -96,13 +111,32 @@ test('serializeCompanionBackup: round-trips through JSON.parse with same shape',
 // --- parseCompanionBackup ---
 
 test('parseCompanionBackup: returns valid payload for well-formed input', () => {
-  const payload = makeValidPayload({ data: { ...Object.fromEntries(BACKUP_KEYS.map((k) => [k, null])), 'terraria-boss-tracker': 'some-data' } as CompanionBackupPayload['data'] })
+  const payload = makeValidPayload({
+    data: { ...Object.fromEntries(BACKUP_KEYS.map((k) => [k, null])), 'terraria-boss-tracker': 'some-data' } as CompanionBackupPayload['data'],
+    profileScopedData: {
+      'terraria-boss-tracker::profile::alpha': '{"defeatedBosses":["skeletron"]}',
+    },
+  })
   const json = serializeCompanionBackup(payload)
   const result = parseCompanionBackup(json)
 
-  assert.equal(result.schemaVersion, 1)
+  assert.equal(result.schemaVersion, 2)
   assert.equal(result.data['terraria-boss-tracker'], 'some-data')
   assert.equal(result.data['terra-high-contrast'], null)
+  assert.equal(result.profileScopedData['terraria-boss-tracker::profile::alpha'], '{"defeatedBosses":["skeletron"]}')
+})
+
+test('parseCompanionBackup: accepts schemaVersion 1 and normalizes to schemaVersion 2', () => {
+  const v1Payload = {
+    schemaVersion: 1,
+    exportedAt: '2024-01-01T00:00:00.000Z',
+    appVersion: '1.0.0',
+    data: Object.fromEntries(BACKUP_KEYS.map((k) => [k, null])),
+  }
+
+  const result = parseCompanionBackup(JSON.stringify(v1Payload))
+  assert.equal(result.schemaVersion, 2)
+  assert.deepEqual(result.profileScopedData, {})
 })
 
 test('parseCompanionBackup: throws on malformed JSON', () => {
@@ -136,6 +170,31 @@ test('parseCompanionBackup: throws when a tracked key has an invalid (non-string
   assert.throws(() => parseCompanionBackup(json), /Invalid value for key/i)
 })
 
+test('parseCompanionBackup: throws when profile-scoped data is missing for schema v2', () => {
+  const json = JSON.stringify({
+    schemaVersion: 2,
+    exportedAt: '2024-01-01T00:00:00.000Z',
+    appVersion: '1.0.0',
+    data: Object.fromEntries(BACKUP_KEYS.map((k) => [k, null])),
+  })
+
+  assert.throws(() => parseCompanionBackup(json), /Missing profile-scoped backup data/i)
+})
+
+test('parseCompanionBackup: throws when profile-scoped key is invalid', () => {
+  const json = JSON.stringify({
+    schemaVersion: 2,
+    exportedAt: '2024-01-01T00:00:00.000Z',
+    appVersion: '1.0.0',
+    data: Object.fromEntries(BACKUP_KEYS.map((k) => [k, null])),
+    profileScopedData: {
+      'invalid-prefix::profile::alpha': '{}',
+    },
+  })
+
+  assert.throws(() => parseCompanionBackup(json), /Invalid profile-scoped key/i)
+})
+
 // --- applyCompanionBackup ---
 
 test('applyCompanionBackup: writes non-null values to storage', () => {
@@ -157,7 +216,11 @@ test('applyCompanionBackup: removes keys from storage when value is null', () =>
 })
 
 test('applyCompanionBackup: full round-trip restores original storage state', () => {
-  const original = makeStorage({ 'terraria-boss-tracker': '{"defeatedBosses":["skeletron"]}', 'terra-high-contrast': '1' })
+  const original = makeStorage({
+    'terraria-boss-tracker': '{"defeatedBosses":["skeletron"]}',
+    'terra-high-contrast': '1',
+    'terraria-boss-tracker::profile::alpha': '{"defeatedBosses":["eye-of-cthulhu"]}',
+  })
   const payload = createCompanionBackupPayload(original)
   const json = serializeCompanionBackup(payload)
   const parsed = parseCompanionBackup(json)
@@ -168,4 +231,21 @@ test('applyCompanionBackup: full round-trip restores original storage state', ()
   assert.equal(restored.getItem('terraria-boss-tracker'), '{"defeatedBosses":["skeletron"]}')
   assert.equal(restored.getItem('terra-high-contrast'), '1')
   assert.equal(restored.getItem('terraria-build-planner'), null)
+  assert.equal(restored.getItem('terraria-boss-tracker::profile::alpha'), '{"defeatedBosses":["eye-of-cthulhu"]}')
+})
+
+test('applyCompanionBackup: clears stale profile-scoped keys before restoring', () => {
+  const storage = makeStorage({
+    'terraria-boss-tracker::profile::old': '{"defeatedBosses":["old"]}',
+  })
+  const payload = makeValidPayload({
+    profileScopedData: {
+      'terraria-boss-tracker::profile::new': '{"defeatedBosses":["new"]}',
+    },
+  })
+
+  applyCompanionBackup(payload, storage)
+
+  assert.equal(storage.getItem('terraria-boss-tracker::profile::old'), null)
+  assert.equal(storage.getItem('terraria-boss-tracker::profile::new'), '{"defeatedBosses":["new"]}')
 })

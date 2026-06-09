@@ -10,7 +10,7 @@ type PersistedBossState = {
 }
 
 const STORAGE_NAME = 'terraria-boss-tracker'
-const STORAGE_VERSION = 1
+const STORAGE_VERSION = 2
 
 const checklistKeys: PrepChecklistKey[] = ['arena', 'buffs', 'summon', 'mobility']
 const trackedDropStatuses: BossDropStatus[] = ['wished', 'acquired']
@@ -51,6 +51,54 @@ function normalizeDropStatus(candidate: unknown): BossDropStatus {
   }
 
   return 'none'
+}
+
+export function normalizeBossStorePersistedState(persistedState: unknown) {
+  const candidate = (persistedState ?? {}) as PersistedBossState
+  const defeatedBosses = Array.isArray(candidate.defeatedBosses)
+    ? candidate.defeatedBosses.filter((bossId): bossId is string => typeof bossId === 'string')
+    : []
+
+  const prepChecklistByBoss: Record<string, BossPrepChecklist> = {}
+  const maybeChecklistMap = candidate.prepChecklistByBoss
+  const dropStatusByBoss: Record<string, Record<string, BossDropStatus>> = {}
+
+  if (maybeChecklistMap && typeof maybeChecklistMap === 'object') {
+    for (const [bossId, checklist] of Object.entries(maybeChecklistMap as Record<string, unknown>)) {
+      prepChecklistByBoss[bossId] = normalizeChecklist(checklist)
+    }
+  }
+
+  if (candidate.dropStatusByBoss && typeof candidate.dropStatusByBoss === 'object') {
+    for (const [bossId, drops] of Object.entries(candidate.dropStatusByBoss as Record<string, unknown>)) {
+      if (!drops || typeof drops !== 'object') {
+        continue
+      }
+
+      const normalizedBossDrops: Record<string, BossDropStatus> = {}
+
+      for (const [dropName, status] of Object.entries(drops as Record<string, unknown>)) {
+        const normalizedName = dropName.trim()
+        const normalizedStatus = normalizeDropStatus(status)
+
+        if (!normalizedName || normalizedStatus === 'none') {
+          continue
+        }
+
+        normalizedBossDrops[normalizedName] = normalizedStatus
+      }
+
+      if (Object.keys(normalizedBossDrops).length > 0) {
+        dropStatusByBoss[bossId] = normalizedBossDrops
+      }
+    }
+  }
+
+  return {
+    defeatedBosses,
+    prepChecklistByBoss,
+    dropStatusByBoss,
+  }
 }
 
 interface BossState {
@@ -239,53 +287,7 @@ export const useBossStore = create<BossState>()(
         prepChecklistByBoss: state.prepChecklistByBoss,
         dropStatusByBoss: state.dropStatusByBoss,
       }),
-      migrate: (persistedState) => {
-        const candidate = persistedState as PersistedBossState
-        const defeatedBosses = Array.isArray(candidate.defeatedBosses)
-          ? candidate.defeatedBosses.filter((bossId): bossId is string => typeof bossId === 'string')
-          : []
-
-        const prepChecklistByBoss: Record<string, BossPrepChecklist> = {}
-        const maybeChecklistMap = candidate.prepChecklistByBoss
-        const dropStatusByBoss: Record<string, Record<string, BossDropStatus>> = {}
-
-        if (maybeChecklistMap && typeof maybeChecklistMap === 'object') {
-          for (const [bossId, checklist] of Object.entries(maybeChecklistMap as Record<string, unknown>)) {
-            prepChecklistByBoss[bossId] = normalizeChecklist(checklist)
-          }
-        }
-
-        if (candidate.dropStatusByBoss && typeof candidate.dropStatusByBoss === 'object') {
-          for (const [bossId, drops] of Object.entries(candidate.dropStatusByBoss as Record<string, unknown>)) {
-            if (!drops || typeof drops !== 'object') {
-              continue
-            }
-
-            const normalizedBossDrops: Record<string, BossDropStatus> = {}
-
-            for (const [dropName, status] of Object.entries(drops as Record<string, unknown>)) {
-              const normalizedName = dropName.trim()
-              const normalizedStatus = normalizeDropStatus(status)
-
-              if (!normalizedName || normalizedStatus === 'none') {
-                continue
-              }
-
-              normalizedBossDrops[normalizedName] = normalizedStatus
-            }
-
-            if (Object.keys(normalizedBossDrops).length > 0) {
-              dropStatusByBoss[bossId] = normalizedBossDrops
-            }
-          }
-        }
-
-        return {
-          defeatedBosses,
-          prepChecklistByBoss,
-          dropStatusByBoss,
-        }
-      },
+      migrate: (persistedState) => normalizeBossStorePersistedState(persistedState),
     }
   )
 )

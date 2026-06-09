@@ -51,8 +51,17 @@ test('navigation and preset commands run with expected targets', () => {
 
   findCommand(registry.commands, 'go-builds').run()
   findCommand(registry.commands, 'preset-bosses-missing').run()
+  findCommand(registry.commands, 'preset-bosses-ready').run()
+  findCommand(registry.commands, 'preset-bosses-needs-prep').run()
+  findCommand(registry.commands, 'preset-bosses-wishlist').run()
 
-  assert.deepEqual(registry.navigations, ['/build', '/bosses?drops=missing'])
+  assert.deepEqual(registry.navigations, [
+    '/build',
+    '/bosses?drops=missing',
+    '/bosses?prep=ready',
+    '/bosses?prep=needs',
+    '/bosses?drops=wished',
+  ])
 })
 
 test('action commands call preference setters', () => {
