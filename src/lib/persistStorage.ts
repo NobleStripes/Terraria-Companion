@@ -1,5 +1,24 @@
 import { createJSONStorage } from 'zustand/middleware'
 
+/**
+ * SECURITY NOTICE: localStorage Data Encryption
+ * 
+ * This module uses browser localStorage to persist user data locally.
+ * localStorage is NOT encrypted by default - all data is stored as plaintext.
+ * 
+ * Risk Assessment:
+ * - SHARED COMPUTERS: Any user with access to the machine can view stored data
+ * - BROWSER COMPROMISE: Compromised browser extensions or XSS attacks could access data
+ * - BACKUPS: Exported backup files are not encrypted unless password-protected
+ * 
+ * User Recommendations:
+ * 1. Do NOT store sensitive data in profiles (e.g., real passwords, personal info)
+ * 2. Store backup files securely, preferably in password-protected locations
+ * 3. Be cautious when sharing devices - clear localStorage before handing off computer
+ * 4. Avoid using public/shared computers for sensitive build planning
+ * 5. Consider browser security: use updated browsers, disable untrusted extensions
+ */
+
 export const PROFILE_KEY_SEPARATOR = '::profile::'
 
 const memoryStorage = new Map<string, string>()

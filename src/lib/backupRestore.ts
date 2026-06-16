@@ -86,6 +86,12 @@ export function serializeCompanionBackup(payload: CompanionBackupPayload): strin
 }
 
 export function parseCompanionBackup(raw: string): CompanionBackupPayload {
+  // Security: Validate file size to prevent DoS
+  const MAX_BACKUP_SIZE = 10 * 1024 * 1024 // 10MB
+  if (raw.length > MAX_BACKUP_SIZE) {
+    throw new Error('Backup file exceeds maximum size limit (10MB)')
+  }
+
   const parsed = JSON.parse(raw) as unknown
 
   if (!parsed || typeof parsed !== 'object') {
@@ -134,6 +140,11 @@ export function parseCompanionBackup(raw: string): CompanionBackupPayload {
 
       if (typeof value !== 'string') {
         throw new Error(`Invalid profile-scoped value for key: ${key}`)
+      }
+
+      // Security: Enforce max string field length (100KB per field)
+      if (value.length > 100_000) {
+        throw new Error(`Profile-scoped data value for key '${key}' exceeds maximum length`)
       }
 
       profileScopedData[key] = value

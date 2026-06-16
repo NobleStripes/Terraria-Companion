@@ -9,7 +9,9 @@ export default defineConfig({
     react(),
     tailwindcss(),
     VitePWA({
-      registerType: 'autoUpdate',
+      // Security: Use 'prompt' to ask users before auto-updating service worker
+      // This prevents silent injection of potentially malicious updates
+      registerType: 'prompt',
       includeAssets: ['favicon.svg', 'icon.svg', 'icons.svg'],
       manifest: {
         name: 'Terraria Companion',

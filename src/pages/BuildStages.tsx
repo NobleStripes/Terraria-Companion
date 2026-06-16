@@ -712,7 +712,10 @@ export default function BuildStages() {
 
   function saveCurrentPreset() {
     const name = window.prompt('Preset name')?.trim()
-    if (!name) {
+    if (!name || name.length > 100) {
+      if (name && name.length > 100) {
+        setClipboardMessage('Preset name too long (max 100 characters)')
+      }
       return
     }
 
@@ -749,7 +752,10 @@ export default function BuildStages() {
     }
 
     const nextName = window.prompt('Rename preset', target.name)?.trim()
-    if (!nextName) {
+    if (!nextName || nextName.length > 100) {
+      if (nextName && nextName.length > 100) {
+        setClipboardMessage('Preset name too long (max 100 characters)')
+      }
       return
     }
 
@@ -818,6 +824,13 @@ export default function BuildStages() {
     }
 
     try {
+      // Security: Validate file size to prevent DoS
+      const MAX_IMPORT_SIZE = 10 * 1024 * 1024 // 10MB
+      if (file.size > MAX_IMPORT_SIZE) {
+        setClipboardMessage('File too large (max 10MB)')
+        return
+      }
+
       const text = await file.text()
       const parsed = JSON.parse(text) as PresetFilePayload
       const imported = Array.isArray(parsed.presets)
@@ -842,7 +855,8 @@ export default function BuildStages() {
         return next
       })
       setClipboardMessage(`Imported ${imported.length} preset${imported.length === 1 ? '' : 's'}`)
-    } catch {
+    } catch (error) {
+      console.error('Preset import error:', error)
       setClipboardMessage('Preset import failed')
     }
   }

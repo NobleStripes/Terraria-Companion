@@ -475,6 +475,13 @@ export default function LoadoutBuilder() {
     }
 
     try {
+      // Security: Validate file size to prevent DoS
+      const MAX_IMPORT_SIZE = 10 * 1024 * 1024 // 10MB
+      if (file.size > MAX_IMPORT_SIZE) {
+        setStatusMessage('File too large (max 10MB)')
+        return
+      }
+
       const text = await file.text()
       const parsed = JSON.parse(text) as LoadoutFilePayload
       const importedLoadouts = Array.isArray(parsed.loadouts)
@@ -495,7 +502,8 @@ export default function LoadoutBuilder() {
 
       mergeLoadouts(importedLoadouts, preferredActiveLoadoutId)
       setStatusMessage(`Imported ${importedLoadouts.length} loadout${importedLoadouts.length === 1 ? '' : 's'}`)
-    } catch {
+    } catch (error) {
+      console.error('Loadout import error:', error)
       setStatusMessage('Loadout import failed')
     }
   }

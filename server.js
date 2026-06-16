@@ -39,11 +39,13 @@ const server = http.createServer((req, res) => {
   let pathname = path.join(DIST_DIR, parsedUrl.pathname === '/' ? 'index.html' : parsedUrl.pathname);
 
   // Prevent directory traversal
-  if (!pathname.startsWith(DIST_DIR)) {
+  const normalizedPathname = path.normalize(pathname);
+  if (!normalizedPathname.startsWith(DIST_DIR)) {
     res.writeHead(403, { 'Content-Type': 'text/plain' });
     res.end('Forbidden');
     return;
   }
+  pathname = normalizedPathname;
 
   // If file doesn't exist and it's not the root, try index.html (SPA routing)
   if (!fs.existsSync(pathname)) {
@@ -68,7 +70,14 @@ const server = http.createServer((req, res) => {
           return;
         }
         const ext = path.extname(pathname);
-        res.writeHead(200, { 'Content-Type': mimeTypes[ext] || 'text/html' });
+        const securityHeaders = {
+          'Content-Type': mimeTypes[ext] || 'text/html',
+          'X-Content-Type-Options': 'nosniff',
+          'X-Frame-Options': 'DENY',
+          'Content-Security-Policy': "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self'",
+          'Referrer-Policy': 'strict-origin-when-cross-origin'
+        };
+        res.writeHead(200, securityHeaders);
         res.end(content);
       });
     } else {
@@ -79,7 +88,14 @@ const server = http.createServer((req, res) => {
           return;
         }
         const ext = path.extname(pathname);
-        res.writeHead(200, { 'Content-Type': mimeTypes[ext] || 'application/octet-stream' });
+        const securityHeaders = {
+          'Content-Type': mimeTypes[ext] || 'application/octet-stream',
+          'X-Content-Type-Options': 'nosniff',
+          'X-Frame-Options': 'DENY',
+          'Content-Security-Policy': "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self'",
+          'Referrer-Policy': 'strict-origin-when-cross-origin'
+        };
+        res.writeHead(200, securityHeaders);
         res.end(content);
       });
     }
