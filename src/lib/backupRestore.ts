@@ -28,6 +28,8 @@ const PROFILE_SCOPED_BASE_KEYS = [
 ] as const
 
 type BackupKey = (typeof BACKUP_KEYS)[number]
+// Compile-time guard: every profile-scoped base key must also be a backup key
+void ('' as (typeof PROFILE_SCOPED_BASE_KEYS)[number] satisfies BackupKey)
 
 type BackupData = Record<BackupKey, string | null>
 
@@ -119,7 +121,10 @@ export function parseCompanionBackup(raw: string): CompanionBackupPayload {
     if (value !== null && typeof value !== 'string') {
       throw new Error(`Invalid value for key: ${key}`)
     }
-    data[key] = value
+    if (typeof value === 'string' && value.length > 100_000) {
+      throw new Error(`Data value for key '${key}' exceeds maximum length`)
+    }
+    data[key] = value as string | null
   }
 
   const profileScopedData: Record<string, string> = {}
@@ -152,7 +157,7 @@ export function parseCompanionBackup(raw: string): CompanionBackupPayload {
   }
 
   return {
-    schemaVersion: BACKUP_SCHEMA_VERSION,
+    schemaVersion: candidate.schemaVersion as number,
     exportedAt: candidate.exportedAt,
     appVersion: candidate.appVersion,
     data,
@@ -170,20 +175,22 @@ export function applyCompanionBackup(payload: CompanionBackupPayload, storage: S
     }
   }
 
-  const existingProfileScopedKeys: string[] = []
+  if (payload.schemaVersion >= BACKUP_SCHEMA_VERSION) {
+    const existingProfileScopedKeys: string[] = []
 
-  for (let index = 0; index < storage.length; index += 1) {
-    const key = storage.key(index)
-    if (key && isProfileScopedBackupKey(key)) {
-      existingProfileScopedKeys.push(key)
+    for (let index = 0; index < storage.length; index += 1) {
+      const key = storage.key(index)
+      if (key && isProfileScopedBackupKey(key)) {
+        existingProfileScopedKeys.push(key)
+      }
     }
-  }
 
-  for (const key of existingProfileScopedKeys) {
-    storage.removeItem(key)
-  }
+    for (const key of existingProfileScopedKeys) {
+      storage.removeItem(key)
+    }
 
-  for (const [key, value] of Object.entries(payload.profileScopedData ?? {})) {
-    storage.setItem(key, value)
+    for (const [key, value] of Object.entries(payload.profileScopedData ?? {})) {
+      storage.setItem(key, value)
+    }
   }
 }

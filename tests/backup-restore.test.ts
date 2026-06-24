@@ -126,7 +126,7 @@ test('parseCompanionBackup: returns valid payload for well-formed input', () => 
   assert.equal(result.profileScopedData['terraria-boss-tracker::profile::alpha'], '{"defeatedBosses":["skeletron"]}')
 })
 
-test('parseCompanionBackup: accepts schemaVersion 1 and normalizes to schemaVersion 2', () => {
+test('parseCompanionBackup: accepts schemaVersion 1 and preserves original version', () => {
   const v1Payload = {
     schemaVersion: 1,
     exportedAt: '2024-01-01T00:00:00.000Z',
@@ -135,7 +135,7 @@ test('parseCompanionBackup: accepts schemaVersion 1 and normalizes to schemaVers
   }
 
   const result = parseCompanionBackup(JSON.stringify(v1Payload))
-  assert.equal(result.schemaVersion, 2)
+  assert.equal(result.schemaVersion, 1)
   assert.deepEqual(result.profileScopedData, {})
 })
 
@@ -164,8 +164,8 @@ test('parseCompanionBackup: throws when data field is absent', () => {
 })
 
 test('parseCompanionBackup: throws when a tracked key has an invalid (non-string, non-null) value', () => {
-  const data = Object.fromEntries(BACKUP_KEYS.map((k) => [k, null]))
-  data['terraria-boss-tracker'] = 42 as unknown as string
+  const data = Object.fromEntries(BACKUP_KEYS.map((k) => [k, null])) as Record<string, unknown>
+  data['terraria-boss-tracker'] = 42
   const json = JSON.stringify({ schemaVersion: 1, exportedAt: '2024-01-01T00:00:00.000Z', appVersion: '1.0.0', data })
   assert.throws(() => parseCompanionBackup(json), /Invalid value for key/i)
 })
@@ -232,6 +232,37 @@ test('applyCompanionBackup: full round-trip restores original storage state', ()
   assert.equal(restored.getItem('terra-high-contrast'), '1')
   assert.equal(restored.getItem('terraria-build-planner'), null)
   assert.equal(restored.getItem('terraria-boss-tracker::profile::alpha'), '{"defeatedBosses":["eye-of-cthulhu"]}')
+})
+
+test('applyCompanionBackup: preserves existing profile-scoped keys when restoring v1 backup', () => {
+  const storage = makeStorage({
+    'terraria-boss-tracker::profile::world-a': '{"defeatedBosses":["eye-of-cthulhu"]}',
+  })
+  const v1Json = JSON.stringify({
+    schemaVersion: 1,
+    exportedAt: '2024-01-01T00:00:00.000Z',
+    appVersion: '1.0.0',
+    data: Object.fromEntries(BACKUP_KEYS.map((k) => [k, null])),
+  })
+  const payload = parseCompanionBackup(v1Json)
+  applyCompanionBackup(payload, storage)
+  assert.equal(
+    storage.getItem('terraria-boss-tracker::profile::world-a'),
+    '{"defeatedBosses":["eye-of-cthulhu"]}',
+  )
+})
+
+test('parseCompanionBackup: throws when a data field value exceeds 100KB', () => {
+  const data = Object.fromEntries(BACKUP_KEYS.map((k) => [k, null])) as Record<string, unknown>
+  data['terraria-boss-tracker'] = 'x'.repeat(100_001)
+  const json = JSON.stringify({
+    schemaVersion: 2,
+    exportedAt: '2024-01-01T00:00:00.000Z',
+    appVersion: '1.0.0',
+    data,
+    profileScopedData: {},
+  })
+  assert.throws(() => parseCompanionBackup(json), /exceeds maximum length/i)
 })
 
 test('applyCompanionBackup: clears stale profile-scoped keys before restoring', () => {

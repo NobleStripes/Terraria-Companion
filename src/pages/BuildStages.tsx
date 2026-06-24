@@ -11,6 +11,7 @@ import {
   worldEvilOptions,
 } from '@/data/builds'
 import { bosses, items } from '@/data/index'
+import { normalizeItemName as normalizeGearName } from '@/lib/normalize'
 import { useViewport } from '@/hooks/useViewport'
 import { useBuildStore } from '@/store/buildStore'
 
@@ -82,10 +83,6 @@ const classConfig: Record<BuildClass, { label: string; icon: React.ElementType; 
   },
 }
 
-
-function normalizeGearName(value: string): string {
-  return value.toLowerCase().replace(/[^a-z0-9]/g, '')
-}
 
 const itemIdByNormalizedName = new Map(
   items.map((item) => [normalizeGearName(item.name), item.id])

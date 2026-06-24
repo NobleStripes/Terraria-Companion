@@ -10,6 +10,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import url from 'node:url';
 import { spawn } from 'node:child_process';
+import { isPathWithinDir } from './src/lib/serverPathGuard.mjs';
 
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -34,13 +35,23 @@ const mimeTypes = {
   '.ttf': 'font/ttf',
 };
 
+function buildSecurityHeaders(contentType) {
+  return {
+    'Content-Type': contentType,
+    'X-Content-Type-Options': 'nosniff',
+    'X-Frame-Options': 'DENY',
+    'Content-Security-Policy': "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self'",
+    'Referrer-Policy': 'strict-origin-when-cross-origin',
+  };
+}
+
 const server = http.createServer((req, res) => {
   const parsedUrl = url.parse(req.url);
   let pathname = path.join(DIST_DIR, parsedUrl.pathname === '/' ? 'index.html' : parsedUrl.pathname);
 
   // Prevent directory traversal
   const normalizedPathname = path.normalize(pathname);
-  if (!normalizedPathname.startsWith(DIST_DIR)) {
+  if (!isPathWithinDir(normalizedPathname, DIST_DIR)) {
     res.writeHead(403, { 'Content-Type': 'text/plain' });
     res.end('Forbidden');
     return;
@@ -70,14 +81,7 @@ const server = http.createServer((req, res) => {
           return;
         }
         const ext = path.extname(pathname);
-        const securityHeaders = {
-          'Content-Type': mimeTypes[ext] || 'text/html',
-          'X-Content-Type-Options': 'nosniff',
-          'X-Frame-Options': 'DENY',
-          'Content-Security-Policy': "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self'",
-          'Referrer-Policy': 'strict-origin-when-cross-origin'
-        };
-        res.writeHead(200, securityHeaders);
+        res.writeHead(200, buildSecurityHeaders(mimeTypes[ext] || 'text/html'));
         res.end(content);
       });
     } else {
@@ -88,14 +92,7 @@ const server = http.createServer((req, res) => {
           return;
         }
         const ext = path.extname(pathname);
-        const securityHeaders = {
-          'Content-Type': mimeTypes[ext] || 'application/octet-stream',
-          'X-Content-Type-Options': 'nosniff',
-          'X-Frame-Options': 'DENY',
-          'Content-Security-Policy': "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self'",
-          'Referrer-Policy': 'strict-origin-when-cross-origin'
-        };
-        res.writeHead(200, securityHeaders);
+        res.writeHead(200, buildSecurityHeaders(mimeTypes[ext] || 'application/octet-stream'));
         res.end(content);
       });
     }

@@ -1,9 +1,6 @@
 import type { StageName } from '@/types/build'
 import type { SessionGoal, SessionPlannerInput, SessionPlan } from '@/types/session-plan'
-
-function normalize(value: string): string {
-  return value.toLowerCase().replace(/[^a-z0-9]/g, '')
-}
+import { normalizeItemName as normalize } from '@/lib/normalize'
 
 function stageFromBossProgress(defeatedCount: number): StageName {
   if (defeatedCount < 3) {
@@ -111,7 +108,7 @@ export function buildSessionPlan(input: SessionPlannerInput): SessionPlan {
       reason: npc
         ? `${npcHits} missing gear items point to this NPC. Unlock: ${npc.unlockCondition}.`
         : `${npcHits} missing gear items point to this NPC vendor.`,
-      score: 40 + npcHits * 3,
+      score: Math.min(40 + npcHits * 3, 65),
       route: '/npcs',
     })
   }
@@ -139,7 +136,7 @@ export function buildSessionPlan(input: SessionPlannerInput): SessionPlan {
       kind: 'biome',
       title: `Explore ${biomeName}`,
       reason: `${biomeHits} missing recommended items reference this biome in their source notes.`,
-      score: 36 + biomeHits * 2,
+      score: Math.min(36 + biomeHits * 2, 58),
       route: '/biomes',
     })
   }
@@ -149,6 +146,7 @@ export function buildSessionPlan(input: SessionPlannerInput): SessionPlan {
   const headline = goals[0]?.title ?? 'Keep progressing your session goals'
 
   const prepReadyBosses = sortedBosses.filter((boss) => {
+    if (input.defeatedBossIds.has(boss.id)) return false
     const prep = input.prepCompletionByBossId[boss.id] ?? { completed: 0, total: 4 }
     return prep.total > 0 && prep.completed === prep.total
   }).length

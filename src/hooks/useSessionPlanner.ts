@@ -3,13 +3,10 @@ import { getFilteredStageBuilds } from '@/data/builds'
 import { biomes, bosses, items, npcs, itemsById } from '@/data/index'
 import { useBosses } from '@/hooks/useBosses'
 import { buildSessionPlan, computeRecommendedStageFromBosses } from '@/lib/sessionPlannerCore'
+import { normalizeItemName as normalize } from '@/lib/normalize'
 import { useBuildStore } from '@/store/buildStore'
 import type { BuildClass } from '@/types/boss'
 import type { SessionPlan } from '@/types/session-plan'
-
-function normalize(value: string): string {
-  return value.toLowerCase().replace(/[^a-z0-9]/g, '')
-}
 
 const itemNameByNormalizedName = new Map(items.map((item) => [normalize(item.name), item.name]))
 

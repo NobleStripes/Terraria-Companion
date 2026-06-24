@@ -12,6 +12,7 @@ import type {
 import type { ProgressionTier } from '@/types/item'
 import { stageOrder } from '@/types/build'
 import { items } from '@/data/index'
+import { normalizeItemName as normalizeGearName } from '@/lib/normalize'
 
 export const progressionCaps: Array<{ label: string; stage: StageName }> = [
   { label: 'Early Game', stage: 'Early Game' },
@@ -234,10 +235,6 @@ const itemTierRank: Record<ProgressionTier, number> = {
   'pre-hardmode': 1,
   'early-hardmode': 2,
   endgame: 3,
-}
-
-function normalizeGearName(value: string): string {
-  return value.toLowerCase().replace(/[^a-z0-9]/g, '')
 }
 
 const itemTierByNormalizedName = new Map(

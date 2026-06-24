@@ -189,3 +189,69 @@ test('buildSessionPlan skips boss goal when all bosses are defeated', () => {
 
   assert.ok(plan.goals.every((goal) => goal.kind !== 'boss'))
 })
+
+test('buildSessionPlan NPC goal score never exceeds the minimum boss goal score', () => {
+  // Build many missing items all pointing to the same NPC to drive npcHits high
+  const manyNpcItems: typeof items = Array.from({ length: 30 }, (_, i) => ({
+    id: 100 + i,
+    name: `NPC Item ${i}`,
+    type: 'weapon' as const,
+    rarity: 'white' as const,
+    tooltip: '',
+    sources: [],
+    npcDrops: ['Merchant'],
+    progressionTier: 'early-game' as const,
+    damage: 1,
+    knockback: 1,
+    useTime: 1,
+  }))
+
+  const stageAccessories = manyNpcItems.map((item) => item.name)
+
+  const plan = buildSessionPlan({
+    bosses,
+    defeatedBossIds: new Set(),
+    prepCompletionByBossId: { 'king-slime': { completed: 0, total: 4 } },
+    activeBuildClass: 'melee',
+    currentStage: 'Early Game',
+    stageArmor: 'placeholder-armor',
+    stageWeapon: 'placeholder-weapon',
+    stageAccessories,
+    equippedItemNames: [],
+    wishedDrops: [],
+    items: [...items, ...manyNpcItems],
+    npcs,
+    biomes,
+  })
+
+  const bossGoal = plan.goals.find((g) => g.kind === 'boss')
+  const npcGoal = plan.goals.find((g) => g.kind === 'npc')
+  assert.ok(bossGoal, 'boss goal should exist')
+  assert.ok(npcGoal, 'npc goal should exist')
+  assert.ok(bossGoal!.score > npcGoal!.score, `boss score ${bossGoal!.score} should exceed npc score ${npcGoal!.score}`)
+})
+
+test('buildSessionPlan prepReadyBosses count excludes already-defeated bosses', () => {
+  const plan = buildSessionPlan({
+    bosses,
+    defeatedBossIds: new Set(['king-slime']),
+    prepCompletionByBossId: {
+      'king-slime': { completed: 4, total: 4 },
+      'eye-of-cthulhu': { completed: 4, total: 4 },
+    },
+    activeBuildClass: 'melee',
+    currentStage: 'Early Game',
+    stageArmor: 'Iron Armor',
+    stageWeapon: 'Iron Sword',
+    stageAccessories: ['Leather Boots'],
+    equippedItemNames: [],
+    wishedDrops: [],
+    items,
+    npcs,
+    biomes,
+  })
+
+  // King Slime is defeated and fully prepped; Eye of Cthulhu is not defeated and fully prepped.
+  // Only Eye of Cthulhu should count toward prepReadyBosses.
+  assert.equal(plan.summary.prepReadyBosses, 1)
+})
