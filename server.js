@@ -15,7 +15,8 @@ import { isPathWithinDir } from './src/lib/serverPathGuard.mjs';
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const PORT = process.env.PORT || 8000;
+const parsedPort = Number.parseInt(process.env.PORT ?? '', 10);
+const PORT = Number.isInteger(parsedPort) && parsedPort > 0 && parsedPort <= 65535 ? parsedPort : 8000;
 const DIST_DIR = path.join(__dirname, 'dist');
 
 // MIME types mapping
@@ -40,14 +41,36 @@ function buildSecurityHeaders(contentType) {
     'Content-Type': contentType,
     'X-Content-Type-Options': 'nosniff',
     'X-Frame-Options': 'DENY',
-    'Content-Security-Policy': "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self'",
+    'Content-Security-Policy': "default-src 'self'; script-src 'self'; worker-src 'self'",
     'Referrer-Policy': 'strict-origin-when-cross-origin',
   };
 }
 
+function getRequestPath(requestUrl) {
+  try {
+    const parsedUrl = new url.URL(requestUrl, 'http://localhost');
+    const pathname = decodeURIComponent(parsedUrl.pathname || '/');
+
+    if (pathname.includes('\0')) {
+      return null;
+    }
+
+    return pathname;
+  } catch {
+    return null;
+  }
+}
+
 const server = http.createServer((req, res) => {
-  const parsedUrl = url.parse(req.url);
-  let pathname = path.join(DIST_DIR, parsedUrl.pathname === '/' ? 'index.html' : parsedUrl.pathname);
+  const requestPath = getRequestPath(req.url);
+
+  if (requestPath === null) {
+    res.writeHead(400, { 'Content-Type': 'text/plain' });
+    res.end('Bad Request');
+    return;
+  }
+
+  let pathname = path.join(DIST_DIR, requestPath === '/' ? 'index.html' : requestPath);
 
   // Prevent directory traversal
   const normalizedPathname = path.normalize(pathname);
