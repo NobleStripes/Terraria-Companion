@@ -788,6 +788,7 @@ export default function BossTracker() {
     getPrepChecklist,
     getPrepCompletion,
     isPrepReady,
+    setDropStatus,
     toggleDropWish,
     toggleDropAcquired,
     resetDropsForBoss,
